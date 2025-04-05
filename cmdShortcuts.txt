@@ -1,0 +1,30 @@
+#1 Run your app
+You can open the PHP built-in web server to verify the installation.
+# You are in the app/ directory
+php -S localhost:8888 -t public
+
+
+
+#2 Publish the application to the student server.
+dbwebb publishpure me
+
+
+#3 CHECK route exists/ Symfony bin/console
+# Show the routes
+bin/console debug:router
+
+# Match a specific route
+bin/console router:match /lucky/number
+
+# Clear the cache
+bin/console cache:clear
+
+# Show available commands
+bin/console
+
+#4 Build and run after installing encore 
+npm install
+npm run build
+
+#5 After symphony cli isntalled:
+symfony server:start
