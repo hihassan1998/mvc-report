@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+  API Home
+{% endblock %}
+
+{% block body %}
+  <main>
+    <h1>Välkommen till sidan för JSON API</h1>
+    <p>Det här är en lista med länkar för alla tillgängliga JSON-rutter:</p>
+    <ul class="unset-list">
+      {% for route, description in routes %}
+        <li>
+          Route Name: <a href="{{ path(route) }}"><strong>{{ route }}</strong></a> <br />{{ description }}
+        </li>
+        <br />
+      {% endfor %}
+    </ul>
+  </main>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+  About
+{% endblock %}
+
+{% block body %}
+  <main>
+    {# <img src="{{ asset('build/images/background.jpg') }}" alt="" /> #}
+    {# <p>An image which can be clicked on.</p>
+    <a href="{{ asset('img/glider.svg') }}"><img src="{{ asset('img/glider.svg') }}" alt="" /></a> #}
+    {# <img src="{{ asset('build/images/background.jpg') }}" alt=""> #}
+    <h1>Om</h1>
+    <br />
+    <div class="container-mid">
+      <div class="double-bottom">Kursen MVC - Model View Controller ger en introduktion till hur man strukturerar webbapplikationer med hjälp av ramverk, i detta fall Symfony. Genom kursen lär man sig att dela upp applikationens logik, presentation och datahantering för att skapa robusta och skalbara system. Fokus ligger även på routing, templating med Twig och hantering av JSON-svar</div>
+      <div class="double-bottom">
+        <h3>Git repos:</h3>
+        <br />
+        <br />
+        <ul class="unset-list">
+          <li>
+            <a href="https://github.com/dbwebb-se/mvc/tree/main">Länk till DV1608s git repo</a>
+          </li>
+          <li>
+            <a href="https://github.com/hihassan1998/mvc-report">Länk till Hassans git repo</a>
+          </li>
+        </ul>
+        <a href="{{ asset('img/mvc.png') }}"><img style="max-width: 500px !important;" src="{{ asset('img/mvc.png') }}" alt="" /></a>
+      </div>
+    </div>
+  </main>
+{% endblock %}

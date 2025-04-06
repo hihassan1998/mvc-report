@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      {% block title %}
+        Welcome!
+      {% endblock %}
+    </title>
+    <link rel="icon" href="{{ asset('img/hh_logo_b.png') }}" />
+    {% block stylesheets %}
+      {{ encore_entry_link_tags('app') }}
+    {% endblock %}
+
+    {% block javascripts %}
+            {% block importmap %}{{ importmap('app') }}{% endblock %}
+      {{ encore_entry_script_tags('app') }}
+    {% endblock %}
+  </head>
+  <body>
+    <header class="site-header" style="background-image: url({{ asset('img/background.jpg') }})">
+      <span class="site-title">Hassans Symfony Site</span>
+    </header>
+    <nav>
+      <ul>
+        <li>
+          <a href="{{ path('home') }}">Hem</a>
+        </li>
+        <li>
+          <a href="{{ path('about') }}">Om</a>
+        </li>
+        <li>
+          <a href="{{ path('lucky_number') }}">Lucky number</a>
+        </li>
+        <li>
+          <a href="{{ path('report') }}">Report</a>
+        </li>
+        <li>
+          <a href="{{ path('api') }}">API</a>
+        </li>
+        <li>
+          <a href="{{ path('lucky') }}">Lucky</a>
+        </li>
+      </ul>
+    </nav>
+
+    {% block body %}
+
+    {% endblock %}
+    <footer>Denna websida är del av kursarbetet som görs under kursen MVC på Blekinge Tekniska Högskola.</footer>
+  </body>
+</html>

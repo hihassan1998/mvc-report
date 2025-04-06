@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Your Lucky Day{% endblock %}
+
+
+{% block body %}
+    <main class="quotes-body">
+        <h1 class"h1-quotes">Welcome to the Quotes Corner</h1>
+        <div class="lucky-quote">{{ quote }}</div>
+        <div><img src="{{ asset('img/' ~ image) }}" alt="Lucky Image"></div>
+    </main>
+{% endblock %}
