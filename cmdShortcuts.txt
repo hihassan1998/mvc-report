@@ -28,3 +28,11 @@ npm run build
 
 #5 After symphony cli isntalled:
 symfony server:start
+
+#6 git commits
+
+git tag
+
+git tag -a v1.0.0 -m "First release"
+
+git push  --tags    OR   git push origin --tags
