@@ -33,3 +33,6 @@ yarn-error.log
 
 .env
 .env.dev
+.htaccess
+.env
+.env.dev
