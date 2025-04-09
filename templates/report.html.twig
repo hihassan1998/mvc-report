@@ -8,8 +8,8 @@
   <h1 class="centered" style="margin-top: 5vh;">Redovisning</h1>
   <div class="report-container">
     <aside class="left-border">
-      <h2>Innehåll</h2>
-      <ul>
+      <h2 class="double-bottom">Innehåll</h2>
+      <ul class="">
         <li>
           <a href="#kmom01">Kmom01</a>
         </li>
@@ -35,51 +35,65 @@
     </aside>
 
     <main>
-      <section id="kmom01">
+      <section class="double-bottom" id="kmom01">
         <h2>Kmom01</h2>
         <p>
-          Berätta kort om dina förkunskaper och tidigare erfarenheter kring objektorientering.
-
+          <b>Berätta kort om dina förkunskaper och tidigare erfarenheter kring objektorientering.</b>
+          <br />
+          Jag har tidigare arbetat med LeetCode-uppgifter där jag använt och skapat klasser för att lösa olika sorters problem. Jag har även gått en kurs i objektorienterad programmering med python under läsperiod 3 i Webbprogrammering på BTH. Under den kursen skapade jag två större projekt: ett ordbokshanteringssystem och ett Yahtzee-spel. Båda dessa projekt byggdes med hjälp av objektorienterad programmering, vilket jag tror kommer att underlätta mitt lärande i denna MVC-kurs. Nu får jag möjlighet att öva på koncept som klasser, metoder och objekt, men i ett annat programmeringsspråk. Jag har alltid upplevt det som en fördel att arbeta i olika språk, eftersom vissa begrepp blir mer begripliga i ett visst sammanhang. Det leder till en djupare förståelse och gör mig mer bekväm med att skriva kod i flera olika språk.
           <br />
           <br />
-          Berätta kort om PHPs modell för klasser och objekt. Vilka är de grunder man behöver veta/förstå för att kunna komma igång och skapa sina första klasser?
+          <b>Berätta kort om PHPs modell för klasser och objekt. Vilka är de grunder man behöver veta/förstå för att kunna komma igång och skapa sina första klasser?</b> <br />
+          Jag har tidigare gått kurser i serverbaserad programmering med PHP samt en kurs i C#. När jag började arbeta med PHP märkte jag att syntaxen på många sätt är lik den i C#, vilket underlättade förståelsen av PHP:s modell för klasser och objekt. För att komma igång med PHP:s objektorienterade programmering är det viktigt att förstå grundläggande begrepp som hur man skapar en klass med class, hur man instansierar ett objekt med new, och hur man använder åtkomstmodifierare som public, private, och protected. Det är också viktigt att förstå användningen av this-referensen, som används för att referera till objektets egna egenskaper och metoder. Dessutom spelar klasser som Response och Route en central roll i ramverk som Symfony, där de används för att hantera HTTP-svar och routing, vilket gör det möjligt att koppla ihop applikationens logik med webbrouting på ett strukturerat sätt.
           <br />
           <br />
-          Reflektera kort över den kodbas, koden, strukturen som användes till uppgiften me/report, hur uppfattar du den?
+          <b>Reflektera kort över den kodbas, koden, strukturen som användes till uppgiften me/report, hur uppfattar du den?</b>
+          <br />
+          Jag uppfattar strukturen som pedagogisk och lätt att följa, vilket gör det smidigt att arbeta modulärt och återanvända kod. .htaccess-filen finns där för att applikationen ska kunna köras direkt på studentservern via webbläsaren, utan att behöva peka ut en specifik fil. composer.json fungerar ungefär som package.json i JavaScript-projekt, den ligger i projektets rotmapp och används för att installera och hantera beroenden på ett enkelt sätt. Strukturen följer också MVC-principerna tydligt, där till exempel kontrollerna ligger i mappen /src/Controller och vyerna i templates-mappen i roten av projektet. Detta hjälper till att separera ansvar i koden: logiken ligger i kontrollerna (C) och det som visas för användaren hanteras i vyerna (V), vilket gör koden mer organiserad och lättare att underhålla.
           <br />
           <br />
-          Med tanke på artikeln “PHP The Right Way”, vilka delar in den finner du extra intressanta och värdefulla? Är det några särskilda områden som du känner att du vill veta mer om? Lyft fram några delar av artikeln som du känner mer värdefulla.
+          <b>Med tanke på artikeln “PHP The Right Way”, vilka delar in den finner du extra intressanta och värdefulla? Är det några särskilda områden som du känner att du vill veta mer om? Lyft fram några delar av artikeln som du känner mer värdefulla.</b>
+          <br />
+          Dokumentet ger bra insikter om bästa praxis för PHP-utveckling. Jag uppskattade särskilt avsnitten om Composer, Dependency Injection samt S.O.L.I.D-principerna, som ger en solid grund för att skriva modulär och underhållbar kod. Dessa koncept hjälper till att skapa lösningar som är lätta att testa, återanvända och utöka utan att bryta mot principerna för god kodstruktur. Jag uppskattade även förklaringen av PDO för databaskopplingar, vilket erbjuder en säker och effektiv metod för interaktion med SQL- och MySQL-databaser. Jag skulle också vilja lära mig mer om att köra denna applikation i en container med Docker. Eftersom det inte ingår i kursen, planerar jag att under min fritid lägga tid på att fördjupa mig i och förstå detta koncept bättre.
           <br />
           <br />
-          Vilken är din TIL för detta kmom?
+          <b>Vilken är din TIL för detta kmom?</b>
+          <br />
+          Min till för detta kmom är att jag har lärt mig hur man sätter upp, installerar, initierar och får en introduktion till Symfony-ramverket för PHP-baserade webbapplikationer enligt MVC-strukturen. Jag har även lärt mig hur man bygger enkla APIer som returnerar data i JSON-format via controllers samt hur man strukturerar routes och templates för API-endpoints.
         </p>
       </section>
-
-      <section id="kmom02">
+      <br />
+      <section class="double-bottom" id="kmom02">
         <h2>Kmom02</h2>
         <p>Text för kmom02...</p>
       </section>
+      <br />
 
-      <section id="kmom03">
+      <section class="double-bottom" id="kmom03">
         <h2>Kmom03</h2>
         <p>Text för kmom03...</p>
       </section>
-      <section id="kmom04">
+      <br />
+      <section class="double-bottom" id="kmom04">
         <h2>Kmom04</h2>
         <p>Text för kmom04...</p>
       </section>
-      <section id="kmom05">
+      <br />
+      <section class="double-bottom" id="kmom05">
         <h2>Kmom05</h2>
         <p>Text för kmom05...</p>
       </section>
-      <section id="kmom06">
+      <br />
+      <section class="double-bottom" id="kmom06">
         <h2>Kmom06</h2>
         <p>Text för kmom06...</p>
       </section>
-      <section id="kmom10">
+      <br />
+      <section class="double-bottom" id="kmom10">
         <h2>Kmom10</h2>
         <p>Text för kmom10...</p>
       </section>
+      <br />
     </main>
   </div>
 {% endblock %}
