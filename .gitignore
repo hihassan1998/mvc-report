@@ -36,3 +36,7 @@ yarn-error.log
 .htaccess
 .env
 .env.dev
+
+/tools/**/vendor/
+/tools/**/composer.lock
+.php-cs-fixer.cache
