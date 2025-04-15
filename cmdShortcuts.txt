@@ -37,3 +37,7 @@ git tag -a v1.0.0 -m "First release"
 git tag -a v1.0.2 -m"Final relase kmom01"
 
 git push  --tags    OR   git push origin --tags
+
+#7 Php linting run composer script
+composer csfix:dry
+composer csfix
