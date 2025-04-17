@@ -8,6 +8,11 @@
   <main>
     <h1>Pig game [PLAYING]</h1>
     <p>You are playing with {{ pigDices }} dices.</p>
+    <p>
+      {% for value in diceValues %}
+        <span class="die dice-list">{{ value }}</span>
+      {% endfor %}
+    </p>
 
     <p>Round: {{ pigRound }}</p>
     <p>Total: {{ pigTotal }}</p>
@@ -16,9 +21,9 @@
 
     <form method="post" action="">
       <p>
-        <input type="submit" name="roll" value="Roll" onClick="this.form.action='{{ path('pig_roll') }}';" />
-        <input type="submit" name="save" value="Save" onClick="this.form.action='{{ path('pig_save') }}';" />
-        <input type="submit" name="restart" value="Restart" onClick="this.form.action='{{ path('pig_init_get') }}';this.form.method='get';" />
+        <input class="btn-game" type="submit" name="roll" value="Roll" onClick="this.form.action='{{ path('pig_roll') }}';" />
+        <input class="btn-game" type="submit" name="save" value="Save" onClick="this.form.action='{{ path('pig_save') }}';" />
+        <input class="btn-game" type="submit" name="restart" value="Restart" onClick="this.form.action='{{ path('pig_init_get') }}';this.form.method='get';" />
       </p>
     </form>
   </main>

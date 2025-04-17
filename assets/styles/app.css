@@ -339,6 +339,14 @@ img {
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-  }
+}
+
+.btn-game {
+    background-color: darkseagreen;
+    font-weight: 900;
+    padding: 0.6rem;
+    border: 0.1rem solid black;
+    border-radius: 10%;
+}
 
 /* Pig game styling END*/
