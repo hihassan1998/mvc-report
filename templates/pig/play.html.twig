@@ -30,5 +30,7 @@
         <input class="btn-game" type="submit" name="restart" value="Restart" onClick="this.form.action='{{ path('pig_init_get') }}';this.form.method='get';" />
       </p>
     </form>
+    <br /><br />
+    {{ include('flash.html.twig') }}
   </main>
 {% endblock %}
