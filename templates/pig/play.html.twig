@@ -7,15 +7,19 @@
 {% block body %}
   <main>
     <h1>Pig game [PLAYING]</h1>
-    <p>You are playing with {{ pigDices }} dices.</p>
+    {# <p>You are playing with {{ pigDices }} dices.</p> #}
     <p>
       {% for value in diceValues %}
         <span class="die dice-list">{{ value }}</span>
       {% endfor %}
     </p>
 
-    <p>Round: {{ pigRound }}</p>
-    <p>Total: {{ pigTotal }}</p>
+    <p>
+      Round: <b>{{ pigRound }}</b>
+    </p>
+    <p>
+      <b>Total: {{ pigTotal }}</b>
+    </p>
 
     <p>Roll the dices or save the points you have.</p>
 
