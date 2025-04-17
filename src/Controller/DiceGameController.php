@@ -4,6 +4,7 @@
 namespace App\Controller;
 
 use App\Dice\Dice;
+use App\Dice\DiceGraphic;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -39,7 +40,10 @@ class DiceGameController extends AbstractController
         // die = object of Dice class and call its methods
         $diceRoll = [];
         for ($i = 1; $i <= $num; $i++) {
-            $die = new Dice();
+            // use Base class : Dice
+            // $die = new Dice();
+            // use exteded class of Dice
+            $die = new DiceGraphic();
             $die->roll();
             $diceRoll[] = $die->getAsString();
         }

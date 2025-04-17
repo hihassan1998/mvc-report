@@ -85,7 +85,7 @@ aside {
 
     nav ul {
         display: flex;
-        flex-direction: column;
+        flex-direction: column !important;
         text-align: center;
         border-bottom: 3px solid #000;
     }
@@ -321,3 +321,13 @@ img {
     transition: transform 2s ease-in-out;
     border-radius: 50%;
 }
+
+/* Pig game styling START*/
+.dice-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 3.5rem;
+}
+
+/* Pig game styling END*/
