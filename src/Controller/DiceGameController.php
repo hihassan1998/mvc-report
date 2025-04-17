@@ -100,7 +100,7 @@ class DiceGameController extends AbstractController
             'Your round was saved to the total!'
         );
 
-        return $this->render('pig/play.html.twig');
+        return $this->redirectToRoute('pig_play');
     }
 
     // test routes
