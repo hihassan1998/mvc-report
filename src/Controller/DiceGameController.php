@@ -28,4 +28,34 @@ class DiceGameController extends AbstractController
 
         return $this->render('pig/test/roll.html.twig', $data);
     }
+    #[Route("/game/pig/test/roll/{num<\d+>}", name: "test_roll_num_dices")]
+    public function testRollDices(int $num): Response
+    {
+        // Check and limit numder of rolls
+        if ($num > 99) {
+            throw new \Exception("Can not roll more than 99 dices!");
+        }
+        // Run the loop $num of times
+        // die = object of Dice class and call its methods
+        $diceRoll = [];
+        for ($i = 1; $i <= $num; $i++) {
+            $die = new Dice();
+            $die->roll();
+            $diceRoll[] = $die->getAsString();
+        }
+        // Pyhton Syntax:
+        // diceRoll = []
+        // for i in range(1, num + 1):
+        //     die = Dice()
+        //     die.roll()
+        //     diceRoll.append(die.getAsString())
+
+        // Prepare data to send to template
+        $data = [
+            "num_dices" => count($diceRoll),
+            "diceRoll" => $diceRoll,
+        ];
+        // return rendered template with data 
+        return $this->render('pig/test/roll_many.html.twig', $data);
+    }
 }
