@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+  Pig Game
+{% endblock %}
+
+{% block body %}
+  <div class="report-container report-container-mob">
+    <aside class="toc">
+      <h1>Card <br>game</h1>
+      <span style='font-size:100px;'>&#127137;</span>
+    </aside>
+    <main>
+      <h1>Welcome to the Card Game!</h1>
+      <p>
+        Explore a simple card game where you can view a full deck, shuffle it, and draw cards one by one or multiple at a time. Perfect for learning how a classic deck works — try it out and see what you draw!
+        <br>
+        To learn more about card game visit: <a href="https://sv.wikipedia.org/wiki/Fransk-engelsk_kortlek">French-English Card game</a>
+        <br />
+        <ul>
+          <li>
+            Roll test route: <a href="{{ path('test_roll_dice') }}">Link to roll test</a>
+          </li>
+          <li>
+          </li>
+          <li>
+          </li>
+          <hr />
+          <li>
+          </li>
+        </ul>
+      </p>
+    </main>
+  </div>
+{% endblock %}

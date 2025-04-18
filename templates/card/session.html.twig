@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+  Session Debug
+{% endblock %}
+
+{% block body %}
+  <main>
+    <h1>Session Data</h1>
+
+    <h2>Session Content:</h2>
+    <pre>{{ dump(app.session.all) }}</pre>
+
+    <p>
+      <a href="{{ path('session_delete') }}" class="btn btn-danger">Radera session</a>
+    </p>
+    {{ include('flash.html.twig') }}
+  </main>
+{% endblock %}
