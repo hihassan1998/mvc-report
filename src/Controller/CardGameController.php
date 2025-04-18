@@ -4,8 +4,6 @@
 namespace App\Controller;
 
 use App\Card\Deck;
-use App\Dice\DiceGraphic;
-use App\Dice\DiceHand;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 // use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
@@ -55,6 +53,19 @@ class CardGameController extends AbstractController
 
         return $this->render('card/deck.html.twig', [
             'cards' => $deck->getCards()
+        ]);
+    }
+    #[Route("/card/deck/draw", name: "card_draw")]
+    public function drawOne(SessionInterface $session): Response
+    {
+        $deck = $session->get("deck", new Deck());
+
+        $card = $deck->draw(1);
+        $session->set("deck", $deck);
+
+        return $this->render('card/draw.html.twig', [
+            'drawn' => $card,
+            'remaining' => $deck->count()
         ]);
     }
 }
