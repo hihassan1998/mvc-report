@@ -70,4 +70,16 @@ class CardGameController extends AbstractController
             'remaining' => $deck->count()
         ]);
     }
+    #[Route("/card/deck/draw/{num<\d+>}", name: "card_draw_number")]
+    public function drawNumber(int $num, SessionInterface $session): Response
+    {
+        $deck = $session->get('deck', new Deck());
+        $cards = $deck->draw($num);
+        $session->set('deck', $deck);
+
+        return $this->render('card/draw_number.html.twig', [
+            'cards' => $cards,
+            'remaining' => count($deck->getCards())
+        ]);
+    }
 }

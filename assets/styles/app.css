@@ -408,4 +408,8 @@ img {
     font-weight: 900;
     background-color: #CCD5AE;
 }
+a:hover{
+    font-weight: 700;
+    color: #D88C5D;
+}
 /* card game kmom02 stylings END */
