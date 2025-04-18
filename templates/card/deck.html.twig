@@ -16,13 +16,13 @@
 
     <ul class="cards-list">
       {% for card in cards %}
-        <li>
+        <li style="display: contents; align-items:center">
           <span style="font-size: 100px;">{{ card.getGraphic()|raw }}</span>
         </li>
       {% endfor %}
     </ul>
 
-    <a href="{{ path('card_shuffle') }}">Shuffle Deck</a>
+    <a class="btn-simp" href="{{ path('card_shuffle') }}">Shuffle Deck</a>
     <form action="{{ path('card_shuffle') }}" method="POST">
       <button class="btn-simp" type="submit">Shuffle via /api/deck/shuffle Post request</button>
     </form>
