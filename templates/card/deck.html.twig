@@ -12,6 +12,9 @@
       Here is the complete <a href="{{ path('card_deck') }}">sorted deck.</a>
     </p>
 
+    {{ include('flash.html.twig') }}
+
+
     <ul class="cards-list">
       {% for card in cards %}
         <li>

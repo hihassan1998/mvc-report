@@ -40,6 +40,8 @@ class CardGameController extends AbstractController
         $deck = new Deck();
         $session->set("deck", $deck);
 
+        $this->addFlash('notice', 'A new deck has been created.');
+
         return $this->render('card/deck.html.twig', [
             'cards' => $deck->getCards()
         ]);
@@ -50,6 +52,9 @@ class CardGameController extends AbstractController
         $deck = new Deck();
         $deck->shuffle();
         $session->set("deck", $deck);
+
+        $this->addFlash('notice', 'Deck has been shuffled.');
+
 
         return $this->render('card/deck.html.twig', [
             'cards' => $deck->getCards()
@@ -74,6 +79,12 @@ class CardGameController extends AbstractController
     public function drawNumber(int $num, SessionInterface $session): Response
     {
         $deck = $session->get('deck', new Deck());
+        if ($num > $deck->count()) {
+            $this->addFlash(
+                'warning',
+                "Cannot draw more cards than are available in the deck. Only {$deck->count()} cards left."
+            );
+        }
         $cards = $deck->draw($num);
         $session->set('deck', $deck);
 
