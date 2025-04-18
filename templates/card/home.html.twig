@@ -7,24 +7,27 @@
 {% block body %}
   <div class="report-container report-container-mob">
     <aside class="toc">
-      <h1>Card <br>game</h1>
-      <span style='font-size:100px;'>&#127137;</span>
+      <h1>Card <br />game</h1>
+      <span style="font-size:100px;">&#127137;</span>
     </aside>
     <main>
       <h1>Welcome to the Card Game!</h1>
-      <p>
-        Explore a simple card game where you can view a full deck, shuffle it, and draw cards one by one or multiple at a time. Perfect for learning how a classic deck works — try it out and see what you draw!
-        <br>
-        To learn more about card game visit: <a href="https://sv.wikipedia.org/wiki/Fransk-engelsk_kortlek">French-English Card game</a>
-        <br />
+      <div>
+        <p>
+          Explore a simple card game where you can view a full deck, shuffle it, and draw cards one by one or multiple at a time. Perfect for learning how a classic deck works — try it out and see what you draw!
+          <br />
+          To learn more about card game visit: <a href="https://sv.wikipedia.org/wiki/Fransk-engelsk_kortlek">French-English Card game</a>
+          <br />
+        </p>
         <h2>Class struckture and UML Diagrame</h2>
         <p>Text about classes and</p>
         <h3>UML Diagram</h3>
         <p>Insert Image here</p>
-        <img src="hats" alt="diagram for classes">
-        <h3>
-          List of routes
-        </h3>
+        <img src="hats" alt="diagram for classes" />
+        <br>
+        <br />
+        <hr />
+        <h3>List of routes</h3>
         <ul>
           <li>
             Session storage route: <a href="{{ path('session_store') }}">Link to Session variables</a>
@@ -35,14 +38,15 @@
           <li>
             Shuffled deck of cards route: <a href="{{ path('card_shuffle') }}">Shuffled Deck of Cards</a>
           </li>
+          <hr />
           <li>
             Draw a card from the deck route: <a href="{{ path('card_draw') }}">Draw a card</a>
           </li>
-          
           <li>
+            Draw a given number of cards from the deck route: <a href="{{ path('card_draw_number', { num: 1 }) }}">Draw 'n' cards card</a>
           </li>
         </ul>
-      </p>
+      </div>
     </main>
   </div>
 {% endblock %}
