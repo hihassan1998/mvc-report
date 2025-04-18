@@ -5,7 +5,10 @@ This is a student project developed as part of the MVC course at BTH (Blekinge I
 ## Project Structure
 
 - `/src/Controller` – Contains all controllers responsible for handling business logic.
+- `/src/Dice` – Contains the Pig game's Dice class and its extended classes for kmom02.
+- `/src/Card` – Contains the Card game's Card class and its extended classes for kmom02.
 - `/templates` – Stores view files (HTML/Twig templates).
+- `/templates/<app name>` – Stores view files (HTML/Twig templates).
 - `/public` – The web root and application entry point via `index.php`.
 - `composer.json` – Manages PHP dependencies (similar to `package.json` in JavaScript).
 
