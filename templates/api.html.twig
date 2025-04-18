@@ -88,7 +88,7 @@
         <li>
           <p>
             <b>Route Name:</b>
-            <a href="{{ path('api_deck') }}">api_deck</a>
+            <a href="{{ path('draw_multiple_cards', {num:2}) }}">draw_multiple_cards</a>
             <br />
             <b>Method:</b> POST
             <br />
@@ -101,8 +101,8 @@
       </ul>
       <h2 id="kmom03">Kmom03</h2>
     </main>
-
-    {# <form action="{{ path('draw_card') }}" method="post">
+    {# Test post requests apis
+    <form action="{{ path('draw_card') }}" method="post">
       <button type="submit">Draw 1 Card</button>
     </form>
 
