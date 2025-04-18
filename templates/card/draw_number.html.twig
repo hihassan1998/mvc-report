@@ -7,5 +7,23 @@
 {% block body %}
   <main>
     <h1>Drawn Cards</h1>
+
+    <ul class="draw-list">
+      {% for card in cards %}
+        <li>
+          <span style="font-size: 100px;">{{ card.getGraphic()|raw }}</span>
+        </li>
+      {% endfor %}
+    </ul>
+
+    <p>Remaining cards: {{ remaining }}</p>
+
+    <p>
+      Try to draw
+      <a href="{{ path('card_draw_number', { num: 4 }) }}">4</a>
+      or
+      <a href="{{ path('card_draw_number', { num: 10 }) }}">10</a>
+      cards.
+    </p>
   </main>
 {% endblock %}
