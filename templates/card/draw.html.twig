@@ -6,6 +6,29 @@
 
 {% block body %}
   <main>
-    
+    <h1>Draw a Card</h1>
+
+    {% if drawn is not empty %}
+      <p>You drew:</p>
+      <ul class="cards-list">
+        {% for card in drawn %}
+          <li style="text-align: center;">
+            <p>
+              <b>{{ card.getValue() }} of {{ card.getSuit() }}</b>
+            </p>
+            <span style="font-size: 100px;">{{ card.getGraphic()|raw }}</span>
+          </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p>No more cards to draw!</p>
+    {% endif %}
+
+    <p>
+      <strong>Cards left in deck:</strong> {{ remaining }}
+    </p>
+
+    <a class="btn" style="background-color: #A3B18A; color: #333;" href="{{ path('card_draw') }}">Draw a card</a><br />
+    <a href="{{ path('card_start') }}">Back to main page</a>
   </main>
 {% endblock %}

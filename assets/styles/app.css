@@ -402,4 +402,10 @@ img {
     padding: 0;
     gap: 1rem;
 }
+
+.btn:hover{
+    font-size: 1.2rem;
+    font-weight: 900;
+    background-color: #CCD5AE;
+}
 /* card game kmom02 stylings END */

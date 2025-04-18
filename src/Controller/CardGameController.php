@@ -60,6 +60,8 @@ class CardGameController extends AbstractController
     {
         $deck = $session->get("deck", new Deck());
 
+        $deck->shuffle();
+
         $card = $deck->draw(1);
         $session->set("deck", $deck);
 
