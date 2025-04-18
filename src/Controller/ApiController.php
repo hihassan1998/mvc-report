@@ -35,7 +35,7 @@ class ApiController extends AbstractController
 
         return $response;
     }
-    #[Route('/api/deck/shuffle', name: 'api_deck_shuffle', methods: ['POST'])]
+    #[Route('/api/deck/shuffle', name: 'api_deck_shuffle', methods: ["GET", 'POST'])]
     public function shuffle(SessionInterface $session): JsonResponse
     {
         $deck = new Deck();

@@ -1,6 +1,5 @@
 <?php
 
-
 namespace App\Controller;
 
 use App\Dice\Dice;
@@ -14,7 +13,6 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class DiceGameController extends AbstractController
 {
-
     #[Route("/game/pig", name: "pig_start")]
     public function home(): Response
     {
@@ -146,7 +144,7 @@ class DiceGameController extends AbstractController
             "num_dices" => count($diceRoll),
             "diceRoll" => $diceRoll,
         ];
-        // return rendered template with data 
+        // return rendered template with data
         return $this->render('pig/test/roll_many.html.twig', $data);
     }
     #[Route("/game/pig/test/dicehand/{num<\d+>}", name: "test_dicehand")]

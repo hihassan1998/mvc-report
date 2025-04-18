@@ -4,8 +4,6 @@ namespace App\Card;
 
 class CardGraphic extends Card implements \JsonSerializable
 {
-    private string $suit;
-    private string $value;
 
     public function __construct(string $suit, string $value)
     {
@@ -89,8 +87,8 @@ class CardGraphic extends Card implements \JsonSerializable
     public function jsonSerialize(): mixed
     {
         return [
-            'suit' => $this->suit,
-            'value' => $this->value,
+            'suit' => $this->getSuit(),
+            'value' => $this->getValue(),
             'graphic' => $this->getGraphic()
         ];
     }
