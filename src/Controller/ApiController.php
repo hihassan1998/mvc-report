@@ -2,7 +2,9 @@
 
 namespace App\Controller;
 
-// use Symfony\Component\HttpFoundation\JsonResponse;
+use App\Card\Deck;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -21,5 +23,16 @@ class ApiController extends AbstractController
             'routes' => $routes
         ]);
     }
+    #[Route('/api/deck', name: 'api_deck', methods: ['GET'])]
+    public function apiDeck(): JsonResponse
+    {
+        $deck = new Deck();
 
+        $response = new JsonResponse(['deck' => $deck->getGroupedBySuit()]);
+        $response->setEncodingOptions(
+            $response->getEncodingOptions() | JSON_PRETTY_PRINT
+        );
+
+        return $response;
+    }
 }

@@ -2,7 +2,7 @@
 
 namespace App\Card;
 
-class CardGraphic
+class CardGraphic implements \JsonSerializable
 {
     private string $suit;
     private string $value;
@@ -95,5 +95,14 @@ class CardGraphic
     public function __toString(): string
     {
         return $this->getValue() . ' of ' . $this->getSuit();
+    }
+
+    public function jsonSerialize(): mixed
+    {
+        return [
+            'suit' => $this->suit,
+            'value' => $this->value,
+            'graphic' => $this->getGraphic()
+        ];
     }
 }

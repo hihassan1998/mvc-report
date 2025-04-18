@@ -39,4 +39,14 @@ class Deck
     {
         return count($this->cards);
     }
+    public function getGroupedBySuit(): array
+    {
+        $grouped = [];
+
+        foreach ($this->cards as $card) {
+            $grouped[$card->getSuit()][] = $card;
+        }
+
+        return $grouped;
+    }
 }
