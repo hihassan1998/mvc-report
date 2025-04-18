@@ -114,6 +114,10 @@ aside {
     .container-mid {
         flex-direction: column !important;
     }
+
+    .toc {
+        position: static;
+    }
 }
 
 .left-border {
@@ -355,6 +359,7 @@ img {
     background-color: #cce5ff;
     border-color: #b8daff;
 }
+
 .flash-notice:before {
     content: "ⓘ";
 }
@@ -365,7 +370,29 @@ img {
     background-color: #fff3cd;
     border-color: #ffeeba;
 }
+
 .flash-warning:before {
     content: "⚠";
 }
+
 /* Pig game styling END*/
+
+/* card game kmom02 stylings START */
+.cards-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 3.5rem;
+}
+
+.btn-red {
+    background-color: #aa0404;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+/* card game kmom02 stylings END */

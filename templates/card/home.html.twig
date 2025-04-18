@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-  Pig Game
+  Card Game
 {% endblock %}
 
 {% block body %}
@@ -17,14 +17,28 @@
         <br>
         To learn more about card game visit: <a href="https://sv.wikipedia.org/wiki/Fransk-engelsk_kortlek">French-English Card game</a>
         <br />
+        <h2>
+          git commit "Create DECK, CardGraphic, and Card classes"
+        </h2>
+        <h2>Class struckture and UML Diagrame</h2>
+        <p>Text about classes and</p>
+        <h3>UML Diagram</h3>
+        <p>Insert Image here</p>
+        <img src="hats" alt="diagram for classes">
+        <h3>
+          List of routes
+        </h3>
         <ul>
           <li>
-            Roll test route: <a href="{{ path('test_roll_dice') }}">Link to roll test</a>
+            Session storage route: <a href="{{ path('session_store') }}">Link to Session variables</a>
           </li>
           <li>
+            Sorted deck of cards route: <a href="{{ path('card_deck') }}">Deck of Cards</a>
           </li>
           <li>
+            Shuffled deck of cards route: <a href="{{ path('card_shuffle') }}">Shuffled Deck of Cards</a>
           </li>
+          
           <hr />
           <li>
           </li>

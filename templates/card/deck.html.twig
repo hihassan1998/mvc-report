@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+  Deck of Cards
+{% endblock %}
+
+{% block body %}
+  <main>
+    <h1>Deck of Cards</h1>
+
+    <p>
+      Here is the complete <a href="{{ path('card_deck') }}">sorted deck.</a>
+    </p>
+
+    <ul class="cards-list">
+      {% for card in cards %}
+        <li>
+          <span style="font-size: 100px;">{{ card.getGraphic()|raw }}</span>
+        </li>
+      {% endfor %}
+    </ul>
+
+    <a href="{{ path('card_shuffle') }}">Shuffle Deck</a>
+  </main>
+{% endblock %}
