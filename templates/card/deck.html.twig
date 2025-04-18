@@ -14,7 +14,6 @@
 
     {{ include('flash.html.twig') }}
 
-
     <ul class="cards-list">
       {% for card in cards %}
         <li>
@@ -24,5 +23,8 @@
     </ul>
 
     <a href="{{ path('card_shuffle') }}">Shuffle Deck</a>
+    <form action="{{ path('card_shuffle') }}" method="POST">
+      <button class="btn-simp" type="submit">Shuffle via /api/deck/shuffle Post request</button>
+    </form>
   </main>
 {% endblock %}
