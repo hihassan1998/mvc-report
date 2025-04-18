@@ -35,7 +35,7 @@ class ApiController extends AbstractController
 
         return $response;
     }
-    #[Route('/api/deck/shuffle', name: 'api_deck_shuffle', methods: [ 'POST'])]
+    #[Route('/api/deck/shuffle', name: 'api_deck_shuffle', methods: ['POST'])]
     public function shuffle(SessionInterface $session): JsonResponse
     {
         $deck = new Deck();
@@ -48,6 +48,45 @@ class ApiController extends AbstractController
             $response->getEncodingOptions() | JSON_PRETTY_PRINT
         );
 
+        return $response;
+    }
+    #[Route("/api/deck/draw", name: "draw_card", methods: ["GET", 'POST'])]
+    public function drawCard(SessionInterface $session): JsonResponse
+    {
+
+        $deck = $session->get("deck", new Deck());
+
+        $deck->shuffle();
+
+        $card = $deck->draw(1);
+        $session->set("deck", $deck);
+
+        $response =  new JsonResponse([
+            'drawn_cards' => $card,
+            'remaining_cards' => $deck->count()
+        ]);
+        $response->setEncodingOptions(
+            $response->getEncodingOptions() | JSON_PRETTY_PRINT
+        );
+        return $response;
+    }
+    #[Route("/api/deck/draw/{num<\d+>}", name: "draw_multiple_cards", methods: ["GET", "POST"])]
+    public function drawNumber(int $num, SessionInterface $session): JsonResponse
+    {
+        $deck = $session->get('deck', new Deck());
+        if ($num > $deck->count()) {
+            return new JsonResponse("Desired number of drawn cards is greater than available cards in deck", 400);
+        }
+        $cards = $deck->draw($num);
+        $session->set('deck', $deck);
+
+        $response = new JsonResponse([
+            'drawn_cards' => $cards,
+            'remaining_cards' => $deck->count()
+        ]);
+        $response->setEncodingOptions(
+            $response->getEncodingOptions() | JSON_PRETTY_PRINT
+        );
         return $response;
     }
 }
