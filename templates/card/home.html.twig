@@ -16,36 +16,46 @@
         <p>
           Explore a simple card game where you can view a full deck, shuffle it, and draw cards one by one or multiple at a time. Perfect for learning how a classic deck works — try it out and see what you draw!
           <br />
-          To learn more about card game visit: <a href="https://sv.wikipedia.org/wiki/Fransk-engelsk_kortlek">French-English Card game</a>
+          To learn more about the card game visit: <a href="https://sv.wikipedia.org/wiki/Fransk-engelsk_kortlek">French-English Card game</a>
           <br />
         </p>
+        <hr>
+        <hr>
         <h2>Class structure and UML diagram</h2>
+        <h3>Classes:</h3>
+        <br />
+        <ol>
+          <li>
+            <b>Card:</b> A base class that represents a playing card with suit and value properties. It provides methods to retrieve these attributes.
+          </li>
+          <br />
+          <li>
+            <b>CardGraphic:</b> This class is a extention of Card class and adds a getGraphic() method that returns a Unicode symbol for each card.
+          </li>
+          <br />
+          <li>
+            <b>Deck:</b> This class containes a collection of Card objects. This class has the method to create, shuffle and draw card from the collection of cards in the game that is a total of 52 at the start excluding the jockers.
+          </li>
+          <br />
+        </ol>
+        <h3>Relationships between classes:</h3>
+        <br />
         <ul>
           <li>
-            <p>
-              <b>Classes:</b>
-              <ol>
-                <li>
-                  <b>Card:</b> A base class that represents a playing card with suit and value properties. It provides methods to retrieve these attributes.
-                </li>
-                <br />
-                <li>
-                  <b>CardGraphic:</b>This class is a extention of Card class and adds a getGraphic() method that returns a Unicode symbol for each card.
-                </li>
-                <br />
-                <li>sdada</li>
-              </ol>
-            </p>
+            <b>Inheritance:</b> The CardGraphic-class inherits from the Card-class using the 'extends' keyword in php.
           </li>
-          <li>CardGraphic</li>
-          <li>Deck</li>
+          <li>
+            <b>Composition:</b> The Deck-class has many Card-objects. 
+          </li>
         </ul>
-        <p>Text about classes and</p>
+        <br />
+
         <h3>UML Diagram:</h3>
         <a href="{{ asset('img/car-gameUML.png') }}"><img class="centered;" src="{{ asset('img/car-gameUML.png') }}" alt="diagram for classes" /></a>
         <br />
         <br />
         <hr />
+        <br>
         <h3>List of routes</h3>
         <ul>
           <li>
@@ -57,7 +67,6 @@
           <li>
             Shuffled deck of cards route: <a href="{{ path('card_shuffle') }}">Shuffled Deck of Cards</a>
           </li>
-          <hr />
           <li>
             Draw a card from the deck route: <a href="{{ path('card_draw') }}">Draw a card</a>
           </li>

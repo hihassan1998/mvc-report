@@ -13,14 +13,15 @@
     </p>
 
     {{ include('flash.html.twig') }}
-
-    <ul class="cards-list">
-      {% for card in cards %}
-        <li style="display: contents; align-items:center">
-          <span style="font-size: 100px;">{{ card.getGraphic()|raw }}</span>
-        </li>
-      {% endfor %}
-    </ul>
+    <div class="centered">
+      <ul class="cards-list">
+        {% for card in cards %}
+          <li style="display: contents; align-items:center">
+            <span style="font-size: 100px;">{{ card.getGraphic()|raw }}</span>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
 
     <a class="btn-simp" href="{{ path('card_shuffle') }}">Shuffle Deck</a>
     <form action="{{ path('card_shuffle') }}" method="POST">
