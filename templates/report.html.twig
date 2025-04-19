@@ -68,14 +68,36 @@
         <p>
           <b>Förklara kort de objektorienterade konstruktionerna arv, komposition, interface och trait och hur de används i PHP.</b>
           <br />
+
+          <b>Arv</b> gör det möjligt att skapa en ny klass baserad på en basklass. Det görs genom att använda nyckelordet <code>extends</code> i subklassen, vilket innebär att subklassen ärver egenskaper och metoder från basklassen. I min lösning är <code>Card</code> basklassen, medan <code>CardGraphic</code> är en subklass som ärver från <code>Card</code>.
           <br />
-          <b>Berätta om din implementation från uppgiften. Hur löste du uppgiften, är du nöjd/missnöjd, vilken förbättringspotential ser du i din koden och dina klasser?</b>
+          <b>Komposition</b> innebär att en klass innehåller instanser av en eller flera andra klasser som attribut. I min lösning har jag skapat klassen <code>Deck</code>, som innehåller <code>Card</code>-objekt.
+          <br />
+          <b>Interface</b> definierar endast vilka metoder en klass måste implementera. Alla metoder som deklareras i ett interface är publika, och vi använder nyckelordet <code>interface</code> istället för <code>class</code>. I min lösning implementerar klassen <code>CardGraphic</code> interfacet <code>JsonSerializable</code> för att kunna konvertera objektet till JSON.
+          <br />
+          <b>Trait</b> är en återanvändbar samling metoder som kan inkluderas i olika klasser utan att använda arv. Traits används när man vill dela logik mellan flera klasser utan att påverka deras arvshierarki.
+          <br /><br />
+
+          <b>Berätta om din implementation från uppgiften. Hur löste du uppgiften, är du nöjd/missnöjd, vilken förbättringspotential ser du i din kod och dina klasser?</b>
+          <br /><br />
+
+          Jag har skapat tre klasser: <code>Card</code>, <code>CardGraphic</code> och <code>Deck</code>. Jag använde arv för att återanvända kod i <code>CardGraphic</code> och uppnå DRY-principen, samt komposition i <code>Deck</code> för att hantera kortleken och generera JSON-API.
+
+          Jag är ganska nöjd med min lösning, men jag märker att det säkert finns förbättringspotential eftersom vi fortfarande är tidigt i kursen. Jag har lyckats hålla klasserna rena, enkla och fokuserade. En förbättring skulle kunna vara att generera JSON-respons även tillsammans med mina routes till kortspelsapplikationen, och att använda gemensamma funktioner för logik som används både i JSON-API:n och i applikationsroutes, vilket skulle göra koden ännu mer DRY. Dessutom behöver jag förbättra felhanteringen för mina routes och förbättra strukturen på mina JSON-svar.
+
           <br />
           <br />
           <b>Vilka är dina reflektioner så här långt med att jobb i Symfony med applikationskod enligt MVC?</b>
+          <br>
+
+          Det har varit väldigt mycket läsning om ramverket, och jag har behövt ta del av mycket dokumentation. Men jag tycker att det har blivit tydligare varför det är fördelaktigt att separera Model, View och Controller i ett ramverk som Symfony – särskilt i större projekt.
+
+          Det jag tycker är roligast hittills är att skapa API:er i Symfony och möjligheten att kommunicera mellan olika delar av applikationen. Även rendering av templates känns smidigt. Överlag känns allt mycket bättre nu efter att jag har slutfört detta kursmoment, och jag känner mig mer trygg jämfört med hur det kändes i början.
           <br />
           <br />
           <b>Vilken är din TIL för detta kmom?</b>
+          <br>
+          Min TIL för detta kmom är att jag har lärt mig strukturera applikationer enligt MVC-arkitektur mycket bättre än tidigare. Jag har även lärt mig hur man använder <code>JsonSerializable</code> för att anpassa JSON-svar. Dessutom börjar jag få ett grepp om Symfony-ramverket och känner mig allt mer bekväm med att arbeta i det.
           <br />
           <br />
         </p>

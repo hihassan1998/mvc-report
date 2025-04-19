@@ -4,7 +4,6 @@ namespace App\Card;
 
 class CardGraphic extends Card implements \JsonSerializable
 {
-
     public function __construct(string $suit, string $value)
     {
         parent::__construct($suit, $value);
