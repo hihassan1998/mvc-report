@@ -54,6 +54,7 @@ class ApiController extends AbstractController
     public function drawCard(SessionInterface $session): JsonResponse
     {
 
+        /** @var Deck $deck */
         $deck = $session->get("deck", new Deck());
 
         $deck->shuffle();
@@ -61,7 +62,7 @@ class ApiController extends AbstractController
         $card = $deck->draw(1);
         $session->set("deck", $deck);
 
-        $response =  new JsonResponse([
+        $response = new JsonResponse([
             'drawn_cards' => $card,
             'remaining_cards' => $deck->count()
         ]);
@@ -73,6 +74,7 @@ class ApiController extends AbstractController
     #[Route("/api/deck/draw/{num<\d+>}", name: "draw_multiple_cards", methods: ["GET", "POST"])]
     public function drawNumber(int $num, SessionInterface $session): JsonResponse
     {
+        /** @var Deck $deck */
         $deck = $session->get('deck', new Deck());
         if ($num > $deck->count()) {
             return new JsonResponse("Desired number of drawn cards is greater than available cards in deck", 400);

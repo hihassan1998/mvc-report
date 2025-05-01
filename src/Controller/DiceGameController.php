@@ -5,6 +5,8 @@ namespace App\Controller;
 use App\Dice\Dice;
 use App\Dice\DiceGraphic;
 use App\Dice\DiceHand;
+use Exception;
+use RuntimeException;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
@@ -48,6 +50,10 @@ class DiceGameController extends AbstractController
     {
         $dicehand = $session->get("pig_dicehand");
 
+        if (!$dicehand instanceof DiceHand) {
+            throw new RuntimeException("DiceHand not found in session.");
+        }
+
         $data = [
             "pigDices" => $session->get("pig_dices"),
             "pigRound" => $session->get("pig_round"),
@@ -62,9 +68,17 @@ class DiceGameController extends AbstractController
         SessionInterface $session
     ): Response {
         $hand = $session->get("pig_dicehand");
+
+        if (!$hand instanceof DiceHand) {
+            throw new RuntimeException("DiceHand not found in session.");
+        }
         $hand->roll();
 
-        $roundTotal = $session->get("pig_round");
+        $roundTotal = $session->get("pig_round", 0);
+
+        if (!is_numeric($roundTotal)) {
+            $roundTotal = 0;
+        }
         $round = 0;
         $values = $hand->getValues();
         foreach ($values as $value) {
@@ -80,7 +94,7 @@ class DiceGameController extends AbstractController
             $round += $value;
         }
 
-        $session->set("pig_round", $roundTotal + $round);
+        $session->set("pig_round", (int) $roundTotal + (int) $round);
 
         return $this->redirectToRoute('pig_play');
     }
@@ -89,6 +103,10 @@ class DiceGameController extends AbstractController
     {
         $roundTotal = $session->get("pig_round");
         $gameTotal = $session->get("pig_total");
+
+        if (!is_int($roundTotal) || !is_int($gameTotal)) {
+            throw new RuntimeException("Invalid score values in session.");
+        }
 
         $session->set("pig_round", 0);
         $session->set("pig_total", $roundTotal + $gameTotal);
@@ -119,7 +137,7 @@ class DiceGameController extends AbstractController
     {
         // Check and limit numder of rolls
         if ($num > 99) {
-            throw new \Exception("Can not roll more than 99 dices!");
+            throw new Exception("Can not roll more than 99 dices!");
         }
         // Run the loop $num of times
         // die = object of Dice class and call its methods
@@ -151,16 +169,12 @@ class DiceGameController extends AbstractController
     public function testDiceHand(int $num): Response
     {
         if ($num > 99) {
-            throw new \Exception("Can not roll more than 99 dices!");
+            throw new Exception("Can not roll more than 99 dices!");
         }
 
         $hand = new DiceHand();
         for ($i = 1; $i <= $num; $i++) {
-            if ($i % 2 === 1) {
-                $hand->add(new DiceGraphic());
-            } else {
-                $hand->add(new Dice());
-            }
+            $hand->add(($i % 2 === 1) ? new DiceGraphic() : new Dice());
         }
 
         $hand->roll();

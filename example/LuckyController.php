@@ -18,13 +18,13 @@ class LuckyController
         );
     }
 
-    #[Route("/lucky/hi")]
-    public function hi(): Response
-    {
-        return new Response(
-            '<html><body>Hi to you!</body></html>'
-        );
-    }
+    // #[Route("/lucky/hi")]
+    // public function hi(): Response
+    // {
+    //     return new Response(
+    //         '<html><body>Hi to you!</body></html>'
+    //     );
+    // }
 
     #[Route("/api/lucky/number")]
     public function jsonNnumber(): Response

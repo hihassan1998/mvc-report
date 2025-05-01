@@ -47,6 +47,7 @@ class CardGameController extends AbstractController
     #[Route("/card/deck/shuffle", name: "card_shuffle")]
     public function shuffleDeck(SessionInterface $session): Response
     {
+        /** @var Deck $deck */
         $deck = new Deck();
         $deck->shuffle();
         $session->set("deck", $deck);
@@ -61,6 +62,7 @@ class CardGameController extends AbstractController
     #[Route("/card/deck/draw", name: "card_draw")]
     public function drawOne(SessionInterface $session): Response
     {
+        /** @var Deck $deck */
         $deck = $session->get("deck", new Deck());
 
         $deck->shuffle();
@@ -76,6 +78,7 @@ class CardGameController extends AbstractController
     #[Route("/card/deck/draw/{num<\d+>}", name: "card_draw_number")]
     public function drawNumber(int $num, SessionInterface $session): Response
     {
+        /** @var Deck $deck */
         $deck = $session->get('deck', new Deck());
         if ($num > $deck->count()) {
             $this->addFlash(
