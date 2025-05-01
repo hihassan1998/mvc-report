@@ -21,6 +21,7 @@ class Deck
         }
     }
 
+    /** @return CardGraphic[] */
     public function getCards(): array
     {
         return $this->cards;
@@ -31,6 +32,7 @@ class Deck
         shuffle($this->cards);
     }
 
+    /** @return CardGraphic[] */
     public function draw(int $number = 1): array
     {
         return array_splice($this->cards, 0, $number);
@@ -40,6 +42,7 @@ class Deck
     {
         return count($this->cards);
     }
+    /** @return array<string, CardGraphic[]> */
     public function getGroupedBySuit(): array
     {
         $grouped = [];
