@@ -6,6 +6,7 @@ use App\Card\CardGraphic;
 
 class Deck
 {
+    /** @var CardGraphic[] */
     private array $cards = [];
 
     public function __construct()

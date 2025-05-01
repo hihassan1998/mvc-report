@@ -23,6 +23,7 @@ bin/console cache:clear
 bin/console
 
 #4 Build and run after installing encore 
+install composer (if not installed)
 npm install
 npm run build
 
@@ -33,7 +34,7 @@ symfony server:start
 
 git tag
 
-git tag -a v2.1.0 -m "First release, beta version"
+git tag -a v1.1.0 -m "First release"
 git tag -a v2.1.3 -m"Fourth release kmom02 Card-Game"
 
 git push  --tags    OR   git push origin --tags
@@ -41,3 +42,24 @@ git push  --tags    OR   git push origin --tags
 #7 Php linting run composer script
 composer csfix:dry
 composer csfix
+
+#8 Install in \tools -dir
+mkdir --parents tools/phpmd
+composer require --dev --working-dir=tools/phpmd phpmd/phpmd
+-- verify -- 
+tools/phpmd/vendor/bin/phpmd --version
+tools/phpmd/vendor/bin/phpmd --help
+-- exe ---
+tools/phpmd/vendor/bin/phpmd src text cleancode,codesize,controversial,design,naming,unusedcode
+--add config file in tools/phpomd
+--exe--
+tools/phpmd/vendor/bin/phpmd . text tools/phpmd/phpmd.xml
+
+#9 nstall php stan for before production liniting
+mkdir --parents tools/phpstan
+composer require --dev --working-dir=tools/phpstan phpstan/phpstan
+--verify-- 
+tools/phpstan/vendor/bin/phpstan --version
+tools/phpstan/vendor/bin/phpstan --help
+--exe--
+tools/phpstan/vendor/bin/phpstan analyse src
