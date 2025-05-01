@@ -374,6 +374,7 @@ img {
 .flash-warning:before {
     content: "⚠";
 }
+
 /* Pig game styling END*/
 
 /* card game kmom02 stylings START */
@@ -414,18 +415,29 @@ img {
     text-align: center;
     text-decoration: none;
 }
+
 .btn-simp:hover {
     background-color: #D88C5D;
     font-weight: 600;
 }
 
-.btn:hover{
+.btn:hover {
     font-size: 1.2rem;
     font-weight: 900;
     background-color: #CCD5AE;
 }
-a:hover{
+
+a:hover {
     font-weight: 700;
     color: #D88C5D;
 }
+
 /* card game kmom02 stylings END */
+
+/** card game stylings kmom03 START */
+.red-card {
+    color: red;
+}
+
+
+/* card game stylings kmom03 END */
