@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Card Game
+{% endblock %}
+
+{% block body %}
+	<main>
+
+		<h1>21:Card Game</h1>
+		<div style="border:2px solid black; padding:20px;">
+			<p>Player's cards:</p>
+			<ul>
+				{% for card in player_cards %}
+					<li>{{ card }}
+						({{ card.getGraphic() }})</li>
+				{% endfor %}
+			</ul>
+		</div>
+		<br>
+		<hr>
+		<div style="border:2px solid black; padding:20px;">
+
+			<p>Dealer's cards:</p>
+			<ul class="draw-list">
+				{% for card in dealer_cards %}
+					<li>
+						<span style="font-size: 100px;">
+							{{ card.getGraphic()|raw }}
+						</span>
+						<p>
+							<b>{{ card }}</b>
+						</p>
+					</li>
+				{% endfor %}
+			</ul>
+		</div>
+
+	</main>
+
+	<p>Points:
+		{{ dealer_points }}</p>
+
+
+{% endblock %}
