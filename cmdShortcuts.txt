@@ -63,3 +63,8 @@ tools/phpstan/vendor/bin/phpstan --version
 tools/phpstan/vendor/bin/phpstan --help
 --exe--
 tools/phpstan/vendor/bin/phpstan analyse src
+
+#RUn PHP linting
+composer phpmd
+composer phpstan
+composer lint
