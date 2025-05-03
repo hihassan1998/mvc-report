@@ -3,14 +3,23 @@
 namespace App\Controller;
 
 use App\Card\Deck;
+use App\Card\GameHelper;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+
 class ApiController extends AbstractController
 {
+    private GameHelper $gameHelper;
+
+    public function __construct(GameHelper $gameHelper)
+    {
+        $this->gameHelper = $gameHelper;
+    }
+
     #[Route("/api", name: "api")]
     public function api(): Response
     {
@@ -91,4 +100,33 @@ class ApiController extends AbstractController
         );
         return $response;
     }
+    #[Route('/api/game', name: 'api_game', methods: ['GET'])]
+    public function apiGame(SessionInterface $session): JsonResponse
+    {
+        $playerCards = $session->get('player_cards', []);
+        $dealerCards = $session->get('dealer_cards', []);
+        $showDealer = $session->get('show_dealer', false);
+    
+        $playerPoints = $this->gameHelper->calculatePoints($playerCards);
+        $dealerPoints = $this->gameHelper->calculatePoints($dealerCards);
+    
+        $data = [
+            'player' => [
+                'cards' => array_map(fn($card) => (string) $card, $playerCards),
+                'points' => $playerPoints
+            ],
+            'dealer' => [
+                'cards' => $showDealer ? array_map(fn($card) => (string) $card, $dealerCards) : ['Hidden'],
+                'points' => $showDealer ? $dealerPoints : 'Hidden'
+            ],
+            'game_over' => $playerPoints > 21 || $dealerPoints > 21 || $showDealer
+        ];
+        $response = new JsonResponse($data);
+        $response->setEncodingOptions(
+            $response->getEncodingOptions() | JSON_PRETTY_PRINT
+        );
+    
+        return $response;
+    }
+    
 }

@@ -1,113 +1,145 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-  API Home
+	API Home
 {% endblock %}
 
 {% block body %}
-  <div class="report-container">
-    <aside class="left-border toc">
-      <h2 class="double-bottom">Innehåll</h2>
-      <ul class="">
-        <li>
-          <a href="#kmom01">Kmom01</a>
-        </li>
-        <li>
-          <a href="#kmom02">Kmom02</a>
-        </li>
-        <li>
-          <a href="#kmom03">Kmom03</a>
-        </li>
-        <li>
-          <a href="#kmom04">Kmom04</a>
-        </li>
-        <li>
-          <a href="#kmom05">Kmom05</a>
-        </li>
-        <li>
-          <a href="#kmom06">Kmom06</a>
-        </li>
-        <li>
-          <a href="#kmom10">Kmom10</a>
-        </li>
-      </ul>
-    </aside>
-    <main>
-      <h1>Välkommen till sidan för JSON API</h1>
-      <p>Det här är en lista med länkar för alla tillgängliga JSON-rutter:</p>
-      <h2  id="kmom01">Kmom01</h2>
-      <ul class="unset-list">
-        {% for route, description in routes %}
-          <li>
-            Route Name: <a href="{{ path(route) }}"><strong>{{ route }}</strong></a> <br />{{ description }}
-          </li>
-          <br />
-        {% endfor %}
-      </ul>
-      <h2 id="kmom02">Kmom02</h2>
-      <ul class="unset-list">
-        <li>
-          <p>
-            <b>Route Name:</b>
-            <a href="{{ path('api_deck') }}">api_deck</a>
-            <br />
-            <b>Method:</b> GET
-            <br />
-            <b>Path:</b> /api/deck
-            <br />
-            <b>Beskrivning:</b>
-            Få json-data för hela kortlek sorterad på sort och ordning.
-          </p>
-        </li>
-        <li>
-          <p>
-            <b>Route Name:</b>
-            <a href="{{ path('api_deck_shuffle') }}">api_deck_shuffle</a>
-            <br />
-            <b>Method:</b> POST
-            <br />
-            <b>Path:</b> /api/deck/shuffle
-            <br />
-            <b>Beskrivning:</b>
-            Få json-data för hela kortlek sorterad på sort och ordning.
-          </p>
-        </li>
-        <li>
-          <p>
-            <b>Route Name:</b>
-            <a href="{{ path('draw_card') }}">draw_card</a>
-            <br />
-            <b>Method:</b> POST
-            <br />
-            <b>Path:</b> api/deck/draw
-            <br />
-            <b>Beskrivning:</b>
-            Drar 1 kort från hela kortleken visar upp dem i en JSON struktur samt antalet kort som är kvar i kortleken.
-          </p>
-        </li>
-        <li>
-          <p>
-            <b>Route Name:</b>
-            <a href="{{ path('draw_multiple_cards', {num:2}) }}">draw_multiple_cards</a>
-            <br />
-            <b>Method:</b> POST
-            <br />
-            <b>Path:</b> api/deck/draw/:number
-            <br />
-            <b>Beskrivning:</b>
-            Drar :number kort från kortleken och visar upp dem i en JSON struktur samt antalet kort som är kvar i kortleken.
-          </p>
-        </li>
-      </ul>
-      <h2 id="kmom03">Kmom03</h2>
-    </main>
-    {# Test post requests apis
-    <form action="{{ path('draw_card') }}" method="post">
-      <button type="submit">Draw 1 Card</button>
-    </form>
-
-    <form action="{{ path('draw_multiple_cards', { number: 5 }) }}" method="post">
-      <button type="submit">Draw 5 Cards</button>
-    </form> #}
-  </div>
+	<div class="report-container">
+		<aside class="left-border toc">
+			<h2 class="double-bottom">Innehåll</h2>
+			<ul class="">
+				<li>
+					<a href="#kmom01">Kmom01</a>
+				</li>
+				<li>
+					<a href="#kmom02">Kmom02</a>
+				</li>
+				<li>
+					<a href="#kmom03">Kmom03</a>
+				</li>
+				<li>
+					<a href="#kmom04">Kmom04</a>
+				</li>
+				<li>
+					<a href="#kmom05">Kmom05</a>
+				</li>
+				<li>
+					<a href="#kmom06">Kmom06</a>
+				</li>
+				<li>
+					<a href="#kmom10">Kmom10</a>
+				</li>
+			</ul>
+		</aside>
+		<main>
+			<h1>Välkommen till sidan för JSON API</h1>
+			<p>Det här är en lista med länkar för alla tillgängliga JSON-rutter:</p>
+			<h2 id="kmom01">Kmom01</h2>
+			<ul class="unset-list">
+				{% for route, description in routes %}
+					<li>
+						Route Name:
+						<a href="{{ path(route) }}">
+							<strong>{{ route }}</strong>
+						</a>
+						<br/>{{ description }}
+					</li>
+					<br/>
+				{% endfor %}
+			</ul>
+			<h2 id="kmom02">Kmom02</h2>
+			<ul class="unset-list">
+				<li>
+					<p>
+						<b>Route Name:</b>
+						<a href="{{ path('api_deck') }}">api_deck</a>
+						<br/>
+						<b>Method:</b>
+						GET
+						<br/>
+						<b>Path:</b>
+						/api/deck
+						<br/>
+						<b>Beskrivning:</b>
+						Få json-data för hela kortlek sorterad på sort och ordning.
+					</p>
+				</li>
+				<li>
+					<p>
+						<b>Route Name:</b>
+						<a href="{{ path('api_deck_shuffle') }}">api_deck_shuffle</a>
+						<br/>
+						<b>Method:</b>
+						POST
+						<br/>
+						<b>Path:</b>
+						/api/deck/shuffle
+						<br/>
+						<b>Beskrivning:</b>
+						Få json-data för hela kortlek sorterad på sort och ordning.
+					</p>
+				</li>
+				<li>
+					<p>
+						<b>Route Name:</b>
+						<a href="{{ path('draw_card') }}">draw_card</a>
+						<br/>
+						<b>Method:</b>
+						POST
+						<br/>
+						<b>Path:</b>
+						api/deck/draw
+						<br/>
+						<b>Beskrivning:</b>
+						Drar 1 kort från hela kortleken visar upp dem i en JSON<br> struktur samt antalet kort som är kvar i kortleken.
+					</p>
+				</li>
+				<li>
+					<p>
+						<b>Route Name:</b>
+						<a href="{{ path('draw_multiple_cards', {num:2}) }}">draw_multiple_cards</a>
+						<br/>
+						<b>Method:</b>
+						POST
+						<br/>
+						<b>Path:</b>
+						api/deck/draw/:number
+						<br/>
+						<b>Beskrivning:</b>
+						Drar :number kort från kortleken och visar upp dem i en
+						<br>
+						JSON struktur samt antalet kort som är kvar i kortleken.
+					</p>
+				</li>
+			</ul>
+			<h2 id="kmom03">Kmom03</h2>
+			<ul class="unset-list">
+				<li>
+					<p>
+						<b>Route Name:</b>
+						<a href="{{ path('api_game') }}">api_game</a>
+						<br/>
+						<b>Method:</b>
+						Get
+						<br/>
+						<b>Path:</b>
+						/api/game
+						<br/>
+						<b>Beskrivning:</b>
+						Få upp den aktuella ställningen för spelet i en JSON struktur.
+					</p>
+				</li>
+			</ul>
+			<h2 id="kmom04">Kmom04</h2>
+		</main>
+		{# Test post requests apis
+				    <form action="{{ path('draw_card') }}" method="post">
+				      <button type="submit">Draw 1 Card</button>
+				    </form>
+				
+				    <form action="{{ path('draw_multiple_cards', { number: 5 }) }}" method="post">
+				      <button type="submit">Draw 5 Cards</button>
+				    </form> #}
+	</div>
 {% endblock %}
