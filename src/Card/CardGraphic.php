@@ -83,6 +83,12 @@ class CardGraphic extends Card implements \JsonSerializable
         return $this->getValue() . ' of ' . $this->getSuit();
     }
 
+    public function getColorClass(): string
+    {
+        return in_array($this->getSuit(), ['Hearts', 'Diamonds']) ? 'red-card' : '';
+    }
+
+
     public function jsonSerialize(): mixed
     {
         return [

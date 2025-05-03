@@ -439,5 +439,10 @@ a:hover {
     color: red;
 }
 
+.game-message{
+    font-size: 4rem;
+    font-family:fantasy;
+    color: #D88C5D;
+}
 
 /* card game stylings kmom03 END */

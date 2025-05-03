@@ -8,26 +8,35 @@
 	<main>
 
 		<h1>Game Over</h1>
-		<p>{{ message ?? result }}</p>
+		<p class="game-message">{{ message ?? result }}</p>
+		<div style="border:2px solid black; padding:20px;">
+			<h3>Player's cards:</h3>
+			<ul class="draw-list">
+				{% for card in player_cards %}
+					<li>
+						<span class="{% if card.getSuit() == 'Hearts' or card.getSuit() == 'Diamonds' %}red-card{% endif %}" style="font-size: 100px;">
+							{{ card.getGraphic()|raw }}
+						</span>
+					{% endfor %}
+				</ul>
+				<p>Points:
+					{{ player_points }}</p>
+			</div>
+			<br>
+			<div style="border:2px solid black; padding:20px;">
 
-		<p>Player's cards:</p>
-		<ul>
-			{% for card in player_cards %}
-				<li>{{ card }}
-					({{ card.getGraphic() }})</li>
-			{% endfor %}
-		</ul>
-		<p>Points:
-			{{ player_points }}</p>
-
-		<p>Dealer's cards:</p>
-		<ul>
-			{% for card in dealer_cards %}
-				<li>{{ card }}
-					({{ card.getGraphic() }})</li>
-			{% endfor %}
-		</ul>
-		<p>Points:
-			{{ dealer_points }}</p>
-	</main>
-{% endblock %}
+				<p>Dealer's cards:</p>
+				<ul class="draw-list">
+					{% for card in dealer_cards %}
+						<li>
+							<span style="font-size: 100px;" class="{% if card.getSuit() == 'Hearts' or card.getSuit() == 'Diamonds' %}red-card{% endif %}">
+								{{ card.getGraphic()|raw }}
+							</span>
+						</li>
+					{% endfor %}
+				</ul>
+				<p>Points:
+					{{ dealer_points }}</p>
+			</div>
+		</main>
+	{% endblock %}

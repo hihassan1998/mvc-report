@@ -10,57 +10,60 @@
 		<h1>21:Card Game</h1>
 		<div style="border:2px solid black; padding:20px;">
 			<p>Player's cards:</p>
-			<ul>
-				{% for card in player_cards %}
-					<li>{{ card }}
-						({{ card.getGraphic() }})</li>
-				{% endfor %}
-			</ul>
-		</div>
-		<p>
-			<b>Points:
-			</b>
-			{{ player_points }}</p>
-		<br>
-		<hr>
-		<div style="border:2px solid black; padding:20px;">
-
-			<p>Dealer's cards:</p>
 			<ul class="draw-list">
-				{% for card in dealer_cards %}
+				{% for card in player_cards %}
 					<li>
-						<span style="font-size: 100px;">
+						<span style="font-size: 100px;"
+						class="{{card.getColorClass()}}" >
 							{{ card.getGraphic()|raw }}
 						</span>
-						<p>
+					{% endfor %}
+				</ul>
+			</div>
+			<p>
+				<b>Points:
+				</b>
+				{{ player_points }}</p>
+			<br>
+			<div class="centered">
+				<form action="{{ path('game21_hit') }}" method="post">
+					<button class="btn-game" type="submit">Hit</button>
+				</form>
+				<br>
+				<form action="{{ path('game21_stand') }}" method="post">
+					<button class="btn-game" type="submit">Stand</button>
+				</form>
+				<br>
+			</div>
+			<div style="border:2px solid black; padding:20px;">
+
+				<p>Dealer's cards:</p>
+				<ul class="draw-list">
+					{% for card in dealer_cards %}
+						<li>
+							<span style="font-size: 100px;"
+							class="{{card.getColorClass()}}">
+								{{ card.getGraphic()|raw }}
+							</span>
+						{# <p>
 							<b>{{ card }}</b>
-						</p>
-					</li>
-				{% endfor %}
-			</ul>
-			<p>Points:
-				{{ dealer_points }}</p>
-		</div>
+						</p> #}
+						</li>
+					{% endfor %}
+				</ul>
+			</div>
+				<p>Points:
+					{{ dealer_points }}</p>
 
-	</main>
+		</main>
 
-	<div class="centered">
-		<form action="{{ path('game21_hit') }}" method="post">
-			<button class="btn-game" type="submit">Hit</button>
-		</form>
-		<br>
-		<form action="{{ path('game21_stand') }}" method="post">
-			<button class="btn-game" type="submit">Stand</button>
-		</form>
-		<br>
-	</div>
 
-	{% if show_dealer %}
-        <script>
-            setTimeout(function() {
-                window.location.href = "{{ path('game21_end_game') }}"; 
-            }, 4000);
-        </script>
-    {% endif %}
+		{% if show_dealer %}
+			<script>
+				setTimeout(function() {
+					window.location.href = "{{ path('game21_end_game') }}"; 
+				}, 4000);
+			</script>
+		{% endif %}
 
-{% endblock %}
+	{% endblock %}
