@@ -95,8 +95,7 @@
         "phpstan": "tools/phpstan/vendor/bin/phpstan analyse -c tools/phpstan/phpstan.neon || true",
         "lint": [
             "@phpmd",
-            "@phpstan",
-            "@csfix"
+            "@phpstan"
         ]
     },
     "conflict": {

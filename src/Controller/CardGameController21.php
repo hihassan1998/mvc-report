@@ -31,8 +31,8 @@ class CardGameController21 extends AbstractController
             $this->gameService->initializeGame($session);
         }
 
-        $playerCards = $session->get('player_cards');
-        $dealerCards = $session->get('dealer_cards');
+        $playerCards = (array) $session->get('player_cards');
+        $dealerCards = (array) $session->get('dealer_cards');
 
         return $this->render('card21/start.html.twig', [
             'player_cards' => $playerCards,
@@ -73,8 +73,8 @@ class CardGameController21 extends AbstractController
     public function endGame(SessionInterface $session): Response
     {
         $result = $this->gameService->determineResult($session);
-        $playerCards = $session->get('player_cards');
-        $dealerCards = $session->get('dealer_cards');
+        $playerCards = (array) $session->get('player_cards');
+        $dealerCards = (array) $session->get('dealer_cards');
 
         return $this->render('card21/end_game.html.twig', [
             'result' => $result,

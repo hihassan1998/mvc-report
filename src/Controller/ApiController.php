@@ -10,7 +10,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-
 class ApiController extends AbstractController
 {
     private GameHelper $gameHelper;
@@ -104,19 +103,37 @@ class ApiController extends AbstractController
     public function apiGame(SessionInterface $session): JsonResponse
     {
         $playerCards = $session->get('player_cards', []);
+        if (!is_array($playerCards)) {
+            $playerCards = [];
+        }
+
         $dealerCards = $session->get('dealer_cards', []);
+        if (!is_array($dealerCards)) {
+            $dealerCards = [];
+        }
         $showDealer = $session->get('show_dealer', false);
-    
+
         $playerPoints = $this->gameHelper->calculatePoints($playerCards);
         $dealerPoints = $this->gameHelper->calculatePoints($dealerCards);
-    
+
+
         $data = [
             'player' => [
-                'cards' => array_map(fn($card) => (string) $card, $playerCards),
+                'cards' => array_map(
+                    fn($card) => is_object($card) && method_exists($card, '__toString') ? (string) $card : 'Invalid Card',
+                    $playerCards
+                ),
+
                 'points' => $playerPoints
             ],
             'dealer' => [
-                'cards' => $showDealer ? array_map(fn($card) => (string) $card, $dealerCards) : ['Hidden'],
+                'cards' => $showDealer
+                    ? array_map(
+                        fn($card) => is_object($card) && method_exists($card, '__toString') ? (string) $card : 'Invalid Card',
+                        $dealerCards
+                    )
+                    : ['Hidden'],
+
                 'points' => $showDealer ? $dealerPoints : 'Hidden'
             ],
             'game_over' => $playerPoints > 21 || $dealerPoints > 21 || $showDealer
@@ -125,8 +142,8 @@ class ApiController extends AbstractController
         $response->setEncodingOptions(
             $response->getEncodingOptions() | JSON_PRETTY_PRINT
         );
-    
+
         return $response;
     }
-    
+
 }

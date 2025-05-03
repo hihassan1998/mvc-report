@@ -33,8 +33,8 @@ class Game21Service
     {
         /** @var Deck $deck */
         $deck = $session->get('deck21');
-        $playerCards = $session->get('player_cards', []);
-        $dealerCards = $session->get('dealer_cards', []);
+        $playerCards = (array) $session->get('player_cards', []);
+        $dealerCards = (array) $session->get('dealer_cards', []);
 
         $playerCards[] = $deck->draw(1)[0];
 
@@ -65,8 +65,8 @@ class Game21Service
 
     public function determineResult(SessionInterface $session): string
     {
-        $playerCards = $session->get('player_cards');
-        $dealerCards = $session->get('dealer_cards');
+        $playerCards = (array) $session->get('player_cards');
+        $dealerCards = (array) $session->get('dealer_cards');
 
         $playerPoints = $this->getPoints($playerCards);
         $dealerPoints = $this->getPoints($dealerCards);
