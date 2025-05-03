@@ -4,6 +4,9 @@ namespace App\Card;
 
 class GameHelper
 {
+    /**
+     * @param Card[] $cards
+     */
     public static function calculatePoints(array $cards): int
     // private function calculatePoints(array $cards): int
     {
@@ -15,10 +18,12 @@ class GameHelper
 
             if (in_array($value, ['Jack', 'Queen', 'King'])) {
                 $points += 10;
-            } elseif ($value == 'Ace') {
+            }
+            if ($value == 'Ace') {
                 $points += 14;
                 $aceCount++;
-            } else {
+            }
+            if (!in_array($value, ['Jack', 'Queen', 'King', 'Ace'])) {
                 $points += (int) $value;
             }
         }

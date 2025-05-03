@@ -17,6 +17,7 @@ class Game21Service
 
     public function initializeGame(SessionInterface $session): void
     {
+        /** @var Deck $deck */
         $deck = new Deck();
         $deck->shuffle();
 
@@ -29,11 +30,20 @@ class Game21Service
         $session->set('show_dealer', false);
     }
 
+    /**
+     * @return array{
+     *     player_cards: Card[], 
+     *     dealer_cards: Card[], 
+     *     player_points: int, 
+     *     dealer_points: int
+     * }
+     */
     public function playerHit(SessionInterface $session): array
     {
         /** @var Deck $deck */
         $deck = $session->get('deck21');
         $playerCards = (array) $session->get('player_cards', []);
+        /** @var Card[] $dealerCards */
         $dealerCards = (array) $session->get('dealer_cards', []);
 
         $playerCards[] = $deck->draw(1)[0];
@@ -53,6 +63,7 @@ class Game21Service
     {
         /** @var Deck $deck */
         $deck = $session->get('deck21');
+        /** @var Card[] $dealerCards */
         $dealerCards = $session->get('dealer_cards', []);
 
         while ($this->getPoints($dealerCards) < 17) {
@@ -63,9 +74,17 @@ class Game21Service
         $session->set('show_dealer', true);
     }
 
+    /**
+     * Determine the result of the game based on points.
+     * 
+     * @return string
+     */
+
     public function determineResult(SessionInterface $session): string
     {
+        /** @var Card[] $playerCards */
         $playerCards = (array) $session->get('player_cards');
+        /** @var Card[] $dealerCards */
         $dealerCards = (array) $session->get('dealer_cards');
 
         $playerPoints = $this->getPoints($playerCards);
@@ -78,8 +97,12 @@ class Game21Service
         }
         return 'Dealer won, you lose!';
     }
-
-    public function getPoints(array $cards): int
+    /**
+     * @param \App\Card\Card[] $cards
+     * 
+     * @return int
+     */
+    public function getPoints($cards): int
     {
         return $this->helper->calculatePoints($cards);
     }

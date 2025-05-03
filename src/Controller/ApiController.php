@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Card\Deck;
 use App\Card\GameHelper;
+use App\Card\Card;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -102,37 +103,56 @@ class ApiController extends AbstractController
     #[Route('/api/game', name: 'api_game', methods: ['GET'])]
     public function apiGame(SessionInterface $session): JsonResponse
     {
-        $playerCards = $session->get('player_cards', []);
-        if (!is_array($playerCards)) {
-            $playerCards = [];
-        }
+        // $playerCards = (array)  $session->get('player_cards', []);
+        // $dealerCards = (array)  $session->get('dealer_cards', []);
+        // $playerCards = $session->get('player_cards', []);
+        // if (!is_array($playerCards)) {
+        //     $playerCards = [];
+        // }
 
+        // $dealerCards = $session->get('dealer_cards', []);
+        // if (!is_array($dealerCards)) {
+        //     $dealerCards = [];
+        // }
+        /** @var Card[] $playerCards */
+        $playerCards = $session->get('player_cards', []);
+        // if (!is_array($playerCards)) {
+        //     $playerCards = [];
+        // }
+
+        /** @var Card[] $dealerCards */
         $dealerCards = $session->get('dealer_cards', []);
-        if (!is_array($dealerCards)) {
-            $dealerCards = [];
-        }
+        // if (!is_array($dealerCards)) {
+        //     $dealerCards = [];
+        // }
+
         $showDealer = $session->get('show_dealer', false);
 
         $playerPoints = $this->gameHelper->calculatePoints($playerCards);
         $dealerPoints = $this->gameHelper->calculatePoints($dealerCards);
-
+        // $playerPoints = $this->gameHelper->calculatePoints(is_array($playerCards) ? $playerCards : []);
+        // $dealerPoints = $this->gameHelper->calculatePoints(is_array($dealerCards) ? $dealerCards : []);
 
         $data = [
             'player' => [
-                'cards' => array_map(
-                    fn($card) => is_object($card) && method_exists($card, '__toString') ? (string) $card : 'Invalid Card',
-                    $playerCards
-                ),
+                'cards' => array_map(fn ($card) => (string) $card, $playerCards),
+                // 'cards' =>  is_array($playerCards) ? array_map(fn ($card) => (string) $card, $playerCards) : [],
+                // 'cards' => array_map(
+                //     fn($card) => is_object($card) && method_exists($card, '__toString') ? (string) $card : 'Invalid Card',
+                //     $playerCards
+                // ),
 
                 'points' => $playerPoints
             ],
             'dealer' => [
-                'cards' => $showDealer
-                    ? array_map(
-                        fn($card) => is_object($card) && method_exists($card, '__toString') ? (string) $card : 'Invalid Card',
-                        $dealerCards
-                    )
-                    : ['Hidden'],
+                'cards' => $showDealer ? array_map(fn($card) => (string) $card, $dealerCards) : ['Hidden'],
+                // 'cards' => is_array($dealerCards) ? array_map(fn ($card) => (string) $card, $dealerCards) : ['Hidden'],
+                // 'cards' => $showDealer
+                //     ? array_map(
+                //         fn($card) => is_object($card) && method_exists($card, '__toString') ? (string) $card : 'Invalid Card',
+                //         $dealerCards
+                //     )
+                //     : ['Hidden'],
 
                 'points' => $showDealer ? $dealerPoints : 'Hidden'
             ],

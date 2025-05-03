@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Card\Game21Service;
+use App\Card\Card;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\HttpFoundation\Response;
@@ -31,7 +32,9 @@ class CardGameController21 extends AbstractController
             $this->gameService->initializeGame($session);
         }
 
+        /** @var Card[] $playerCards */
         $playerCards = (array) $session->get('player_cards');
+        /** @var Card[] $dealerCards */
         $dealerCards = (array) $session->get('dealer_cards');
 
         return $this->render('card21/start.html.twig', [
@@ -73,7 +76,9 @@ class CardGameController21 extends AbstractController
     public function endGame(SessionInterface $session): Response
     {
         $result = $this->gameService->determineResult($session);
+        /** @var Card[] $playerCards */
         $playerCards = (array) $session->get('player_cards');
+        /** @var Card[] $dealerCards */
         $dealerCards = (array) $session->get('dealer_cards');
 
         return $this->render('card21/end_game.html.twig', [
