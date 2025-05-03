@@ -14,7 +14,7 @@
 			<ul class="draw-list">
 				{% for card in player_cards %}
 					<li>
-						<span class="{% if card.getSuit() == 'Hearts' or card.getSuit() == 'Diamonds' %}red-card{% endif %}" style="font-size: 100px;">
+						<span class="{{card.getColorClass()}}" style="font-size: 100px;">
 							{{ card.getGraphic()|raw }}
 						</span>
 					{% endfor %}
@@ -29,7 +29,7 @@
 				<ul class="draw-list">
 					{% for card in dealer_cards %}
 						<li>
-							<span style="font-size: 100px;" class="{% if card.getSuit() == 'Hearts' or card.getSuit() == 'Diamonds' %}red-card{% endif %}">
+							<span style="font-size: 100px;" class="{{card.getColorClass()}}">
 								{{ card.getGraphic()|raw }}
 							</span>
 						</li>
@@ -38,5 +38,9 @@
 				<p>Points:
 					{{ dealer_points }}</p>
 			</div>
+			<br>
+			<form action="{{ path('game21_reset') }}" method="get">
+				<button  class="btn-game" type="submit">Play Again</button>
+			</form>
 		</main>
 	{% endblock %}

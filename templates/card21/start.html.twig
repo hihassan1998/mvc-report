@@ -52,9 +52,13 @@
 					{% endfor %}
 				</ul>
 			</div>
-				<p>Points:
+				<p><b>Points:
+				</b>
 					{{ dealer_points }}</p>
-
+<br>
+			<form action="{{ path('game21_reset') }}" method="get">
+				<button  class="btn-game" type="submit">Restart game</button>
+			</form>
 		</main>
 
 

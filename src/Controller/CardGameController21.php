@@ -27,16 +27,16 @@ class CardGameController21 extends AbstractController
             if (in_array($value, ['Jack', 'Queen', 'King'])) {
                 $points += 10;
             } elseif ($value == 'Ace') {
-                $points += 11;
+                $points += 14;
                 $aceCount++;
             } else {
                 $points += (int) $value;
             }
         }
 
-        // if the points exceed 21, convert Aces from 11 to 1
+        // if the points exceed 21, convert Aces from 14 to 1
         while ($points > 21 && $aceCount > 0) {
-            $points -= 10;
+            $points -= 13;
             $aceCount--;
         }
 
@@ -57,8 +57,8 @@ class CardGameController21 extends AbstractController
             $session->set('deck21', $deck);
 
             // Draw cards for both the player and dealer
-            $playerCards = $deck->draw(1);
-            $dealerCards = $deck->draw(1);
+            $playerCards = $deck->draw(0);
+            $dealerCards = $deck->draw(0);
 
             // Store in session
             $session->set('player_cards', $playerCards);
@@ -143,7 +143,7 @@ class CardGameController21 extends AbstractController
         } elseif ($dealerPoints == $playerPoints) {
             $result = 'It\'s a tie!';
         } else {
-            $result = 'You lose!';
+            $result = 'Dealer won, you lose!';
         }
 
         return $this->render('card21/end_game.html.twig', [
@@ -154,4 +154,11 @@ class CardGameController21 extends AbstractController
             'dealer_points' => $dealerPoints,
         ]);
     }
+    #[Route("/card21/reset", name: "game21_reset")]
+    public function resetGame(SessionInterface $session): Response
+    {
+        $session->clear();
+        return $this->redirectToRoute('game21_start');
+    }
+
 }
