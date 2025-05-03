@@ -17,6 +17,10 @@
 				{% endfor %}
 			</ul>
 		</div>
+		<p>
+			<b>Points:
+			</b>
+			{{ player_points }}</p>
 		<br>
 		<hr>
 		<div style="border:2px solid black; padding:20px;">
@@ -34,12 +38,29 @@
 					</li>
 				{% endfor %}
 			</ul>
+			<p>Points:
+				{{ dealer_points }}</p>
 		</div>
 
 	</main>
 
-	<p>Points:
-		{{ dealer_points }}</p>
+	<div class="centered">
+		<form action="{{ path('game21_hit') }}" method="post">
+			<button class="btn-game" type="submit">Hit</button>
+		</form>
+		<br>
+		<form action="{{ path('game21_stand') }}" method="post">
+			<button class="btn-game" type="submit">Stand</button>
+		</form>
+		<br>
+	</div>
 
+	{% if show_dealer %}
+        <script>
+            setTimeout(function() {
+                window.location.href = "{{ path('game21_end_game') }}"; 
+            }, 4000);
+        </script>
+    {% endif %}
 
 {% endblock %}

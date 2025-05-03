@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Card Game
+{% endblock %}
+
+{% block body %}
+	<main>
+
+		<h1>Game Over</h1>
+		<p>{{ message ?? result }}</p>
+
+		<p>Player's cards:</p>
+		<ul>
+			{% for card in player_cards %}
+				<li>{{ card }}
+					({{ card.getGraphic() }})</li>
+			{% endfor %}
+		</ul>
+		<p>Points:
+			{{ player_points }}</p>
+
+		<p>Dealer's cards:</p>
+		<ul>
+			{% for card in dealer_cards %}
+				<li>{{ card }}
+					({{ card.getGraphic() }})</li>
+			{% endfor %}
+		</ul>
+		<p>Points:
+			{{ dealer_points }}</p>
+	</main>
+{% endblock %}
