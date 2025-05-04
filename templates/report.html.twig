@@ -1,134 +1,207 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-  Redovisning
+	Redovisning
 {% endblock %}
 
 {% block body %}
-  <h1 class="centered" style="margin-top: 5vh;">Redovisning</h1>
-  <div class="report-container">
-    <aside class="left-border">
-      <h2 class="double-bottom">Innehåll</h2>
-      <ul class="">
-        <li>
-          <a href="#kmom01">Kmom01</a>
-        </li>
-        <li>
-          <a href="#kmom02">Kmom02</a>
-        </li>
-        <li>
-          <a href="#kmom03">Kmom03</a>
-        </li>
-        <li>
-          <a href="#kmom04">Kmom04</a>
-        </li>
-        <li>
-          <a href="#kmom05">Kmom05</a>
-        </li>
-        <li>
-          <a href="#kmom06">Kmom06</a>
-        </li>
-        <li>
-          <a href="#kmom10">Kmom10</a>
-        </li>
-      </ul>
-    </aside>
+	<h1 class="centered" style="margin-top: 5vh;">Redovisning</h1>
+	<div class="report-container">
+		<aside class="left-border">
+			<h2 class="double-bottom">Innehåll</h2>
+			<ul class="">
+				<li>
+					<a href="#kmom01">Kmom01</a>
+				</li>
+				<li>
+					<a href="#kmom02">Kmom02</a>
+				</li>
+				<li>
+					<a href="#kmom03">Kmom03</a>
+				</li>
+				<li>
+					<a href="#kmom04">Kmom04</a>
+				</li>
+				<li>
+					<a href="#kmom05">Kmom05</a>
+				</li>
+				<li>
+					<a href="#kmom06">Kmom06</a>
+				</li>
+				<li>
+					<a href="#kmom10">Kmom10</a>
+				</li>
+			</ul>
+		</aside>
 
-    <main>
-      <section class="double-bottom" id="kmom01">
-        <h2>Kmom01</h2>
-        <p>
-          <b>Berätta kort om dina förkunskaper och tidigare erfarenheter kring objektorientering.</b>
-          <br />
-          Jag har tidigare arbetat med LeetCode-uppgifter där jag använt och skapat klasser för att lösa olika sorters problem. Jag har även gått en kurs i objektorienterad programmering med python under läsperiod 3 i Webbprogrammering på BTH. Under den kursen skapade jag två större projekt: ett ordbokshanteringssystem och ett Yahtzee-spel. Båda dessa projekt byggdes med hjälp av objektorienterad programmering, vilket jag tror kommer att underlätta mitt lärande i denna MVC-kurs. Nu får jag möjlighet att öva på koncept som klasser, metoder och objekt, men i ett annat programmeringsspråk. Jag har alltid upplevt det som en fördel att arbeta i olika språk, eftersom vissa begrepp blir mer begripliga i ett visst sammanhang. Det leder till en djupare förståelse och gör mig mer bekväm med att skriva kod i flera olika språk.
-          <br />
-          <br />
-          <b>Berätta kort om PHPs modell för klasser och objekt. Vilka är de grunder man behöver veta/förstå för att kunna komma igång och skapa sina första klasser?</b> <br />
-          Jag har tidigare gått kurser i serverbaserad programmering med PHP samt en kurs i C#. När jag började arbeta med PHP märkte jag att syntaxen på många sätt är lik den i C#, vilket underlättade förståelsen av PHP:s modell för klasser och objekt. För att komma igång med PHP:s objektorienterade programmering är det viktigt att förstå grundläggande begrepp som hur man skapar en klass med class, hur man instansierar ett objekt med new, och hur man använder åtkomstmodifierare som public, private, och protected. Det är också viktigt att förstå användningen av this-referensen, som används för att referera till objektets egna egenskaper och metoder. Dessutom spelar klasser som Response och Route en central roll i ramverk som Symfony, där de används för att hantera HTTP-svar och routing, vilket gör det möjligt att koppla ihop applikationens logik med webbrouting på ett strukturerat sätt.
-          <br />
-          <br />
-          <b>Reflektera kort över den kodbas, koden, strukturen som användes till uppgiften me/report, hur uppfattar du den?</b>
-          <br />
-          Jag uppfattar strukturen som pedagogisk och lätt att följa, vilket gör det smidigt att arbeta modulärt och återanvända kod. .htaccess-filen finns där för att applikationen ska kunna köras direkt på studentservern via webbläsaren, utan att behöva peka ut en specifik fil. composer.json fungerar ungefär som package.json i JavaScript-projekt, den ligger i projektets rotmapp och används för att installera och hantera beroenden på ett enkelt sätt. Strukturen följer också MVC-principerna tydligt, där till exempel kontrollerna ligger i mappen /src/Controller och vyerna i templates-mappen i roten av projektet. Detta hjälper till att separera ansvar i koden: logiken ligger i kontrollerna (C) och det som visas för användaren hanteras i vyerna (V), vilket gör koden mer organiserad och lättare att underhålla.
-          <br />
-          <br />
-          <b>Med tanke på artikeln “PHP The Right Way”, vilka delar in den finner du extra intressanta och värdefulla? Är det några särskilda områden som du känner att du vill veta mer om? Lyft fram några delar av artikeln som du känner mer värdefulla.</b>
-          <br />
-          Dokumentet ger bra insikter om bästa praxis för PHP-utveckling. Jag uppskattade särskilt avsnitten om Composer, Dependency Injection samt S.O.L.I.D-principerna, som ger en solid grund för att skriva modulär och underhållbar kod. Dessa koncept hjälper till att skapa lösningar som är lätta att testa, återanvända och utöka utan att bryta mot principerna för god kodstruktur. Jag uppskattade även förklaringen av PDO för databaskopplingar, vilket erbjuder en säker och effektiv metod för interaktion med SQL- och MySQL-databaser. Jag skulle också vilja lära mig mer om att köra denna applikation i en container med Docker. Eftersom det inte ingår i kursen, planerar jag att under min fritid lägga tid på att fördjupa mig i och förstå detta koncept bättre.
-          <br />
-          <br />
-          <b>Vilken är din TIL för detta kmom?</b>
-          <br />
-          Min till för detta kmom är att jag har lärt mig hur man sätter upp, installerar, initierar och får en introduktion till Symfony-ramverket för PHP-baserade webbapplikationer enligt MVC-strukturen. Jag har även lärt mig hur man bygger enkla APIer som returnerar data i JSON-format via controllers samt hur man strukturerar routes och templates för API-endpoints.
-        </p>
-      </section>
-      <br />
-      <section class="double-bottom" id="kmom02">
-        <h2>Kmom02</h2>
-        <p>
-          <b>Förklara kort de objektorienterade konstruktionerna arv, komposition, interface och trait och hur de används i PHP.</b>
-          <br />
+		<main>
+			<section class="double-bottom" id="kmom01">
+				<h2>Kmom01</h2>
+				<p>
+					<b>Berätta kort om dina förkunskaper och tidigare erfarenheter kring objektorientering.</b>
+					<br/>
+					Jag har tidigare arbetat med LeetCode-uppgifter där jag använt och skapat klasser för att lösa olika sorters problem. Jag har även gått en kurs i objektorienterad programmering med python under läsperiod 3 i Webbprogrammering på BTH. Under den kursen skapade jag två större projekt: ett ordbokshanteringssystem och ett Yahtzee-spel. Båda dessa projekt byggdes med hjälp av objektorienterad programmering, vilket jag tror kommer att underlätta mitt lärande i denna MVC-kurs. Nu får jag möjlighet att öva på koncept som klasser, metoder och objekt, men i ett annat programmeringsspråk. Jag har alltid upplevt det som en fördel att arbeta i olika språk, eftersom vissa begrepp blir mer begripliga i ett visst sammanhang. Det leder till en djupare förståelse och gör mig mer bekväm med att skriva kod i flera olika språk.
+					<br/>
+					<br/>
+					<b>Berätta kort om PHPs modell för klasser och objekt. Vilka är de grunder man behöver veta/förstå för att kunna komma igång och skapa sina första klasser?</b>
+					<br/>
+					Jag har tidigare gått kurser i serverbaserad programmering med PHP samt en kurs i C#. När jag började arbeta med PHP märkte jag att syntaxen på många sätt är lik den i C#, vilket underlättade förståelsen av PHP:s modell för klasser och objekt. För att komma igång med PHP:s objektorienterade programmering är det viktigt att förstå grundläggande begrepp som hur man skapar en klass med class, hur man instansierar ett objekt med new, och hur man använder åtkomstmodifierare som public, private, och protected. Det är också viktigt att förstå användningen av this-referensen, som används för att referera till objektets egna egenskaper och metoder. Dessutom spelar klasser som Response och Route en central roll i ramverk som Symfony, där de används för att hantera HTTP-svar och routing, vilket gör det möjligt att koppla ihop applikationens logik med webbrouting på ett strukturerat sätt.
+					<br/>
+					<br/>
+					<b>Reflektera kort över den kodbas, koden, strukturen som användes till uppgiften me/report, hur uppfattar du den?</b>
+					<br/>
+					Jag uppfattar strukturen som pedagogisk och lätt att följa, vilket gör det smidigt att arbeta modulärt och återanvända kod. .htaccess-filen finns där för att applikationen ska kunna köras direkt på studentservern via webbläsaren, utan att behöva peka ut en specifik fil. composer.json fungerar ungefär som package.json i JavaScript-projekt, den ligger i projektets rotmapp och används för att installera och hantera beroenden på ett enkelt sätt. Strukturen följer också MVC-principerna tydligt, där till exempel kontrollerna ligger i mappen /src/Controller och vyerna i templates-mappen i roten av projektet. Detta hjälper till att separera ansvar i koden: logiken ligger i kontrollerna (C) och det som visas för användaren hanteras i vyerna (V), vilket gör koden mer organiserad och lättare att underhålla.
+					<br/>
+					<br/>
+					<b>Med tanke på artikeln “PHP The Right Way”, vilka delar in den finner du extra intressanta och värdefulla? Är det några särskilda områden som du känner att du vill veta mer om? Lyft fram några delar av artikeln som du känner mer värdefulla.</b>
+					<br/>
+					Dokumentet ger bra insikter om bästa praxis för PHP-utveckling. Jag uppskattade särskilt avsnitten om Composer, Dependency Injection samt S.O.L.I.D-principerna, som ger en solid grund för att skriva modulär och underhållbar kod. Dessa koncept hjälper till att skapa lösningar som är lätta att testa, återanvända och utöka utan att bryta mot principerna för god kodstruktur. Jag uppskattade även förklaringen av PDO för databaskopplingar, vilket erbjuder en säker och effektiv metod för interaktion med SQL- och MySQL-databaser. Jag skulle också vilja lära mig mer om att köra denna applikation i en container med Docker. Eftersom det inte ingår i kursen, planerar jag att under min fritid lägga tid på att fördjupa mig i och förstå detta koncept bättre.
+					<br/>
+					<br/>
+					<b>Vilken är din TIL för detta kmom?</b>
+					<br/>
+					Min till för detta kmom är att jag har lärt mig hur man sätter upp, installerar, initierar och får en introduktion till Symfony-ramverket för PHP-baserade webbapplikationer enligt MVC-strukturen. Jag har även lärt mig hur man bygger enkla APIer som returnerar data i JSON-format via controllers samt hur man strukturerar routes och templates för API-endpoints.
+				</p>
+			</section>
+			<br/>
+			<section class="double-bottom" id="kmom02">
+				<h2>Kmom02</h2>
+				<p>
+					<b>Förklara kort de objektorienterade konstruktionerna arv, komposition, interface och trait och hur de används i PHP.</b>
+					<br/>
 
-          <b>Arv</b> gör det möjligt att skapa en ny klass baserad på en basklass. Det görs genom att använda nyckelordet <code>extends</code> i subklassen, vilket innebär att subklassen ärver egenskaper och metoder från basklassen. I min lösning är <code>Card</code> basklassen, medan <code>CardGraphic</code> är en subklass som ärver från <code>Card</code>.
-          <br />
-          <b>Komposition</b> innebär att en klass innehåller instanser av en eller flera andra klasser som attribut. I min lösning har jag skapat klassen <code>Deck</code>, som innehåller <code>Card</code>-objekt.
-          <br />
-          <b>Interface</b> definierar endast vilka metoder en klass måste implementera. Alla metoder som deklareras i ett interface är publika, och vi använder nyckelordet <code>interface</code> istället för <code>class</code>. I min lösning implementerar klassen <code>CardGraphic</code> interfacet <code>JsonSerializable</code> för att kunna konvertera objektet till JSON.
-          <br />
-          <b>Trait</b> är en återanvändbar samling metoder som kan inkluderas i olika klasser utan att använda arv. Traits används när man vill dela logik mellan flera klasser utan att påverka deras arvshierarki.
-          <br /><br />
+					<b>Arv</b>
+					gör det möjligt att skapa en ny klass baserad på en basklass. Det görs genom att använda nyckelordet
+					<code>extends</code>
+					i subklassen, vilket innebär att subklassen ärver egenskaper och metoder från basklassen. I min lösning är
+					<code>Card</code>
+					basklassen, medan
+					<code>CardGraphic</code>
+					är en subklass som ärver från
+					<code>Card</code>.
+					<br/>
+					<b>Komposition</b>
+					innebär att en klass innehåller instanser av en eller flera andra klasser som attribut. I min lösning har jag skapat klassen
+					<code>Deck</code>, som innehåller
+					<code>Card</code>-objekt.
+					<br/>
+					<b>Interface</b>
+					definierar endast vilka metoder en klass måste implementera. Alla metoder som deklareras i ett interface är publika, och vi använder nyckelordet
+					<code>interface</code>
+					istället för
+					<code>class</code>. I min lösning implementerar klassen
+					<code>CardGraphic</code>
+					interfacet
+					<code>JsonSerializable</code>
+					för att kunna konvertera objektet till JSON.
+					<br/>
+					<b>Trait</b>
+					är en återanvändbar samling metoder som kan inkluderas i olika klasser utan att använda arv. Traits används när man vill dela logik mellan flera klasser utan att påverka deras arvshierarki.
+					<br/><br/>
 
-          <b>Berätta om din implementation från uppgiften. Hur löste du uppgiften, är du nöjd/missnöjd, vilken förbättringspotential ser du i din kod och dina klasser?</b>
-          <br /><br />
+					<b>Berätta om din implementation från uppgiften. Hur löste du uppgiften, är du nöjd/missnöjd, vilken förbättringspotential ser du i din kod och dina klasser?</b>
+					<br/><br/>
 
-          Jag har skapat tre klasser: <code>Card</code>, <code>CardGraphic</code> och <code>Deck</code>. Jag använde arv för att återanvända kod i <code>CardGraphic</code> och uppnå DRY-principen, samt komposition i <code>Deck</code> för att hantera kortleken och generera JSON-API.
+					Jag har skapat tre klasser:
+					<code>Card</code>,
+					<code>CardGraphic</code>
+					och
+					<code>Deck</code>. Jag använde arv för att återanvända kod i
+					<code>CardGraphic</code>
+					och uppnå DRY-principen, samt komposition i
+					<code>Deck</code>
+					för att hantera kortleken och generera JSON-API.
+																														
+																														          Jag är ganska nöjd med min lösning, men jag märker att det säkert finns förbättringspotential eftersom vi fortfarande är tidigt i kursen. Jag har lyckats hålla klasserna rena, enkla och fokuserade. En förbättring skulle kunna vara att generera JSON-respons även tillsammans med mina routes till kortspelsapplikationen, och att använda gemensamma funktioner för logik som används både i JSON-API:n och i applikationsroutes, vilket skulle göra koden ännu mer DRY. Dessutom behöver jag förbättra felhanteringen för mina routes och förbättra strukturen på mina JSON-svar.
 
-          Jag är ganska nöjd med min lösning, men jag märker att det säkert finns förbättringspotential eftersom vi fortfarande är tidigt i kursen. Jag har lyckats hålla klasserna rena, enkla och fokuserade. En förbättring skulle kunna vara att generera JSON-respons även tillsammans med mina routes till kortspelsapplikationen, och att använda gemensamma funktioner för logik som används både i JSON-API:n och i applikationsroutes, vilket skulle göra koden ännu mer DRY. Dessutom behöver jag förbättra felhanteringen för mina routes och förbättra strukturen på mina JSON-svar.
+					<br/>
+					<br/>
+					<b>Vilka är dina reflektioner så här långt med att jobb i Symfony med applikationskod enligt MVC?</b>
+					<br>
 
-          <br />
-          <br />
-          <b>Vilka är dina reflektioner så här långt med att jobb i Symfony med applikationskod enligt MVC?</b>
-          <br>
+					Det har varit väldigt mycket läsning om ramverket, och jag har behövt ta del av mycket dokumentation. Men jag tycker att det har blivit tydligare varför det är fördelaktigt att separera Model, View och Controller i ett ramverk som Symfony – särskilt i större projekt.
+																														
+																														          Det jag tycker är roligast hittills är att skapa API:er i Symfony och möjligheten att kommunicera mellan olika delar av applikationen. Även rendering av templates känns smidigt. Överlag känns allt mycket bättre nu efter att jag har slutfört detta kursmoment, och jag känner mig mer trygg jämfört med hur det kändes i början.
+					<br/>
+					<br/>
+					<b>Vilken är din TIL för detta kmom?</b>
+					<br>
+					Min TIL för detta kmom är att jag har lärt mig strukturera applikationer enligt MVC-arkitektur mycket bättre än tidigare. Jag har även lärt mig hur man använder
+					<code>JsonSerializable</code>
+					för att anpassa JSON-svar. Dessutom börjar jag få ett grepp om Symfony-ramverket och känner mig allt mer bekväm med att arbeta i det.
+					<br/>
+					<br/>
+				</p>
+			</section>
+			<br/>
 
-          Det har varit väldigt mycket läsning om ramverket, och jag har behövt ta del av mycket dokumentation. Men jag tycker att det har blivit tydligare varför det är fördelaktigt att separera Model, View och Controller i ett ramverk som Symfony – särskilt i större projekt.
+			<section class="double-bottom" id="kmom03">
+				<h2>Kmom03</h2>
+				<p>
+					<b>Berätta hur det kändes att modellera ett kortspel med flödesdiagram och psuedokod. Var det något som du tror stödjer dig i din problemlösning och tankearbete för att strukturera koden kring en applikation?</b>
+					<br/>
+					Det var riktigt hjälpsamt att tänka igenom hela flödet innan jag började implementera spelet, och det hjälpte mig att strukturera mina tankar som jag sedan kunde bygga vidare på. Det gav mig en tydlig översikt över spelets kärnprocesser och hjälpte mig att identifiera vilka klasser och metoder jag kunde skapa för att koppla samman applikationens olika funktioner. Det underlättade också felsökningen i spelets flöde och har genom hela processen varit ett stöd i problemlösning och i hur jag skulle strukturera min kod.
+					<br/>
+					<br/>
 
-          Det jag tycker är roligast hittills är att skapa API:er i Symfony och möjligheten att kommunicera mellan olika delar av applikationen. Även rendering av templates känns smidigt. Överlag känns allt mycket bättre nu efter att jag har slutfört detta kursmoment, och jag känner mig mer trygg jämfört med hur det kändes i början.
-          <br />
-          <br />
-          <b>Vilken är din TIL för detta kmom?</b>
-          <br>
-          Min TIL för detta kmom är att jag har lärt mig strukturera applikationer enligt MVC-arkitektur mycket bättre än tidigare. Jag har även lärt mig hur man använder <code>JsonSerializable</code> för att anpassa JSON-svar. Dessutom börjar jag få ett grepp om Symfony-ramverket och känner mig allt mer bekväm med att arbeta i det.
-          <br />
-          <br />
-        </p>
-      </section>
-      <br />
+					<b>Berätta om din implementation från uppgiften. Hur löste du uppgiften, är du nöjd/missnöjd, vilken förbättringspotential ser du i din kod och dina klasser?</b>
+					<br/>
+					Jag löste uppgiften genom att skapa en klass som innehåller hjälpfunktioner för att räkna poäng för kort i en array – både för spelaren och dealern. Denna används i min
+					<code>Game21Service-klass</code>, där spelets kärnprocesser är definierade som metoder. Jag visar spelets sessionsdata via game/api i JSON-format.
+																		
+																		Jag har också en lättförståelig controller som heter
+					<code>CardGameController21</code>
+					och definierar alla routes för min applikation. Den renderar vyerna för startsida, dokumentation, starta spel, avsluta spel, "hit" och "stand". Dessa routes använder sessionstorage samt klassmetoder från mina klasser:
+					<code>Game21Service, Card och Deck</code>.
+																			Jag har skapat fyra templates:
+					<code>
+						start.html.twig</code>
+					och
+					<code>
+						end_game.html.twig
+					</code>
+					för spelet,
+					<code>home.html.twig
+					</code>
+					som landningssida samt en för dokumentationen (<code>
+						docs.html.twig</code>) som länkas från landningssidan.
 
-      <section class="double-bottom" id="kmom03">
-        <h2>Kmom03</h2>
-        <p>Text för kmom03...</p>
-      </section>
-      <br />
-      <section class="double-bottom" id="kmom04">
-        <h2>Kmom04</h2>
-        <p>Text för kmom04...</p>
-      </section>
-      <br />
-      <section class="double-bottom" id="kmom05">
-        <h2>Kmom05</h2>
-        <p>Text för kmom05...</p>
-      </section>
-      <br />
-      <section class="double-bottom" id="kmom06">
-        <h2>Kmom06</h2>
-        <p>Text för kmom06...</p>
-      </section>
-      <br />
-      <section class="double-bottom" id="kmom10">
-        <h2>Kmom10</h2>
-        <p>Text för kmom10...</p>
-      </section>
-      <br />
-    </main>
-  </div>
-{% endblock %}
+					<br/>
+					Jag behöver fokusera mer på att modularisera applikationen och följa PHP:s SOLID-principer för att förbättra kodens struktur och underhållbarhet. Jag ser potential att använda dessa principer mer för att skriva mer återanvändbar och flexibel kod, vilket kommer att göra det enklare att bygga ut och underhålla applikationen i framtiden.
+					<br/>
+					<br/>
+					<b>Vilken är din känsla för att koda i ett ramverk som Symfony, så här långt in i kursen?</b>
+					<br/>
+					Jag börjar känna mig mer bekväm med Symfony och MVC-arkitekturen, och jag förstår bättre hur en Controller ska utnyttja modeller och visa innehåll genom Views. Samtidigt känner jag att det finns mer att lära när det gäller att strukturera och dela upp koden på ett modulärt sätt inom Symfony. Det har fungerat bra när jag jobbat med Python, JavaScript och React-projekt, men i Symfony har det varit lite mer utmanande att dela upp koden effektivt. Det är något jag kommer fokusera mer på i kommande kursmoment inför examinationen. Jag ser stor potential i ramverket och vill lära mig att skriva abstrakta klasser för att kunna återanvända kod enligt DRY-principen.
+					<br/>
+					<br/>
+					<b>Vilken är din TIL för detta kmom?</b>
+					<br>
+					Min TIL för detta kursmoment var att lära mig vikten av att få ner mina tankar och grundläggande lösning på papper, något som sedan kan användas som stöd när man problemlöser. Jag lärde mig mest genom att tolka PHPStan-varningar för att uppnå bättre kodkvalitet samt att följa PHP:s kodstandarder.
+					<br/>
+					<br/>
+				</p>
+			</section>
+			<br/>
+			<section class="double-bottom" id="kmom04">
+				<h2>Kmom04</h2>
+				<p>Text för kmom04...</p>
+			</section>
+			<br/>
+			<section class="double-bottom" id="kmom05">
+				<h2>Kmom05</h2>
+				<p>Text för kmom05...</p>
+			</section>
+			<br/>
+			<section class="double-bottom" id="kmom06">
+				<h2>Kmom06</h2>
+				<p>Text för kmom06...</p>
+			</section>
+			<br/>
+			<section class="double-bottom" id="kmom10">
+				<h2>Kmom10</h2>
+				<p>Text för kmom10...</p>
+			</section><br/>
+		</p>
+	</main>
+</div>{% endblock %}

@@ -32,9 +32,9 @@ class Game21Service
 
     /**
      * @return array{
-     *     player_cards: Card[], 
-     *     dealer_cards: Card[], 
-     *     player_points: int, 
+     *     player_cards: Card[],
+     *     dealer_cards: Card[],
+     *     player_points: int,
      *     dealer_points: int
      * }
      */
@@ -76,7 +76,7 @@ class Game21Service
 
     /**
      * Determine the result of the game based on points.
-     * 
+     *
      * @return string
      */
 
@@ -99,7 +99,7 @@ class Game21Service
     }
     /**
      * @param \App\Card\Card[] $cards
-     * 
+     *
      * @return int
      */
     public function getPoints($cards): int

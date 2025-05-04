@@ -145,7 +145,7 @@ class ApiController extends AbstractController
                 'points' => $playerPoints
             ],
             'dealer' => [
-                'cards' => $showDealer ? array_map(fn($card) => (string) $card, $dealerCards) : ['Hidden'],
+                'cards' => $showDealer ? array_map(fn ($card) => (string) $card, $dealerCards) : ['Hidden'],
                 // 'cards' => is_array($dealerCards) ? array_map(fn ($card) => (string) $card, $dealerCards) : ['Hidden'],
                 // 'cards' => $showDealer
                 //     ? array_map(
