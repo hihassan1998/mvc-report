@@ -24,6 +24,12 @@ class CardGameController21 extends AbstractController
         return $this->render('card21/home.html.twig');
     }
 
+    #[Route("/game/doc", name: "21card_docs")]
+    public function docs(): Response
+    {
+        return $this->render('card21/docs.html.twig');
+    }
+
     #[Route("/21card/start", name: "game21_start")]
     public function startGame(SessionInterface $session): Response
     {

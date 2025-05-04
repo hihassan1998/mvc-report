@@ -6,81 +6,84 @@
 
 {% block body %}
 	<div class="report-container report-container-mob">
-		{# <aside class="toc">
-		      <h1>21 Card <br />game</h1>
-		      <span style="font-size:100px;">&#127137;</span>
-		    </aside> #}
-		{# <main class="centered"> #}
-			<main>
-				<div class="centered"> <span style="font-size:80px;">&#127137;</span>
+		<main>
+			<div class="centered ">
+				<span style="font-size:80px;">&#127137;</span>
 				<span style="font-size:80px;">&#127137;</span>
 				<span style="font-size:80px;">:21</span>
 				<span style="font-size:80px;">&#127137;</span>
 				<h1>Welcome to the 21-Card Game!</h1>
 			</div>
 			<div>
-				<p>
-					Explore a simple card game where you can view a full deck, shuffle it, and draw cards one by one or multiple at a time. Perfect for learning how a classic deck works — try it out and see what you draw!
-					<br/>
-					To learn more about the card game visit:
-					<a href="https://sv.wikipedia.org/wiki/Tjugoett_(kortspel)">Twenty-One:Card game</a>
-					<br/>
-				</p>
-				<hr>
-				<hr>
-				<h2>Class structure and UML diagram</h2>
-				<h3>Classes:</h3>
-				<br/>
-				<ol>
-					<li>
-						<b>Card:</b>
-						A base class that represents a playing card with suit and value properties. It provides methods to retrieve these attributes.
-					</li>
-					<br/>
-					<li>
-						<b>CardGraphic:</b>
-						This class is a extention of Card class and adds a getGraphic() method that returns a Unicode symbol for each card.
-					</li>
-					<br/>
-					<li>
-						<b>Deck:</b>
-						This class containes a collection of Card objects. This class has the method to create, shuffle and draw card from the collection of cards in the game that is a total of 52 at the start excluding the jockers.
-					</li>
-					<br/>
-				</ol>
-				<h3>Relationships between classes:</h3>
-				<br/>
-				<ul>
-					<li>
-						<b>Inheritance:</b>
-						The CardGraphic-class inherits from the Card-class using the 'extends' keyword in php.
-					</li>
-					<li>
-						<b>Composition:</b>
-						The Deck-class has many Card-objects.
-					</li>
-				</ul>
-				<br/>
+				<div class="double-bottom">
 
-				<h3>UML Diagram:</h3>
-				<a href="{{ asset('img/car-gameUML.png') }}"><img class="centered;" src="{{ asset('img/car-gameUML.png') }}" alt="diagram for classes"/></a>
-				<br/>
-				<br/>
-				<hr/>
-				<br>
+					<h2>
+						Instructions – 21 Card Game
+					</h2>
+					<p>
+						Get as close to 21 points as possible without going over (busting).
+						<br>
+					</p>
+					<h4>
+						Scoring rules:</h4>
+					<p>
+						Card Values:
+						<br>
+						<br>
+						Number cards: Face value (2–10)
+						<br>
+						<br>
+						Face cards (J, Q, K): 10 points
+						<br>
+						<br>
+						Ace: 14 points, but switches to 1 if needed to avoid bust
+						<br>
+					</p>
+					<h4>
+						How to Play:</h4>
+					<p>
+						<br>
+						- Press "Play 21: Cards game" to shuffle and begin.
+						<br>
+						<br>
+						- Press "Hit" to draw a card and add it to your total.
+						<br>
+						<br>
+						- Press "Stand" to end your turn and let the dealer play.
+						<br>
+						<br>
+						- Dealer draws after player stands.
+						<br>
+						<br>
+						- The player with the higher score under 21 wins!
+					</p>
+				</div>
+			</div>
+			<br/>
+			<p class="double-bottom">
+				To learn more about the card game visit:
+				<a href="https://sv.wikipedia.org/wiki/Tjugoett_(kortspel)">Twenty-One:Card game</a>
+			</p>
+			<div class="centered">
+				<form action="{{ path('game21_reset') }}" method="get">
+					<button class="btn-game" type="submit">Play 21:Cards game</button>
+				</form>
+			</div>
+			<br>
+			<div class="centered double-bottom">
 				<h3>List of routes</h3>
-				<ul>
+				<ul class="unset-list">
 					<li>
 						Session storage route:
 						<a href="{{ path('session_store') }}">Link to Session variables</a>
 					</li>
 					<li>
-						Session storage route:
-						<a href="{{ path('game21_start') }}">Start 21 cards game</a>
+						Game docs:
+						<a href="{{ path('21card_docs') }}">Link to docs for 21 Cards game</a>
 					</li>
 
 				</ul>
 			</div>
-		</main>
-	</div>
-{% endblock %}
+		</div>
+	</main>
+</div>{% endblock %}

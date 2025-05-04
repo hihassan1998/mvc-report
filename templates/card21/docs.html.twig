@@ -1,0 +1,98 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Card Game
+{% endblock %}
+
+{% block body %}
+	{# <main class="centered"> #}
+	<main>
+		<div class="report-container report-container-mob">
+			<div>
+				<h1>Documentation
+				</h1>
+				<div class="centered">
+					<span style="font-size:80px;">&#127137;</span>
+					<span style="font-size:80px;">&#127137;</span>
+					<span style="font-size:80px;">:21</span>
+					<span style="font-size:80px;">&#127137;</span>
+				</div>
+<hr>
+<br>
+				<div class="double-bottom">
+					<form action="{{ path('game21_reset') }}" method="get">
+						<label>You can play the game at:
+						</label>
+						<button class="btn-game" type="submit">Cards:21</button>
+					</form>
+				</div>
+				<br>
+<hr>
+
+
+				<h2>Flow Chart</h2>
+				<div class="centered ">
+					<a href="{{ asset('img/flowchart21.jpg') }}"><img class="centered;" style="width:250px !important;" src="{{ asset('img/flowchart21.jpg') }}" alt="diagram for classes"/></a>
+				</div>
+                <br>
+
+					<h2 class="double-bottom">Psuedokod</h2>
+					<pre > 
+                    <code style="font: small-caption;">
+                    initialize_game()
+                    start_deck()
+                    shuffle_deck()
+
+                    // User taps button to draw a card
+                    hit()
+                    save_total_points_drawn_cards_to_session()
+                    calculate_player_points()
+
+                    if player_score > 21:
+                        show_message("Bust")
+                        end_game()
+
+                    if player_chooses_to_stand():
+                        while dealer_score < 17:
+                            dealer_draw_card()
+                            update_dealer_score()
+
+                        determine_winner()
+                        redirect_to_end_game_template()
+                    </code>
+                    </pre>
+				<div class="double-bottom">
+					<h2>Class structure</h2>
+					<ol class="unset-list">
+						<li>
+							<b>Game21Service:</b>
+							This service class contains the core game logic. It includes methods for drawing cards for the player, handling the dealer’s turn when the player chooses to stand, calculating scores, and storing relevant game data in the session.
+						</li>
+						<br/>
+
+						<li>
+							<b>GameHelper:</b>
+							A utility class responsible for calculating the total points of drawn cards. It handles special logic for face cards (Jack, Queen, King — all worth 10 points) and the Ace, which dynamically takes the value of 14 or 1 depending on whether counting it as 14 would cause a bust.
+						</li>
+						<br/>
+						<li>
+							<b>CardGameController21:</b>
+							A controller class that extends AbstractController. It defines the game routes such as the homepage, start game, draw card (hit), stand, game end, documentation, and game reset/restart.
+						</li>
+						<br/>
+						<li>
+							<b>Card, CardGraphic and Deck</b>
+							These classes were reused from
+							<code>kmom02</code>. They handle individual card properties, graphical representation, and deck management. For more information, see
+							<a href="{{ path('card_start') }}">
+								here</a>
+						</li>
+						<br/>
+					</ol>
+				</div>
+				<br/>
+				<br/>
+			</div>
+		</main>
+	</div>
+{% endblock %}
