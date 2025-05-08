@@ -2,6 +2,11 @@
 
 namespace App\Card;
 
+/**
+ * Class Card
+ *
+ * Represents a playing card with a suit and a value.
+ */
 class Card
 {
     private string $suit;
