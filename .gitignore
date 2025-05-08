@@ -43,3 +43,4 @@ yarn-error.log
 
 # ignore php docs folder
 .phpdoc/
+.doc/
