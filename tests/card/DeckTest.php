@@ -28,4 +28,25 @@ class DeckTest extends TestCase
         $deck->draw(5);
         $this->assertCount(47, $deck->getCards());
     }
+
+    public function testCountReturnsCorrectNumber(): void
+    {
+        $deck = new Deck();
+        $this->assertEquals(52, $deck->count());
+
+        $deck->draw(2);
+        $this->assertEquals(50, $deck->count());
+    }
+
+    public function testGetGroupedBySuit(): void
+{
+    $deck = new Deck();
+    $grouped = $deck->getGroupedBySuit();
+
+    $this->assertCount(4, $grouped);
+
+    foreach ($grouped as $suit => $cards) {
+        $this->assertCount(13, $cards, "Suit $suit should have 13 cards");
+    }
+}
 }
