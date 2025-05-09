@@ -83,7 +83,7 @@ class Game21ServiceTest extends TestCase
             ]);
     
         $this->session->expects($this->exactly(2))
-            ->method(constraint: 'set')
+            ->method( 'set')
             ->withAnyParameters();
     
         $this->service->dealerPlays($this->session);

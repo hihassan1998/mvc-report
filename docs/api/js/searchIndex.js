@@ -148,12 +148,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Card\\GameHelper",
             "name": "GameHelper",
-            "summary": "",
+            "summary": "Helper\u0020class\u0020for\u0020calcualtion\u0020of\u0020points\u0020in\u0020the\u002021\u0020Card\u0020game.",
             "url": "classes/App-Card-GameHelper.html"
         },                {
             "fqsen": "\\App\\Card\\GameHelper\u003A\u003AcalculatePoints\u0028\u0029",
             "name": "calculatePoints",
-            "summary": "",
+            "summary": "Calculate\u0020the\u0020total\u0020points\u0020of\u0020a\u0020given\u0020set\u0020of\u0020cards\u0020according\u0020to\u0020Game21\u0020rules.",
             "url": "classes/App-Card-GameHelper.html#method_calculatePoints"
         },                {
             "fqsen": "\\App\\Controller\\ApiController",
