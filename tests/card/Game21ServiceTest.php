@@ -5,6 +5,7 @@ namespace App\Tests\Card;
 use App\Card\Game21Service;
 use App\Card\GameHelper;
 use App\Card\Deck;
+use App\Card\Card; 
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
@@ -73,7 +74,7 @@ class Game21ServiceTest extends TestCase
 
         $deck->draw(1);
 
-        $dealerCards = [new \App\Card\Card("Hearts", "5")];
+        $dealerCards = [new Card("Hearts", "5")];
 
         $this->session->method('get')
             ->willReturnMap([
@@ -94,8 +95,8 @@ class Game21ServiceTest extends TestCase
     {
         $this->session->method('get')
             ->willReturnMap([
-                ['player_cards', null, [new \App\Card\Card('Spades', '10')]],
-                ['dealer_cards', null, [new \App\Card\Card('Diamonds', '8')]],
+                ['player_cards', null, [new Card('Spades', '10')]],
+                ['dealer_cards', null, [new Card('Diamonds', '8')]],
             ]);
 
         $result = $this->service->determineResult($this->session);
@@ -107,8 +108,8 @@ class Game21ServiceTest extends TestCase
     {
         $this->session->method('get')
             ->willReturnMap([
-                ['player_cards', null, [new \App\Card\Card('♠', '9')]],
-                ['dealer_cards', null, [new \App\Card\Card('♦', '9')]],
+                ['player_cards', null, [new Card('♠', '9')]],
+                ['dealer_cards', null, [new Card('♦', '9')]],
             ]);
 
         $result = $this->service->determineResult($this->session);
@@ -120,8 +121,8 @@ class Game21ServiceTest extends TestCase
     {
         $this->session->method('get')
             ->willReturnMap([
-                ['player_cards', null, [new \App\Card\Card('♠', '7')]],
-                ['dealer_cards', null, [new \App\Card\Card('♦', '9')]],
+                ['player_cards', null, [new Card('♠', '7')]],
+                ['dealer_cards', null, [new Card('♦', '9')]],
             ]);
 
         $result = $this->service->determineResult($this->session);
