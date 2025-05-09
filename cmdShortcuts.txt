@@ -34,7 +34,7 @@ symfony server:start
 
 git tag
 
-git tag -a v3.1.2 -m "Relaese before linting"
+git tag -a v4.0.0 -m "Relaese before linting"
 git tag -a v2.1.3 -m"Fourth release kmom02 Card-Game"
 
 git push  --tags    OR   git push origin --tags

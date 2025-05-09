@@ -98,8 +98,7 @@
             "@phpstan"
         ],
         "phpdoc": "tools/phpdoc/phpdoc --config=tools/phpdoc/phpdoc.xml",
-        "phpunit": "XDEBUG_MODE=coverage vendor/bin/phpunit --coverage-html coverage-report --coverage-clover clover.xml"
-
+        "phpunit": "XDEBUG_MODE=coverage vendor/bin/phpunit --coverage-html docs/coverage --coverage-clover docs/coverage/coverage.clove"
     },
     "conflict": {
         "symfony/symfony": "*"
