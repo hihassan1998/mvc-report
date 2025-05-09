@@ -68,3 +68,7 @@ tools/phpstan/vendor/bin/phpstan analyse src
 composer phpmd
 composer phpstan
 composer lint
+
+#Run php docs and php unit testing
+composer phpdoc
+composer phpunit

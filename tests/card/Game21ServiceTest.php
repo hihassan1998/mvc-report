@@ -1,0 +1,131 @@
+<?php
+
+namespace App\Tests\Card;
+
+use App\Card\Game21Service;
+use App\Card\GameHelper;
+use App\Card\Deck;
+use PHPUnit\Framework\TestCase;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
+
+
+class Game21ServiceTest extends TestCase
+{
+    private SessionInterface $session;
+    private Game21Service $service;
+
+    protected function setUp(): void
+    {
+        $this->session = $this->createMock(SessionInterface::class);
+        $helper = new GameHelper();
+        $this->service = new Game21Service($helper);
+    }
+
+    public function testInitializeGame(): void
+    {
+        $this->session->expects($this->exactly(4))
+            ->method('set')
+            ->withConsecutive(
+                [$this->equalTo('deck21'), $this->isInstanceOf(Deck::class)],
+                [$this->equalTo('player_cards'), $this->equalTo([])],
+                [$this->equalTo('dealer_cards'), $this->equalTo([])],
+                [$this->equalTo('show_dealer'), $this->equalTo(false)]
+            );
+
+        $this->service->initializeGame($this->session);
+        $this->assertTrue(true);
+    }
+
+
+    public function testPlayerHit(): void
+    {
+        $deck = new Deck(); // unshuffled, so first card is Hearts Ace
+
+        $this->session->method('get')
+            ->willReturnMap([
+                ['deck21', null, $deck],
+                ['player_cards', [], []],
+                ['dealer_cards', [], []],
+            ]);
+
+        $this->session->expects($this->exactly(2))
+            ->method('set');
+
+        $result = $this->service->playerHit($this->session);
+
+        $this->assertArrayHasKey('player_cards', $result);
+        $this->assertArrayHasKey('dealer_cards', $result);
+        $this->assertArrayHasKey('player_points', $result);
+        $this->assertArrayHasKey('dealer_points', $result);
+        $this->assertCount(1, $result['player_cards']);
+    }
+
+
+
+
+
+
+
+
+    public function testDealerPlays(): void
+    {
+        $deck = new Deck();
+
+        $deck->draw(1);
+
+        $dealerCards = [new \App\Card\Card("Hearts", "5")];
+
+        $this->session->method('get')
+            ->willReturnMap([
+                ['deck21', null, $deck],
+                ['dealer_cards', [], $dealerCards],
+            ]);
+
+        $this->session->expects($this->exactly(2))
+            ->method('set');
+
+        $this->service->dealerPlays($this->session);
+
+        $this->assertTrue(true);
+    }
+
+
+    public function testDetermineResultPlayerWins(): void
+    {
+        $this->session->method('get')
+            ->willReturnMap([
+                ['player_cards', null, [new \App\Card\Card('Spades', '10')]],
+                ['dealer_cards', null, [new \App\Card\Card('Diamonds', '8')]],
+            ]);
+
+        $result = $this->service->determineResult($this->session);
+
+        $this->assertEquals('You win!', $result);
+    }
+
+    public function testDetermineResultTie(): void
+    {
+        $this->session->method('get')
+            ->willReturnMap([
+                ['player_cards', null, [new \App\Card\Card('♠', '9')]],
+                ['dealer_cards', null, [new \App\Card\Card('♦', '9')]],
+            ]);
+
+        $result = $this->service->determineResult($this->session);
+
+        $this->assertEquals("It's a tie!", $result);
+    }
+
+    public function testDetermineResultDealerWins(): void
+    {
+        $this->session->method('get')
+            ->willReturnMap([
+                ['player_cards', null, [new \App\Card\Card('♠', '7')]],
+                ['dealer_cards', null, [new \App\Card\Card('♦', '9')]],
+            ]);
+
+        $result = $this->service->determineResult($this->session);
+
+        $this->assertEquals("Dealer won, you lose!", $result);
+    }
+}

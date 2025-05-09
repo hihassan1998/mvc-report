@@ -111,8 +111,8 @@
 					och uppnå DRY-principen, samt komposition i
 					<code>Deck</code>
 					för att hantera kortleken och generera JSON-API.
-																														
-																														          Jag är ganska nöjd med min lösning, men jag märker att det säkert finns förbättringspotential eftersom vi fortfarande är tidigt i kursen. Jag har lyckats hålla klasserna rena, enkla och fokuserade. En förbättring skulle kunna vara att generera JSON-respons även tillsammans med mina routes till kortspelsapplikationen, och att använda gemensamma funktioner för logik som används både i JSON-API:n och i applikationsroutes, vilket skulle göra koden ännu mer DRY. Dessutom behöver jag förbättra felhanteringen för mina routes och förbättra strukturen på mina JSON-svar.
+																																																							
+																																																							          Jag är ganska nöjd med min lösning, men jag märker att det säkert finns förbättringspotential eftersom vi fortfarande är tidigt i kursen. Jag har lyckats hålla klasserna rena, enkla och fokuserade. En förbättring skulle kunna vara att generera JSON-respons även tillsammans med mina routes till kortspelsapplikationen, och att använda gemensamma funktioner för logik som används både i JSON-API:n och i applikationsroutes, vilket skulle göra koden ännu mer DRY. Dessutom behöver jag förbättra felhanteringen för mina routes och förbättra strukturen på mina JSON-svar.
 
 					<br/>
 					<br/>
@@ -120,8 +120,8 @@
 					<br>
 
 					Det har varit väldigt mycket läsning om ramverket, och jag har behövt ta del av mycket dokumentation. Men jag tycker att det har blivit tydligare varför det är fördelaktigt att separera Model, View och Controller i ett ramverk som Symfony – särskilt i större projekt.
-																														
-																														          Det jag tycker är roligast hittills är att skapa API:er i Symfony och möjligheten att kommunicera mellan olika delar av applikationen. Även rendering av templates känns smidigt. Överlag känns allt mycket bättre nu efter att jag har slutfört detta kursmoment, och jag känner mig mer trygg jämfört med hur det kändes i början.
+																																																							
+																																																							          Det jag tycker är roligast hittills är att skapa API:er i Symfony och möjligheten att kommunicera mellan olika delar av applikationen. Även rendering av templates känns smidigt. Överlag känns allt mycket bättre nu efter att jag har slutfört detta kursmoment, och jag känner mig mer trygg jämfört med hur det kändes i början.
 					<br/>
 					<br/>
 					<b>Vilken är din TIL för detta kmom?</b>
@@ -148,12 +148,12 @@
 					<br/>
 					Jag löste uppgiften genom att skapa en klass som innehåller hjälpfunktioner för att räkna poäng för kort i en array – både för spelaren och dealern. Denna används i min
 					<code>Game21Service-klass</code>, där spelets kärnprocesser är definierade som metoder. Jag visar spelets sessionsdata via game/api i JSON-format.
-																		
-																		Jag har också en lättförståelig controller som heter
+																																																
+																																																Jag har också en lättförståelig controller som heter
 					<code>CardGameController21</code>
 					och definierar alla routes för min applikation. Den renderar vyerna för startsida, dokumentation, starta spel, avsluta spel, "hit" och "stand". Dessa routes använder sessionstorage samt klassmetoder från mina klasser:
 					<code>Game21Service, Card och Deck</code>.
-																			Jag har skapat fyra templates:
+																																																	Jag har skapat fyra templates:
 					<code>
 						start.html.twig</code>
 					och
@@ -185,7 +185,32 @@
 			<br/>
 			<section class="double-bottom" id="kmom04">
 				<h2>Kmom04</h2>
-				<p>Text för kmom04...</p>
+				<p>
+					<b>Berätta hur du upplevde att skriva kod som testar annan kod med PHPUnit och hur du upplever phpunit rent allmänt.
+					</b>
+					<br/>
+					hello
+					<br/>
+					<br/>
+					<b>Hur väl lyckades du med kodtäckningen av din kod, lyckades du nå mer än 90% kodtäckning?
+					</b>
+					<br/>
+					<br/>
+					<b>Upplever du din egen kod som “testbar kod” eller finns det delar i koden som är mer eller mindre testbar och finns det saker som kan göras för att förbättra kodens testbarhet?</b>
+					<br/>
+					<br/>
+					<b>Valde du att skriva om delar av din kod för att förbättra den eller göra den mer testbar, om så berätta lite hur du tänkte.</b>
+					<br/>
+					<br/>
+					<b>Fundera över om du anser att testbar kod är något som kan identifiera “snygg och ren kod”.</b>
+					<br/>
+					<br/>
+					<b>Vilken är din TIL för detta kmom?</b>
+					<br/>
+					Min TIL för detta kmom är att jag har lärt mig ....
+					<br/>
+					<br/>
+				</p>
 			</section>
 			<br/>
 			<section class="double-bottom" id="kmom05">

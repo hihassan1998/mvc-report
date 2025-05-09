@@ -43,4 +43,5 @@ yarn-error.log
 
 # ignore php docs folder
 .phpdoc/
-/docs/api/
+# uncomment  next line if no docs uploading required to repo
+# /docs/api/
