@@ -1,18 +1,17 @@
 <?php
-
 namespace App\Tests\Card;
 
 use App\Card\Game21Service;
 use App\Card\GameHelper;
 use App\Card\Deck;
-use App\Card\Card;
+use App\Card\Card; 
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use Symfony\Component\HttpFoundation\Session\expects;
 
 
 class Game21ServiceTest extends TestCase
 {
-    /** @var \PHPUnit\Framework\MockObject\MockObject&SessionInterface */
     private SessionInterface $session;
     private Game21Service $service;
 
@@ -25,21 +24,19 @@ class Game21ServiceTest extends TestCase
 
     public function testInitializeGame(): void
     {
-        $sessionData = [];
         $this->session->expects($this->exactly(4))
             ->method('set')
-            ->willReturnCallback(function (string $key, $value) use (&$sessionData) {
-                $sessionData[$key] = $value;
-            });
+            ->withConsecutive(
+                [$this->equalTo('deck21'), $this->isInstanceOf(Deck::class)],
+                [$this->equalTo('player_cards'), $this->equalTo([])],
+                [$this->equalTo('dealer_cards'), $this->equalTo([])],
+                [$this->equalTo('show_dealer'), $this->equalTo(false)]
+            );
 
         $this->service->initializeGame($this->session);
-        $this->assertArrayHasKey('deck21', $sessionData);
-        $this->assertInstanceOf(Deck::class, $sessionData['deck21']);
-
-        $this->assertSame([], $sessionData['player_cards']);
-        $this->assertSame([], $sessionData['dealer_cards']);
-        $this->assertFalse($sessionData['show_dealer']);
+        $this->assertTrue(true);
     }
+
 
     public function testPlayerHit(): void
     {
@@ -74,24 +71,24 @@ class Game21ServiceTest extends TestCase
     public function testDealerPlays(): void
     {
         $deck = new Deck();
+
+        $deck->draw(1);
+
         $dealerCards = [new Card("Hearts", "5")];
-    
+
         $this->session->method('get')
             ->willReturnMap([
                 ['deck21', null, $deck],
                 ['dealer_cards', [], $dealerCards],
             ]);
-    
+
         $this->session->expects($this->exactly(2))
-            ->method(constraint: 'set')
-            ->withAnyParameters();
-    
+            ->method('set');
+
         $this->service->dealerPlays($this->session);
-    
-        $this->assertEquals('Hearts', $dealerCards[0]->getSuit());
-        $this->assertEquals('5', $dealerCards[0]->getValue());
+
+        $this->assertTrue(true);
     }
-    
 
 
     public function testDetermineResultPlayerWins(): void

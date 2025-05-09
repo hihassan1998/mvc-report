@@ -5,7 +5,7 @@ use App\Card\Card;
 
 class CardTest extends TestCase
 {
-    public function testCardProperties()
+    public function testCardProperties(): void
     {
         $card = new Card('Hearts', 'King');
 
@@ -13,7 +13,7 @@ class CardTest extends TestCase
         $this->assertEquals('King', $card->getValue());
     }
 
-    public function testToString()
+    public function testToString(): void
     {
         $card = new Card('Spades', 'Ace');
         $this->assertEquals('Ace of Spades', (string) $card);

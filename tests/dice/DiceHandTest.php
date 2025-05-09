@@ -14,15 +14,6 @@ class DiceHandTest extends TestCase
         $this->assertEquals(1, $hand->getNumberDices());
     }
 
-    public function testRollDoesNotCrash(): void
-    {
-        $hand = new DiceHand();
-        $hand->add(new Dice());
-        $hand->roll();
-
-        $this->assertTrue(true); // ensures roll() runs without error
-    }
-
     public function testGetValuesReturnsArray(): void
     {
         $hand = new DiceHand();
@@ -30,7 +21,9 @@ class DiceHandTest extends TestCase
         $hand->roll();
         $values = $hand->getValues();
 
-        $this->assertIsArray($values);
+        $this->assertCount(1, $values);
+        $this->assertGreaterThanOrEqual(1, $values[0]);
+        $this->assertLessThanOrEqual(6, $values[0]);
     }
 
     public function testGetStringReturnsArray(): void
@@ -40,6 +33,7 @@ class DiceHandTest extends TestCase
         $hand->roll();
         $strings = $hand->getString();
 
-        $this->assertIsArray($strings);
+        $this->assertNotEmpty($strings);
+        $this->assertContainsOnly('string', $strings);
     }
 }

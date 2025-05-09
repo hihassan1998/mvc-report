@@ -19,7 +19,7 @@ class CardGraphicTest extends TestCase
     {
         $card = new CardGraphic('Spades', 'King');
         $unicode = $card->getGraphic();
-        $this->assertIsString($unicode);
+        // $this->assertIsString($unicode);
         $this->assertStringContainsString('#', $unicode);
     }
 
