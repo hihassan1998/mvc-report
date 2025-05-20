@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+  Book List
+{% endblock %}
+
+{% block body %}
+  <main>
+    <h1>All Books</h1>
+
+    {% if books is not empty %}
+      <table class="library-table" border="1" cellpadding="10" cellspacing="0" style="">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>ISBN</th>
+            <th>Author</th>
+            <th>Image</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for book in books %}
+            <tr>
+              <td>
+                <a href="{{ path('book_by_id', {'id': book.id}) }}">
+                  {{ book.title|e }}
+                </a>
+              </td>
+              <td>{{ book.isbn|e }}</td>
+              <td>{{ book.author|e }}</td>
+              <td>
+                <img src="/images/{{ book.image|e }}" alt="Cover for {{ book.title|e }}" style="max-height:100px;">
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+      <p>No books found.</p>
+    {% endif %}
+    
+  </main>
+{% endblock %}

@@ -69,6 +69,78 @@ final class BookController extends AbstractController
         );
         return $response;
     }
+    #[Route('/book/delete/{id}', name: 'product_delete_by_id')]
+    public function deleteBooktById(
+        ManagerRegistry $doctrine,
+        int $id
+    ): Response {
+        $entityManager = $doctrine->getManager();
+        $book = $entityManager->getRepository(Book::class)->find($id);
 
-    
+        if (!$book) {
+            throw $this->createNotFoundException(
+                'No book found for id ' . $id
+            );
+        }
+
+        $entityManager->remove($book);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('book_show_all');
+    }
+
+    // #[Route('/book/update/{id}/{value}', name: 'book_update')]
+    // public function updateBook(
+    //     ManagerRegistry $doctrine,
+    //     int $id,
+    //     int $value
+    // ): Response {
+    //     $entityManager = $doctrine->getManager();
+    //     $book = $entityManager->getRepository(Book::class)->find($id);
+
+    //     if (!$book) {
+    //         throw $this->createNotFoundException(
+    //             'No book found for id ' . $id
+    //         );
+    //     }
+
+    //     $book->setValue($value);
+    //     $entityManager->flush();
+
+    //     return $this->redirectToRoute('product_show_all');
+    // }
+    #[Route('/book/update/{id}/{title}', name: 'book_update')]
+    public function updateBookTitle(
+        ManagerRegistry $doctrine,
+        int $id,
+        string $title
+    ): Response {
+        $entityManager = $doctrine->getManager();
+        $book = $entityManager->getRepository(Book::class)->find($id);
+
+        if (!$book) {
+            throw $this->createNotFoundException(
+                'No book found for id ' . $id
+            );
+        }
+
+        $book->setTitle($title);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('book_show_all');
+    }
+    //  the /library view converable
+    #[Route('/book/view', name: 'book_view_all')]
+    public function viewAllProduct(
+        BookRepository $bookRepository
+    ): Response {
+        $books = $bookRepository->findAll();
+
+        $data = [
+            'books' => $books
+        ];
+
+        return $this->render('book/view.html.twig', $data);
+    }
+
 }

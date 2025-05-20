@@ -446,3 +446,16 @@ a:hover {
 }
 
 /* card game stylings kmom03 END */
+
+
+/* libray stlings kmom05 start */
+/* style lib table */
+table.library-table{
+    background-color: #fdc182;
+    border-radius: 0.5rem;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+
+
+/* libray stlings kmom05 end */
