@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Book{% endblock %}
+
+{% block body %}
+<main>
+  <h1>Edit Book: {{ book.title|e }}</h1>
+
+  {{ form_start(form) }}
+    {{ form_row(form.title) }}
+    {{ form_row(form.isbn) }}
+    {{ form_row(form.author) }}
+    {{ form_row(form.image) }}
+
+    <button class="btn-simp">Save</button>
+    <br>
+  {{ form_end(form) }}
+</main>
+
+{% endblock %}

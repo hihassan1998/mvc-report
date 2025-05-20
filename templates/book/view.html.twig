@@ -16,6 +16,7 @@
             <th>ISBN</th>
             <th>Author</th>
             <th>Image</th>
+            <th>Edit</th>
           </tr>
         </thead>
         <tbody>
@@ -30,6 +31,11 @@
               <td>{{ book.author|e }}</td>
               <td>
                 <img src="/images/{{ book.image|e }}" alt="Cover for {{ book.title|e }}" style="max-height:100px;">
+              </td>
+              <td>
+                <a href="{{ path('book_edit', {'id': book.id}) }}" title="Edit">
+                  🖉
+                </a>
               </td>
             </tr>
           {% endfor %}

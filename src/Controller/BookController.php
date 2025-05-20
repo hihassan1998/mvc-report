@@ -6,9 +6,13 @@ use App\Entity\Book;
 use Doctrine\Persistence\ManagerRegistry;
 use App\Repository\BookRepository;
 
+use App\Form\BookTypeForm;
+
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\HttpFoundation\Request;
+
 
 final class BookController extends AbstractController
 {
@@ -129,6 +133,8 @@ final class BookController extends AbstractController
 
         return $this->redirectToRoute('book_show_all');
     }
+
+
     //  the /library view converable
     #[Route('/book/view', name: 'book_view_all')]
     public function viewAllProduct(
@@ -142,5 +148,37 @@ final class BookController extends AbstractController
 
         return $this->render('book/view.html.twig', $data);
     }
+
+    // edit the book details
+    #[Route('/book/edit/{id}', name: 'book_edit')]
+    public function editBook(
+        Request $request,
+        ManagerRegistry $doctrine,
+        BookRepository $bookRepository,
+        int $id
+    ): Response {
+        $book = $bookRepository->find($id);
+
+        if (!$book) {
+            throw $this->createNotFoundException('Book not found');
+        }
+
+        $form = $this->createForm(BookTypeForm::class, $book);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $doctrine->getManager();
+            $entityManager->flush(); // Book already tracked, no need for persist()
+
+            return $this->redirectToRoute('book_view_all');
+        }
+
+        return $this->render('book/edit.html.twig', [
+            'form' => $form->createView(),
+            'book' => $book
+        ]);
+    }
+
+
 
 }
