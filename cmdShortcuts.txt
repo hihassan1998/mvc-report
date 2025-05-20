@@ -72,3 +72,21 @@ composer lint
 #Run php docs and php unit testing
 composer phpdoc
 composer phpunit
+
+
+## Create db:
+php bin/console doctrine:database:create
+ then :
+php bin/console make:entity
+ then migrate:
+php bin/console make:migration
+ apply migartions:
+php bin/console doctrine:migrations:migrate
+
+!! Do not forget to create and run the migration, if and when you update the entity classes. !!
+
+Run SQL toward the database
+You can use the console to do pure SQL toward the database.
+
+php bin/console dbal:run-sql 'SELECT * FROM product'
+cehck data in db:
