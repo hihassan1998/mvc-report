@@ -439,9 +439,9 @@ a:hover {
     color: red;
 }
 
-.game-message{
+.game-message {
     font-size: 4rem;
-    font-family:fantasy;
+    font-family: fantasy;
     color: #D88C5D;
 }
 
@@ -450,11 +450,23 @@ a:hover {
 
 /* libray stlings kmom05 start */
 /* style lib table */
-table.library-table{
+table.library-table {
     background-color: #fdc182;
     border-radius: 0.5rem;
 }
 
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
 
 
 

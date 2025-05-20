@@ -3,18 +3,39 @@
 {% block title %}Edit Book{% endblock %}
 
 {% block body %}
+
 <main>
   <h1>Edit Book: {{ book.title|e }}</h1>
 
-  {{ form_start(form) }}
-    {{ form_row(form.title) }}
-    {{ form_row(form.isbn) }}
-    {{ form_row(form.author) }}
-    {{ form_row(form.image) }}
+{{ form_start(form, {'attr': {'class': 'my-form'}}) }}
 
-    <button class="btn-simp">Save</button>
-    <br>
-  {{ form_end(form) }}
+<div class="form-group">
+  {{ form_label(form.title) }}
+  {{ form_widget(form.title, {'attr': {'class': 'form-control'}}) }}
+  {{ form_errors(form.title) }}
+</div>
+
+<div class="form-group">
+  {{ form_label(form.isbn) }}
+  {{ form_widget(form.isbn, {'attr': {'class': 'form-control'}}) }}
+  {{ form_errors(form.isbn) }}
+</div>
+
+<div class="form-group">
+  {{ form_label(form.author) }}
+  {{ form_widget(form.author, {'attr': {'class': 'form-control'}}) }}
+  {{ form_errors(form.author) }}
+</div>
+
+<div class="form-group">
+  {{ form_label(form.image) }}
+  {{ form_widget(form.image, {'attr': {'class': 'form-control'}}) }}
+  {{ form_errors(form.image) }}
+</div>
+
+<button class="btn btn-primary">Save</button>
+{{ form_end(form) }}
+
 </main>
 
 {% endblock %}
