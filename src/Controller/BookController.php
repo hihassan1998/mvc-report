@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Book;
 use Doctrine\Persistence\ManagerRegistry;
+use App\Repository\BookRepository;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -39,5 +40,19 @@ final class BookController extends AbstractController
         $entityManager->flush();
 
         return new Response('Saved new book with id ' . $book->getId());
+    }
+
+    #[Route('/book/show', name: 'book_show_all')]
+    public function showAllBook(
+        BookRepository $bookRepository
+    ): Response {
+        $books = $bookRepository
+            ->findAll();
+
+        $response = $this->json($books);
+        $response->setEncodingOptions(
+            $response->getEncodingOptions() | JSON_PRETTY_PRINT
+        );
+        return $response;
     }
 }
