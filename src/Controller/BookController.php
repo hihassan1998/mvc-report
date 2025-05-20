@@ -55,4 +55,20 @@ final class BookController extends AbstractController
         );
         return $response;
     }
+    #[Route('/book/show/{id}', name: 'book_by_id')]
+    public function showBookById(
+        BookRepository $bookRepository,
+        int $id
+    ): Response {
+        $book = $bookRepository
+            ->find($id);
+
+        $response = $this->json($book);
+        $response->setEncodingOptions(
+            $response->getEncodingOptions() | JSON_PRETTY_PRINT
+        );
+        return $response;
+    }
+
+    
 }
