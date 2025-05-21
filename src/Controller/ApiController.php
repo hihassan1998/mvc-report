@@ -5,6 +5,8 @@ namespace App\Controller;
 use App\Card\Deck;
 use App\Card\GameHelper;
 use App\Card\Card;
+use App\Repository\BookRepository;
+
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -135,7 +137,7 @@ class ApiController extends AbstractController
 
         $data = [
             'player' => [
-                'cards' => array_map(fn ($card) => (string) $card, $playerCards),
+                'cards' => array_map(fn($card) => (string) $card, $playerCards),
                 // 'cards' =>  is_array($playerCards) ? array_map(fn ($card) => (string) $card, $playerCards) : [],
                 // 'cards' => array_map(
                 //     fn($card) => is_object($card) && method_exists($card, '__toString') ? (string) $card : 'Invalid Card',
@@ -145,7 +147,7 @@ class ApiController extends AbstractController
                 'points' => $playerPoints
             ],
             'dealer' => [
-                'cards' => $showDealer ? array_map(fn ($card) => (string) $card, $dealerCards) : ['Hidden'],
+                'cards' => $showDealer ? array_map(fn($card) => (string) $card, $dealerCards) : ['Hidden'],
                 // 'cards' => is_array($dealerCards) ? array_map(fn ($card) => (string) $card, $dealerCards) : ['Hidden'],
                 // 'cards' => $showDealer
                 //     ? array_map(
@@ -163,6 +165,39 @@ class ApiController extends AbstractController
             $response->getEncodingOptions() | JSON_PRETTY_PRINT
         );
 
+        return $response;
+    }
+
+    // api route to json responce from library with all book
+
+    #[Route('api/library/books', name: 'book_show_all')]
+    public function showAllBook(
+        BookRepository $bookRepository
+    ): Response {
+        $books = $bookRepository
+            ->findAll();
+
+        $response = $this->json($books);
+        $response->setEncodingOptions(
+            $response->getEncodingOptions() | JSON_PRETTY_PRINT
+        );
+        return $response;
+    }
+    // show a book through its isbn
+    #[Route('api/library/book/{isbn}', name: 'book_by_isbn')]
+    public function showBookByIsbn(
+        BookRepository $bookRepository,
+        string $isbn
+    ): Response {
+        $book = $bookRepository->findOneBy(['isbn' => $isbn]);
+
+        if (!$book) {
+            return $this->json(['error' => 'Book not found'], 404);
+        }
+        $response = $this->json($book);
+        $response->setEncodingOptions(
+            $response->getEncodingOptions() | JSON_PRETTY_PRINT
+        );
         return $response;
     }
 

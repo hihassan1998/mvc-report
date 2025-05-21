@@ -19,9 +19,6 @@
 					<a href="#kmom03">Kmom03</a>
 				</li>
 				<li>
-					<a href="#kmom04">Kmom04</a>
-				</li>
-				<li>
 					<a href="#kmom05">Kmom05</a>
 				</li>
 				<li>
@@ -92,7 +89,8 @@
 						api/deck/draw
 						<br/>
 						<b>Beskrivning:</b>
-						Drar 1 kort från hela kortleken visar upp dem i en JSON<br> struktur samt antalet kort som är kvar i kortleken.
+						Drar 1 kort från hela kortleken visar upp dem i en JSON<br>
+						struktur samt antalet kort som är kvar i kortleken.
 					</p>
 				</li>
 				<li>
@@ -131,15 +129,47 @@
 					</p>
 				</li>
 			</ul>
-			<h2 id="kmom04">Kmom04</h2>
+			<h2 id="kmom05">Kmom05</h2>
+			<ul class="unset-list">
+				<li>
+					<p>
+						<b>Route Name:</b>
+						<a href="{{ path('book_show_all') }}">book_show_all</a>
+						<br/>
+						<b>Method:</b>
+						GET
+						<br/>
+						<b>Path:</b>
+						api/library/books
+						<br/>
+						<b>Beskrivning:</b>
+						Få upp all böcker från biblioteks applikation i en JSON struktur.
+					</p>
+				</li>
+				<li>
+					<b>Route Name:</b>
+					book_by_isbn
+					<br/>
+					<b>Method:</b>
+					GET
+					<br/>
+					<b>Path:</b>
+					api/library/books
+					<br/>
+					<b>Beskrivning:</b> Få upp en bok med dess isbn nummer. t.ex:
+					<a href="{{ path('book_by_isbn', { 'isbn': '12345-687-809' }) }}">
+						'Pyhton for Dummies' with ISBN 12345-687-809
+					</a>
+				</li>
+			</ul>
 		</main>
 		{# Test post requests apis
-				    <form action="{{ path('draw_card') }}" method="post">
-				      <button type="submit">Draw 1 Card</button>
-				    </form>
-				
-				    <form action="{{ path('draw_multiple_cards', { number: 5 }) }}" method="post">
-				      <button type="submit">Draw 5 Cards</button>
-				    </form> #}
+								    <form action="{{ path('draw_card') }}" method="post">
+								      <button type="submit">Draw 1 Card</button>
+								    </form>
+								
+								    <form action="{{ path('draw_multiple_cards', { number: 5 }) }}" method="post">
+								      <button type="submit">Draw 5 Cards</button>
+								    </form> #}
 	</div>
 {% endblock %}

@@ -46,20 +46,6 @@ final class BookController extends AbstractController
         return new Response('Saved new book with id ' . $book->getId());
     }
 
-
-    // #[Route('/book/show', name: 'book_show_all')]
-    // public function showAllBook(
-    //     BookRepository $bookRepository
-    // ): Response {
-    //     $books = $bookRepository
-    //         ->findAll();
-
-    //     $response = $this->json($books);
-    //     $response->setEncodingOptions(
-    //         $response->getEncodingOptions() | JSON_PRETTY_PRINT
-    //     );
-    //     return $response;
-    // }
     #[Route('/book/show/{id}', name: 'book_by_id')]
     public function showBookById(
         BookRepository $bookRepository,
@@ -94,26 +80,26 @@ final class BookController extends AbstractController
 
     //     return $this->redirectToRoute('product_show_all');
     // }
-    #[Route('/book/update/{id}/{title}', name: 'book_update')]
-    public function updateBookTitle(
-        ManagerRegistry $doctrine,
-        int $id,
-        string $title
-    ): Response {
-        $entityManager = $doctrine->getManager();
-        $book = $entityManager->getRepository(Book::class)->find($id);
+    // #[Route('/book/update/{id}/{title}', name: 'book_update')]
+    // public function updateBookTitle(
+    //     ManagerRegistry $doctrine,
+    //     int $id,
+    //     string $title
+    // ): Response {
+    //     $entityManager = $doctrine->getManager();
+    //     $book = $entityManager->getRepository(Book::class)->find($id);
 
-        if (!$book) {
-            throw $this->createNotFoundException(
-                'No book found for id ' . $id
-            );
-        }
+    //     if (!$book) {
+    //         throw $this->createNotFoundException(
+    //             'No book found for id ' . $id
+    //         );
+    //     }
 
-        $book->setTitle($title);
-        $entityManager->flush();
+    //     $book->setTitle($title);
+    //     $entityManager->flush();
 
-        return $this->redirectToRoute('book_show_all');
-    }
+    //     return $this->redirectToRoute('book_show_all');
+    // }
 
 
     //  the /library view converable
