@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Book Details
+{% endblock %}
+
+{% block body %}
+	<style>
+		.book-container {
+			display: flex;
+			flex-direction: column;
+            padding:1rem;
+			align-items: center;
+			border: 2px solid black;
+            border-radius:0.5rem;
+
+		}
+	</style>
+
+
+	<main>
+		<div class="book-container">
+
+			<h1>{{ book.title|e }}</h1>
+			<p>
+				<strong>Author:</strong>
+				{{ book.author|e }}</p>
+            <p>
+
+				<strong>ISBN:</strong>
+				{{ book.isbn|e }}</p>
+
+			<img src="{{ asset('img/' ~ book.image) }}" alt="Cover for {{ book.title|e }}" style="border:none; height:350px;">
+			<br>
+		</div>
+		<br>
+		<p>
+			<a class="btn" href="{{ path('book_view_all') }}">←
+			</a>
+		</p>
+	</main>
+{% endblock %}
