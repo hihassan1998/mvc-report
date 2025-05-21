@@ -1,49 +1,54 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-  Book List
+	Book List
 {% endblock %}
 
 {% block body %}
-  <main>
-    <h1>All Books</h1>
+	<main>
+		<h1>All Books</h1>
 
-    {% if books is not empty %}
-      <table class="library-table" border="1" cellpadding="10" cellspacing="0" style="">
-        <thead>
-          <tr>
-            <th>Title</th>
-            <th>ISBN</th>
-            <th>Author</th>
-            <th>Image</th>
-            <th>Edit</th>
-          </tr>
-        </thead>
-        <tbody>
-          {% for book in books %}
-            <tr>
-              <td>
-                <a href="{{ path('book_by_id', {'id': book.id}) }}">
-                  {{ book.title|e }}
-                </a>
-              </td>
-              <td>{{ book.isbn|e }}</td>
-              <td>{{ book.author|e }}</td>
-              <td>
-              <img src="{{ asset('img/' ~ book.image) }}" alt="Cover for {{ book.title|e }}" style="height:200px; max-width:100px;">
-              </td>
-              <td>
-                <a href="{{ path('book_edit', {'id': book.id}) }}" title="Edit">
-                  🖉
-                </a>
-              </td>
-            </tr>
-          {% endfor %}
-        </tbody>
-      </table>
-    {% else %}
-      <p>No books found.</p>
-    {% endif %}
-    
-  </main>
+		{% if books is not empty %}
+			<table class="library-table" border="1" cellpadding="10" cellspacing="0" style="">
+				<thead>
+					<tr>
+						<th>Title</th>
+						<th>ISBN</th>
+						<th>Author</th>
+						<th>Preview</th>
+						<th>Actions</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for book in books %}
+						<tr>
+							<td>
+								<a href="{{ path('book_view_by_id', {'id': book.id}) }}">
+									{{ book.title|e }}
+								</a>
+							</td>
+							<td>{{ book.isbn|e }}</td>
+							<td>{{ book.author|e }}</td>
+							<td>
+								<img src="{{ asset('img/' ~ book.image) }}" alt="Cover for {{ book.title|e }}" style="height:200px; max-width:100px;">
+							</td>
+							<td>
+								<a href="{{ path('book_edit', {'id': book.id}) }}" title="Edit">
+									🖉
+								</a>
+							<br>
+							<br>
+								<form method="post" action="{{ path('book_delete_by_id', {'id': book.id}) }}" style="display:inline;" onsubmit="return confirm('Delete this book?');">
+									<button type="submit" style="border:none; background:none; cursor:pointer;">🗑️</button>
+								</form>
+							</td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		{% else %}
+			<p>No books found.</p>
+		{% endif %}
+
+	</main>
 {% endblock %}

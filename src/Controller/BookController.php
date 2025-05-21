@@ -46,43 +46,20 @@ final class BookController extends AbstractController
         return new Response('Saved new book with id ' . $book->getId());
     }
 
-    #[Route('/book/new', name: 'book_new')]
-    public function newBook(
-        Request $request,
-        ManagerRegistry $doctrine
-    ): Response {
-        $book = new Book(); // new empty book entity
-        $form = $this->createForm(BookTypeForm::class, $book);
 
-        $form->handleRequest($request);
+    // #[Route('/book/show', name: 'book_show_all')]
+    // public function showAllBook(
+    //     BookRepository $bookRepository
+    // ): Response {
+    //     $books = $bookRepository
+    //         ->findAll();
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $doctrine->getManager();
-            $entityManager->persist($book);
-            $entityManager->flush();
-
-            return $this->redirectToRoute('book_view_all');
-        }
-
-        return $this->render('book/edit.html.twig', [
-            'form' => $form->createView(),
-            'book' => $book
-        ]);
-    }
-
-    #[Route('/book/show', name: 'book_show_all')]
-    public function showAllBook(
-        BookRepository $bookRepository
-    ): Response {
-        $books = $bookRepository
-            ->findAll();
-
-        $response = $this->json($books);
-        $response->setEncodingOptions(
-            $response->getEncodingOptions() | JSON_PRETTY_PRINT
-        );
-        return $response;
-    }
+    //     $response = $this->json($books);
+    //     $response->setEncodingOptions(
+    //         $response->getEncodingOptions() | JSON_PRETTY_PRINT
+    //     );
+    //     return $response;
+    // }
     #[Route('/book/show/{id}', name: 'book_by_id')]
     public function showBookById(
         BookRepository $bookRepository,
@@ -97,26 +74,6 @@ final class BookController extends AbstractController
         );
         return $response;
     }
-    #[Route('/book/delete/{id}', name: 'product_delete_by_id')]
-    public function deleteBooktById(
-        ManagerRegistry $doctrine,
-        int $id
-    ): Response {
-        $entityManager = $doctrine->getManager();
-        $book = $entityManager->getRepository(Book::class)->find($id);
-
-        if (!$book) {
-            throw $this->createNotFoundException(
-                'No book found for id ' . $id
-            );
-        }
-
-        $entityManager->remove($book);
-        $entityManager->flush();
-
-        return $this->redirectToRoute('book_show_all');
-    }
-
     // #[Route('/book/update/{id}/{value}', name: 'book_update')]
     // public function updateBook(
     //     ManagerRegistry $doctrine,
@@ -173,6 +130,23 @@ final class BookController extends AbstractController
         return $this->render('book/view.html.twig', $data);
     }
 
+    #[Route('/book/view/{id}', name: 'book_view_by_id')]
+public function viewBookById(
+    BookRepository $bookRepository,
+    int $id
+): Response {
+    $book = $bookRepository->find($id);
+
+    if (!$book) {
+        throw $this->createNotFoundException('Book not found');
+    }
+
+    return $this->render('book/book.html.twig', [
+        'book' => $book,
+    ]);
+}
+
+
     // edit the book details
     #[Route('/book/edit/{id}', name: 'book_edit')]
     public function editBook(
@@ -201,6 +175,52 @@ final class BookController extends AbstractController
             'form' => $form->createView(),
             'book' => $book
         ]);
+    }
+
+    #[Route('/book/new', name: 'book_new')]
+    public function newBook(
+        Request $request,
+        ManagerRegistry $doctrine
+    ): Response {
+        $book = new Book(); // new empty book entity
+        $form = $this->createForm(BookTypeForm::class, $book);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $doctrine->getManager();
+            $entityManager->persist($book);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('book_view_all');
+        }
+
+        return $this->render('book/edit.html.twig', [
+            'form' => $form->createView(),
+            'book' => $book
+        ]);
+    }
+
+
+    // delete a book by its id
+    #[Route('/book/delete/{id}', name: 'book_delete_by_id')]
+    public function deleteBookById(
+        ManagerRegistry $doctrine,
+        int $id
+    ): Response {
+        $entityManager = $doctrine->getManager();
+        $book = $entityManager->getRepository(Book::class)->find($id);
+
+        if (!$book) {
+            throw $this->createNotFoundException(
+                'No book found for id ' . $id
+            );
+        }
+
+        $entityManager->remove($book);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('book_view_all');
     }
 
 
