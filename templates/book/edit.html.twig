@@ -1,11 +1,15 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Book{% endblock %}
+{% block title %}
+  {{ book.id ? 'Edit Book' : 'Add a new Book' }}
+{% endblock %}
 
 {% block body %}
 
 <main>
-  <h1>Edit Book: {{ book.title|e }}</h1>
+  <h1>
+   {{ book.id ? 'Edit Book: ' ~ book.title|e : 'Add a new Book' }}
+  </h1>
 
 {{ form_start(form, {'attr': {'class': 'my-form'}}) }}
 

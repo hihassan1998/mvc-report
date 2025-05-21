@@ -46,6 +46,30 @@ final class BookController extends AbstractController
         return new Response('Saved new book with id ' . $book->getId());
     }
 
+    #[Route('/book/new', name: 'book_new')]
+    public function newBook(
+        Request $request,
+        ManagerRegistry $doctrine
+    ): Response {
+        $book = new Book(); // new empty book entity
+        $form = $this->createForm(BookTypeForm::class, $book);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $doctrine->getManager();
+            $entityManager->persist($book);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('book_view_all');
+        }
+
+        return $this->render('book/edit.html.twig', [
+            'form' => $form->createView(),
+            'book' => $book
+        ]);
+    }
+
     #[Route('/book/show', name: 'book_show_all')]
     public function showAllBook(
         BookRepository $bookRepository
