@@ -9,9 +9,9 @@ class GameHelper
 {
     /**
      * Calculate the total points of a given set of cards according to Game21 rules.
-     * 
-     * Face cards (Jack, Queen, King) are worth 10 points.  
-     * Aces are worth 14 points by default, but can be reduced to 1 if total exceeds 21.  
+     *
+     * Face cards (Jack, Queen, King) are worth 10 points.
+     * Aces are worth 14 points by default, but can be reduced to 1 if total exceeds 21.
      * Number cards are worth their face value.
      *
      * @param Card[] $cards Array of Card objects representing the hand.

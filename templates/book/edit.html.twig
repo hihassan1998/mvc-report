@@ -1,45 +1,51 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-  {{ book.id ? 'Edit Book' : 'Add a new Book' }}
+	{{ book.id ? 'Edit Book' : 'Add a new Book' }}
 {% endblock %}
 
 {% block body %}
 
-<main>
-  <h1>
-   {{ book.id ? 'Edit Book: ' ~ book.title|e : 'Add a new Book' }}
-  </h1>
+	<main>
+		<div class="book-container">
+			<h1>
+				{{ book.id ? 'Edit Book: ' ~ book.title|e : 'Add a new Book' }}
+			</h1>
 
-{{ form_start(form, {'attr': {'class': 'my-form'}}) }}
+			{{ form_start(form, {'attr': {'class': 'my-form'}}) }}
 
-<div class="form-group">
-  {{ form_label(form.title) }}
-  {{ form_widget(form.title, {'attr': {'class': 'form-control'}}) }}
-  {{ form_errors(form.title) }}
-</div>
+			<div class="form-group">
+				{{ form_label(form.title) }}
+				{{ form_widget(form.title, {'attr': {'class': 'form-control'}}) }}
+				{{ form_errors(form.title) }}
+			</div>
 
-<div class="form-group">
-  {{ form_label(form.isbn) }}
-  {{ form_widget(form.isbn, {'attr': {'class': 'form-control'}}) }}
-  {{ form_errors(form.isbn) }}
-</div>
+			<div class="form-group">
+				{{ form_label(form.isbn) }}
+				{{ form_widget(form.isbn, {'attr': {'class': 'form-control'}}) }}
+				{{ form_errors(form.isbn) }}
+			</div>
 
-<div class="form-group">
-  {{ form_label(form.author) }}
-  {{ form_widget(form.author, {'attr': {'class': 'form-control'}}) }}
-  {{ form_errors(form.author) }}
-</div>
+			<div class="form-group">
+				{{ form_label(form.author) }}
+				{{ form_widget(form.author, {'attr': {'class': 'form-control'}}) }}
+				{{ form_errors(form.author) }}
+			</div>
 
-<div class="form-group">
-  {{ form_label(form.image) }}
-  {{ form_widget(form.image, {'attr': {'class': 'form-control'}}) }}
-  {{ form_errors(form.image) }}
-</div>
+			<div class="form-group">
+				{{ form_label(form.image) }}
+				{{ form_widget(form.image, {'attr': {'class': 'form-control'}}) }}
+				{{ form_errors(form.image) }}
+			</div>
 
-<button class="btn btn-primary">Save</button>
-{{ form_end(form) }}
-
-</main>
+			<button class="btn ">Save</button>
+			{{ form_end(form) }}
+		</div>
+		<br>
+		<p>
+			<a class="btn" href="{{ path('book_view_all') }}">←
+			</a>
+		</p>
+	</main>
 
 {% endblock %}

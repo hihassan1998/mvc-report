@@ -4,19 +4,6 @@
 {% endblock %}
 
 {% block body %}
-	<style>
-		.book-container {
-			display: flex;
-			flex-direction: column;
-            padding:1rem;
-			align-items: center;
-			border: 2px solid black;
-            border-radius:0.5rem;
-
-		}
-	</style>
-
-
 	<main>
 		<div class="book-container">
 
@@ -24,14 +11,27 @@
 			<p>
 				<strong>Author:</strong>
 				{{ book.author|e }}</p>
-            <p>
+			<p>
 
 				<strong>ISBN:</strong>
 				{{ book.isbn|e }}</p>
 
 			<img src="{{ asset('img/' ~ book.image) }}" alt="Cover for {{ book.title|e }}" style="border:none; height:350px;">
 			<br>
+			<br>
+
+			<a href="{{ path('book_edit', {'id': book.id}) }}" title="Edit" class="btn" style="display:inline;">
+				🖉 Edit Book
+			</a>
+			<br>
+
+			<form method="post" action="{{ path('book_delete_by_id', {'id': book.id}) }}"   onsubmit="return confirm('Delete this book?');">
+				<button class="btn-red" type="submit">🗑️ Delete Book</button>
+			</form>
 		</div>
+		<br>
+
+		<br>
 		<br>
 		<p>
 			<a class="btn" href="{{ path('book_view_all') }}">←

@@ -343,6 +343,7 @@ img {
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
+    font-weight: 600;
 }
 
 .btn-game {
@@ -450,11 +451,25 @@ a:hover {
 
 /* libray stlings kmom05 start */
 /* style lib table */
+.table-wrapper {
+    overflow-x: auto;
+    max-width: 100%;
+    
+}
+
 table.library-table {
     background-color: #fdc182;
     border-radius: 0.5rem;
+    width: 90%;
+    /* min-width: 600px; */
+    border-collapse: collapse;
 }
 
+td {
+    text-align: center;
+    padding: 2rem;
+    white-space: nowrap;
+}
 
 .form-group {
     margin-bottom: 1rem;
@@ -468,6 +483,20 @@ table.library-table {
     border-radius: 6px;
 }
 
+.book-container {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    align-items: center;
+    border: 2px solid black;
+    border-radius: 0.5rem;
 
+}
+
+.btn-red {
+    background: red;
+    cursor: pointer;
+    font-weight: 600;
+}
 
 /* libray stlings kmom05 end */

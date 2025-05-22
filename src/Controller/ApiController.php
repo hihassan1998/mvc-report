@@ -6,7 +6,6 @@ use App\Card\Deck;
 use App\Card\GameHelper;
 use App\Card\Card;
 use App\Repository\BookRepository;
-
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -137,7 +136,7 @@ class ApiController extends AbstractController
 
         $data = [
             'player' => [
-                'cards' => array_map(fn($card) => (string) $card, $playerCards),
+                'cards' => array_map(fn ($card) => (string) $card, $playerCards),
                 // 'cards' =>  is_array($playerCards) ? array_map(fn ($card) => (string) $card, $playerCards) : [],
                 // 'cards' => array_map(
                 //     fn($card) => is_object($card) && method_exists($card, '__toString') ? (string) $card : 'Invalid Card',
@@ -147,7 +146,7 @@ class ApiController extends AbstractController
                 'points' => $playerPoints
             ],
             'dealer' => [
-                'cards' => $showDealer ? array_map(fn($card) => (string) $card, $dealerCards) : ['Hidden'],
+                'cards' => $showDealer ? array_map(fn ($card) => (string) $card, $dealerCards) : ['Hidden'],
                 // 'cards' => is_array($dealerCards) ? array_map(fn ($card) => (string) $card, $dealerCards) : ['Hidden'],
                 // 'cards' => $showDealer
                 //     ? array_map(
