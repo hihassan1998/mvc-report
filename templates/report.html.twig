@@ -111,8 +111,8 @@
 					och uppnå DRY-principen, samt komposition i
 					<code>Deck</code>
 					för att hantera kortleken och generera JSON-API.
-																																																																						
-																																																																						          Jag är ganska nöjd med min lösning, men jag märker att det säkert finns förbättringspotential eftersom vi fortfarande är tidigt i kursen. Jag har lyckats hålla klasserna rena, enkla och fokuserade. En förbättring skulle kunna vara att generera JSON-respons även tillsammans med mina routes till kortspelsapplikationen, och att använda gemensamma funktioner för logik som används både i JSON-API:n och i applikationsroutes, vilket skulle göra koden ännu mer DRY. Dessutom behöver jag förbättra felhanteringen för mina routes och förbättra strukturen på mina JSON-svar.
+																																																																																															
+																																																																																															          Jag är ganska nöjd med min lösning, men jag märker att det säkert finns förbättringspotential eftersom vi fortfarande är tidigt i kursen. Jag har lyckats hålla klasserna rena, enkla och fokuserade. En förbättring skulle kunna vara att generera JSON-respons även tillsammans med mina routes till kortspelsapplikationen, och att använda gemensamma funktioner för logik som används både i JSON-API:n och i applikationsroutes, vilket skulle göra koden ännu mer DRY. Dessutom behöver jag förbättra felhanteringen för mina routes och förbättra strukturen på mina JSON-svar.
 
 					<br/>
 					<br/>
@@ -120,8 +120,8 @@
 					<br>
 
 					Det har varit väldigt mycket läsning om ramverket, och jag har behövt ta del av mycket dokumentation. Men jag tycker att det har blivit tydligare varför det är fördelaktigt att separera Model, View och Controller i ett ramverk som Symfony – särskilt i större projekt.
-																																																																						
-																																																																						          Det jag tycker är roligast hittills är att skapa API:er i Symfony och möjligheten att kommunicera mellan olika delar av applikationen. Även rendering av templates känns smidigt. Överlag känns allt mycket bättre nu efter att jag har slutfört detta kursmoment, och jag känner mig mer trygg jämfört med hur det kändes i början.
+																																																																																															
+																																																																																															          Det jag tycker är roligast hittills är att skapa API:er i Symfony och möjligheten att kommunicera mellan olika delar av applikationen. Även rendering av templates känns smidigt. Överlag känns allt mycket bättre nu efter att jag har slutfört detta kursmoment, och jag känner mig mer trygg jämfört med hur det kändes i början.
 					<br/>
 					<br/>
 					<b>Vilken är din TIL för detta kmom?</b>
@@ -148,12 +148,12 @@
 					<br/>
 					Jag löste uppgiften genom att skapa en klass som innehåller hjälpfunktioner för att räkna poäng för kort i en array – både för spelaren och dealern. Denna används i min
 					<code>Game21Service-klass</code>, där spelets kärnprocesser är definierade som metoder. Jag visar spelets sessionsdata via game/api i JSON-format.
-																																																																		
-																																																																		Jag har också en lättförståelig controller som heter
+																																																																																																
+																																																																																																Jag har också en lättförståelig controller som heter
 					<code>CardGameController21</code>
 					och definierar alla routes för min applikation. Den renderar vyerna för startsida, dokumentation, starta spel, avsluta spel, "hit" och "stand". Dessa routes använder sessionstorage samt klassmetoder från mina klasser:
 					<code>Game21Service, Card och Deck</code>.
-																																																																			Jag har skapat fyra templates:
+																																																																																																	Jag har skapat fyra templates:
 					<code>
 						start.html.twig</code>
 					och
@@ -224,7 +224,45 @@
 			<br/>
 			<section class="double-bottom" id="kmom05">
 				<h2>Kmom05</h2>
-				<p>Text för kmom05...</p>
+				<p>
+
+
+					<b>Gick det bra att jobba igenom övningen med Symfony och Doctrine. Något särskilt du tänkte/reagerade på under övningen?
+					</b>
+					<br/>
+					Ja, det gick bättre än förväntat. Med hjälp av övningsuppgiften som exempel och stödet för Doctrine-integrationen i mitt Symfony-projekt blev det tydligare hur allting hänger ihop. Jag uppskattade hur enkelt det var att skapa objektorienterade klasser för att arbeta mot databasen – det förenklade databasintegrationen avsevärt. Jag insåg också hur smidigt det är att koppla både SQLite och PostgreSQL till en Symfony-applikation. Det var intressant att se hur man med hjälp av Doctrine-biblioteket kan skapa entiteter och deras attribut för att manipulera databasen, och hur smidigt det var att generera formulär direkt kopplade till dessa. Allt kändes väl integrerat i ramverket.
+					<br/>
+					<br/>
+
+					<b>
+						Berätta om din applikation och hur du tänkte när du byggde upp den. Tänkte du något speciellt på användargränssnittet?
+					</b>
+					<br/>
+					Library-applikationen är enkelt designad med en startsida på /library där användaren kan se titlarna på alla böcker i biblioteket. Därifrån kan man navigera vidare till en specifik bok för att läsa mer detaljer eller välja att lägga till en ny bok. Oavsett om man klickar på "Redigera" från bokdetaljsidan eller på "Skapa ny bok" från startsidan, så hamnar man på samma route: /library/book/edit. Den återanvänder samma formulär-vy enligt DRY-principen, vilket gör koden mer underhållbar. Det går även att radera en bok från dess detaljsida. Jag fokuserade på enkelhet och användarvänlighet i gränssnittet, samtidigt som jag säkerställde att alla CRUD-operationer fungerar korrekt mot databasen.
+					<br/>
+					<br/>
+
+					<b>
+						Gick det bra att jobba med ORM i CRUD eller vad anser du om det, jämför gärna med andra sätt att jobba med databaser?
+					</b>
+					<br/>
+					Jag tycker det gick bra att arbeta med ORM Doctrine. Det förenklade CRUD-operationerna och minskade mängden kod som behövde skrivas för att kommunicera med databasen. Jämfört med att skriva rena SQL-frågor kändes det mer strukturerat och lättöverskådligt att använda ORM. För en enklare applikation som denna var det lätt att hantera databasen, men vid mer komplexa databasbehov kan det i vissa fall vara mer lämpligt att använda SQL direkt för bättre kontroll och prestanda.
+					<br/>
+					<br/>
+
+					<b>Vad är din uppfattning om ORM så här långt och relatera gärna till andra sätt att jobba med applikationskod mot databaser?</b>
+					<br/>
+
+					<br/>
+					<br/>
+					<b>Vilken är din TIL för detta kmom?</b>
+					<br/>
+					Min TIL för detta kmom är  hur man skapar och integrerar en SQLite-databas med Symfony-ramverket. Jag har också lärt mig hur kraftfull kombinationen av Doctrine och Symfony är – man kan generera klasser, entiteter, attribut, kontroller och formulär direkt från terminalen och på så sätt bygga funktionalitet som arbetar mot databasen via objektorienterad logik. Det möjliggör att man på ett strukturerat och effektivt sätt kan lägga till, uppdatera och hantera data i databasen.
+					<br/>
+					<br/>
+
+
+				</p>
 			</section>
 			<br/>
 			<section class="double-bottom" id="kmom06">

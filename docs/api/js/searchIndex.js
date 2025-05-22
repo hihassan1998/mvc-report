@@ -218,42 +218,42 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Controller\\BookController\u003A\u003Aindex\u0028\u0029",
             "name": "index",
-            "summary": "",
+            "summary": "Displays\u0020a\u0020simple\u0020page\u0020for\u0020the\u0020\/book\u0020route.",
             "url": "classes/App-Controller-BookController.html#method_index"
         },                {
             "fqsen": "\\App\\Controller\\BookController\u003A\u003AcreateProduct\u0028\u0029",
             "name": "createProduct",
-            "summary": "",
+            "summary": "Inserts\u0020three\u0020predefined\u0020books\u0020into\u0020the\u0020database.",
             "url": "classes/App-Controller-BookController.html#method_createProduct"
         },                {
             "fqsen": "\\App\\Controller\\BookController\u003A\u003AshowBookById\u0028\u0029",
             "name": "showBookById",
-            "summary": "",
+            "summary": "Returns\u0020a\u0020book\u0020by\u0020its\u0020ID\u0020in\u0020JSON\u0020format.",
             "url": "classes/App-Controller-BookController.html#method_showBookById"
         },                {
             "fqsen": "\\App\\Controller\\BookController\u003A\u003AviewAllProduct\u0028\u0029",
             "name": "viewAllProduct",
-            "summary": "",
+            "summary": "Displays\u0020all\u0020books\u0020in\u0020the\u0020library.",
             "url": "classes/App-Controller-BookController.html#method_viewAllProduct"
         },                {
             "fqsen": "\\App\\Controller\\BookController\u003A\u003AviewBookById\u0028\u0029",
             "name": "viewBookById",
-            "summary": "",
+            "summary": "Displays\u0020a\u0020specific\u0020book\u0020by\u0020ID\u0020using\u0020a\u0020Twig\u0020template.",
             "url": "classes/App-Controller-BookController.html#method_viewBookById"
         },                {
             "fqsen": "\\App\\Controller\\BookController\u003A\u003AeditBook\u0028\u0029",
             "name": "editBook",
-            "summary": "",
+            "summary": "Edits\u0020the\u0020details\u0020of\u0020an\u0020existing\u0020book.",
             "url": "classes/App-Controller-BookController.html#method_editBook"
         },                {
             "fqsen": "\\App\\Controller\\BookController\u003A\u003AnewBook\u0028\u0029",
             "name": "newBook",
-            "summary": "",
+            "summary": "Displays\u0020a\u0020form\u0020to\u0020create\u0020a\u0020new\u0020book\u0020and\u0020saves\u0020it\u0020if\u0020submitted.",
             "url": "classes/App-Controller-BookController.html#method_newBook"
         },                {
             "fqsen": "\\App\\Controller\\BookController\u003A\u003AdeleteBookById\u0028\u0029",
             "name": "deleteBookById",
-            "summary": "",
+            "summary": "Deletes\u0020a\u0020book\u0020by\u0020its\u0020ID.",
             "url": "classes/App-Controller-BookController.html#method_deleteBookById"
         },                {
             "fqsen": "\\App\\Controller\\CardGameController",
@@ -528,92 +528,92 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Entity\\Book",
             "name": "Book",
-            "summary": "",
+            "summary": "Represents\u0020a\u0020book\u0020with\u0020title,\u0020ISBN,\u0020author,\u0020and\u0020cover\u0020image.",
             "url": "classes/App-Entity-Book.html"
         },                {
             "fqsen": "\\App\\Entity\\Book\u003A\u003AgetId\u0028\u0029",
             "name": "getId",
-            "summary": "",
+            "summary": "Get\u0020the\u0020book\u0020ID.",
             "url": "classes/App-Entity-Book.html#method_getId"
         },                {
             "fqsen": "\\App\\Entity\\Book\u003A\u003AgetTitle\u0028\u0029",
             "name": "getTitle",
-            "summary": "",
+            "summary": "Get\u0020the\u0020title\u0020of\u0020the\u0020book.",
             "url": "classes/App-Entity-Book.html#method_getTitle"
         },                {
             "fqsen": "\\App\\Entity\\Book\u003A\u003AsetTitle\u0028\u0029",
             "name": "setTitle",
-            "summary": "",
+            "summary": "Set\u0020the\u0020title\u0020of\u0020the\u0020book.",
             "url": "classes/App-Entity-Book.html#method_setTitle"
         },                {
             "fqsen": "\\App\\Entity\\Book\u003A\u003AgetIsbn\u0028\u0029",
             "name": "getIsbn",
-            "summary": "",
+            "summary": "Get\u0020the\u0020ISBN\u0020of\u0020the\u0020book.",
             "url": "classes/App-Entity-Book.html#method_getIsbn"
         },                {
             "fqsen": "\\App\\Entity\\Book\u003A\u003AsetIsbn\u0028\u0029",
             "name": "setIsbn",
-            "summary": "",
+            "summary": "Set\u0020the\u0020ISBN\u0020of\u0020the\u0020book.",
             "url": "classes/App-Entity-Book.html#method_setIsbn"
         },                {
             "fqsen": "\\App\\Entity\\Book\u003A\u003AgetAuthor\u0028\u0029",
             "name": "getAuthor",
-            "summary": "",
+            "summary": "Get\u0020the\u0020author\u0020of\u0020the\u0020book.",
             "url": "classes/App-Entity-Book.html#method_getAuthor"
         },                {
             "fqsen": "\\App\\Entity\\Book\u003A\u003AsetAuthor\u0028\u0029",
             "name": "setAuthor",
-            "summary": "",
+            "summary": "Set\u0020the\u0020author\u0020of\u0020the\u0020book.",
             "url": "classes/App-Entity-Book.html#method_setAuthor"
         },                {
             "fqsen": "\\App\\Entity\\Book\u003A\u003AgetImage\u0028\u0029",
             "name": "getImage",
-            "summary": "",
+            "summary": "Get\u0020the\u0020image\u0020of\u0020the\u0020book.",
             "url": "classes/App-Entity-Book.html#method_getImage"
         },                {
             "fqsen": "\\App\\Entity\\Book\u003A\u003AsetImage\u0028\u0029",
             "name": "setImage",
-            "summary": "",
+            "summary": "Set\u0020the\u0020image\u0020of\u0020the\u0020book.",
             "url": "classes/App-Entity-Book.html#method_setImage"
         },                {
             "fqsen": "\\App\\Entity\\Book\u003A\u003A\u0024id",
             "name": "id",
-            "summary": "",
+            "summary": "The\u0020unique\u0020identifier\u0020of\u0020the\u0020book.",
             "url": "classes/App-Entity-Book.html#property_id"
         },                {
             "fqsen": "\\App\\Entity\\Book\u003A\u003A\u0024title",
             "name": "title",
-            "summary": "",
+            "summary": "The\u0020title\u0020of\u0020the\u0020book.",
             "url": "classes/App-Entity-Book.html#property_title"
         },                {
             "fqsen": "\\App\\Entity\\Book\u003A\u003A\u0024isbn",
             "name": "isbn",
-            "summary": "",
+            "summary": "The\u0020ISBN\u0020of\u0020the\u0020book.",
             "url": "classes/App-Entity-Book.html#property_isbn"
         },                {
             "fqsen": "\\App\\Entity\\Book\u003A\u003A\u0024author",
             "name": "author",
-            "summary": "",
+            "summary": "The\u0020author\u0020of\u0020the\u0020book.",
             "url": "classes/App-Entity-Book.html#property_author"
         },                {
             "fqsen": "\\App\\Entity\\Book\u003A\u003A\u0024image",
             "name": "image",
-            "summary": "",
+            "summary": "The\u0020image\u0020filename\u0020or\u0020path\u0020for\u0020the\u0020book.",
             "url": "classes/App-Entity-Book.html#property_image"
         },                {
             "fqsen": "\\App\\Form\\BookTypeForm",
             "name": "BookTypeForm",
-            "summary": "",
+            "summary": "Defines\u0020the\u0020form\u0020used\u0020to\u0020create\u0020or\u0020edit\u0020a\u0020Book\u0020entity.",
             "url": "classes/App-Form-BookTypeForm.html"
         },                {
             "fqsen": "\\App\\Form\\BookTypeForm\u003A\u003AbuildForm\u0028\u0029",
             "name": "buildForm",
-            "summary": "",
+            "summary": "Builds\u0020the\u0020form\u0020fields\u0020for\u0020the\u0020Book\u0020entity.",
             "url": "classes/App-Form-BookTypeForm.html#method_buildForm"
         },                {
             "fqsen": "\\App\\Form\\BookTypeForm\u003A\u003AconfigureOptions\u0028\u0029",
             "name": "configureOptions",
-            "summary": "",
+            "summary": "Configures\u0020the\u0020options\u0020for\u0020this\u0020form.",
             "url": "classes/App-Form-BookTypeForm.html#method_configureOptions"
         },                {
             "fqsen": "\\App\\Kernel",

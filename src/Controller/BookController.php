@@ -13,6 +13,11 @@ use Symfony\Component\HttpFoundation\Request;
 
 final class BookController extends AbstractController
 {
+    /**
+     * Displays a simple page for the /book route.
+     *
+     * @return Response
+     */
     #[Route('/book', name: 'app_book')]
     public function index(): Response
     {
@@ -21,6 +26,12 @@ final class BookController extends AbstractController
         ]);
     }
 
+    /**
+     * Inserts three predefined books into the database.
+     *
+     * @param ManagerRegistry $doctrine
+     * @return Response
+     */
     #[Route('library/book/create', name: 'book_create')]
     public function createProduct(
         ManagerRegistry $doctrine
@@ -28,25 +39,25 @@ final class BookController extends AbstractController
         $entityManager = $doctrine->getManager();
 
         $booksData = [
-        [
-           'title' => 'Harry Potter',
-           'isbn' => '978-0-7000-3269-9',
-           'author' => 'J.K. Rowling',
-           'image' => 'harry.jpg',
-        ],
-        [
-           'title' => 'Python for Dummies',
-           'isbn' => '12345-687-809',
-           'author' => 'Stef Maruch',
-           'image' => 'dum.jpg',
-        ],
-        [
-           'title' => 'The Power of Letting Go',
-           'isbn' => '978-1-78678-656-0',
-           'author' => 'John Purkiss',
-           'image' => 'pow.jpg',
-        ],
-    ];
+            [
+                'title' => 'Harry Potter',
+                'isbn' => '978-0-7000-3269-9',
+                'author' => 'J.K. Rowling',
+                'image' => 'harry.jpg',
+            ],
+            [
+                'title' => 'Python for Dummies',
+                'isbn' => '12345-687-809',
+                'author' => 'Stef Maruch',
+                'image' => 'dum.jpg',
+            ],
+            [
+                'title' => 'The Power of Letting Go',
+                'isbn' => '978-1-78678-656-0',
+                'author' => 'John Purkiss',
+                'image' => 'pow.jpg',
+            ],
+        ];
 
         foreach ($booksData as $data) {
             $book = new Book();
@@ -63,6 +74,13 @@ final class BookController extends AbstractController
         return new Response('Three books added successfully.');
     }
 
+    /**
+     * Returns a book by its ID in JSON format.
+     *
+     * @param BookRepository $bookRepository
+     * @param int $id
+     * @return Response
+     */
     #[Route('/book/show/{id}', name: 'book_by_id')]
     public function showBookById(
         BookRepository $bookRepository,
@@ -78,7 +96,12 @@ final class BookController extends AbstractController
         return $response;
     }
 
-    //  the /library view converable
+    /**
+     * Displays all books in the library.
+     *
+     * @param BookRepository $bookRepository
+     * @return Response
+     */
     #[Route('/library', name: 'book_view_all')]
     public function viewAllProduct(
         BookRepository $bookRepository
@@ -92,6 +115,13 @@ final class BookController extends AbstractController
         return $this->render('book/view.html.twig', $data);
     }
 
+    /**
+     * Displays a specific book by ID using a Twig template.
+     *
+     * @param BookRepository $bookRepository
+     * @param int $id
+     * @return Response
+     */
     #[Route('library/book/view/{id}', name: 'book_view_by_id')]
     public function viewBookById(
         BookRepository $bookRepository,
@@ -109,7 +139,15 @@ final class BookController extends AbstractController
     }
 
 
-    // edit the book details
+    /**
+     * Edits the details of an existing book.
+     *
+     * @param Request $request
+     * @param ManagerRegistry $doctrine
+     * @param BookRepository $bookRepository
+     * @param int $id
+     * @return Response
+     */
     #[Route('library/book/edit/{id}', name: 'book_edit', methods: ['GET', 'POST'])]
     public function editBook(
         Request $request,
@@ -139,6 +177,13 @@ final class BookController extends AbstractController
         ]);
     }
 
+    /**
+     * Displays a form to create a new book and saves it if submitted.
+     *
+     * @param Request $request
+     * @param ManagerRegistry $doctrine
+     * @return Response
+     */
     #[Route('library/book/new', name: 'book_new')]
     public function newBook(
         Request $request,
@@ -164,7 +209,13 @@ final class BookController extends AbstractController
     }
 
 
-    // delete a book by its id
+    /**
+     * Deletes a book by its ID.
+     *
+     * @param ManagerRegistry $doctrine
+     * @param int $id
+     * @return Response
+     */
     #[Route('library/book/delete/{id}', methods: ['POST'], name: 'book_delete_by_id')]
     public function deleteBookById(
         ManagerRegistry $doctrine,
@@ -184,7 +235,4 @@ final class BookController extends AbstractController
 
         return $this->redirectToRoute('book_view_all');
     }
-
-
-
-}
+}  
