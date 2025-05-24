@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="" tests="26" assertions="68" errors="0" warnings="0" failures="0" skipped="0" time="0.173989">
+    <testsuite name="all" tests="26" assertions="68" errors="0" warnings="0" failures="0" skipped="0" time="0.173989">
+      <testsuite name="App\Tests\Entity\BookTest" file="/home/hahi24/dbwebb-kurser/mvc/me/report/tests/book/BookTest.php" tests="1" assertions="5" errors="0" warnings="0" failures="0" skipped="0" time="0.003388">
+        <testcase name="testBookProperties" class="App\Tests\Entity\BookTest" classname="App.Tests.Entity.BookTest" file="/home/hahi24/dbwebb-kurser/mvc/me/report/tests/book/BookTest.php" line="10" assertions="5" time="0.003388"/>
+      </testsuite>
+      <testsuite name="App\Tests\Form\BookTypeFormTest" file="/home/hahi24/dbwebb-kurser/mvc/me/report/tests/book/BookTypeFormTest.php" tests="2" assertions="7" errors="0" warnings="0" failures="0" skipped="0" time="0.112048">
+        <testcase name="testFormCanBeCreated" class="App\Tests\Form\BookTypeFormTest" classname="App.Tests.Form.BookTypeFormTest" file="/home/hahi24/dbwebb-kurser/mvc/me/report/tests/book/BookTypeFormTest.php" line="11" assertions="2" time="0.102805"/>
+        <testcase name="testSubmitValidData" class="App\Tests\Form\BookTypeFormTest" classname="App.Tests.Form.BookTypeFormTest" file="/home/hahi24/dbwebb-kurser/mvc/me/report/tests/book/BookTypeFormTest.php" line="19" assertions="5" time="0.009243"/>
+      </testsuite>
+      <testsuite name="App\Tests\Card\CardGraphicTest" file="/home/hahi24/dbwebb-kurser/mvc/me/report/tests/card/CardGraphicTest.php" tests="4" assertions="10" errors="0" warnings="0" failures="0" skipped="0" time="0.003062">
+        <testcase name="testCardGraphicCreation" class="App\Tests\Card\CardGraphicTest" classname="App.Tests.Card.CardGraphicTest" file="/home/hahi24/dbwebb-kurser/mvc/me/report/tests/card/CardGraphicTest.php" line="10" assertions="3" time="0.000755"/>
+        <testcase name="testGetGraphicReturnsUnicode" class="App\Tests\Card\CardGraphicTest" classname="App.Tests.Card.CardGraphicTest" file="/home/hahi24/dbwebb-kurser/mvc/me/report/tests/card/CardGraphicTest.php" line="18" assertions="1" time="0.001044"/>
+        <testcase name="testGetColorClass" class="App\Tests\Card\CardGraphicTest" classname="App.Tests.Card.CardGraphicTest" file="/home/hahi24/dbwebb-kurser/mvc/me/report/tests/card/CardGraphicTest.php" line="26" assertions="2" time="0.000187"/>
+        <testcase name="testJsonSerialize" class="App\Tests\Card\CardGraphicTest" classname="App.Tests.Card.CardGraphicTest" file="/home/hahi24/dbwebb-kurser/mvc/me/report/tests/card/CardGraphicTest.php" line="35" assertions="4" time="0.001076"/>
+      </testsuite>
+      <testsuite name="CardTest" file="/home/hahi24/dbwebb-kurser/mvc/me/report/tests/card/CardTest.php" tests="2" assertions="3" errors="0" warnings="0" failures="0" skipped="0" time="0.000637">
+        <testcase name="testCardProperties" class="CardTest" classname="CardTest" file="/home/hahi24/dbwebb-kurser/mvc/me/report/tests/card/CardTest.php" line="8" assertions="2" time="0.000338"/>
+        <testcase name="testToString" class="CardTest" classname="CardTest" file="/home/hahi24/dbwebb-kurser/mvc/me/report/tests/card/CardTest.php" line="16" assertions="1" time="0.000299"/>
+      </testsuite>
+      <testsuite name="App\Tests\Card\DeckTest" file="/home/hahi24/dbwebb-kurser/mvc/me/report/tests/card/DeckTest.php" tests="5" assertions="10" errors="0" warnings="0" failures="0" skipped="0" time="0.022644">
+        <testcase name="testDeckHas52Cards" class="App\Tests\Card\DeckTest" classname="App.Tests.Card.DeckTest" file="/home/hahi24/dbwebb-kurser/mvc/me/report/tests/card/DeckTest.php" line="10" assertions="1" time="0.001719"/>
+        <testcase name="testDeckCanShuffle" class="App\Tests\Card\DeckTest" classname="App.Tests.Card.DeckTest" file="/home/hahi24/dbwebb-kurser/mvc/me/report/tests/card/DeckTest.php" line="16" assertions="1" time="0.019077"/>
+        <testcase name="testDrawReducesCardCount" class="App\Tests\Card\DeckTest" classname="App.Tests.Card.DeckTest" file="/home/hahi24/dbwebb-kurser/mvc/me/report/tests/card/DeckTest.php" line="25" assertions="1" time="0.000534"/>
+        <testcase name="testCountReturnsCorrectNumber" class="App\Tests\Card\DeckTest" classname="App.Tests.Card.DeckTest" file="/home/hahi24/dbwebb-kurser/mvc/me/report/tests/card/DeckTest.php" line="32" assertions="2" time="0.000367"/>
+        <testcase name="testGetGroupedBySuit" class="App\Tests\Card\DeckTest" classname="App.Tests.Card.DeckTest" file="/home/hahi24/dbwebb-kurser/mvc/me/report/tests/card/DeckTest.php" line="41" assertions="5" time="0.000947"/>
+      </testsuite>
+      <testsuite name="App\Tests\Card\Game21ServiceTest" file="/home/hahi24/dbwebb-kurser/mvc/me/report/tests/card/Game21ServiceTest.php" tests="6" assertions="18" errors="0" warnings="0" failures="0" skipped="0" time="0.024328">
+        <testcase name="testInitializeGame" class="App\Tests\Card\Game21ServiceTest" classname="App.Tests.Card.Game21ServiceTest" file="/home/hahi24/dbwebb-kurser/mvc/me/report/tests/card/Game21ServiceTest.php" line="26" assertions="6" time="0.020729"/>
+        <testcase name="testPlayerHit" class="App\Tests\Card\Game21ServiceTest" classname="App.Tests.Card.Game21ServiceTest" file="/home/hahi24/dbwebb-kurser/mvc/me/report/tests/card/Game21ServiceTest.php" line="44" assertions="6" time="0.001458"/>
+        <testcase name="testDealerPlays" class="App\Tests\Card\Game21ServiceTest" classname="App.Tests.Card.Game21ServiceTest" file="/home/hahi24/dbwebb-kurser/mvc/me/report/tests/card/Game21ServiceTest.php" line="74" assertions="3" time="0.000897"/>
+        <testcase name="testDetermineResultPlayerWins" class="App\Tests\Card\Game21ServiceTest" classname="App.Tests.Card.Game21ServiceTest" file="/home/hahi24/dbwebb-kurser/mvc/me/report/tests/card/Game21ServiceTest.php" line="97" assertions="1" time="0.000413"/>
+        <testcase name="testDetermineResultTie" class="App\Tests\Card\Game21ServiceTest" classname="App.Tests.Card.Game21ServiceTest" file="/home/hahi24/dbwebb-kurser/mvc/me/report/tests/card/Game21ServiceTest.php" line="110" assertions="1" time="0.000417"/>
+        <testcase name="testDetermineResultDealerWins" class="App\Tests\Card\Game21ServiceTest" classname="App.Tests.Card.Game21ServiceTest" file="/home/hahi24/dbwebb-kurser/mvc/me/report/tests/card/Game21ServiceTest.php" line="123" assertions="1" time="0.000414"/>
+      </testsuite>
+      <testsuite name="DiceGraphicTest" file="/home/hahi24/dbwebb-kurser/mvc/me/report/tests/dice/DiceGraphicTest.php" tests="1" assertions="2" errors="0" warnings="0" failures="0" skipped="0" time="0.002658">
+        <testcase name="testGetAsStringReturnsUnicodeCharacter" class="DiceGraphicTest" classname="DiceGraphicTest" file="/home/hahi24/dbwebb-kurser/mvc/me/report/tests/dice/DiceGraphicTest.php" line="8" assertions="2" time="0.002658"/>
+      </testsuite>
+      <testsuite name="DiceHandTest" file="/home/hahi24/dbwebb-kurser/mvc/me/report/tests/dice/DiceHandTest.php" tests="3" assertions="8" errors="0" warnings="0" failures="0" skipped="0" time="0.004563">
+        <testcase name="testAddIncreasesDiceCount" class="DiceHandTest" classname="DiceHandTest" file="/home/hahi24/dbwebb-kurser/mvc/me/report/tests/dice/DiceHandTest.php" line="9" assertions="1" time="0.000819"/>
+        <testcase name="testGetValuesReturnsArray" class="DiceHandTest" classname="DiceHandTest" file="/home/hahi24/dbwebb-kurser/mvc/me/report/tests/dice/DiceHandTest.php" line="17" assertions="5" time="0.002318"/>
+        <testcase name="testGetStringReturnsArray" class="DiceHandTest" classname="DiceHandTest" file="/home/hahi24/dbwebb-kurser/mvc/me/report/tests/dice/DiceHandTest.php" line="29" assertions="2" time="0.001427"/>
+      </testsuite>
+      <testsuite name="DiceTest" file="/home/hahi24/dbwebb-kurser/mvc/me/report/tests/dice/DiceTest.php" tests="2" assertions="5" errors="0" warnings="0" failures="0" skipped="0" time="0.000661">
+        <testcase name="testRollReturnsValueBetween1And6" class="DiceTest" classname="DiceTest" file="/home/hahi24/dbwebb-kurser/mvc/me/report/tests/dice/DiceTest.php" line="7" assertions="4" time="0.000335"/>
+        <testcase name="testGetValueReturnsRolledValue" class="DiceTest" classname="DiceTest" file="/home/hahi24/dbwebb-kurser/mvc/me/report/tests/dice/DiceTest.php" line="16" assertions="1" time="0.000326"/>
+      </testsuite>
+    </testsuite>
+  </testsuite>
+</testsuites>
