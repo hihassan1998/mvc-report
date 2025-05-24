@@ -110,3 +110,6 @@ tools/phpmetrics/vendor/bin/phpmetrics src
 
 ## html mtrics report generation:
 tools/phpmetrics/vendor/bin/phpmetrics --report-html=docs/metrics src
+
+## Metrics report throgh composer:
+composer phpmetrics
