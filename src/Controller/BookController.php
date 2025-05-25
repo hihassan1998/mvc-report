@@ -235,4 +235,14 @@ final class BookController extends AbstractController
 
         return $this->redirectToRoute('book_view_all');
     }
+        /**
+     * Displays a simple page for the /book route.
+     *
+     * @return Response
+     */
+    #[Route('/metrics', name: 'app_metrics')]
+    public function metrics(): Response
+    {
+        return $this->render('book/metrics.html.twig');
+    }
 }  
