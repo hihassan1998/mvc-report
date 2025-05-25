@@ -12,7 +12,6 @@ class BookTypeFormTest extends TypeTestCase
     {
         $form = $this->factory->create(BookTypeForm::class);
 
-        $this->assertNotNull($form);
         $this->assertInstanceOf(BookTypeForm::class, $form->getConfig()->getType()->getInnerType());
     }
 

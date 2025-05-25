@@ -31,9 +31,12 @@ class Game21Service
     }
 
     /**
+     *  Returns a lucky number and a friendly message as JSON.
+     *
+     * Route: /api/lucky/number
      * @return array{
-     *     player_cards: Card[],
-     *     dealer_cards: Card[],
+     *     player_cards: \App\Card\Card[],
+     *     dealer_cards: \App\Card\Card[],
      *     player_points: int,
      *     dealer_points: int
      * }
@@ -98,6 +101,7 @@ class Game21Service
         return 'Dealer won, you lose!';
     }
     /**
+     * Gets the calculated points.
      * @param \App\Card\Card[] $cards
      *
      * @return int
