@@ -1,25 +1,26 @@
 imports:
-    - php
+  - php
 
 filter:
-    excluded_paths: [vendor/*, test/*]
+  excluded_paths: [vendor/*, test/*]
 
 build:
-    image: default-bionic
+  image: default-bionic
 
-    nodes:
-        my-tests:
-            environment:
-                php:
-                    version: 8.3.3
-            tests:
-                override:
-                    - command: "composer phpunit"
-                      coverage:
-                          file: "docs/coverage.clover"
-                          format: "php-clover"
+  nodes:
+    my-tests:
+      environment:
+        php:
+          version: 8.3.3
+      tests:
+        override:
+          - composer install --no-interaction --prefer-dist --optimize-autoloader
+          - composer phpunit
+          - coverage:
+              file: "docs/coverage.clover"
+              format: "php-clover"
 
-        analysis:
-            tests:
-                override:
-                    - php-scrutinizer-run
+    analysis:
+      tests:
+        override:
+          - php-scrutinizer-run
