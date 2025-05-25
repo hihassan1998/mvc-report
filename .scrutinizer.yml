@@ -5,6 +5,8 @@ filter:
     excluded_paths: [vendor/*, test/*]
 
 build:
+    variables:
+                APP_ENV: scrutinizer
     image: default-bionic
 
     nodes:
