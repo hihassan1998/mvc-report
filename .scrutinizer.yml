@@ -22,9 +22,9 @@ build:
         override:
           - composer install --no-interaction -vvv
           - composer phpunit
-            coverage:
-              file: "docs/coverage/coverage.clover"
-              format: "php-clover"
+        coverage:
+          file: "docs/coverage/coverage.clover"
+          format: "php-clover"
 
     analysis:
       environment:
