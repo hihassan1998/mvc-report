@@ -1,40 +1,29 @@
 imports:
-  - php
+    - php
 
 filter:
-  excluded_paths: [vendor/*, tests/*]
+    excluded_paths: [vendor/*, tests/*]
 
 build:
-  image: default-bionic
+    image: default-bionic
 
-  nodes:
-    my-tests:
-      environment:
-        php:
-          version: 8.3.3
-        variables:
-          APP_ENV: test
-          APP_SECRET: $ecretf0rt3st
-          DATABASE_URL: sqlite:///%kernel.project_dir%/var/data.db
-          MAILER_DSN: null://null
-          MESSENGER_TRANSPORT_DSN: doctrine://default?auto_setup=0
-      tests:
+    nodes:
+        my-tests:
+            environment:
+                php:
+                    version: 8.3.3
+                    # version: 8.1.13
+                    # version: 8.1.17
+                    # version: 8.2.4
+        analysis:
+            tests:
+                override:
+                    - php-scrutinizer-run
+                    #- phpcs-run # Not used, missing config file
+    tests:
         override:
-          - composer install --no-interaction -vvv
-          - composer phpunit
-
-  coverage:
-    file: "docs/coverage/coverage.clover"
-    format: "php-clover"
-
-analysis:
-  environment:
-    variables:
-      APP_ENV: test
-      APP_SECRET: $ecretf0rt3st
-      DATABASE_URL: sqlite:///%kernel.project_dir%/var/data.db
-      MAILER_DSN: null://null
-      MESSENGER_TRANSPORT_DSN: doctrine://default?auto_setup=0
-  tests:
-    override:
-      - php-scrutinizer-run
+            -   command: "composer phpunit"
+                # command: "XDEBUG_MODE=coverage vendor/bin/phpunit"
+                coverage:
+                    file: "docs/coverage.clover"
+                    format: "php-clover"
