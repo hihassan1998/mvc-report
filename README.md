@@ -1,6 +1,6 @@
 # MVC Report
 
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/hihassan1998/mvc-report/badges/quality-score.png?b=main)](https://scrutinizer-ci.com/g/hihassan1998/mvc-report/?branch=main)
+[[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/hihassan1998/mvc-report/badges/quality-score.png?b=main)](https://scrutinizer-ci.com/g/hihassan1998/mvc-report/?branch=main)](https://scrutinizer-ci.com/g/hihassan1998/mvc-report/badges/quality-score.png?b=main)
 
 [![Code Coverage](https://scrutinizer-ci.com/g/hihassan1998/mvc-report/badges/coverage.png?b=main)](https://scrutinizer-ci.com/g/hihassan1998/mvc-report/?branch=main)
 
