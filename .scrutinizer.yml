@@ -4,6 +4,14 @@ imports:
 filter:
     excluded_paths: [vendor/*, tests/*]
 
+env:
+  global:
+    APP_ENV: test
+    APP_SECRET: $ecretf0rt3st
+    DATABASE_URL: sqlite:///%kernel.project_dir%/var/data.db
+    MAILER_DSN: null://null
+    MESSENGER_TRANSPORT_DSN: doctrine://default?auto_setup=0
+
 build:
     image: default-bionic
 
