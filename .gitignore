@@ -31,10 +31,10 @@ yarn-error.log
 /assets/vendor/
 ###< symfony/asset-mapper ###
 
-.env
+# .env
 .env.dev
 .htaccess
-.env
+# .env
 .env.dev
 
 /tools/**/vendor/
