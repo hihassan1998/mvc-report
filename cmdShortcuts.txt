@@ -88,8 +88,8 @@ php bin/console doctrine:migrations:migrate
 Run SQL toward the database
 You can use the console to do pure SQL toward the database.
 
-php bin/console dbal:run-sql 'SELECT * FROM product'
 cehck data in db:
+php bin/console dbal:run-sql 'SELECT * FROM book'
 
 
 # Isntall metreic to dir:
