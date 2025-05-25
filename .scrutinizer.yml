@@ -22,18 +22,19 @@ build:
         override:
           - composer install --no-interaction -vvv
           - composer phpunit
-        coverage:
-          file: "docs/coverage/coverage.clover"
-          format: "php-clover"
 
-    analysis:
-      environment:
-        variables:
-          APP_ENV: test
-          APP_SECRET: $ecretf0rt3st
-          DATABASE_URL: sqlite:///%kernel.project_dir%/var/data.db
-          MAILER_DSN: null://null
-          MESSENGER_TRANSPORT_DSN: doctrine://default?auto_setup=0
-      tests:
-        override:
-          - php-scrutinizer-run
+  coverage:
+    file: "docs/coverage/coverage.clover"
+    format: "php-clover"
+
+analysis:
+  environment:
+    variables:
+      APP_ENV: test
+      APP_SECRET: $ecretf0rt3st
+      DATABASE_URL: sqlite:///%kernel.project_dir%/var/data.db
+      MAILER_DSN: null://null
+      MESSENGER_TRANSPORT_DSN: doctrine://default?auto_setup=0
+  tests:
+    override:
+      - php-scrutinizer-run
