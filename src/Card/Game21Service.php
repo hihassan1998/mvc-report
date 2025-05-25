@@ -31,9 +31,10 @@ class Game21Service
     }
 
     /**
-     *  Returns a lucky number and a friendly message as JSON.
+     * Draws a card for the player and updates session state.
      *
-     * Route: /api/lucky/number
+     * @param SessionInterface $session
+     *
      * @return array{
      *     player_cards: \App\Card\Card[],
      *     dealer_cards: \App\Card\Card[],
@@ -100,10 +101,11 @@ class Game21Service
         }
         return 'Dealer won, you lose!';
     }
+
     /**
      * Gets the calculated points.
-     * @param \App\Card\Card[] $cards
-     *
+     * 
+     * @param Card[] $cards
      * @return int
      */
     public function getPoints($cards): int

@@ -11,15 +11,10 @@ build:
         my-tests:
             environment:
                 php:
-                    version:  8.3.13
-                    # version: 8.3.3
+                    version: 8.3.3
                     # version: 8.1.13
                     # version: 8.1.17
                     # version: 8.2.4
-                variables:
-                    APP_ENV: test
-                    APP_SECRET: testsecret
-                    DATABASE_URL: "sqlite:///:memory:"
         analysis:
             tests:
                 override:
@@ -27,11 +22,8 @@ build:
                     #- phpcs-run # Not used, missing config file
     tests:
         override:
-            -   command: |
-                    composer install --prefer-dist --no-interaction
-                    php bin/console cache:clear
-                    composer phpunit
+            -   command: "composer phpunit"
                 # command: "XDEBUG_MODE=coverage vendor/bin/phpunit"
                 coverage:
-                    file: "docs/coverage/coverage.clover"
+                    file: "docs/coverage.clover"
                     format: "php-clover"
