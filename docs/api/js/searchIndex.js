@@ -123,7 +123,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Card\\Game21Service\u003A\u003AplayerHit\u0028\u0029",
             "name": "playerHit",
-            "summary": "",
+            "summary": "Returns\u0020a\u0020lucky\u0020number\u0020and\u0020a\u0020friendly\u0020message\u0020as\u0020JSON.",
             "url": "classes/App-Card-Game21Service.html#method_playerHit"
         },                {
             "fqsen": "\\App\\Card\\Game21Service\u003A\u003AdealerPlays\u0028\u0029",
@@ -138,7 +138,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Card\\Game21Service\u003A\u003AgetPoints\u0028\u0029",
             "name": "getPoints",
-            "summary": "",
+            "summary": "Gets\u0020the\u0020calculated\u0020points.",
             "url": "classes/App-Card-Game21Service.html#method_getPoints"
         },                {
             "fqsen": "\\App\\Card\\Game21Service\u003A\u003A\u0024helper",
@@ -255,6 +255,11 @@ Search.appendIndex(
             "name": "deleteBookById",
             "summary": "Deletes\u0020a\u0020book\u0020by\u0020its\u0020ID.",
             "url": "classes/App-Controller-BookController.html#method_deleteBookById"
+        },                {
+            "fqsen": "\\App\\Controller\\BookController\u003A\u003Ametrics\u0028\u0029",
+            "name": "metrics",
+            "summary": "Displays\u0020a\u0020simple\u0020page\u0020for\u0020the\u0020\/book\u0020route.",
+            "url": "classes/App-Controller-BookController.html#method_metrics"
         },                {
             "fqsen": "\\App\\Controller\\CardGameController",
             "name": "CardGameController",

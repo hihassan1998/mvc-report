@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1748167066">
-  <project timestamp="1748167066">
+<coverage generated="1748172116">
+  <project timestamp="1748172116">
     <file name="/home/hahi24/dbwebb-kurser/mvc/me/report/src/Card/Card.php">
       <class name="App\Card\Card" namespace="global">
         <metrics complexity="4" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="5" coveredstatements="5" elements="9" coveredelements="9"/>
@@ -294,7 +294,7 @@
     </file>
     <file name="/home/hahi24/dbwebb-kurser/mvc/me/report/src/Controller/BookController.php">
       <class name="App\Controller\BookController" namespace="global">
-        <metrics complexity="16" methods="8" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="85" coveredstatements="0" elements="93" coveredelements="0"/>
+        <metrics complexity="17" methods="9" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="86" coveredstatements="0" elements="95" coveredelements="0"/>
       </class>
       <line num="21" type="method" name="index" visibility="public" complexity="1" crap="2" count="0"/>
       <line num="24" type="stmt" count="0"/>
@@ -389,7 +389,9 @@
       <line num="233" type="stmt" count="0"/>
       <line num="234" type="stmt" count="0"/>
       <line num="236" type="stmt" count="0"/>
-      <metrics loc="239" ncloc="185" classes="1" methods="8" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="85" coveredstatements="0" elements="93" coveredelements="0"/>
+      <line num="243" type="method" name="metrics" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="246" type="stmt" count="0"/>
+      <metrics loc="249" ncloc="190" classes="1" methods="9" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="86" coveredstatements="0" elements="95" coveredelements="0"/>
     </file>
     <file name="/home/hahi24/dbwebb-kurser/mvc/me/report/src/Controller/CardGameController.php">
       <class name="App\Controller\CardGameController" namespace="global">
@@ -776,6 +778,6 @@
       <line num="16" type="stmt" count="0"/>
       <metrics loc="44" ncloc="18" classes="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="0" elements="2" coveredelements="0"/>
     </file>
-    <metrics files="19" loc="1680" ncloc="1384" classes="18" methods="93" coveredmethods="43" conditionals="0" coveredconditionals="0" statements="568" coveredstatements="177" elements="661" coveredelements="220"/>
+    <metrics files="19" loc="1690" ncloc="1389" classes="18" methods="94" coveredmethods="43" conditionals="0" coveredconditionals="0" statements="569" coveredstatements="177" elements="663" coveredelements="220"/>
   </project>
 </coverage>
