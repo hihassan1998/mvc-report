@@ -17,7 +17,9 @@ build:
                     # version: 8.1.17
                     # version: 8.2.4
                 variables:
-                    APP_ENV: scrutinizer
+                    APP_ENV: test
+                    APP_SECRET: testsecret
+                    DATABASE_URL: "sqlite:///:memory:"
         analysis:
             tests:
                 override:
@@ -26,8 +28,7 @@ build:
     tests:
         override:
             -   command: |
-                    cp .env.scrutinizer .env
-                    composer install
+                    composer install --prefer-dist --no-interaction
                     php bin/console cache:clear
                     composer phpunit
                 # command: "XDEBUG_MODE=coverage vendor/bin/phpunit"
