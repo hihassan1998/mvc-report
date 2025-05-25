@@ -25,5 +25,5 @@ build:
             -   command: "composer phpunit"
                 # command: "XDEBUG_MODE=coverage vendor/bin/phpunit"
                 coverage:
-                    file: "docs/coverage/coverage.clover"
+                    file: "docs/coverage.clover"
                     format: "php-clover"
