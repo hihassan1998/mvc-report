@@ -15,8 +15,6 @@ build:
                     # version: 8.1.13
                     # version: 8.1.17
                     # version: 8.2.4
-            before_commands:
-                - cp .env.scrutinizer .env
         analysis:
             tests:
                 override:
@@ -24,7 +22,11 @@ build:
                     #- phpcs-run # Not used, missing config file
     tests:
         override:
-            -   command: "composer phpunit"
+            -   command: |
+                    cp .env.scrutinizer .env
+                    composer install
+                    php bin/console cache:clear
+                    composer phpuni
                 # command: "XDEBUG_MODE=coverage vendor/bin/phpunit"
                 coverage:
                     file: "docs/coverage/coverage.clover"

@@ -14,7 +14,7 @@ class LuckyController
         $number = random_int(0, 100);
 
         return new Response(
-            '<html><body>Lucky number: '.$number.'</body></html>'
+            '<html><body>Lucky number: ' . $number . '</body></html>'
         );
     }
 
@@ -29,10 +29,10 @@ class LuckyController
     #[Route("/api/lucky/number")]
     public function jsonNnumber(): Response
     {
-        $this->number = random_int(0, 100);
+        $number = random_int(0, 100);
 
         $data = [
-            'lucky-number' => $this->number,
+            'lucky-number' => $number,
             'lucky-message' => 'Hi there!',
         ];
 
@@ -43,12 +43,5 @@ class LuckyController
         );
         return $response;
 
-        // return new JsonResponse;
-
-        // $response = new Response();
-        // $response->setContent(json_encode($data));
-        // $response->headers->set('Content-Type', 'application/json');
-
-        // return $response;
     }
 }
