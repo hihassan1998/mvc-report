@@ -5,8 +5,6 @@ namespace App\Tests\Controller;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\BrowserKit\Cookie;
 use App\Card\Deck;
-use Symfony\Component\HttpFoundation\Session\SessionFactoryInterface;
-use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use \Symfony\Bundle\FrameworkBundle\KernelBrowser;
 
 class ApiControllerTest extends WebTestCase
@@ -144,6 +142,13 @@ class ApiControllerTest extends WebTestCase
     {
         $client = static::createClient();
 
+        // Ensure schema is created
+        $em = $client->getContainer()->get('doctrine')->getManager();
+        $schemaTool = new \Doctrine\ORM\Tools\SchemaTool($em);
+        $metadata = $em->getMetadataFactory()->getAllMetadata();
+        $schemaTool->dropSchema($metadata);
+        $schemaTool->createSchema($metadata);
+
         $client->request('GET', '/api/library/books');
 
         $this->assertResponseIsSuccessful();
@@ -155,6 +160,13 @@ class ApiControllerTest extends WebTestCase
     public function testShowBookByIsbnReturnsBookOrError(): void
     {
         $client = static::createClient();
+
+        // Ensure schema is created
+        $em = $client->getContainer()->get('doctrine')->getManager();
+        $schemaTool = new \Doctrine\ORM\Tools\SchemaTool($em);
+        $metadata = $em->getMetadataFactory()->getAllMetadata();
+        $schemaTool->dropSchema($metadata);
+        $schemaTool->createSchema($metadata);
 
         $isbn = '12345-687-809';
 
