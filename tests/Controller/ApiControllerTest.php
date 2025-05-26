@@ -5,7 +5,9 @@ namespace App\Tests\Controller;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\BrowserKit\Cookie;
 use App\Card\Deck;
+use Doctrine\ORM\Tools\SchemaTool;
 use \Symfony\Bundle\FrameworkBundle\KernelBrowser;
+use Doctrine\ORM\EntityManagerInterface;
 
 class ApiControllerTest extends WebTestCase
 {
@@ -27,6 +29,19 @@ class ApiControllerTest extends WebTestCase
 
         $cookie = new Cookie($session->getName(), $session->getId());
         $client->getCookieJar()->set($cookie);
+    }
+    private function resetDatabaseSchema(): void
+    {
+        /** @var EntityManagerInterface $em */
+        $em = static::getContainer()->get('doctrine.orm.entity_manager');
+
+        $schemaTool = new SchemaTool($em);
+        $metadata = $em->getMetadataFactory()->getAllMetadata();
+
+        if (!empty($metadata)) {
+            $schemaTool->dropSchema($metadata);
+            $schemaTool->createSchema($metadata);
+        }
     }
 
 
@@ -143,11 +158,7 @@ class ApiControllerTest extends WebTestCase
         $client = static::createClient();
 
         // Ensure schema is created
-        $em = $client->getContainer()->get('doctrine')->getManager();
-        $schemaTool = new \Doctrine\ORM\Tools\SchemaTool($em);
-        $metadata = $em->getMetadataFactory()->getAllMetadata();
-        $schemaTool->dropSchema($metadata);
-        $schemaTool->createSchema($metadata);
+        $this->resetDatabaseSchema();
 
         $client->request('GET', '/api/library/books');
 
@@ -162,11 +173,7 @@ class ApiControllerTest extends WebTestCase
         $client = static::createClient();
 
         // Ensure schema is created
-        $em = $client->getContainer()->get('doctrine')->getManager();
-        $schemaTool = new \Doctrine\ORM\Tools\SchemaTool($em);
-        $metadata = $em->getMetadataFactory()->getAllMetadata();
-        $schemaTool->dropSchema($metadata);
-        $schemaTool->createSchema($metadata);
+        $this->resetDatabaseSchema();
 
         $isbn = '12345-687-809';
 

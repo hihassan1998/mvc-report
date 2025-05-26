@@ -8,7 +8,6 @@ use Doctrine\ORM\EntityManagerInterface;
 
 class BookControllerTest extends WebTestCase
 {
-    
     public function testIndex(): void
     {
         $client = static::createClient();
