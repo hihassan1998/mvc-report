@@ -22,8 +22,6 @@ build:
                     #- phpcs-run # Not used, missing config file
     tests:
         override:
-            - command: "npm install"
-            - command: "npm run build"
             -   command: "composer phpunit"
                 # command: "XDEBUG_MODE=coverage vendor/bin/phpunit"
                 coverage:
