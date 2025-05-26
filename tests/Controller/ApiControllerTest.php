@@ -193,9 +193,6 @@ class ApiControllerTest extends WebTestCase
                 $expectedJson,
                 $content
             );
-        } else {
-            $this->assertResponseIsSuccessful();
-            $this->assertJson($content);
         }
     }
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1748279051">
-  <project timestamp="1748279051">
+<coverage generated="1748280353">
+  <project timestamp="1748280353">
     <file name="/home/hahi24/dbwebb-kurser/mvc/me/report/src/Card/Card.php">
       <class name="App\Card\Card" namespace="global">
         <metrics complexity="4" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="5" coveredstatements="5" elements="9" coveredelements="9"/>
@@ -146,9 +146,9 @@
     </file>
     <file name="/home/hahi24/dbwebb-kurser/mvc/me/report/src/Card/GameHelper.php">
       <class name="App\Card\GameHelper" namespace="global">
-        <metrics complexity="7" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="15" coveredstatements="15" elements="16" coveredelements="16"/>
+        <metrics complexity="7" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="15" coveredstatements="11" elements="16" coveredelements="11"/>
       </class>
-      <line num="20" type="method" name="calculatePoints" visibility="public" complexity="7" crap="7" count="7"/>
+      <line num="20" type="method" name="calculatePoints" visibility="public" complexity="7" crap="7.93" count="7"/>
       <line num="23" type="stmt" count="7"/>
       <line num="24" type="stmt" count="7"/>
       <line num="26" type="stmt" count="7"/>
@@ -156,15 +156,15 @@
       <line num="29" type="stmt" count="7"/>
       <line num="30" type="stmt" count="1"/>
       <line num="32" type="stmt" count="7"/>
-      <line num="33" type="stmt" count="1"/>
-      <line num="34" type="stmt" count="1"/>
+      <line num="33" type="stmt" count="0"/>
+      <line num="34" type="stmt" count="0"/>
       <line num="36" type="stmt" count="7"/>
       <line num="37" type="stmt" count="7"/>
       <line num="42" type="stmt" count="7"/>
-      <line num="43" type="stmt" count="1"/>
-      <line num="44" type="stmt" count="1"/>
+      <line num="43" type="stmt" count="0"/>
+      <line num="44" type="stmt" count="0"/>
       <line num="47" type="stmt" count="7"/>
-      <metrics loc="50" ncloc="36" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="15" coveredstatements="15" elements="16" coveredelements="16"/>
+      <metrics loc="50" ncloc="36" classes="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="15" coveredstatements="11" elements="16" coveredelements="11"/>
     </file>
     <file name="/home/hahi24/dbwebb-kurser/mvc/me/report/src/Controller/ApiController.php">
       <class name="App\Controller\ApiController" namespace="global">
@@ -652,6 +652,6 @@
       <line num="16" type="stmt" count="3"/>
       <metrics loc="44" ncloc="18" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="2" coveredelements="2"/>
     </file>
-    <metrics files="19" loc="1445" ncloc="1190" classes="18" methods="86" coveredmethods="75" conditionals="0" coveredconditionals="0" statements="451" coveredstatements="387" elements="537" coveredelements="462"/>
+    <metrics files="19" loc="1445" ncloc="1190" classes="18" methods="86" coveredmethods="74" conditionals="0" coveredconditionals="0" statements="451" coveredstatements="383" elements="537" coveredelements="457"/>
   </project>
 </coverage>
