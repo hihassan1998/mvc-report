@@ -6,6 +6,8 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\BrowserKit\Cookie;
 use App\Card\Deck;
 use Symfony\Component\HttpFoundation\Session\SessionFactoryInterface;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use \Symfony\Bundle\FrameworkBundle\KernelBrowser;
 
 class ApiControllerTest extends WebTestCase
 {
@@ -13,11 +15,12 @@ class ApiControllerTest extends WebTestCase
      * @param \Symfony\Bundle\FrameworkBundle\KernelBrowser $client
      * @param array<string, mixed> $sessionData
      */
-    private function setSession(\Symfony\Bundle\FrameworkBundle\KernelBrowser $client, array $sessionData = []): void
+    private function setSession(KernelBrowser $client, array $sessionData = []): void
     {
-        /** @var SessionFactoryInterface $sessionFactory */
-        $sessionFactory = $client->getContainer()->get('session.factory');
-        $session = $sessionFactory->createSession();
+        $client->request('GET', '/');
+
+        /** @var \Symfony\Component\HttpFoundation\Session\SessionInterface $session */
+        $session = $client->getRequest()->getSession();
 
         foreach ($sessionData as $key => $value) {
             $session->set($key, $value);
@@ -26,27 +29,6 @@ class ApiControllerTest extends WebTestCase
 
         $cookie = new Cookie($session->getName(), $session->getId());
         $client->getCookieJar()->set($cookie);
-    }
-    public function testApiDeck(): void
-    {
-        $client = static::createClient();
-        $client->request('GET', '/api/deck');
-
-        $this->assertResponseIsSuccessful();
-        $content = $client->getResponse()->getContent();
-        $this->assertIsString($content);
-        $this->assertJson($content);
-    }
-
-    public function testShuffleDeckStoresInSession(): void
-    {
-        $client = static::createClient();
-
-        $client->request('GET', '/api/deck/shuffle');
-
-        $session = $client->getRequest()->getSession();
-
-        $this->assertTrue($session->has('deck'));
     }
 
 
@@ -66,7 +48,9 @@ class ApiControllerTest extends WebTestCase
         $content = $client->getResponse()->getContent();
         $this->assertIsString($content);
 
-        $json = json_decode($content, true);
+        // $json = json_decode($content, true);
+        $json = json_decode($content ?: '', true);
+
         $this->assertIsArray($json);
 
         $this->assertArrayHasKey('drawn_cards', $json);
@@ -91,7 +75,8 @@ class ApiControllerTest extends WebTestCase
         $content = $client->getResponse()->getContent();
         $this->assertIsString($content);
 
-        $json = json_decode($content, true);
+        // $json = json_decode($content, true);
+        $json = json_decode($content ?: '', true);
         $this->assertIsArray($json);
 
         $this->assertCount($num, $json['drawn_cards']);
@@ -123,12 +108,36 @@ class ApiControllerTest extends WebTestCase
         $this->assertIsString($content);
         $this->assertJson($content);
 
-        $data = json_decode($content, true);
+        // $data = json_decode($content, true);
+        $data = json_decode($content ?: '', true);
+
         $this->assertIsArray($data);
 
         $this->assertArrayHasKey('player', $data);
         $this->assertArrayHasKey('dealer', $data);
         $this->assertArrayHasKey('game_over', $data);
+    }
+
+    public function testApiDeck(): void
+    {
+        $client = static::createClient();
+        $client->request('GET', '/api/deck');
+
+        $this->assertResponseIsSuccessful();
+        $content = $client->getResponse()->getContent();
+        $this->assertIsString($content);
+        $this->assertJson($content);
+    }
+
+    public function testShuffleDeckStoresInSession(): void
+    {
+        $client = static::createClient();
+
+        $client->request('GET', '/api/deck/shuffle');
+
+        $session = $client->getRequest()->getSession();
+
+        $this->assertTrue($session->has('deck'));
     }
 
     public function testShowAllBooksReturnsJson(): void
@@ -152,9 +161,10 @@ class ApiControllerTest extends WebTestCase
         $client->request('GET', "/api/library/book/{$isbn}");
 
         $response = $client->getResponse();
-        $content = $response->getContent();
+        // $content = $response->getContent();
+        $content = $response->getContent() ?: '';
 
-        $this->assertIsString($content, 'Response content must be a string');
+        // $this->assertIsString($content, 'Response content must be a string');
 
         if ($response->getStatusCode() === 404) {
             $expectedJson = json_encode(['error' => 'Book not found']);
