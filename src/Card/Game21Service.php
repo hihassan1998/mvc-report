@@ -104,7 +104,7 @@ class Game21Service
 
     /**
      * Gets the calculated points.
-     * 
+     *
      * @param Card[] $cards
      * @return int
      */

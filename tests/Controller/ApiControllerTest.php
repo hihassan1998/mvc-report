@@ -32,11 +32,11 @@ class ApiControllerTest extends WebTestCase
     }
     private function resetDatabaseSchema(): void
     {
-        /** @var EntityManagerInterface $em */
-        $em = static::getContainer()->get('doctrine.orm.entity_manager');
+        /** @var EntityManagerInterface $entitym */
+        $entitym = static::getContainer()->get('doctrine.orm.entity_manager');
 
-        $schemaTool = new SchemaTool($em);
-        $metadata = $em->getMetadataFactory()->getAllMetadata();
+        $schemaTool = new SchemaTool($entitym);
+        $metadata = $entitym->getMetadataFactory()->getAllMetadata();
 
         if (!empty($metadata)) {
             $schemaTool->dropSchema($metadata);
