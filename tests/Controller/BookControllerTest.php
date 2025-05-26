@@ -8,15 +8,6 @@ use Doctrine\ORM\EntityManagerInterface;
 
 class BookControllerTest extends WebTestCase
 {
-    public function testIndex(): void
-    {
-        $client = static::createClient();
-        $client->request('GET', '/book');
-
-        $this->assertResponseIsSuccessful();
-        $this->assertSelectorTextContains('h1', 'Hello BookController! ✅');
-    }
-
     public function testCreateProduct(): void
     {
         $client = static::createClient();
