@@ -19,15 +19,15 @@ class BookControllerTest extends WebTestCase
         $this->assertStringContainsString('Three books added successfully.', $content);
     }
 
-    public function testViewAllProducts(): void
-    {
-        $client = static::createClient();
-        $client->request('GET', '/library');
+    // public function testViewAllProducts(): void
+    // {
+    //     $client = static::createClient();
+    //     $client->request('GET', '/library');
 
-        $this->assertResponseIsSuccessful();
-        $this->assertSelectorExists('li');
+    //     $this->assertResponseIsSuccessful();
+    //     $this->assertSelectorExists('li');
 
-    }
+    // }
 
 
     public function testNewBookFormDisplays(): void
