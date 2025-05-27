@@ -138,12 +138,15 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Dice/Dice.php"><a href="files/src-dice-dice.html"><abbr title="src/Dice/Dice.php">Dice.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">5</span>
+    <span class="phpdocumentor-element-found-in__line">10</span>
 
     </aside>
 
-        
+            <p class="phpdocumentor-summary">Represents a standard six-sided die.</p>
 
+
+    <section class="phpdocumentor-description"><p>Allows rolling the die and retrieving its value in numeric or string format.</p>
+</section>
 
 
 
@@ -190,24 +193,28 @@
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
+<dd>Initializes the die with a null value.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/App-Dice-Dice.html#method_getAsString">getAsString()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
+<dd>Returns the value of the die as a string in square brackets.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/App-Dice-Dice.html#method_getValue">getValue()</a>
     <span>
                                 &nbsp;: int|null    </span>
 </dt>
+<dd>Returns the current value of the die.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/App-Dice-Dice.html#method_roll">roll()</a>
     <span>
                                 &nbsp;: int    </span>
 </dt>
+<dd>Rolls the die and sets a random value between 1 and 6.</dd>
 
     </dl>
 
@@ -239,7 +246,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Dice/Dice.php"><a href="files/src-dice-dice.html"><abbr title="src/Dice/Dice.php">Dice.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">7</span>
+    <span class="phpdocumentor-element-found-in__line">12</span>
 
     </aside>
 
@@ -280,11 +287,12 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Dice/Dice.php"><a href="files/src-dice-dice.html"><abbr title="src/Dice/Dice.php">Dice.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">9</span>
+    <span class="phpdocumentor-element-found-in__line">17</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Initializes the die with a null value.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
@@ -314,11 +322,12 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Dice/Dice.php"><a href="files/src-dice-dice.html"><abbr title="src/Dice/Dice.php">Dice.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">25</span>
+    <span class="phpdocumentor-element-found-in__line">47</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Returns the value of the die as a string in square brackets.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getAsString</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
@@ -335,6 +344,10 @@
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">string</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>The string representation of the die.</p>
+</section>
+
             </section>
 
 </article>
@@ -352,11 +365,12 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Dice/Dice.php"><a href="files/src-dice-dice.html"><abbr title="src/Dice/Dice.php">Dice.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">20</span>
+    <span class="phpdocumentor-element-found-in__line">37</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Returns the current value of the die.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getValue</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int|null</span></code>
@@ -373,6 +387,10 @@
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">int|null</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>The die value or null if not rolled yet.</p>
+</section>
+
             </section>
 
 </article>
@@ -390,11 +408,12 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Dice/Dice.php"><a href="files/src-dice-dice.html"><abbr title="src/Dice/Dice.php">Dice.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">14</span>
+    <span class="phpdocumentor-element-found-in__line">26</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Rolls the die and sets a random value between 1 and 6.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">roll</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int</span></code>
@@ -411,6 +430,10 @@
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">int</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>The result of the roll.</p>
+</section>
+
             </section>
 
 </article>

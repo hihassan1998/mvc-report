@@ -53,11 +53,7 @@ class CardGraphic extends Card implements \JsonSerializable
     /**
      * Specify data which should be serialized to JSON.
      *
-     * @return array{
-     *     suit: string,
-     *     value: string,
-     *     graphic: string
-     * }
+     * @return array{ suit: string, value: string, graphic: string }
      */
     public function jsonSerialize(): mixed
     {

@@ -168,32 +168,32 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Controller\\ApiController",
             "name": "ApiController",
-            "summary": "",
+            "summary": "Class\u0020ApiController",
             "url": "classes/App-Controller-ApiController.html"
         },                {
             "fqsen": "\\App\\Controller\\ApiController\u003A\u003Aapi\u0028\u0029",
             "name": "api",
-            "summary": "",
+            "summary": "Render\u0020a\u0020list\u0020of\u0020available\u0020API\u0020routes.",
             "url": "classes/App-Controller-ApiController.html#method_api"
         },                {
             "fqsen": "\\App\\Controller\\ApiController\u003A\u003AapiDeck\u0028\u0029",
             "name": "apiDeck",
-            "summary": "",
+            "summary": "Return\u0020a\u0020full,\u0020grouped\u0020deck\u0020of\u0020cards\u0020as\u0020JSON.",
             "url": "classes/App-Controller-ApiController.html#method_apiDeck"
         },                {
             "fqsen": "\\App\\Controller\\ApiController\u003A\u003Ashuffle\u0028\u0029",
             "name": "shuffle",
-            "summary": "",
+            "summary": "Shuffle\u0020the\u0020deck\u0020and\u0020store\u0020it\u0020in\u0020the\u0020session.",
             "url": "classes/App-Controller-ApiController.html#method_shuffle"
         },                {
             "fqsen": "\\App\\Controller\\ApiController\u003A\u003AdrawCard\u0028\u0029",
             "name": "drawCard",
-            "summary": "",
+            "summary": "Draw\u0020a\u0020single\u0020card\u0020from\u0020the\u0020session\u0027s\u0020deck\u0020and\u0020return\u0020it.",
             "url": "classes/App-Controller-ApiController.html#method_drawCard"
         },                {
             "fqsen": "\\App\\Controller\\ApiController\u003A\u003AdrawNumber\u0028\u0029",
             "name": "drawNumber",
-            "summary": "",
+            "summary": "Draw\u0020a\u0020specific\u0020number\u0020of\u0020cards\u0020from\u0020the\u0020deck\u0020and\u0020return\u0020them.",
             "url": "classes/App-Controller-ApiController.html#method_drawNumber"
         },                {
             "fqsen": "\\App\\Controller\\ApiGameController",
@@ -218,7 +218,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Controller\\ApiLibraryController",
             "name": "ApiLibraryController",
-            "summary": "",
+            "summary": "API\u0020controller\u0020for\u0020accessing\u0020book\u0020data\u0020in\u0020JSON\u0020format.",
             "url": "classes/App-Controller-ApiLibraryController.html"
         },                {
             "fqsen": "\\App\\Controller\\ApiLibraryController\u003A\u003AshowAllBook\u0028\u0029",
@@ -238,7 +238,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Controller\\BookController",
             "name": "BookController",
-            "summary": "",
+            "summary": "Controller\u0020for\u0020managing\u0020book\u002Drelated\u0020operations.",
             "url": "classes/App-Controller-BookController.html"
         },                {
             "fqsen": "\\App\\Controller\\BookController\u003A\u003Aindex\u0028\u0029",
@@ -275,11 +275,6 @@ Search.appendIndex(
             "name": "deleteBookById",
             "summary": "Deletes\u0020a\u0020book\u0020by\u0020its\u0020ID.",
             "url": "classes/App-Controller-BookController.html#method_deleteBookById"
-        },                {
-            "fqsen": "\\App\\Controller\\BookController\u003A\u003Ametrics\u0028\u0029",
-            "name": "metrics",
-            "summary": "Displays\u0020a\u0020simple\u0020page\u0020for\u0020the\u0020\/book\u0020route.",
-            "url": "classes/App-Controller-BookController.html#method_metrics"
         },                {
             "fqsen": "\\App\\Controller\\CardGameController",
             "name": "CardGameController",
@@ -416,29 +411,39 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Controller-LuckyControllerTwig.html#method_luckyHome"
         },                {
+            "fqsen": "\\App\\Controller\\MetricsController",
+            "name": "MetricsController",
+            "summary": "Controller\u0020for\u0020PHP\u0020Metrics\u0020Report.",
+            "url": "classes/App-Controller-MetricsController.html"
+        },                {
+            "fqsen": "\\App\\Controller\\MetricsController\u003A\u003Ametrics\u0028\u0029",
+            "name": "metrics",
+            "summary": "Displays\u0020a\u0020simple\u0020page\u0020for\u0020the\u0020\/book\u0020route.",
+            "url": "classes/App-Controller-MetricsController.html#method_metrics"
+        },                {
             "fqsen": "\\App\\Dice\\Dice",
             "name": "Dice",
-            "summary": "",
+            "summary": "Represents\u0020a\u0020standard\u0020six\u002Dsided\u0020die.",
             "url": "classes/App-Dice-Dice.html"
         },                {
             "fqsen": "\\App\\Dice\\Dice\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "Initializes\u0020the\u0020die\u0020with\u0020a\u0020null\u0020value.",
             "url": "classes/App-Dice-Dice.html#method___construct"
         },                {
             "fqsen": "\\App\\Dice\\Dice\u003A\u003Aroll\u0028\u0029",
             "name": "roll",
-            "summary": "",
+            "summary": "Rolls\u0020the\u0020die\u0020and\u0020sets\u0020a\u0020random\u0020value\u0020between\u00201\u0020and\u00206.",
             "url": "classes/App-Dice-Dice.html#method_roll"
         },                {
             "fqsen": "\\App\\Dice\\Dice\u003A\u003AgetValue\u0028\u0029",
             "name": "getValue",
-            "summary": "",
+            "summary": "Returns\u0020the\u0020current\u0020value\u0020of\u0020the\u0020die.",
             "url": "classes/App-Dice-Dice.html#method_getValue"
         },                {
             "fqsen": "\\App\\Dice\\Dice\u003A\u003AgetAsString\u0028\u0029",
             "name": "getAsString",
-            "summary": "",
+            "summary": "Returns\u0020the\u0020value\u0020of\u0020the\u0020die\u0020as\u0020a\u0020string\u0020in\u0020square\u0020brackets.",
             "url": "classes/App-Dice-Dice.html#method_getAsString"
         },                {
             "fqsen": "\\App\\Dice\\Dice\u003A\u003A\u0024value",
@@ -448,17 +453,17 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Dice\\DiceGraphic",
             "name": "DiceGraphic",
-            "summary": "",
+            "summary": "A\u0020graphical\u0020die\u0020that\u0020returns\u0020Unicode\u0020symbols\u0020instead\u0020of\u0020numbers.",
             "url": "classes/App-Dice-DiceGraphic.html"
         },                {
             "fqsen": "\\App\\Dice\\DiceGraphic\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "Calls\u0020the\u0020parent\u0020constructor\u0020to\u0020initialize\u0020the\u0020die.",
             "url": "classes/App-Dice-DiceGraphic.html#method___construct"
         },                {
             "fqsen": "\\App\\Dice\\DiceGraphic\u003A\u003AgetAsString\u0028\u0029",
             "name": "getAsString",
-            "summary": "",
+            "summary": "Returns\u0020the\u0020die\u0020face\u0020as\u0020a\u0020Unicode\u0020character\u0020based\u0020on\u0020the\u0020current\u0020value.",
             "url": "classes/App-Dice-DiceGraphic.html#method_getAsString"
         },                {
             "fqsen": "\\App\\Dice\\DiceGraphic\u003A\u003A\u0024representation",
@@ -468,32 +473,32 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Dice\\DiceHand",
             "name": "DiceHand",
-            "summary": "",
+            "summary": "Represents\u0020a\u0020hand\u0020of\u0020dice.",
             "url": "classes/App-Dice-DiceHand.html"
         },                {
             "fqsen": "\\App\\Dice\\DiceHand\u003A\u003Aadd\u0028\u0029",
             "name": "add",
-            "summary": "",
+            "summary": "Adds\u0020a\u0020die\u0020to\u0020the\u0020hand.",
             "url": "classes/App-Dice-DiceHand.html#method_add"
         },                {
             "fqsen": "\\App\\Dice\\DiceHand\u003A\u003Aroll\u0028\u0029",
             "name": "roll",
-            "summary": "",
+            "summary": "Rolls\u0020all\u0020dice\u0020in\u0020the\u0020hand.",
             "url": "classes/App-Dice-DiceHand.html#method_roll"
         },                {
             "fqsen": "\\App\\Dice\\DiceHand\u003A\u003AgetNumberDices\u0028\u0029",
             "name": "getNumberDices",
-            "summary": "",
+            "summary": "Returns\u0020the\u0020number\u0020of\u0020dice\u0020in\u0020the\u0020hand.",
             "url": "classes/App-Dice-DiceHand.html#method_getNumberDices"
         },                {
             "fqsen": "\\App\\Dice\\DiceHand\u003A\u003AgetValues\u0028\u0029",
             "name": "getValues",
-            "summary": "",
+            "summary": "Returns\u0020the\u0020numeric\u0020values\u0020of\u0020all\u0020dice\u0020in\u0020the\u0020hand.",
             "url": "classes/App-Dice-DiceHand.html#method_getValues"
         },                {
             "fqsen": "\\App\\Dice\\DiceHand\u003A\u003AgetString\u0028\u0029",
             "name": "getString",
-            "summary": "",
+            "summary": "Returns\u0020the\u0020string\u0020or\u0020graphical\u0020representations\u0020of\u0020all\u0020dice.",
             "url": "classes/App-Dice-DiceHand.html#method_getString"
         },                {
             "fqsen": "\\App\\Dice\\DiceHand\u003A\u003A\u0024hand",

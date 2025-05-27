@@ -7,6 +7,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+/**
+ * API controller for accessing book data in JSON format.
+ *
+ * Provides endpoints to retrieve all books, a book by ISBN, or a book by ID.
+ */
 class ApiLibraryController extends AbstractController
 {
     // api route to json responce from library with all book

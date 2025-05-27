@@ -3,23 +3,24 @@
 namespace App\Controller;
 
 use App\Card\Deck;
-use App\Card\GameHelper;
-use App\Card\Card;
-use App\Repository\BookRepository;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+/**
+ * Class ApiController
+ *
+ * Provides various API endpoints of a deck of cards as JSON data responses.
+ */
 class ApiController extends AbstractController
 {
-    // private GameHelper $gameHelper;
-    // public function __construct(GameHelper $gameHelper)
-    // {
-    //     $this->gameHelper = $gameHelper;
-    // }
-
+    /**
+     * Render a list of available API routes.
+     *
+     * @return Response HTML page listing available API endpoints.
+     */
     #[Route("/api", name: "api")]
     public function api(): Response
     {
@@ -32,6 +33,11 @@ class ApiController extends AbstractController
             'routes' => $routes
         ]);
     }
+    /**
+     * Return a full, grouped deck of cards as JSON.
+     *
+     * @return JsonResponse JSON representation of the full deck grouped by suit.
+     */
     #[Route('/api/deck', name: 'api_deck', methods: ['GET'])]
     public function apiDeck(): JsonResponse
     {
@@ -44,6 +50,13 @@ class ApiController extends AbstractController
 
         return $response;
     }
+    /**
+     * Shuffle the deck and store it in the session.
+     *
+     * @param SessionInterface $session The current session instance.
+     *
+     * @return JsonResponse JSON representation of the shuffled deck grouped by suit.
+     */
     #[Route('/api/deck/shuffle', name: 'api_deck_shuffle', methods: ["GET", 'POST'])]
     public function shuffle(SessionInterface $session): JsonResponse
     {
@@ -59,6 +72,13 @@ class ApiController extends AbstractController
 
         return $response;
     }
+    /**
+     * Draw a single card from the session's deck and return it.
+     *
+     * @param SessionInterface $session The current session instance.
+     *
+     * @return JsonResponse JSON with the drawn card and remaining count.
+     */
     #[Route("/api/deck/draw", name: "draw_card", methods: ["GET", 'POST'])]
     public function drawCard(SessionInterface $session): JsonResponse
     {
@@ -80,6 +100,14 @@ class ApiController extends AbstractController
         );
         return $response;
     }
+    /**
+     * Draw a specific number of cards from the deck and return them.
+     *
+     * @param int $num The number of cards to draw.
+     * @param SessionInterface $session The current session instance.
+     *
+     * @return JsonResponse JSON with drawn cards and remaining count, or error if too many requested.
+     */
     #[Route("/api/deck/draw/{num<\d+>}", name: "draw_multiple_cards", methods: ["GET", "POST"])]
     public function drawNumber(int $num, SessionInterface $session): JsonResponse
     {
@@ -100,67 +128,4 @@ class ApiController extends AbstractController
         );
         return $response;
     }
-    // #[Route('/api/game', name: 'api_game', methods: ['GET'])]
-    // public function apiGame(SessionInterface $session): JsonResponse
-    // {
-
-    //     /** @var Card[] $playerCards */
-    //     $playerCards = $session->get('player_cards', []);
-
-    //     /** @var Card[] $dealerCards */
-    //     $dealerCards = $session->get('dealer_cards', []);
-
-    //     $showDealer = $session->get('show_dealer', false);
-
-    //     $playerPoints = $this->gameHelper->calculatePoints($playerCards);
-    //     $dealerPoints = $this->gameHelper->calculatePoints($dealerCards);
-
-    //     $data = [
-    //         'player' => [
-    //             'cards' => array_map(fn($card) => (string) $card, $playerCards),
-    //             'points' => $playerPoints
-    //         ],
-    //         'dealer' => [
-    //             'cards' => $showDealer ? array_map(fn($card) => (string) $card, $dealerCards) : ['Hidden'],
-    //             'points' => $showDealer ? $dealerPoints : 'Hidden'
-    //         ],
-    //         'game_over' => $playerPoints > 21 || $dealerPoints > 21 || $showDealer
-    //     ];
-    //     $response = new JsonResponse($data);
-    //     $response->setEncodingOptions(
-    //         $response->getEncodingOptions() | JSON_PRETTY_PRINT
-    //     );
-    //     return $response;
-    // }
-    // api route to json responce from library with all book
-    // #[Route('api/library/books', name: 'book_show_all')]
-    // public function showAllBook(
-    //     BookRepository $bookRepository
-    // ): Response {
-    //     $books = $bookRepository
-    //         ->findAll();
-
-    //     $response = $this->json($books);
-    //     $response->setEncodingOptions(
-    //         $response->getEncodingOptions() | JSON_PRETTY_PRINT
-    //     );
-    //     return $response;
-    // }
-    // // show a book through its isbn
-    // #[Route('api/library/book/{isbn}', name: 'book_by_isbn')]
-    // public function showBookByIsbn(
-    //     BookRepository $bookRepository,
-    //     string $isbn
-    // ): Response {
-    //     $book = $bookRepository->findOneBy(['isbn' => $isbn]);
-
-    //     if (!$book) {
-    //         return $this->json(['error' => 'Book not found'], 404);
-    //     }
-    //     $response = $this->json($book);
-    //     $response->setEncodingOptions(
-    //         $response->getEncodingOptions() | JSON_PRETTY_PRINT
-    //     );
-    //     return $response;
-    // }
 }
