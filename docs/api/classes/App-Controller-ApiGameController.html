@@ -117,7 +117,7 @@
 
     <article class="phpdocumentor-element -class">
         <h2 class="phpdocumentor-content__title">
-    ApiController
+    ApiGameController
 
         <span class="phpdocumentor-element__extends">
         extends <abbr title="\Symfony\Bundle\FrameworkBundle\Controller\AbstractController">AbstractController</abbr>
@@ -139,13 +139,14 @@
 </div>
 
         <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Controller/ApiController.php"><a href="files/src-controller-apicontroller.html"><abbr title="src/Controller/ApiController.php">ApiController.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Controller/ApiGameController.php"><a href="files/src-controller-apigamecontroller.html"><abbr title="src/Controller/ApiGameController.php">ApiGameController.php</abbr></a></abbr>
     :
     <span class="phpdocumentor-element-found-in__line">15</span>
 
     </aside>
 
-        
+            <p class="phpdocumentor-summary">Controller for handling game state retrieval in JSON format from the 21-game API.</p>
+
 
 
 
@@ -156,7 +157,7 @@
 
 <h3 id="toc">
     Table of Contents
-    <a href="classes/App-Controller-ApiController.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/App-Controller-ApiGameController.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h3>
 
@@ -168,42 +169,39 @@
 
 
 
+<h4 id="toc-properties">
+    Properties
+    <a href="classes/App-Controller-ApiGameController.html#toc-properties" class="headerlink"><i class="fas fa-link"></i></a>
+
+</h4>
+<dl class="phpdocumentor-table-of-contents">
+            <dt class="phpdocumentor-table-of-contents__entry -property -private">
+    <a class="" href="classes/App-Controller-ApiGameController.html#property_gameHelper">$gameHelper</a>
+    <span>
+                        &nbsp;: <a href="classes/App-Card-GameHelper.html"><abbr title="\App\Card\GameHelper">GameHelper</abbr></a>            </span>
+</dt>
+
+    </dl>
 
 <h4 id="toc-methods">
     Methods
-    <a href="classes/App-Controller-ApiController.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/App-Controller-ApiGameController.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/App-Controller-ApiController.html#method_api">api()</a>
+    <a class="" href="classes/App-Controller-ApiGameController.html#method___construct">__construct()</a>
     <span>
-                                &nbsp;: <abbr title="\Symfony\Component\HttpFoundation\Response">Response</abbr>    </span>
+                                &nbsp;: mixed    </span>
 </dt>
+<dd>Constructor to inject the game helper service.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/App-Controller-ApiController.html#method_apiDeck">apiDeck()</a>
+    <a class="" href="classes/App-Controller-ApiGameController.html#method_apiGame">apiGame()</a>
     <span>
                                 &nbsp;: <abbr title="\Symfony\Component\HttpFoundation\JsonResponse">JsonResponse</abbr>    </span>
 </dt>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/App-Controller-ApiController.html#method_drawCard">drawCard()</a>
-    <span>
-                                &nbsp;: <abbr title="\Symfony\Component\HttpFoundation\JsonResponse">JsonResponse</abbr>    </span>
-</dt>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/App-Controller-ApiController.html#method_drawNumber">drawNumber()</a>
-    <span>
-                                &nbsp;: <abbr title="\Symfony\Component\HttpFoundation\JsonResponse">JsonResponse</abbr>    </span>
-</dt>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/App-Controller-ApiController.html#method_shuffle">shuffle()</a>
-    <span>
-                                &nbsp;: <abbr title="\Symfony\Component\HttpFoundation\JsonResponse">JsonResponse</abbr>    </span>
-</dt>
+<dd>API endpoint to get the current game state for player and dealer.</dd>
 
     </dl>
 
@@ -212,11 +210,54 @@
         
 
         
+    <section class="phpdocumentor-properties">
+        <h3 class="phpdocumentor-elements__header" id="properties">
+            Properties
+            <a href="classes/App-Controller-ApiGameController.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
+
+        </h3>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -private
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="property_gameHelper">
+        $gameHelper
+        <a href="classes/App-Controller-ApiGameController.html#property_gameHelper" class="headerlink"><i class="fas fa-link"></i></a>
+
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Controller/ApiGameController.php"><a href="files/src-controller-apigamecontroller.html"><abbr title="src/Controller/ApiGameController.php">ApiGameController.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">17</span>
+
+    </aside>
+
+    
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+        <span class="phpdocumentor-signature__type"><a href="classes/App-Card-GameHelper.html"><abbr title="\App\Card\GameHelper">GameHelper</abbr></a></span>
+    <span class="phpdocumentor-signature__name">$gameHelper</span>
+    </code>
+
+    
+    
+    
+
+    
+
+</article>
+            </section>
 
             <section class="phpdocumentor-methods">
         <h3 class="phpdocumentor-elements__header" id="methods">
             Methods
-            <a href="classes/App-Controller-ApiController.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/App-Controller-ApiGameController.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
 
         </h3>
                     <article
@@ -225,54 +266,44 @@
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_api">
-        api()
-        <a href="classes/App-Controller-ApiController.html#method_api" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method___construct">
+        __construct()
+        <a href="classes/App-Controller-ApiGameController.html#method___construct" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Controller/ApiController.php"><a href="files/src-controller-apicontroller.html"><abbr title="src/Controller/ApiController.php">ApiController.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Controller/ApiGameController.php"><a href="files/src-controller-apigamecontroller.html"><abbr title="src/Controller/ApiGameController.php">ApiGameController.php</abbr></a></abbr>
     :
     <span class="phpdocumentor-element-found-in__line">23</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Constructor to inject the game helper service.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">api</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\Symfony\Component\HttpFoundation\Response">Response</abbr></span></code>
+                    <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/App-Card-GameHelper.html"><abbr title="\App\Card\GameHelper">GameHelper</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$gameHelper</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
     
     
-    
-    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$gameHelper</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/App-Card-GameHelper.html"><abbr title="\App\Card\GameHelper">GameHelper</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
 
     
-    <section class="phpdocumentor-attributes">
-        <h5 class="phpdocumentor-elements__header" id="attributes">
-            Attributes <a href="classes/App-Controller-ApiController.html#method_api#attributes" class="headerlink"><i class="fas fa-link"></i></a>
 
-        </h5>
-                    <dl class="phpdocumentor-argument-list">
-    <dt class="phpdocumentor-argument-list__entry">
-        #[<abbr title="\Symfony\Component\Routing\Annotation\Route">Route</abbr>]
-    </dt>
-        <dd class="phpdocumentor-argument-list__entry">
-        &quot;/api&quot;
-    </dd>
-        <dd class="phpdocumentor-argument-list__entry">
-        $name: &quot;api&quot;
-    </dd>
-    </dl>
-            </section>
+    
 
-            <section>
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type"><abbr title="\Symfony\Component\HttpFoundation\Response">Response</abbr></span>
-            </section>
-
+    
 </article>
                     <article
         class="phpdocumentor-element
@@ -280,34 +311,45 @@
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_apiDeck">
-        apiDeck()
-        <a href="classes/App-Controller-ApiController.html#method_apiDeck" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_apiGame">
+        apiGame()
+        <a href="classes/App-Controller-ApiGameController.html#method_apiGame" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Controller/ApiController.php"><a href="files/src-controller-apicontroller.html"><abbr title="src/Controller/ApiController.php">ApiController.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Controller/ApiGameController.php"><a href="files/src-controller-apigamecontroller.html"><abbr title="src/Controller/ApiGameController.php">ApiGameController.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">35</span>
+    <span class="phpdocumentor-element-found-in__line">34</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">API endpoint to get the current game state for player and dealer.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">apiDeck</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\Symfony\Component\HttpFoundation\JsonResponse">JsonResponse</abbr></span></code>
+                    <span class="phpdocumentor-signature__name">apiGame</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Symfony\Component\HttpFoundation\Session\SessionInterface">SessionInterface</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$session</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\Symfony\Component\HttpFoundation\JsonResponse">JsonResponse</abbr></span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
     
     
-    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$session</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\Symfony\Component\HttpFoundation\Session\SessionInterface">SessionInterface</abbr></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
     
 
     
     <section class="phpdocumentor-attributes">
         <h5 class="phpdocumentor-elements__header" id="attributes">
-            Attributes <a href="classes/App-Controller-ApiController.html#method_apiDeck#attributes" class="headerlink"><i class="fas fa-link"></i></a>
+            Attributes <a href="classes/App-Controller-ApiGameController.html#method_apiGame#attributes" class="headerlink"><i class="fas fa-link"></i></a>
 
         </h5>
                     <dl class="phpdocumentor-argument-list">
@@ -315,10 +357,10 @@
         #[<abbr title="\Symfony\Component\Routing\Annotation\Route">Route</abbr>]
     </dt>
         <dd class="phpdocumentor-argument-list__entry">
-        &#039;/api/deck&#039;
+        &#039;/api/game&#039;
     </dd>
         <dd class="phpdocumentor-argument-list__entry">
-        $name: &#039;api_deck&#039;
+        $name: &#039;api_game&#039;
     </dd>
         <dd class="phpdocumentor-argument-list__entry">
         $methods: [&#039;GET&#039;]
@@ -329,217 +371,10 @@
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type"><abbr title="\Symfony\Component\HttpFoundation\JsonResponse">JsonResponse</abbr></span>
-            </section>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>JSON with player/dealer cards, points, and game status</p>
+</section>
 
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_drawCard">
-        drawCard()
-        <a href="classes/App-Controller-ApiController.html#method_drawCard" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Controller/ApiController.php"><a href="files/src-controller-apicontroller.html"><abbr title="src/Controller/ApiController.php">ApiController.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">62</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">drawCard</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Symfony\Component\HttpFoundation\Session\SessionInterface">SessionInterface</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$session</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\Symfony\Component\HttpFoundation\JsonResponse">JsonResponse</abbr></span></code>
-
-    <div class="phpdocumentor-label-line">
-        </div>
-    
-    
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$session</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\Symfony\Component\HttpFoundation\Session\SessionInterface">SessionInterface</abbr></span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-            </dl>
-
-    
-
-    
-    <section class="phpdocumentor-attributes">
-        <h5 class="phpdocumentor-elements__header" id="attributes">
-            Attributes <a href="classes/App-Controller-ApiController.html#method_drawCard#attributes" class="headerlink"><i class="fas fa-link"></i></a>
-
-        </h5>
-                    <dl class="phpdocumentor-argument-list">
-    <dt class="phpdocumentor-argument-list__entry">
-        #[<abbr title="\Symfony\Component\Routing\Annotation\Route">Route</abbr>]
-    </dt>
-        <dd class="phpdocumentor-argument-list__entry">
-        &quot;/api/deck/draw&quot;
-    </dd>
-        <dd class="phpdocumentor-argument-list__entry">
-        $name: &quot;draw_card&quot;
-    </dd>
-        <dd class="phpdocumentor-argument-list__entry">
-        $methods: [&quot;GET&quot;, &#039;POST&#039;]
-    </dd>
-    </dl>
-            </section>
-
-            <section>
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type"><abbr title="\Symfony\Component\HttpFoundation\JsonResponse">JsonResponse</abbr></span>
-            </section>
-
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_drawNumber">
-        drawNumber()
-        <a href="classes/App-Controller-ApiController.html#method_drawNumber" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Controller/ApiController.php"><a href="files/src-controller-apicontroller.html"><abbr title="src/Controller/ApiController.php">ApiController.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">83</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">drawNumber</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$num</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Symfony\Component\HttpFoundation\Session\SessionInterface">SessionInterface</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$session</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\Symfony\Component\HttpFoundation\JsonResponse">JsonResponse</abbr></span></code>
-
-    <div class="phpdocumentor-label-line">
-        </div>
-    
-    
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$num</span>
-                : <span class="phpdocumentor-signature__argument__return-type">int</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$session</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\Symfony\Component\HttpFoundation\Session\SessionInterface">SessionInterface</abbr></span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-            </dl>
-
-    
-
-    
-    <section class="phpdocumentor-attributes">
-        <h5 class="phpdocumentor-elements__header" id="attributes">
-            Attributes <a href="classes/App-Controller-ApiController.html#method_drawNumber#attributes" class="headerlink"><i class="fas fa-link"></i></a>
-
-        </h5>
-                    <dl class="phpdocumentor-argument-list">
-    <dt class="phpdocumentor-argument-list__entry">
-        #[<abbr title="\Symfony\Component\Routing\Annotation\Route">Route</abbr>]
-    </dt>
-        <dd class="phpdocumentor-argument-list__entry">
-        &quot;/api/deck/draw/{num&lt;\\d+&gt;}&quot;
-    </dd>
-        <dd class="phpdocumentor-argument-list__entry">
-        $name: &quot;draw_multiple_cards&quot;
-    </dd>
-        <dd class="phpdocumentor-argument-list__entry">
-        $methods: [&quot;GET&quot;, &quot;POST&quot;]
-    </dd>
-    </dl>
-            </section>
-
-            <section>
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type"><abbr title="\Symfony\Component\HttpFoundation\JsonResponse">JsonResponse</abbr></span>
-            </section>
-
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_shuffle">
-        shuffle()
-        <a href="classes/App-Controller-ApiController.html#method_shuffle" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Controller/ApiController.php"><a href="files/src-controller-apicontroller.html"><abbr title="src/Controller/ApiController.php">ApiController.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">47</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">shuffle</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Symfony\Component\HttpFoundation\Session\SessionInterface">SessionInterface</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$session</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\Symfony\Component\HttpFoundation\JsonResponse">JsonResponse</abbr></span></code>
-
-    <div class="phpdocumentor-label-line">
-        </div>
-    
-    
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$session</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\Symfony\Component\HttpFoundation\Session\SessionInterface">SessionInterface</abbr></span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-            </dl>
-
-    
-
-    
-    <section class="phpdocumentor-attributes">
-        <h5 class="phpdocumentor-elements__header" id="attributes">
-            Attributes <a href="classes/App-Controller-ApiController.html#method_shuffle#attributes" class="headerlink"><i class="fas fa-link"></i></a>
-
-        </h5>
-                    <dl class="phpdocumentor-argument-list">
-    <dt class="phpdocumentor-argument-list__entry">
-        #[<abbr title="\Symfony\Component\Routing\Annotation\Route">Route</abbr>]
-    </dt>
-        <dd class="phpdocumentor-argument-list__entry">
-        &#039;/api/deck/shuffle&#039;
-    </dd>
-        <dd class="phpdocumentor-argument-list__entry">
-        $name: &#039;api_deck_shuffle&#039;
-    </dd>
-        <dd class="phpdocumentor-argument-list__entry">
-        $methods: [&quot;GET&quot;, &#039;POST&#039;]
-    </dd>
-    </dl>
-            </section>
-
-            <section>
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type"><abbr title="\Symfony\Component\HttpFoundation\JsonResponse">JsonResponse</abbr></span>
             </section>
 
 </article>
@@ -549,7 +384,7 @@
     <div class="phpdocumentor-modal-bg" data-exit-button></div>
     <div class="phpdocumentor-modal-container">
         <div class="phpdocumentor-modal-content">
-            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/src/Controller/ApiController.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
+            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/src/Controller/ApiGameController.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
         </div>
         <button data-exit-button class="phpdocumentor-modal__close">&times;</button>
     </div>
@@ -648,19 +483,23 @@
             <li class="phpdocumentor-on-this-page-section__title">Table Of Contents</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                                                                <li><a href="classes/App-Controller-ApiController.html#toc-methods">Methods</a></li>
+                                                            <li><a href="classes/App-Controller-ApiGameController.html#toc-properties">Properties</a></li>
+                                                            <li><a href="classes/App-Controller-ApiGameController.html#toc-methods">Methods</a></li>
                                     </ul>
             </li>
             
+                            <li class="phpdocumentor-on-this-page-section__title">Properties</li>
+                <li>
+                    <ul class="phpdocumentor-list -clean">
+                                                    <li class=""><a href="classes/App-Controller-ApiGameController.html#property_gameHelper">$gameHelper</a></li>
+                                            </ul>
+                </li>
             
                         <li class="phpdocumentor-on-this-page-section__title">Methods</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                            <li class=""><a href="classes/App-Controller-ApiController.html#method_api">api()</a></li>
-                                            <li class=""><a href="classes/App-Controller-ApiController.html#method_apiDeck">apiDeck()</a></li>
-                                            <li class=""><a href="classes/App-Controller-ApiController.html#method_drawCard">drawCard()</a></li>
-                                            <li class=""><a href="classes/App-Controller-ApiController.html#method_drawNumber">drawNumber()</a></li>
-                                            <li class=""><a href="classes/App-Controller-ApiController.html#method_shuffle">shuffle()</a></li>
+                                            <li class=""><a href="classes/App-Controller-ApiGameController.html#method___construct">__construct()</a></li>
+                                            <li class=""><a href="classes/App-Controller-ApiGameController.html#method_apiGame">apiGame()</a></li>
                                     </ul>
             </li>
                     </ul>
@@ -680,7 +519,7 @@
     </section>
 </section>
         </div>
-        <a href="classes/App-Controller-ApiController.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
+        <a href="classes/App-Controller-ApiGameController.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
 
     </main>
 

@@ -6,6 +6,13 @@ use App\Card\Deck;
 use App\Card\GameHelper;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
+/**
+ * Class Game21Service
+ *
+ * Manages the game logic for a simplified Blackjack (21) game.
+ * Handles game initialization, player actions, dealer logic,
+ * and result determination using session storage.
+ */
 class Game21Service
 {
     private GameHelper $helper;
@@ -36,8 +43,8 @@ class Game21Service
      * @param SessionInterface $session
      *
      * @return array{
-     *     player_cards: \App\Card\Card[],
-     *     dealer_cards: \App\Card\Card[],
+     *     player_cards: Card[],
+     *     dealer_cards: Card[],
      *     player_points: int,
      *     dealer_points: int
      * }

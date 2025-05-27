@@ -14,12 +14,11 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class ApiController extends AbstractController
 {
-    private GameHelper $gameHelper;
-
-    public function __construct(GameHelper $gameHelper)
-    {
-        $this->gameHelper = $gameHelper;
-    }
+    // private GameHelper $gameHelper;
+    // public function __construct(GameHelper $gameHelper)
+    // {
+    //     $this->gameHelper = $gameHelper;
+    // }
 
     #[Route("/api", name: "api")]
     public function api(): Response
@@ -101,71 +100,67 @@ class ApiController extends AbstractController
         );
         return $response;
     }
-    #[Route('/api/game', name: 'api_game', methods: ['GET'])]
-    public function apiGame(SessionInterface $session): JsonResponse
-    {
+    // #[Route('/api/game', name: 'api_game', methods: ['GET'])]
+    // public function apiGame(SessionInterface $session): JsonResponse
+    // {
 
-        /** @var Card[] $playerCards */
-        $playerCards = $session->get('player_cards', []);
+    //     /** @var Card[] $playerCards */
+    //     $playerCards = $session->get('player_cards', []);
 
-        /** @var Card[] $dealerCards */
-        $dealerCards = $session->get('dealer_cards', []);
+    //     /** @var Card[] $dealerCards */
+    //     $dealerCards = $session->get('dealer_cards', []);
 
-        $showDealer = $session->get('show_dealer', false);
+    //     $showDealer = $session->get('show_dealer', false);
 
-        $playerPoints = $this->gameHelper->calculatePoints($playerCards);
-        $dealerPoints = $this->gameHelper->calculatePoints($dealerCards);
+    //     $playerPoints = $this->gameHelper->calculatePoints($playerCards);
+    //     $dealerPoints = $this->gameHelper->calculatePoints($dealerCards);
 
-        $data = [
-            'player' => [
-                'cards' => array_map(fn ($card) => (string) $card, $playerCards),
-                'points' => $playerPoints
-            ],
-            'dealer' => [
-                'cards' => $showDealer ? array_map(fn ($card) => (string) $card, $dealerCards) : ['Hidden'],
-                'points' => $showDealer ? $dealerPoints : 'Hidden'
-            ],
-            'game_over' => $playerPoints > 21 || $dealerPoints > 21 || $showDealer
-        ];
-        $response = new JsonResponse($data);
-        $response->setEncodingOptions(
-            $response->getEncodingOptions() | JSON_PRETTY_PRINT
-        );
-
-        return $response;
-    }
-
+    //     $data = [
+    //         'player' => [
+    //             'cards' => array_map(fn($card) => (string) $card, $playerCards),
+    //             'points' => $playerPoints
+    //         ],
+    //         'dealer' => [
+    //             'cards' => $showDealer ? array_map(fn($card) => (string) $card, $dealerCards) : ['Hidden'],
+    //             'points' => $showDealer ? $dealerPoints : 'Hidden'
+    //         ],
+    //         'game_over' => $playerPoints > 21 || $dealerPoints > 21 || $showDealer
+    //     ];
+    //     $response = new JsonResponse($data);
+    //     $response->setEncodingOptions(
+    //         $response->getEncodingOptions() | JSON_PRETTY_PRINT
+    //     );
+    //     return $response;
+    // }
     // api route to json responce from library with all book
+    // #[Route('api/library/books', name: 'book_show_all')]
+    // public function showAllBook(
+    //     BookRepository $bookRepository
+    // ): Response {
+    //     $books = $bookRepository
+    //         ->findAll();
 
-    #[Route('api/library/books', name: 'book_show_all')]
-    public function showAllBook(
-        BookRepository $bookRepository
-    ): Response {
-        $books = $bookRepository
-            ->findAll();
+    //     $response = $this->json($books);
+    //     $response->setEncodingOptions(
+    //         $response->getEncodingOptions() | JSON_PRETTY_PRINT
+    //     );
+    //     return $response;
+    // }
+    // // show a book through its isbn
+    // #[Route('api/library/book/{isbn}', name: 'book_by_isbn')]
+    // public function showBookByIsbn(
+    //     BookRepository $bookRepository,
+    //     string $isbn
+    // ): Response {
+    //     $book = $bookRepository->findOneBy(['isbn' => $isbn]);
 
-        $response = $this->json($books);
-        $response->setEncodingOptions(
-            $response->getEncodingOptions() | JSON_PRETTY_PRINT
-        );
-        return $response;
-    }
-    // show a book through its isbn
-    #[Route('api/library/book/{isbn}', name: 'book_by_isbn')]
-    public function showBookByIsbn(
-        BookRepository $bookRepository,
-        string $isbn
-    ): Response {
-        $book = $bookRepository->findOneBy(['isbn' => $isbn]);
-
-        if (!$book) {
-            return $this->json(['error' => 'Book not found'], 404);
-        }
-        $response = $this->json($book);
-        $response->setEncodingOptions(
-            $response->getEncodingOptions() | JSON_PRETTY_PRINT
-        );
-        return $response;
-    }
-
+    //     if (!$book) {
+    //         return $this->json(['error' => 'Book not found'], 404);
+    //     }
+    //     $response = $this->json($book);
+    //     $response->setEncodingOptions(
+    //         $response->getEncodingOptions() | JSON_PRETTY_PRINT
+    //     );
+    //     return $response;
+    // }
 }

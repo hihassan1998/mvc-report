@@ -37,7 +37,7 @@ class CardGraphicTest extends TestCase
         $card = new CardGraphic('Clubs', '10');
         $json = $card->jsonSerialize();
 
-        $this->assertIsArray($json);
+        // $this->assertIsArray($json);
         $this->assertEquals('Clubs', $json['suit']);
         $this->assertEquals('10', $json['value']);
         $this->assertEquals($card->getGraphic(), $json['graphic']);

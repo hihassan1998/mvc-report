@@ -11,6 +11,12 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\HttpFoundation\Request;
 
+/**
+ * Controller for managing book-related operations.
+ *
+ * Handles routes for viewing, creating, editing, and deleting books,
+ * as well as rendering book-related templates.
+ */
 final class BookController extends AbstractController
 {
     /**
@@ -72,28 +78,6 @@ final class BookController extends AbstractController
         $entityManager->flush();
 
         return new Response('Three books added successfully.');
-    }
-
-    /**
-     * Returns a book by its ID in JSON format.
-     *
-     * @param BookRepository $bookRepository
-     * @param int $id
-     * @return Response
-     */
-    #[Route('/book/show/{id}', name: 'book_by_id')]
-    public function showBookById(
-        BookRepository $bookRepository,
-        int $id
-    ): Response {
-        $book = $bookRepository
-            ->find($id);
-
-        $response = $this->json($book);
-        $response->setEncodingOptions(
-            $response->getEncodingOptions() | JSON_PRETTY_PRINT
-        );
-        return $response;
     }
 
     /**
@@ -234,15 +218,5 @@ final class BookController extends AbstractController
         $entityManager->flush();
 
         return $this->redirectToRoute('book_view_all');
-    }
-    /**
-     * Displays a simple page for the /book route.
-     *
-     * @return Response
-     */
-    #[Route('/metrics', name: 'app_metrics')]
-    public function metrics(): Response
-    {
-        return $this->render('book/metrics.html.twig');
     }
 }

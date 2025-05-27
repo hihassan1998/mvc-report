@@ -144,14 +144,15 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Card/CardGraphic.php"><a href="files/src-card-cardgraphic.html"><abbr title="src/Card/CardGraphic.php">CardGraphic.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">5</span>
+    <span class="phpdocumentor-element-found-in__line">11</span>
 
     </aside>
 
-            <p class="phpdocumentor-summary">Class Card</p>
+            <p class="phpdocumentor-summary">Class CardGraphic</p>
 
 
-    <section class="phpdocumentor-description"><p>Represents a playing card with a suit and a value.</p>
+    <section class="phpdocumentor-description"><p>Represents a playing card with graphical Unicode representation.
+Extends the base Card class and implements JsonSerializable interface.</p>
 </section>
 
 
@@ -212,26 +213,28 @@
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
-<dd>Card constructor.</dd>
+<dd>CardGraphic constructor.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/App-Card-CardGraphic.html#method___toString">__toString()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
-<dd>Get a string representation of the card.</dd>
+<dd>String representation of the card.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/App-Card-CardGraphic.html#method_getColorClass">getColorClass()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
+<dd>Get CSS class representing the card color.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/App-Card-CardGraphic.html#method_getGraphic">getGraphic()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
+<dd>Get the Unicode graphic representation of the card.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/App-Card-Card.html#method_getSuit">getSuit()</a>
@@ -250,8 +253,9 @@
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/App-Card-CardGraphic.html#method_jsonSerialize">jsonSerialize()</a>
     <span>
-                                &nbsp;: mixed    </span>
+                                &nbsp;: array{suit: string, value: string, graphic: string}    </span>
 </dt>
+<dd>Specify data which should be serialized to JSON.</dd>
 
     </dl>
 
@@ -364,11 +368,11 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Card/CardGraphic.php"><a href="files/src-card-cardgraphic.html"><abbr title="src/Card/CardGraphic.php">CardGraphic.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">7</span>
+    <span class="phpdocumentor-element-found-in__line">19</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Card constructor.</p>
+        <p class="phpdocumentor-summary">CardGraphic constructor.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -385,7 +389,7 @@
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The suit of the card.</p>
+                    <section class="phpdocumentor-description"><p>The suit of the card (e.g., Hearts, Diamonds).</p>
 </section>
 
             </dd>
@@ -394,7 +398,7 @@
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The value of the card.</p>
+                    <section class="phpdocumentor-description"><p>The value of the card (e.g., Ace, 2, King).</p>
 </section>
 
             </dd>
@@ -420,11 +424,11 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Card/CardGraphic.php"><a href="files/src-card-cardgraphic.html"><abbr title="src/Card/CardGraphic.php">CardGraphic.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">81</span>
+    <span class="phpdocumentor-element-found-in__line">38</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Get a string representation of the card.</p>
+        <p class="phpdocumentor-summary">String representation of the card.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -443,7 +447,7 @@
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">string</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>A string like &quot;King of Hearts&quot;.</p>
+                <section class="phpdocumentor-description"><p>Human-readable string like &quot;Ace of Hearts&quot;.</p>
 </section>
 
             </section>
@@ -463,11 +467,12 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Card/CardGraphic.php"><a href="files/src-card-cardgraphic.html"><abbr title="src/Card/CardGraphic.php">CardGraphic.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">86</span>
+    <span class="phpdocumentor-element-found-in__line">48</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Get CSS class representing the card color.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getColorClass</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
@@ -484,6 +489,10 @@
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">string</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Returns 'red-card' if suit is Hearts or Diamonds; otherwise, empty string.</p>
+</section>
+
             </section>
 
 </article>
@@ -501,11 +510,12 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Card/CardGraphic.php"><a href="files/src-card-cardgraphic.html"><abbr title="src/Card/CardGraphic.php">CardGraphic.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">12</span>
+    <span class="phpdocumentor-element-found-in__line">28</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Get the Unicode graphic representation of the card.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getGraphic</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
@@ -522,6 +532,10 @@
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">string</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Unicode character representing the card, or empty string if not available.</p>
+</section>
+
             </section>
 
 </article>
@@ -625,14 +639,15 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Card/CardGraphic.php"><a href="files/src-card-cardgraphic.html"><abbr title="src/Card/CardGraphic.php">CardGraphic.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">92</span>
+    <span class="phpdocumentor-element-found-in__line">62</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Specify data which should be serialized to JSON.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">jsonSerialize</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">jsonSerialize</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array{suit: string, value: string, graphic: string}</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -643,7 +658,11 @@
 
     
 
-    
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">array{suit: string, value: string, graphic: string}</span>
+            </section>
+
 </article>
             </section>
 
