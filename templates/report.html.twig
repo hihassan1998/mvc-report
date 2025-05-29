@@ -111,8 +111,8 @@
 					och uppnå DRY-principen, samt komposition i
 					<code>Deck</code>
 					för att hantera kortleken och generera JSON-API.
-																																																																																																				
-																																																																																																				          Jag är ganska nöjd med min lösning, men jag märker att det säkert finns förbättringspotential eftersom vi fortfarande är tidigt i kursen. Jag har lyckats hålla klasserna rena, enkla och fokuserade. En förbättring skulle kunna vara att generera JSON-respons även tillsammans med mina routes till kortspelsapplikationen, och att använda gemensamma funktioner för logik som används både i JSON-API:n och i applikationsroutes, vilket skulle göra koden ännu mer DRY. Dessutom behöver jag förbättra felhanteringen för mina routes och förbättra strukturen på mina JSON-svar.
+																																																																																																																													
+																																																																																																																													          Jag är ganska nöjd med min lösning, men jag märker att det säkert finns förbättringspotential eftersom vi fortfarande är tidigt i kursen. Jag har lyckats hålla klasserna rena, enkla och fokuserade. En förbättring skulle kunna vara att generera JSON-respons även tillsammans med mina routes till kortspelsapplikationen, och att använda gemensamma funktioner för logik som används både i JSON-API:n och i applikationsroutes, vilket skulle göra koden ännu mer DRY. Dessutom behöver jag förbättra felhanteringen för mina routes och förbättra strukturen på mina JSON-svar.
 
 					<br/>
 					<br/>
@@ -120,8 +120,8 @@
 					<br>
 
 					Det har varit väldigt mycket läsning om ramverket, och jag har behövt ta del av mycket dokumentation. Men jag tycker att det har blivit tydligare varför det är fördelaktigt att separera Model, View och Controller i ett ramverk som Symfony – särskilt i större projekt.
-																																																																																																				
-																																																																																																				          Det jag tycker är roligast hittills är att skapa API:er i Symfony och möjligheten att kommunicera mellan olika delar av applikationen. Även rendering av templates känns smidigt. Överlag känns allt mycket bättre nu efter att jag har slutfört detta kursmoment, och jag känner mig mer trygg jämfört med hur det kändes i början.
+																																																																																																																													
+																																																																																																																													          Det jag tycker är roligast hittills är att skapa API:er i Symfony och möjligheten att kommunicera mellan olika delar av applikationen. Även rendering av templates känns smidigt. Överlag känns allt mycket bättre nu efter att jag har slutfört detta kursmoment, och jag känner mig mer trygg jämfört med hur det kändes i början.
 					<br/>
 					<br/>
 					<b>Vilken är din TIL för detta kmom?</b>
@@ -148,12 +148,12 @@
 					<br/>
 					Jag löste uppgiften genom att skapa en klass som innehåller hjälpfunktioner för att räkna poäng för kort i en array – både för spelaren och dealern. Denna används i min
 					<code>Game21Service-klass</code>, där spelets kärnprocesser är definierade som metoder. Jag visar spelets sessionsdata via game/api i JSON-format.
-																																																																																																						
-																																																																																																						Jag har också en lättförståelig controller som heter
+																																																																																																																																				
+																																																																																																																																				Jag har också en lättförståelig controller som heter
 					<code>CardGameController21</code>
 					och definierar alla routes för min applikation. Den renderar vyerna för startsida, dokumentation, starta spel, avsluta spel, "hit" och "stand". Dessa routes använder sessionstorage samt klassmetoder från mina klasser:
 					<code>Game21Service, Card och Deck</code>.
-																																																																																																							Jag har skapat fyra templates:
+																																																																																																																																					Jag har skapat fyra templates:
 					<code>
 						start.html.twig</code>
 					och
@@ -238,7 +238,11 @@
 						Berätta om din applikation och hur du tänkte när du byggde upp den. Tänkte du något speciellt på användargränssnittet?
 					</b>
 					<br/>
-					Library-applikationen är enkelt designad med en startsida på <code>/library</code> där användaren kan se titlarna på alla böcker i biblioteket. Därifrån kan man navigera vidare till en specifik bok för att läsa mer detaljer eller välja att lägga till en ny bok. Oavsett om man klickar på "Redigera" från bokdetaljsidan eller på "Skapa ny bok" från startsidan, så hamnar man på samma route: <code> /library/book/edit</code>. Den återanvänder samma formulär-vy enligt DRY-principen, vilket gör koden mer underhållbar. Det går även att radera en bok från dess detaljsida. Jag fokuserade på enkelhet och användarvänlighet i gränssnittet, samtidigt som jag säkerställde att alla CRUD-operationer fungerar korrekt mot databasen.
+					Library-applikationen är enkelt designad med en startsida på
+					<code>/library</code>
+					där användaren kan se titlarna på alla böcker i biblioteket. Därifrån kan man navigera vidare till en specifik bok för att läsa mer detaljer eller välja att lägga till en ny bok. Oavsett om man klickar på "Redigera" från bokdetaljsidan eller på "Skapa ny bok" från startsidan, så hamnar man på samma route:
+					<code>
+						/library/book/edit</code>. Den återanvänder samma formulär-vy enligt DRY-principen, vilket gör koden mer underhållbar. Det går även att radera en bok från dess detaljsida. Jag fokuserade på enkelhet och användarvänlighet i gränssnittet, samtidigt som jag säkerställde att alla CRUD-operationer fungerar korrekt mot databasen.
 					<br/>
 					<br/>
 
@@ -254,7 +258,7 @@
 					Doctrine ORM erbjuder ett effektivt sätt att kommunicera med databasen i Symfony. Tidigare har jag främst arbetat med React-projekt där kommunikationen mellan applikation och databas sker via API:er eller direkt med SQL-frågor i funktioner. Jämfört med det upplever jag att ORM i Symfony är ett mer strukturerat och objektorienterat arbetssätt.
 					<br/>
 					Genom att arbeta med entiteter istället för att skriva SQL manuellt blir det enklare och snabbare att implementera lösningar för vanliga CRUD-operationer. Det minskar även risken för fel och förbättrar läsbarheten i koden. Dessutom bidrar det till att göra projektet mer modulärt, då frontend och databasinteraktion hålls separerade och enklare kan återanvändas eller testas var för sig.
-					Samtidigt ser jag att det i vissa fall fortfarande kan vara nödvändigt att använda egna SQL-frågor, särskilt vid mer komplexa databasoperationer — och det är positivt att Doctrine ger stöd för detta också.
+																														Samtidigt ser jag att det i vissa fall fortfarande kan vara nödvändigt att använda egna SQL-frågor, särskilt vid mer komplexa databasoperationer — och det är positivt att Doctrine ger stöd för detta också.
 					<br/>
 					<br/>
 					<b>Vilken är din TIL för detta kmom?</b>
@@ -269,7 +273,47 @@
 			<br/>
 			<section class="double-bottom" id="kmom06">
 				<h2>Kmom06</h2>
-				<p>Text för kmom06...</p>
+				<p>
+
+
+					<b>
+						Hur uppfattade du verktyget phpmetrics och fann du några särskilda bitar mer värdefulla än andra? Var det några särskilda metrics eller bilder du uppskattade?
+					</b>
+					<br/>
+					Jag uppfattar PHP Metrics som ett tydligt och informativt verktyg som på ett effektivt sätt analyserar kodkvalitet – från enskilda funktioner och metoder till hela klasser och deras relationer till andra komponenter i systemet. Det ger en bra översikt över projektets LLOC (Lines of Logical Code), CLOC (Comment Lines of Code) samt kommentarvikt, vilket jag upplevde som särskilt värdefullt. Även volymen på klasser visade sig användbar, då för hög volym kan indikera behov av att dela upp koden i mer hanterbara och underhållbara delar.
+					<br>
+					Verktyget var också hjälpsamt för att identifiera större kodproblem, såsom varningar om "Blob" eller "God Object"-mönster, vilket i sin tur bidrog till att hålla koden mer modulär och uppdelad enligt funktionellt ansvar. Det hjälpte mig att identifiera flaskhalsar, minska kodkomplexitet och förbättra dokumentationen.
+					<br>
+					Bland visualiseringarna var Maintainability/Complexity-spiralen särskilt användbar, då den gav snabb och tydlig feedback. Den hjälpte mig att förbättra flera filer från rött till grönt genom att fungera som ett enkelt referensverktyg för att bedöma kodens tillstånd.
+					<br/>
+					<br/>
+					<b>
+						Berätta hur det gick att integrera med Scrutinizer och vilken är din första känsla av verktyget och dess badges? Vilken kodtäckning och kodkvalitet fick du efter första bygget?
+					</b>
+					<br/>
+					Integrationen med Scrutinizer gick relativt smidigt med hjälp av den tillgängliga dokumentationen och stöd från forum som Stack Overflow. Jag fick snabbt en god förståelse för hur CI-verktyget fungerar, och jag upplever att det är ett mycket värdefullt verktyg som gärna hade kunnat integreras redan från projektets början. Det hade gjort det enklare att tidigt säkerställa hög kodtäckning. Mitt första intryck av Scrutinizer var att det är ett modernt och automatiserat verktyg som ger direkt feedback på kodkvalitet.
+					<br>
+					Jag stötte dock på vissa problem där testerna fungerade lokalt och visade en täckning på 88 %, men de kunde inte köras korrekt på Scrutinizer eftersom testerna var beroende av routes och att rätt miljö saknades i deras container. För att ändå kunna slutföra bygget valde jag att exkludera vissa tester, vilket resulterade i att täckningen slutligen landade på 39 %.
+					<br>
+					Efter det första bygget låg kodtäckningen på 25 %, vilket ökade till 33 % efter en första förbättringsiteration. Slutligen nådde jag 39 % kodtäckning. Kodkvaliteten enligt Scrutinizer låg initialt på cirka 8 av 10, men efter refaktorering och förbättringar steg betyget till 9,93 och klassades som “Very Good” enligt verktyget.
+					<br/>
+					<br/>
+
+					<b>
+						Hur är din egen syn på kodkvalitet, berätta lite om den? Tror du man kan man påvisa kodkvalitet i någon viss mån med badges eller vad tror du?
+					</b>
+					<br/>
+					Min syn på kodkvalitet är att koden bör vara så modulär som möjligt, där varje modul är abstraherad till en rimlig nivå för att möjliggöra återanvändning. En modulär kodbas bidrar till bättre läsbarhet, tydligare struktur och minskad komplexitet redan från projektets början. Dessutom bör koden vara tydligt uppdelad utifrån ansvar och funktionalitet, samt väl kommenterad, så att den blir lätt att förstå även för andra utvecklare än den som har skrivit den. Detta minskar beroendet av enskilda personer inom ett team eller en organisation.
+					<br>
+					Jag tycker att badges är ett bra sätt att visualisera kodkvalitet, särskilt när de är klickbara och leder till detaljerad information. De ger en snabb översikt av kodens hälsa och gör det möjligt att enkelt jämföra olika projekt.
+					<br/>
+					<br/>
+					<b>Vilken är din TIL för detta kmom?</b>
+					<br/>
+					Min TIL för detta kmom är att man kan integrera PhpMetrics och CI-verktyg som Scrutinizer i ett PHP-projekt byggt med Symfony, för att mäta och förbättra kodkvaliteten. Jag har lärt mig hur en djupgående analys kan genomföras med hjälp av en PhpMetrics-rapport, samt hur Scrutinizer som CI-verktyg kan användas för att kontinuerligt kontrollera att alla enhetstester passerar och att koden upprätthåller en viss kvalitetsstandard vid varje uppdatering i projektets repository.
+					<br/>
+					<br/>
+				</p>
 			</section>
 			<br/>
 			<section class="double-bottom" id="kmom10">
