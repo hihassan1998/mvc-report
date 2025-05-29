@@ -454,7 +454,7 @@ a:hover {
 .table-wrapper {
     overflow-x: auto;
     max-width: 100%;
-    
+
 }
 
 table.library-table {
@@ -497,6 +497,11 @@ td {
     background: red;
     cursor: pointer;
     font-weight: 600;
+}
+
+.anal-img-cont {
+    display: flex;
+    justify-content: space-around;
 }
 
 /* libray stlings kmom05 end */

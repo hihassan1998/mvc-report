@@ -3,6 +3,7 @@
 namespace App\Dice;
 
 use App\Dice\Dice;
+
 /**
  * Represents a hand of dice.
  *
