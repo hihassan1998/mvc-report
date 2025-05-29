@@ -81,199 +81,207 @@
 				<b>Maintainability/complexity-spiralen vid första bygget:</b>
 			</li>
 			<div class="anal-img-cont">
-				<a href="/img/comp1.png"><img class="centered;" src="/img/comp1.png" alt="diagram for code complexity">
+				<a href="{{ asset('img/comp1.png') }}">
+					<img class="centered;" src="{{ asset('img/comp1.png') }}" alt="diagram for code complexity">
 				</a>
 			</div>
 			<li>
 				<b>LOC tabel  vid första bygget:</b>
 			</li>
 			<div class="anal-img-cont">
-				<a href="/img/volume_reduction_before.png"><img style="width:auto; border-style:none; align-self:center;" class="centered;" src="/img/volume_reduction_before.png" alt="diagram for code Lines of code tabel">
+				<a href="{{ asset('img/volume_reduction_before.png') }}">
+
+					<a href="/img/volume_reduction_before.png">
+						<img style="width:auto; border-style:none; align-self:center;" class="centered;" src="{{ asset('img/volume_reduction_before.png') }}" alt="diagram for code Lines of code tabel">
+					</a>
+				</div>
+			</div>
+			<br>
+			<div class="double-bottom">
+
+				<h2>Scrutinizer</h2>
+				<p>
+					Analys av Scrutinizer-rapporten ger en djupare förståelse för kodens strukturella svagheter, risker och potentiella förbättringsområden kopplade till underhållbarhet och testbarhet.
+				</p>
+				<li>
+					<b>Kodkvalitet och komplexitet:</b>
+					Klassen
+					<code>App\Controller\ApiController</code>
+					flaggades som ett potentiellt "God Object" enligt objektorienterade designprinciper. Den innehåller 8 publika metoder och har ett högt LCOM-värde (7), vilket tyder på låg sammanhållning mellan metoderna. Detta innebär att klassen potentiellt bryter mot Single Responsibility Principle och bör refaktoreras till mindre, mer fokuserade komponenter.
+				</li>
+
+				<li>
+					<b>Koppling och beroenden:</b>
+					Samma klass är starkt beroende av externa komponenter, vilket ger hög extern koppling. Detta gör den känslig för förändringar i andra delar av systemet och minskar flexibiliteten vid vidareutveckling. Även andra kontrollklasser, såsom
+					<code>BookController</code>, visar på hög beroendegrad vilket försämrar systemets modularitet.
+				</li>
+
+				<li>
+					<b>Buggrisk och testtäckning:</b>
+					Halstead-komplexitetsanalysen visade en beräknad buggrisk på 0.44 för
+					<code>ApiController</code>, vilket indikerar hög kognitiv komplexitet. Dessutom saknades det enhetstester kopplade till denna controller, vilket ytterligare försvårar validering av funktionalitet. Genom att införa tester för denna klass förbättrades kodtäckningen avsevärt och minskade risken för regressionsfel.
+				</li>
+
+				<li>
+					<b>Utökad testtäckning och minskad komplexitet:</b>
+					Kodtäckningen ökades till 35% efter att klassen
+					<code>CardUnicode.php</code>
+					introducerades för att minska kodens komplexitet. Specifika enhetstester skapades för denna klass, vilket förbättrade projektets totala kvalitet och verifierbarhet.
+				</li>
+
+				<a href="https://scrutinizer-ci.com/g/hihassan1998/mvc-report/build-status/main" target="_blank" rel="noopener">
+					<img src="https://scrutinizer-ci.com/g/hihassan1998/mvc-report/badges/build.png?b=main" alt="Build Status">
+				</a>
+				<a href="https://scrutinizer-ci.com/g/hihassan1998/mvc-report/badges/quality-score.png?b=main" target="_blank" rel="noopener">
+					<img src="https://scrutinizer-ci.com/g/hihassan1998/mvc-report/badges/quality-score.png?b=main" alt="Strutinizer Status">
+				</a>
+				<a href="https://scrutinizer-ci.com/g/hihassan1998/mvc-report/badges/coverage.png?b=main" target="_blank" rel="noopener">
+					<img src="https://scrutinizer-ci.com/g/hihassan1998/mvc-report/badges/coverage.png?b=main" alt="Coverage Status">
 				</a>
 			</div>
-		</div>
-		<br>
-		<div class="double-bottom">
-
-			<h2>Scrutinizer</h2>
-			<p>
-				Analys av Scrutinizer-rapporten ger en djupare förståelse för kodens strukturella svagheter, risker och potentiella förbättringsområden kopplade till underhållbarhet och testbarhet.
-			</p>
-			<li>
-				<b>Kodkvalitet och komplexitet:</b>
-				Klassen
-				<code>App\Controller\ApiController</code>
-				flaggades som ett potentiellt "God Object" enligt objektorienterade designprinciper. Den innehåller 8 publika metoder och har ett högt LCOM-värde (7), vilket tyder på låg sammanhållning mellan metoderna. Detta innebär att klassen potentiellt bryter mot Single Responsibility Principle och bör refaktoreras till mindre, mer fokuserade komponenter.
-			</li>
-
-			<li>
-				<b>Koppling och beroenden:</b>
-				Samma klass är starkt beroende av externa komponenter, vilket ger hög extern koppling. Detta gör den känslig för förändringar i andra delar av systemet och minskar flexibiliteten vid vidareutveckling. Även andra kontrollklasser, såsom
-				<code>BookController</code>, visar på hög beroendegrad vilket försämrar systemets modularitet.
-			</li>
-
-			<li>
-				<b>Buggrisk och testtäckning:</b>
-				Halstead-komplexitetsanalysen visade en beräknad buggrisk på 0.44 för
-				<code>ApiController</code>, vilket indikerar hög kognitiv komplexitet. Dessutom saknades det enhetstester kopplade till denna controller, vilket ytterligare försvårar validering av funktionalitet. Genom att införa tester för denna klass förbättrades kodtäckningen avsevärt och minskade risken för regressionsfel.
-			</li>
-
-			<li>
-				<b>Utökad testtäckning och minskad komplexitet:</b>
-				Kodtäckningen ökades till 35% efter att klassen
-				<code>CardUnicode.php</code>
-				introducerades för att minska kodens komplexitet. Specifika enhetstester skapades för denna klass, vilket förbättrade projektets totala kvalitet och verifierbarhet.
-			</li>
-
-			<a href="https://scrutinizer-ci.com/g/hihassan1998/mvc-report/build-status/main" target="_blank" rel="noopener">
-				<img src="https://scrutinizer-ci.com/g/hihassan1998/mvc-report/badges/build.png?b=main" alt="Build Status">
-			</a>
-			<a href="https://scrutinizer-ci.com/g/hihassan1998/mvc-report/badges/quality-score.png?b=main" target="_blank" rel="noopener">
-				<img src="https://scrutinizer-ci.com/g/hihassan1998/mvc-report/badges/quality-score.png?b=main" alt="Strutinizer Status">
-			</a>
-			<a href="https://scrutinizer-ci.com/g/hihassan1998/mvc-report/badges/coverage.png?b=main" target="_blank" rel="noopener">
-				<img src="https://scrutinizer-ci.com/g/hihassan1998/mvc-report/badges/coverage.png?b=main" alt="Coverage Status">
-			</a>
-		</div>
-		<br>
-		<div class="double-bottom">
-
-			<h2>Förbättringar</h2>
-			<p>
-				Jag tycker att jag bör fokusera på följande områden, som jag anser kommer att förbättra min kodbas:
-			</p>
-
-			<li>
-				<b>Kodtäckning:</b>
-				Kodtäckningen har förbättrats från 33&nbsp;% till 39&nbsp;%. Fler enhetstester har introducerats, vilket har bidragit till bättre kontroll av applikationens funktionalitet och minskat risken för att applikationen går sönder i produktion. Nedan visas hur täckningen såg ut före och efter förbättringarna:
-			</li>
-			<li>
-				<b>Minskad koppling:</b>
-				Jag har strävat efter att minska beroenden i controller-klasserna för att öka kodens stabilitet och förenkla underhåll. Detta har uppnåtts genom användning av designmönster som Dependency Injection och en tydligare separering av ansvar.
-			</li>
-			<li>
-				<b>Ökad kommentarvikt:</b>
-				Mer utförliga kommentarer har lagts till i komplexa klasser som
-				<code>CardGraphic</code>
-				och
-				<code>Game21Service</code>
-				för att förbättra framtida underhåll och förståelse för andra utvecklare.
-			</li>
 			<br>
-			<h3>Resultat från förbättringar enligt PHP Metrics</h3>
-			<br>
+			<div class="double-bottom">
 
-			<p>
-				<b>Kommentarvikt och kodförståelse:</b>
-				Efter några förbättringsiterationer har kommentarvikten ökat avsevärt, särskilt i
-				<code>CardGraphic</code>-klassen där volymen har minskat från 866,1 till 100,38 och kommentarvikten har ökat från 14,96&nbsp;% till 46,06&nbsp;%. Detta har bidragit till att koden blivit mer tillgänglig och lättare att underhålla av andra utvecklare. Även
-				<code>ApiController</code>
-				och
-				<code>BookController</code>
-				har förbättrats, vilket lett till högre poäng efter förbättringarna.
-				<br><br>
-				<b>Koppling:</b>
-				Samtliga controller-klasser (<code>ApiController</code>,
-				<code>BookController</code>
-				och
-				<code>CardGraphic</code>) har förbättrats. Efferent coupling ligger nu mellan 4 och 6, vilket innebär en minskning med upp till 3 poäng för vissa klasser. Detta visar att de har blivit mindre beroende av onödiga klasser.
-				<br><br>
-				<b>Kodstorlek och komplexitet:</b>
-				Klassen
-				<code>App\Controller\ApiController</code>
-				har förbättrats mest. Tidigare hade den 81 LLOC, en volym på 1317,68 och komentarsvikt på 28,1 % och är nu enklare att underhålla med 47 LLOC, volym på 564,22 och en kommentarvikt på 46,76&nbsp;%. Även
-				<code>BookController</code>
-				och
-				<code>CardGraphic</code>
-				har refaktorerats och modulariserats, vilket resulterat i bättre slutresultat.
-			</p>
-			<h3>Kodkomplexitet före och efter förbättringar</h3>
-			<p>Följande diagram visar hur kodkomplexitet, kommentarvikt och beroenden har förändrats under förbättringsprocessen, enligt PHP Metrics.</p>
-			<div class="anal-img-cont">
-				<figure>
-					<img class="centered" src="/img/comp1.png" alt="Diagram för kodkomplexitet - första bilden">
-					<figcaption>Före förbättringar – Kodkomplexitet och kommentarvikt</figcaption>
-				</figure>
+				<h2>Förbättringar</h2>
+				<p>
+					Jag tycker att jag bör fokusera på följande områden, som jag anser kommer att förbättra min kodbas:
+				</p>
+
+				<li>
+					<b>Kodtäckning:</b>
+					Kodtäckningen har förbättrats från 33&nbsp;% till 39&nbsp;%. Fler enhetstester har introducerats, vilket har bidragit till bättre kontroll av applikationens funktionalitet och minskat risken för att applikationen går sönder i produktion. Nedan visas hur täckningen såg ut före och efter förbättringarna:
+				</li>
+				<li>
+					<b>Minskad koppling:</b>
+					Jag har strävat efter att minska beroenden i controller-klasserna för att öka kodens stabilitet och förenkla underhåll. Detta har uppnåtts genom användning av designmönster som Dependency Injection och en tydligare separering av ansvar.
+				</li>
+				<li>
+					<b>Ökad kommentarvikt:</b>
+					Mer utförliga kommentarer har lagts till i komplexa klasser som
+					<code>CardGraphic</code>
+					och
+					<code>Game21Service</code>
+					för att förbättra framtida underhåll och förståelse för andra utvecklare.
+				</li>
 				<br>
-				<figure class="">
-					<img class="centered" src="/img/comp2.png" alt="Diagram för kodkomplexitet - andra bilden">
-					<figcaption>Efter första iterationen – Minskad volym och ökad LLOC</figcaption>
-				</figure>
-
+				<h3>Resultat från förbättringar enligt PHP Metrics</h3>
 				<br>
-				<figure class="">
-					<img class="centered" src="/img/comp3.png" alt="Diagram för kodkomplexitet - sista bilden">
-					<figcaption>Slutresultat – Bättre struktur, testtäckning och stabilitet</figcaption>
-				</figure>
+
+				<p>
+					<b>Kommentarvikt och kodförståelse:</b>
+					Efter några förbättringsiterationer har kommentarvikten ökat avsevärt, särskilt i
+					<code>CardGraphic</code>-klassen där volymen har minskat från 866,1 till 100,38 och kommentarvikten har ökat från 14,96&nbsp;% till 46,06&nbsp;%. Detta har bidragit till att koden blivit mer tillgänglig och lättare att underhålla av andra utvecklare. Även
+					<code>ApiController</code>
+					och
+					<code>BookController</code>
+					har förbättrats, vilket lett till högre poäng efter förbättringarna.
+					<br><br>
+					<b>Koppling:</b>
+					Samtliga controller-klasser (<code>ApiController</code>,
+					<code>BookController</code>
+					och
+					<code>CardGraphic</code>) har förbättrats. Efferent coupling ligger nu mellan 4 och 6, vilket innebär en minskning med upp till 3 poäng för vissa klasser. Detta visar att de har blivit mindre beroende av onödiga klasser.
+					<br><br>
+					<b>Kodstorlek och komplexitet:</b>
+					Klassen
+					<code>App\Controller\ApiController</code>
+					har förbättrats mest. Tidigare hade den 81 LLOC, en volym på 1317,68 och komentarsvikt på 28,1 % och är nu enklare att underhålla med 47 LLOC, volym på 564,22 och en kommentarvikt på 46,76&nbsp;%. Även
+					<code>BookController</code>
+					och
+					<code>CardGraphic</code>
+					har refaktorerats och modulariserats, vilket resulterat i bättre slutresultat.
+				</p>
+				<h3>Kodkomplexitet före och efter förbättringar</h3>
+				<p>Följande diagram visar hur kodkomplexitet, kommentarvikt och beroenden har förändrats under förbättringsprocessen, enligt PHP Metrics.</p>
+				
+				<div class="anal-img-cont">
+					<figure>
+						<img class="centered" src="{{ asset('img/comp1.png') }}" alt="Diagram för kodkomplexitet - första bilden">
+						<figcaption>Före förbättringar – Kodkomplexitet och kommentarvikt</figcaption>
+					</figure>
+					<br>
+					<figure class="">
+						<img class="centered" src="{{ asset('img/comp2.png') }}" alt="Diagram för kodkomplexitet - andra bilden">
+						<figcaption>Efter första iterationen – Minskad volym och ökad LLOC</figcaption>
+					</figure>
+
+					<br>
+					<figure class="">
+						<img class="centered" src="{{ asset('img/comp3.png') }}" alt="Diagram för kodkomplexitet - sista bilden">
+						<figcaption>Slutresultat – Bättre struktur, testtäckning och stabilitet</figcaption>
+					</figure>
+				</div>
+				<br>
+				<br>
+				<br>
+				<h3>Resultat från förbättringar enligt Scrutinizer</h3>
+				<br>
+				<p>
+					<b>Refaktorisering av ApiController:</b>
+					<code>App\Controller\ApiController</code>
+					refaktorerades för att minska sin storlek och följa principen om Single Responsibility. Antalet publika metoder reducerades från 8 till 4 genom att extrahera ansvar till nya serviceklasser. Detta har lett till högre sammanhållning (lägre LCOM) och bättre modulär uppbyggnad.
+					<br><br>
+
+					<b>Införande av tester:</b>
+					Scrutinizer identifierade att
+					<code>ApiController</code>
+					saknade testtäckning. Genom att introducera enhetstester till alla huvudmetoder i kontrollern har täckningen ökat och buggriskvärdet (tidigare 0.44) har minskat. Detta stärker kodens tillförlitlighet och förenklar vidareutveckling.
+					<br><br>
+
+					<b>Förbättrad dokumentation:</b>
+					Flera metoder saknade tydlig beskrivning, vilket påpekades av Scrutinizer. Genom att lägga till PHPDoc-kommentarer i särskilt komplexa delar av koden har förståelsen förbättrats både för externa granskare och vid framtida underhåll.
+					<br><br>
+
+					<b>Kodtäckning och teststrategi:</b>
+					När klassen
+					<code>CardUnicode</code>
+					introducerades för att kapsla logik och minska komplexitet, implementerades enhetstester direkt för denna komponent. Detta bidrog till att den totala testtäckningen i projektet ökade till 35&nbsp;% enligt Scrutinizer.
+				</p>
+
+				<h3>Mätvärden för kodkomplexitet och dokumentation</h3>
+				<br>
+				<p>Dessa diagram kompletterar tabellen från PHP Metrics-rapporten och visualiserar viktiga mätvärden som används för att analysera kodens omfattning, komplexitet och dokumentationsnivå.</p>
+				<div class="anal-img-cont">
+					<figure>
+						<a href="{{ asset('img/volume_reduction_before.png') }}">
+							<img class="centered" style="width:auto; border-style:none; align-self:center;" src="{{ asset('img/volume_reduction_before.png') }}" alt="Diagram för kodkomplexitet - första bilden">
+							<figcaption>Före förbättringar – Hög kodvolym, låg kommentarvikt</figcaption>
+						</a>
+					</figure>
+				</div>
+				<br>
+				<div class="anal-img-cont">
+					<figure>
+						<a href="{{ asset('img/volume_reduction_after.png') }}">
+							<img class="centered" style="width:auto; border-style:none; align-self:center;" src="{{ asset('img/volume_reduction_after.png') }}" alt="Diagram för kodkomplexitet - andra bilden">
+							<figcaption>Efter förbättringar – Minskad kodvolym, förbättrad dokumentation</figcaption>
+						</a>
+
+					</figure>
+				</div>
+
 			</div>
 			<br>
-			<br>
-			<br>
-			<h3>Resultat från förbättringar enligt Scrutinizer</h3>
-			<br>
-			<p>
-				<b>Refaktorisering av ApiController:</b>
-				<code>App\Controller\ApiController</code> refaktorerades för att minska sin storlek och följa principen om Single Responsibility. Antalet publika metoder reducerades från 8 till 4 genom att extrahera ansvar till nya serviceklasser. Detta har lett till högre sammanhållning (lägre LCOM) och bättre modulär uppbyggnad.
-				<br><br>
+			<div class="double-bottom">
 
-				<b>Införande av tester:</b>
-				Scrutinizer identifierade att <code>ApiController</code> saknade testtäckning. Genom att introducera enhetstester till alla huvudmetoder i kontrollern har täckningen ökat och buggriskvärdet (tidigare 0.44) har minskat. Detta stärker kodens tillförlitlighet och förenklar vidareutveckling.
-				<br><br>
+				<h2>Diskussion</h2>
+				<p>
+					Det är viktigt att aktivt arbeta med kodkvalitet och clean code på det här sättet, eftersom det bidrar till ett projekts livslängd och underhållbarhet för alla involverade parter – från designers och programmerare till projektägare och i vissa fall även kunden. Genom att använda verktyg som Scrutinizer och PHP Metrics blir det möjligt att identifiera svagheter i koden som annars lätt förbises. Att arbeta aktivt med kodkvalitet säkerställer tre avgörande egenskaper hos en välstrukturerad kodbas: läsbarhet, underhållbarhet och testbarhet.
+				</p>
 
-				<b>Förbättrad dokumentation:</b>
-				Flera metoder saknade tydlig beskrivning, vilket påpekades av Scrutinizer. Genom att lägga till PHPDoc-kommentarer i särskilt komplexa delar av koden har förståelsen förbättrats både för externa granskare och vid framtida underhåll.
-				<br><br>
+				<p>
+					Det finns många fördelar med att fokusera på kodkvalitet. Man får tidiga varningar om potentiella problem, upptäcker kod som inte är modulär eller funktionsorienterad, och främjar ett bättre samarbete inom teamet. På lång sikt leder det till ökad stabilitet i produktion och ett mer hållbart utvecklingsflöde.
+				</p>
 
-				<b>Kodtäckning och teststrategi:</b>
-				När klassen
-				<code>CardUnicode</code>
-				introducerades för att kapsla logik och minska komplexitet, implementerades enhetstester direkt för denna komponent. Detta bidrog till att den totala testtäckningen i projektet ökade till 35&nbsp;% enligt Scrutinizer.
-			</p>
+				<p>
+					Samtidigt finns det vissa nackdelar, även om dessa ofta vägs upp av fördelarna. Det krävs mer initial tid och planering, vilket kan vara en nackdel i mindre projekt med korta tidsramar. Dessutom kan analysverktyg ibland flagga icke-kritiska problem, vilket innebär att utvecklare måste kunna urskilja vad som är relevant att förbättra och vad som är kopplat till ramverk eller systembegränsningar. Det finns också en inlärningskurva när det gäller att tolka och agera på resultaten, vilket inte alla i ett team är vana vid.
+				</p>
 
-			<h3>Mätvärden för kodkomplexitet och dokumentation</h3>
-			<br>
-			<p>Dessa diagram kompletterar tabellen från PHP Metrics-rapporten och visualiserar viktiga mätvärden som används för att analysera kodens omfattning, komplexitet och dokumentationsnivå.</p>
-			<div class="anal-img-cont">
-				<figure>
-					<a href="/img/volume_reduction_before.png">
-						<img class="centered" style="width:auto; border-style:none; align-self:center;" src="/img/volume_reduction_before.png" alt="Diagram för kodkomplexitet - första bilden">
-						<figcaption>Före förbättringar – Hög kodvolym, låg kommentarvikt</figcaption>
-					</a>
-				</figure>
-			</div>
-			<br>
-			<div class="anal-img-cont">
-				<figure>
-					<a href="/img/volume_reduction_after.png">
-						<img class="centered" style="width:auto; border-style:none; align-self:center;" src="/img/volume_reduction_after.png" alt="Diagram för kodkomplexitet - andra bilden">
-						<figcaption>Efter förbättringar – Minskad kodvolym, förbättrad dokumentation</figcaption>
-					</a>
+				<p>
+					Det finns även andra sätt att uppnå clean code. Att till exempel tillämpa testdriven utveckling (TDD) redan från projektets början hjälper till att skapa tydlig struktur och stabil funktionalitet. Att alla i teamet följer en gemensam kodstandard och använder statisk analys från start är en annan viktig faktor. Dessutom bör dokumentationen inte bara förklara hur en lösning fungerar, utan också varför den valdes – detta underlättar framtida beslut och effektiv refaktorering.
+				</p>
 
-				</figure>
 			</div>
 
-		</div>
-		<br>
-		<div class="double-bottom">
-
-			<h2>Diskussion</h2>
-			<p>
-				Det är viktigt att aktivt arbeta med kodkvalitet och clean code på det här sättet, eftersom det bidrar till ett projekts livslängd och underhållbarhet för alla involverade parter – från designers och programmerare till projektägare och i vissa fall även kunden. Genom att använda verktyg som Scrutinizer och PHP Metrics blir det möjligt att identifiera svagheter i koden som annars lätt förbises. Att arbeta aktivt med kodkvalitet säkerställer tre avgörande egenskaper hos en välstrukturerad kodbas: läsbarhet, underhållbarhet och testbarhet.
-			</p>
-
-			<p>
-				Det finns många fördelar med att fokusera på kodkvalitet. Man får tidiga varningar om potentiella problem, upptäcker kod som inte är modulär eller funktionsorienterad, och främjar ett bättre samarbete inom teamet. På lång sikt leder det till ökad stabilitet i produktion och ett mer hållbart utvecklingsflöde.
-			</p>
-
-			<p>
-				Samtidigt finns det vissa nackdelar, även om dessa ofta vägs upp av fördelarna. Det krävs mer initial tid och planering, vilket kan vara en nackdel i mindre projekt med korta tidsramar. Dessutom kan analysverktyg ibland flagga icke-kritiska problem, vilket innebär att utvecklare måste kunna urskilja vad som är relevant att förbättra och vad som är kopplat till ramverk eller systembegränsningar. Det finns också en inlärningskurva när det gäller att tolka och agera på resultaten, vilket inte alla i ett team är vana vid.
-			</p>
-
-			<p>
-				Det finns även andra sätt att uppnå clean code. Att till exempel tillämpa testdriven utveckling (TDD) redan från projektets början hjälper till att skapa tydlig struktur och stabil funktionalitet. Att alla i teamet följer en gemensam kodstandard och använder statisk analys från start är en annan viktig faktor. Dessutom bör dokumentationen inte bara förklara hur en lösning fungerar, utan också varför den valdes – detta underlättar framtida beslut och effektiv refaktorering.
-			</p>
-
-		</div>
-
-	</main>
-{% endblock %}
+		</main>
+	{% endblock %}
