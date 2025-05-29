@@ -504,4 +504,11 @@ td {
     justify-content: space-around;
 }
 
+@media (max-width: 600px) {
+.anal-img-cont {
+    flex-direction: column !important;
+}
+
+}
+
 /* libray stlings kmom05 end */

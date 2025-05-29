@@ -278,87 +278,87 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Controller\\CardGameController",
             "name": "CardGameController",
-            "summary": "",
+            "summary": "Controller\u0020for\u0020handling\u0020card\u0020game\u0020interactions\u0020including\u0020session\u0020storage,\ndeck\u0020creation,\u0020shuffling,\u0020and\u0020card\u0020drawing.",
             "url": "classes/App-Controller-CardGameController.html"
         },                {
             "fqsen": "\\App\\Controller\\CardGameController\u003A\u003AsessionView\u0028\u0029",
             "name": "sessionView",
-            "summary": "",
+            "summary": "Display\u0020the\u0020current\u0020session\u0020data.",
             "url": "classes/App-Controller-CardGameController.html#method_sessionView"
         },                {
             "fqsen": "\\App\\Controller\\CardGameController\u003A\u003AsessionDelete\u0028\u0029",
             "name": "sessionDelete",
-            "summary": "",
+            "summary": "Clear\u0020all\u0020session\u0020data.",
             "url": "classes/App-Controller-CardGameController.html#method_sessionDelete"
         },                {
             "fqsen": "\\App\\Controller\\CardGameController\u003A\u003Ahome\u0028\u0029",
             "name": "home",
-            "summary": "",
+            "summary": "Display\u0020the\u0020start\u0020page\u0020for\u0020the\u0020card\u0020game.",
             "url": "classes/App-Controller-CardGameController.html#method_home"
         },                {
             "fqsen": "\\App\\Controller\\CardGameController\u003A\u003AshowDeck\u0028\u0029",
             "name": "showDeck",
-            "summary": "",
+            "summary": "Show\u0020a\u0020new\u0020deck\u0020of\u0020cards\u0020and\u0020store\u0020it\u0020in\u0020the\u0020session.",
             "url": "classes/App-Controller-CardGameController.html#method_showDeck"
         },                {
             "fqsen": "\\App\\Controller\\CardGameController\u003A\u003AshuffleDeck\u0028\u0029",
             "name": "shuffleDeck",
-            "summary": "",
+            "summary": "Shuffle\u0020a\u0020new\u0020deck\u0020and\u0020store\u0020it\u0020in\u0020the\u0020session.",
             "url": "classes/App-Controller-CardGameController.html#method_shuffleDeck"
         },                {
             "fqsen": "\\App\\Controller\\CardGameController\u003A\u003AdrawOne\u0028\u0029",
             "name": "drawOne",
-            "summary": "",
+            "summary": "Draw\u0020one\u0020card\u0020from\u0020the\u0020deck.",
             "url": "classes/App-Controller-CardGameController.html#method_drawOne"
         },                {
             "fqsen": "\\App\\Controller\\CardGameController\u003A\u003AdrawNumber\u0028\u0029",
             "name": "drawNumber",
-            "summary": "",
+            "summary": "Draw\u0020a\u0020specified\u0020number\u0020of\u0020cards\u0020from\u0020the\u0020deck.",
             "url": "classes/App-Controller-CardGameController.html#method_drawNumber"
         },                {
             "fqsen": "\\App\\Controller\\CardGameController21",
             "name": "CardGameController21",
-            "summary": "",
+            "summary": "Controller\u0020for\u0020the\u0020\u002221\u0022\u0020card\u0020game.",
             "url": "classes/App-Controller-CardGameController21.html"
         },                {
             "fqsen": "\\App\\Controller\\CardGameController21\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "Constructor\u0020to\u0020inject\u0020the\u0020Game21Service.",
             "url": "classes/App-Controller-CardGameController21.html#method___construct"
         },                {
             "fqsen": "\\App\\Controller\\CardGameController21\u003A\u003Ahome\u0028\u0029",
             "name": "home",
-            "summary": "",
+            "summary": "Landing\u0020page\u0020for\u0020the\u002021\u0020card\u0020game.",
             "url": "classes/App-Controller-CardGameController21.html#method_home"
         },                {
             "fqsen": "\\App\\Controller\\CardGameController21\u003A\u003Adocs\u0028\u0029",
             "name": "docs",
-            "summary": "",
+            "summary": "Displays\u0020documentation\u0020for\u0020the\u002021\u0020card\u0020game.",
             "url": "classes/App-Controller-CardGameController21.html#method_docs"
         },                {
             "fqsen": "\\App\\Controller\\CardGameController21\u003A\u003AstartGame\u0028\u0029",
             "name": "startGame",
-            "summary": "",
+            "summary": "Starts\u0020the\u002021\u0020card\u0020game\u0020and\u0020initializes\u0020the\u0020session\u0020state.",
             "url": "classes/App-Controller-CardGameController21.html#method_startGame"
         },                {
             "fqsen": "\\App\\Controller\\CardGameController21\u003A\u003Ahit\u0028\u0029",
             "name": "hit",
-            "summary": "",
+            "summary": "Handles\u0020the\u0020player\u0027s\u0020\u0022hit\u0022\u0020action\u0020\u0028drawing\u0020another\u0020card\u0029.",
             "url": "classes/App-Controller-CardGameController21.html#method_hit"
         },                {
             "fqsen": "\\App\\Controller\\CardGameController21\u003A\u003Astand\u0028\u0029",
             "name": "stand",
-            "summary": "",
+            "summary": "Handles\u0020the\u0020player\u0027s\u0020\u0022stand\u0022\u0020action\u0020\u0028end\u0020turn\u0020and\u0020let\u0020dealer\u0020play\u0029.",
             "url": "classes/App-Controller-CardGameController21.html#method_stand"
         },                {
             "fqsen": "\\App\\Controller\\CardGameController21\u003A\u003AendGame\u0028\u0029",
             "name": "endGame",
-            "summary": "",
+            "summary": "Ends\u0020the\u0020game\u0020and\u0020displays\u0020the\u0020result.",
             "url": "classes/App-Controller-CardGameController21.html#method_endGame"
         },                {
             "fqsen": "\\App\\Controller\\CardGameController21\u003A\u003AresetGame\u0028\u0029",
             "name": "resetGame",
-            "summary": "",
+            "summary": "Resets\u0020the\u0020game\u0020session\u0020and\u0020redirects\u0020to\u0020the\u0020start\u0020page.",
             "url": "classes/App-Controller-CardGameController21.html#method_resetGame"
         },                {
             "fqsen": "\\App\\Controller\\CardGameController21\u003A\u003A\u0024gameService",
@@ -368,22 +368,22 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Controller\\LuckyControllerJson",
             "name": "LuckyControllerJson",
-            "summary": "",
+            "summary": "API\u0020controller\u0020that\u0020returns\u0020random\u0020numbers\u0020and\u0020quotes\u0020in\u0020JSON\u0020format.",
             "url": "classes/App-Controller-LuckyControllerJson.html"
         },                {
             "fqsen": "\\App\\Controller\\LuckyControllerJson\u003A\u003AjsonNumber\u0028\u0029",
             "name": "jsonNumber",
-            "summary": "",
+            "summary": "Returns\u0020a\u0020JSON\u0020response\u0020with\u0020a\u0020random\u0020lucky\u0020number\u0020and\u0020a\u0020message.",
             "url": "classes/App-Controller-LuckyControllerJson.html#method_jsonNumber"
         },                {
             "fqsen": "\\App\\Controller\\LuckyControllerJson\u003A\u003Aquote\u0028\u0029",
             "name": "quote",
-            "summary": "",
+            "summary": "Returns\u0020a\u0020JSON\u0020response\u0020with\u0020a\u0020random\u0020inspirational\u0020quote\u0020and\u0020timestamp.",
             "url": "classes/App-Controller-LuckyControllerJson.html#method_quote"
         },                {
             "fqsen": "\\App\\Controller\\LuckyControllerTwig",
             "name": "LuckyControllerTwig",
-            "summary": "",
+            "summary": "Controller\u0020handling\u0020basic\u0020site\u0020pages\u0020and\u0020a\u0020\u0022lucky\u0020number\u0022\u0020feature\u0020using\u0020Twig\u0020templates.",
             "url": "classes/App-Controller-LuckyControllerTwig.html"
         },                {
             "fqsen": "\\App\\Controller\\LuckyControllerTwig\u003A\u003Anumber\u0028\u0029",
@@ -393,22 +393,22 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Controller\\LuckyControllerTwig\u003A\u003Ahome\u0028\u0029",
             "name": "home",
-            "summary": "",
+            "summary": "Render\u0020the\u0020home\u0020page\u0020of\u0020the\u0020website.",
             "url": "classes/App-Controller-LuckyControllerTwig.html#method_home"
         },                {
             "fqsen": "\\App\\Controller\\LuckyControllerTwig\u003A\u003Aabout\u0028\u0029",
             "name": "about",
-            "summary": "",
+            "summary": "Render\u0020the\u0020about\u0020page\u0020of\u0020the\u0020website.",
             "url": "classes/App-Controller-LuckyControllerTwig.html#method_about"
         },                {
             "fqsen": "\\App\\Controller\\LuckyControllerTwig\u003A\u003Areport\u0028\u0029",
             "name": "report",
-            "summary": "",
+            "summary": "Render\u0020the\u0020report\u0020page\u0020of\u0020the\u0020website.",
             "url": "classes/App-Controller-LuckyControllerTwig.html#method_report"
         },                {
             "fqsen": "\\App\\Controller\\LuckyControllerTwig\u003A\u003AluckyHome\u0028\u0029",
             "name": "luckyHome",
-            "summary": "",
+            "summary": "Render\u0020a\u0020page\u0020with\u0020a\u0020randomly\u0020generated\u0020lucky\u0020number\u0020and\u0020a\u0020random\u0020image.",
             "url": "classes/App-Controller-LuckyControllerTwig.html#method_luckyHome"
         },                {
             "fqsen": "\\App\\Controller\\MetricsController",

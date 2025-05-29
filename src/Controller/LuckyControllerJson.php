@@ -7,8 +7,16 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+/**
+ * API controller that returns random numbers and quotes in JSON format.
+ */
 class LuckyControllerJson
 {
+    /**
+     * Returns a JSON response with a random lucky number and a message.
+     *
+     * @return Response JSON-formatted response with a lucky number.
+     */
     #[Route("/api/lucky/number", "api_lucky_number")]
     public function jsonNumber(): Response
     {
@@ -26,6 +34,12 @@ class LuckyControllerJson
         );
         return $response;
     }
+
+    /**
+     * Returns a JSON response with a random inspirational quote and timestamp.
+     *
+     * @return Response JSON-formatted response with a quote, date, and timestamp.
+     */
     #[Route("/api/quote", name: "api_quote")]
     public function quote(): Response
     {
