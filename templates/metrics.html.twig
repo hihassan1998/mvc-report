@@ -78,14 +78,14 @@
 				har relativt låg kommentarvikt i förhållande till sin storlek, vilket är en svaghet ur kodförståelsesynpunkt.
 			</li>
 			<li>
-				<b>Maintainability/complexity-spiralen i början av testningen:</b>
+				<b>Maintainability/complexity-spiralen vid första bygget:</b>
 			</li>
 			<div class="anal-img-cont">
 				<a href="/img/comp1.png"><img class="centered;" src="/img/comp1.png" alt="diagram for code complexity">
 				</a>
 			</div>
 			<li>
-				<b>LOC tabel:</b>
+				<b>LOC tabel  vid första bygget:</b>
 			</li>
 			<div class="anal-img-cont">
 				<a href="/img/volume_reduction_before.png"><img style="width:auto; border-style:none; align-self:center;" class="centered;" src="/img/volume_reduction_before.png" alt="diagram for code Lines of code tabel">
@@ -181,7 +181,7 @@
 				<b>Kodstorlek och komplexitet:</b>
 				Klassen
 				<code>App\Controller\ApiController</code>
-				har förbättrats mest. Tidigare hade den 81 LLOC och en volym på 1317,68, men är nu enklare att underhålla med 47 LLOC och en kommentarvikt på 46,76&nbsp;%. Även
+				har förbättrats mest. Tidigare hade den 81 LLOC, en volym på 1317,68 och komentarsvikt på 28,1 % och är nu enklare att underhålla med 47 LLOC, volym på 564,22 och en kommentarvikt på 46,76&nbsp;%. Även
 				<code>BookController</code>
 				och
 				<code>CardGraphic</code>
@@ -213,11 +213,11 @@
 			<br>
 			<p>
 				<b>Refaktorisering av ApiController:</b>
-				ApiController refaktorerades för att minska sin storlek och följa principen om Single Responsibility. Antalet publika metoder reducerades från 8 till 4 genom att extrahera ansvar till nya serviceklasser. Detta har lett till högre sammanhållning (lägre LCOM) och bättre modulär uppbyggnad.
+				<code>App\Controller\ApiController</code> refaktorerades för att minska sin storlek och följa principen om Single Responsibility. Antalet publika metoder reducerades från 8 till 4 genom att extrahera ansvar till nya serviceklasser. Detta har lett till högre sammanhållning (lägre LCOM) och bättre modulär uppbyggnad.
 				<br><br>
 
 				<b>Införande av tester:</b>
-				Scrutinizer identifierade att ApiController saknade testtäckning. Genom att introducera enhetstester till alla huvudmetoder i kontrollern har täckningen ökat och buggriskvärdet (tidigare 0.44) har minskat. Detta stärker kodens tillförlitlighet och förenklar vidareutveckling.
+				Scrutinizer identifierade att <code>ApiController</code> saknade testtäckning. Genom att introducera enhetstester till alla huvudmetoder i kontrollern har täckningen ökat och buggriskvärdet (tidigare 0.44) har minskat. Detta stärker kodens tillförlitlighet och förenklar vidareutveckling.
 				<br><br>
 
 				<b>Förbättrad dokumentation:</b>

@@ -3,6 +3,7 @@
 namespace App\Card;
 
 use App\Card\Deck;
+use App\Card\Card;
 use App\Card\GameHelper;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
@@ -43,8 +44,8 @@ class Game21Service
      * @param SessionInterface $session
      *
      * @return array{
-     *     player_cards: Card[],
-     *     dealer_cards: Card[],
+     *     player_cards: \App\Card\Card[],
+     *     dealer_cards: \App\Card\Card[],
      *     player_points: int,
      *     dealer_points: int
      * }
