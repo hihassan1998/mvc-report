@@ -626,4 +626,108 @@ nav ul.main-nav .dropdown:hover .dropdown-content {
     display: block;
 }
 
+.center {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.goals-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    padding: 1rem;
+}
+
+.goal-card {
+    border-radius: 12px;
+    color: white;
+    padding: 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: transform 0.2s ease-in-out;
+}
+
+.goal-card:hover {
+    transform: scale(1.03);
+}
+
+.goal-1 {
+    background-color: #e5243b;
+}
+
+.goal-2 {
+    background-color: #dda63a;
+}
+
+.goal-3 {
+    background-color: #4c9f38;
+}
+
+.goal-4 {
+    background-color: #c5192d;
+}
+
+.goal-5 {
+    background-color: #ff3a21;
+}
+
+.goal-6 {
+    background-color: #26bde2;
+}
+
+.goal-7 {
+    background-color: #fcc30b;
+}
+
+.goal-8 {
+    background-color: #a21942;
+}
+
+.goal-9 {
+    background-color: #fd6925;
+}
+
+.goal-10 {
+    background-color: #dd1367;
+}
+
+.goal-11 {
+    background-color: #fd9d24;
+}
+
+.goal-12 {
+    background-color: #bf8b2e;
+}
+
+.goal-13 {
+    background-color: #3f7e44;
+}
+
+.goal-14 {
+    background-color: #0a97d9;
+}
+
+.goal-15 {
+    background-color: #56c02b;
+}
+
+.goal-16 {
+    background-color: #00689d;
+}
+
+.goal-17 {
+    background-color: #19486a;
+}
+
+.goal-header h2 {
+    margin: 0;
+    font-size: 1.4rem;
+}
+
+.goal-body p,
+.goal-body h3 {
+    margin: 0.5rem 0;
+}
+
+
+
 /* Styling for the project ends here */

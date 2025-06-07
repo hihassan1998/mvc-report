@@ -1,0 +1,24 @@
+{% extends 'base2.html.twig' %}
+
+{% block title %}Projekt - 17 Globala Mål{% endblock %}
+
+{% block body %}
+<main class="main">
+    <h1 class="proj-h1 center">De 17 Globala Målen för Hållbar Utveckling</h1>
+
+    <div class="goals-grid">
+        {% for goal in goals %}
+            <div class="goal-card goal-{{ goal.number }}">
+                <div class="goal-header">
+                    <h2>{{ goal.number }}. {{ goal.name }}</h2>
+                </div>
+                <div class="goal-body">
+                    <p><strong>Definition:</strong> {{ goal.defination }}</p>
+                </div>
+            </div>
+        {% else %}
+            <p>Inga mål hittades.</p>
+        {% endfor %}
+    </div>
+</main>
+{% endblock %}

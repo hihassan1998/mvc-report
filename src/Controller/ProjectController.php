@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\GoalArticleRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
@@ -32,5 +33,43 @@ final class ProjectController extends AbstractController
     public function projAbout(): Response
     {
         return $this->render('proj/about.html.twig');
+    }
+    /**
+     * Displays a simple for gaols page for the /proj/goals route.
+     *
+     * @return Response
+     */
+    #[Route('/proj/goals', name: 'app_proj_goals')]
+    public function projGoals(GoalArticleRepository $goalArticleRepository): Response
+    {
+        $goals = $goalArticleRepository->findAll();
+
+        $data = [
+            'goals' => $goals
+        ];
+
+        return $this->render('proj/goals.html.twig', $data);
+    }
+    /**
+     * Displays a specific book by ID using a Twig template.
+     *
+     * @param GoalArticleRepository 
+     * @param int $id
+     * @return Response
+     */
+    #[Route('proj/goals/view/{id}', name: 'app_proj_goal_by_id')]
+    public function viewGoalById(
+        GoalArticleRepository $goalArticleRepository,
+        int $id
+    ): Response {
+        $goal = $goalArticleRepository->find($id);
+
+        if (!$goal) {
+            throw $this->createNotFoundException('Goal not found');
+        }
+
+        return $this->render('proj/goal.html.twig', [
+            'goal' => $goal,
+        ]);
     }
 }
