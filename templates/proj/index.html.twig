@@ -1,0 +1,42 @@
+{% extends 'base2.html.twig' %}
+
+{% block title %}Projekt - 17 Globala Mål
+{% endblock %}
+
+{% block body %}
+	<style>
+		.example-wrapper {
+			margin: 1em auto;
+			max-width: 800px;
+			width: 95%;
+			font: 18px / 1.5 sans-serif;
+		}
+		.example-wrapper code {
+			background: #F5F5F5;
+			padding: 2px 6px;
+		}
+	</style>
+
+	<main
+		class="main ">
+		{# <div class="report-container">
+									<div class="proj-img">
+									</div> #}
+		<div class="">
+			<h1 class="proj-h1">Visualisering av indikatorer för hållbar utveckling</h1>
+
+			<div class="proj-image-div">
+				<a href="{{ asset('img/hassanicon.png') }}"><img class="proj-img centered" src="{{ asset('img/malen.png') }}" alt=""/></a>
+			</div>
+			<br>
+			<p>
+				Välkommen till projektet om hållbar utveckling. Denna webbplats syftar till att lyfta fram och visualisera data kopplad till några av de 17 globala målen för hållbar utveckling, som tagits fram av FN.
+			</p>
+			<p>
+				I detta projekt har fokus lagts på att samla in statistik och indikatorer från officiella källor, främst Statistiska Centralbyrån (SCB), och lagra dessa i en databas. Informationen visualiseras sedan genom interaktiva diagram och tabeller för att visa hur vi ligger till inom olika hållbarhetsområden.
+			</p>
+			<p></p>
+		</div>
+		{# </div> #}
+	</main>
+{% endblock %}

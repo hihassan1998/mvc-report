@@ -177,6 +177,7 @@ h1 {
     border-bottom: 4px double #A3B18A;
 }
 
+
 h2 {
     font-size: 2rem;
     margin-bottom: 1.4rem;
@@ -211,6 +212,7 @@ footer {
     margin-bottom: 1px;
     font-weight: bold;
 }
+
 
 header h1 {
     padding-top: 15px;
@@ -505,10 +507,123 @@ td {
 }
 
 @media (max-width: 600px) {
-.anal-img-cont {
-    flex-direction: column !important;
-}
+    .anal-img-cont {
+        flex-direction: column !important;
+    }
 
 }
 
 /* libray stlings kmom05 end */
+
+/* Styling for the project starts here */
+
+
+.proj-body {
+    background-size: cover;
+    display: flex;
+    margin: 0 auto;
+    line-height: 1.4;
+    background-color: #f3f4f4;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}
+
+
+.proj-h1 {
+    font-size: 2.4rem;
+    margin-bottom: 2.8rem;
+    font-family: fantasy;
+    /* border-bottom: 4px double #ccc; */
+    border-bottom: 8px #0025c9;
+}
+
+.proj-header {
+    height: 20vh !important;
+    background-size: cover;
+    align-items: stretch;
+}
+
+.proj-footer {
+    position: fixed;
+    bottom: 0px;
+    width: -webkit-fill-available;
+    padding: 25px;
+    text-align: center;
+    background-color: #0693e3;
+    margin-bottom: 1px;
+    font-weight: bold;
+}
+
+.proj-image-div {
+    width: 100%;
+    height: 150px;
+    overflow: hidden;
+}
+
+.proj-image-div img.proj-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border: 0;
+    border-radius: 0;
+}
+
+@media (max-width: 600px) {
+    .proj-image-div img.proj-img {
+        width: auto;
+        max-width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+
+    .proj-image-div {
+        height: auto;
+    }
+}
+
+nav ul.main-nav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 1rem;
+    background: #f0f0f0;
+}
+
+nav ul.main-nav li {
+    position: relative;
+}
+
+nav ul.main-nav a {
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    display: block;
+    color: #000;
+}
+
+/* Dropdown content */
+nav ul.main-nav .dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #fff;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+nav ul.main-nav .dropdown-content li a {
+    padding: 0.5rem 1rem;
+    white-space: nowrap;
+    color: #000;
+}
+
+nav ul.main-nav .dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Styling for the project ends here */
