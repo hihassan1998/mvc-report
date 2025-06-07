@@ -1,0 +1,20 @@
+{% extends 'base2.html.twig' %}
+
+{% block title %}Projekt - 17 Globala Mål
+{% endblock %}
+
+{% block body %}
+	<main class="main">
+		<h1 class="proj-h1 center">{{ goal.number }}.
+			{{ goal.name }}</h1>
+		<div class="goal-article goal-{{ goal.number }}">
+			<p>
+				<strong>
+					{{ goal.description }}
+				</strong>
+			</p>
+			<h3>{{ goal.articleTitle }}</h3>
+			<p>{{ goal.article }}</p>
+		</div>
+	</main>
+{% endblock %}

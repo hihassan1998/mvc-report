@@ -54,16 +54,15 @@ final class ProjectController extends AbstractController
      * Displays a specific book by ID using a Twig template.
      *
      * @param GoalArticleRepository 
-     * @param int $id
+     * @param int $number
      * @return Response
      */
-    #[Route('proj/goals/view/{id}', name: 'app_proj_goal_by_id')]
+    #[Route('proj/goals/view/{number}', name: 'app_proj_goal_by_id')]
     public function viewGoalById(
         GoalArticleRepository $goalArticleRepository,
-        int $id
+        int $number
     ): Response {
-        $goal = $goalArticleRepository->find($id);
-
+        $goal = $goalArticleRepository->findOneBy(['number' => $number]);
         if (!$goal) {
             throw $this->createNotFoundException('Goal not found');
         }

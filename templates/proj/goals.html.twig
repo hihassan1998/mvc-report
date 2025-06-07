@@ -1,24 +1,33 @@
 {% extends 'base2.html.twig' %}
 
-{% block title %}Projekt - 17 Globala Mål{% endblock %}
+{% block title %}Projekt - 17 Globala Mål
+{% endblock %}
 
 {% block body %}
-<main class="main">
-    <h1 class="proj-h1 center">De 17 Globala Målen för Hållbar Utveckling</h1>
+	<main class="main">
+		<h1 class="proj-h1 center">De 17 Globala Målen för Hållbar Utveckling</h1>
 
-    <div class="goals-grid">
-        {% for goal in goals %}
-            <div class="goal-card goal-{{ goal.number }}">
-                <div class="goal-header">
-                    <h2>{{ goal.number }}. {{ goal.name }}</h2>
-                </div>
-                <div class="goal-body">
-                    <p><strong>Definition:</strong> {{ goal.defination }}</p>
-                </div>
-            </div>
-        {% else %}
-            <p>Inga mål hittades.</p>
-        {% endfor %}
-    </div>
-</main>
+		<div class="goals-grid">
+			{% for goal in goals %}
+					<div class="goal-card goal-{{ goal.number }}">
+				<a class="proj-a" href="{{ path('app_proj_goal_by_id', {'number': goal.number}) }}">
+						<div class="goal-header">
+							<h2>{{ goal.number }}.
+								{{ goal.name }}</h2>
+						</div>
+						<div class="goal-body">
+							<p>
+								<strong>Definition:</strong>
+								{{ goal.defination }}</p>
+							<a class="" href="{{ path('app_proj_goal_by_id', {'number': goal.number}) }}">
+								Show details
+							</a>
+						</div>
+				</a>
+					</div>
+			{% else %}
+				<p>Inga mål hittades.</p>
+			{% endfor %}
+		</div>
+	</main>
 {% endblock %}

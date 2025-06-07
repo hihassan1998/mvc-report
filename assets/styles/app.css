@@ -432,7 +432,7 @@ img {
 
 a:hover {
     font-weight: 700;
-    color: #D88C5D;
+    color: #131110;
 }
 
 /* card game kmom02 stylings END */
@@ -728,6 +728,16 @@ nav ul.main-nav .dropdown:hover .dropdown-content {
     margin: 0.5rem 0;
 }
 
+.proj-a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 800;
+}
 
+.goal-article {
+    width: 90vw;
+    border-radius: 5px;
+    padding: 20px;
+}
 
 /* Styling for the project ends here */
