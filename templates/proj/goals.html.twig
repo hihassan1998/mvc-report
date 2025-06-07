@@ -6,11 +6,18 @@
 {% block body %}
 	<main class="main">
 		<h1 class="proj-h1 center">De 17 Globala Målen för Hållbar Utveckling</h1>
-
+		<p>
+			JAg har valt mål XX och hitta excel fil for data integration
+			<br>
+			JAg har valt mål
+			<a class="proj-a" style="color:green;     font-size: xx-large;" href="{{ path('app_proj_goal_by_id', {'number': 13}) }}">
+				13</a>
+			och hitta excel fil for data integration
+		</p>
 		<div class="goals-grid">
 			{% for goal in goals %}
-					<div class="goal-card goal-{{ goal.number }}">
-				<a class="proj-a" href="{{ path('app_proj_goal_by_id', {'number': goal.number}) }}">
+				<div class="goal-card goal-{{ goal.number }}">
+					<a class="proj-a" href="{{ path('app_proj_goal_by_id', {'number': goal.number}) }}">
 						<div class="goal-header">
 							<h2>{{ goal.number }}.
 								{{ goal.name }}</h2>
@@ -23,8 +30,8 @@
 								Show details
 							</a>
 						</div>
-				</a>
-					</div>
+					</a>
+				</div>
 			{% else %}
 				<p>Inga mål hittades.</p>
 			{% endfor %}

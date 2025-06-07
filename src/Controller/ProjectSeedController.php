@@ -185,7 +185,10 @@ class ProjectSeedController extends AbstractController
         }
 
         $entityManager->flush();
-
-        return new Response(count($goalsData) . ' goals seeded successfully.');
+        $response = $this->json(['message' => count($goalsData) . ' goals seeded successfully.']);
+        $response->setEncodingOptions(
+            $response->getEncodingOptions() | JSON_PRETTY_PRINT
+        );
+        return $response;
     }
 }

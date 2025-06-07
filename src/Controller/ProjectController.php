@@ -71,4 +71,15 @@ final class ProjectController extends AbstractController
             'goal' => $goal,
         ]);
     }
+
+    /**
+     * Displays a simple start page for the /proj route.
+     *
+     * @return Response
+     */
+    #[Route('/proj/api', name: 'app_proj_api')]
+    public function projApi(): Response
+    {
+        return $this->render('proj/proj-api.html.twig');
+    }
 }

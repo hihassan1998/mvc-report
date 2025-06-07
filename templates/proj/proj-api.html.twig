@@ -1,0 +1,106 @@
+{% extends 'base2.html.twig' %}
+
+{% block title %}Projekt - 17 Globala Mål
+{% endblock %}
+
+{% block body %}
+	<style>
+		.example-wrapper {
+			margin: 1em auto;
+			max-width: 800px;
+			width: 95%;
+			font: 18px / 1.5 sans-serif;
+		}
+		.example-wrapper code {
+			background: #F5F5F5;
+			padding: 2px 6px;
+		}
+	</style>
+
+	<main class="main ">
+		<h1>Välkommen till sidan för Golbala Mål JSON API</h1>
+		<p>Det här är en lista med länkar för alla tillgängliga JSON-rutter:</p>
+		<ol class="">
+			<li>
+				<p>
+					<b>Route Name:</b>
+					<a href="{{ path('proj_show_all') }}">proj_show_all</a>
+					<br/>
+					<b>Method:</b>
+					GET
+					<br/>
+					<b>Path:</b>
+					proj/api/goals
+					<br/>
+					<b>Beskrivning:</b>
+					Få upp all målen från glåbala mål applikation i en JSON struktur.
+				</p>
+			</li>
+			<li>
+				<b>Route Name:</b>
+				goal_by_number
+				<br/>
+				<b>Method:</b>
+				GET
+				<br/>
+				<b>Path:</b>
+				proj/api/goal/{number}
+				<br/>
+				<b>Beskrivning:</b>
+				Få upp ett mål med dess nummer. t.ex:
+				<a href="{{ path('goal_by_number', { 'number': '1' }) }}">
+					Golbala Mål # 1
+				</a>
+			</li>
+			<br/>
+			<li>
+				<b>Route Name:</b>
+				<a href="{{ path('proj_goals_seed') }}">proj_goals_seed</a>
+				<br/>
+				<b>Method:</b>
+				GET
+				<br/>
+				<b>Path:</b>
+				proj/goals/seed
+				<br/>
+				<b>Beskrivning:</b>
+				Få upp en response efter data är tillagt i databas med siffror på antal ny data-rows tillagt
+			</li>
+			<br/>
+			<li>
+				<b>Route Name:</b>
+				Add here new rout   XXXXXXXXXx
+				<br/>
+				<b>Method:</b>
+				GET
+				<br/>
+				<b>Path:</b>
+				proj/api/goal/{number}
+				<br/>
+				<b>Beskrivning:</b>
+				Få upp ett mål med dess nummer. t.ex:
+				<a href="{{ path('goal_by_number', { 'number': '1' }) }}">
+					Golbala Mål # 1
+				</a>
+			</li>
+			<br/>
+
+			<li>
+				<b>Route Name:</b>
+				Add here new rout
+				<br/>
+				<b>Method:</b>
+				GET /PoSTTT
+				<br/>
+				<b>Path:</b>
+				proj/api/goal/{number}
+				<br/>
+				<b>Beskrivning:</b>
+				Få upp ett mål med dess nummer. t.ex:
+				<a href="{{ path('goal_by_number', { 'number': '1' }) }}">
+					Golbala Mål # 1
+				</a>
+			</li>
+		</ol>
+	</main>
+{% endblock %}
