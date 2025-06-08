@@ -31,6 +31,7 @@ class ProjectSeedController extends AbstractController
         $entityManager = $doctrine->getManager();
 
         $goalsData = require __DIR__ . '/../../config/goals_data.php';
+        /** @phpstan-ignore-next-line */
         $existing = $entityManager->getRepository(GoalArticle::class)->count([]);
         if ($existing > 0) {
             $response = $this->json(['message' => 'Data finns redan i databasen.']);

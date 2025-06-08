@@ -765,4 +765,11 @@ form.search-form .goal-btn {
 form.search-form .goal-btn:hover {
     background-color: #30b300;
 }
+
+table.emission-table {
+    background-color: #fae3ca;
+    border-radius: 0.5rem;
+    width: 90%;
+    border-collapse: collapse;
+}
 /* Styling for the project ends here */

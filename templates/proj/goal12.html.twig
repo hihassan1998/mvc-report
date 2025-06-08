@@ -1,6 +1,6 @@
 {% extends 'base2.html.twig' %}
 
-{% block title %}Projekt - 17 Globala Mål - 12 
+{% block title %}Projekt - 17 Globala Mål - 12
 {% endblock %}
 
 {% block body %}
@@ -16,17 +16,21 @@
 			<h3>{{ goal.articleTitle }}</h3>
 			<p>{{ goal.article }}</p>
 		</div>
-		<h2>Emissions Data</h2>
-		<p>
-			Konsumtionsbaserade utsläpp av växthusgaser i Sverige och i andra länder
-		</p>
-		{% if emissiondata is not empty %}
-			<h3>Utsläpp av växthusgaser i Sverige och i andra länder från svensk konsumtion</h3>
-			<p><br><small>m.ton CO2-ekv. År 2008–2016</small>
-			</p>
+		<br>
+		<div class="goal-article goal-2">
 
+			<h2>Emissions Data</h2>
+			<p>
+				Konsumtionsbaserade utsläpp av växthusgaser i Sverige och i andra länder
+			</p>
+			{% if emissiondata is not empty %}
+				<h3>Utsläpp av växthusgaser i Sverige och i andra länder från svensk konsumtion</h3>
+				<p><br><small>m.ton CO2-ekv. År 2008–2016</small>
+				</p>
+			</div>
+			<br>
 			<div class="table-wrapper">
-				<table border="1" cellpadding="8" cellspacing="0">
+				<table class="emission-table" border="1" cellpadding="8" cellspacing="0">
 					<thead>
 						<tr>
 							<th>År</th>
@@ -57,33 +61,47 @@
 					</tbody>
 				</table>
 			</div>
-			<br>
-			<br>
-			<br>
-			<div class="table-wrapper">
 
-				<canvas id="emissionPieChart" style="width:auto; height:auto;"></canvas>
-			</div>
-			<br>
-			<br>
 			<br>
 			<br>
 			<div class="goal-article goal-2">
 				<h3>Analys av utsläppsdata 2008–2016</h3>
 				<p>
 					Tabellen visar utsläpp av växthusgaser i Sverige, utsläpp från svenska konsumtion i andra länder samt den totala summan under åren 2008 till 2016, mätt i miljoner ton CO2-ekvivalenter.
-				</p>
-				<p>
+					<br><br>
 					Under denna period har utsläppen i Sverige minskat något, från 41 miljoner ton år 2008 till 36 miljoner ton år 2016. Det visar på en viss framgång i att minska inhemska utsläpp, trots variationer under åren.
-				</p>
-				<p>
+					<br><br>
 					Utsläppen i andra länder, som är kopplade till svensk konsumtion utomlands, har däremot varit mer varierande och generellt högre än de svenska utsläppen. De låg på 62 miljoner ton år 2008, minskade till 48 miljoner år 2009 men ökade sedan och nådde 65 miljoner ton år 2016.
-				</p>
-				<p>
+					<br><br>
 					Totalt sett, alltså summan av både svenska och utländska utsläpp kopplade till svensk konsumtion, har nivån legat ganska stabilt runt 100 miljoner ton under hela perioden. Det visar tydligt att även om Sverige har lyckats minska sina egna utsläpp något, är det konsumtionsbaserade utsläppet, inklusive de som sker i andra länder, fortfarande högt och behöver uppmärksammas i klimatarbetet.
-				</p>
-				<p>
+					<br><br>
 					Detta understryker vikten av att inte bara minska utsläppen nationellt utan också ta ansvar för klimatpåverkan kopplad till global handel och konsumtion.
+				</p>
+			</div>
+			<br>
+			<div class="table-wrapper">
+				<canvas id="emissionPieChart" style="width:auto; height:auto;"></canvas>
+			</div>
+			<br>
+			<div class="goal-article goal-2">
+				<h4 class="proj-h1">Varför är Globala Mål 12 viktigt?</h4>
+				<p>
+					Mål 12 handlar om att förändra våra konsumtions- och produktionsmönster för att minska vår belastning på planeten. I dagsläget konsumerar vi långt över vad jorden klarar av, vilket påverkar både klimatet och resurstillgången negativt.
+					<br><br>
+					Enligt Statistiska lägesbilden 2022 har Sverige visat viss positiv utveckling: växthusgasutsläppen från konsumtion minskar, likaså användningen av antibiotika i djurhållning. År 2019 låg konsumtionsbaserade utsläpp på 9,6 ton CO₂ per person. Samtidigt ökar materialkonsumtionen och mängden farligt avfall minskar inte.
+					<br><br>
+					För att nå hållbar utveckling krävs kraftfulla åtgärder från både samhälle, näringsliv och individ. Det innebär bland annat att minska avfall, effektivisera resurshantering och tänka mer cirkulärt i hela livsmedelskedjan.
+					<br><br>
+					Som Greta Thunberg uttrycker det:
+															"You say you love your children above all else, and yet you are stealing their future in front of their very eyes."
+															(Källa: Greta Thunberg, COP24-tal, 2018)
+					<br><br>
+					Och som jag säger:
+															"Own your surroundings as much as you own your personal space."
+															
+															Att agera hållbart är inte bara en skyldighet – det är en investering i framtiden.
+					<a href="https://www.scb.se/contentassets/c1bc76dae47f4cb2bcfd1ec6f5a8cca1/mi1303_2021b22_br_x41br2201.pdf" target="_blank" rel="noopener noreferrer">[Gå till Statistisk lägesbild ]
+					</a>
 				</p>
 			</div>
 		{% else %}
@@ -94,46 +112,46 @@
 	</main>
 	 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 	 <script>
-			        const ctx = document.getElementById('emissionPieChart').getContext('2d');
-			
-			        const data = {
-			            labels: ['Sverige', 'Utrikes', 'Totalt'],
-			            datasets: [{
-			                label: 'Utsläpp i miljoner ton CO₂',
-			                data: [
-			                    {{ sumSweden }},
-			                    {{ sumAbroad }},
-			                    {{ sumTotal }}
-			                ],
-			                backgroundColor: [
-			                    'rgba(54, 162, 235, 0.7)',
-			                    'rgba(255, 206, 86, 0.7)',
-			                    'rgba(75, 192, 192, 0.7)'
-			                ],
-			                borderColor: [
-			                    'rgba(54, 162, 235, 1)',
-			                    'rgba(255, 206, 86, 1)',
-			                    'rgba(75, 192, 192, 1)'
-			                ],
-			                borderWidth: 1
-			            }]
-			        };
-			
-			        new Chart(ctx, {
-			            type: 'pie',
-			            data: data,
-			            options: {
-			                responsive: true,
-			                plugins: {
-			                    legend: { position: 'top' },
-			                    title: {
-			                        display: true,
-			                        text: 'Sammanlagda utsläpp för Sverige, Utrikes och Totalt'
-			                    }
-			                }
-			            }
-			        });
-			    </script>
+										const ctx = document.getElementById('emissionPieChart').getContext('2d');
+								
+										const data = {
+											labels: ['Sverige', 'Utrikes', 'Totalt'],
+											datasets: [{
+												label: 'Utsläpp i miljoner ton CO₂',
+												data: [
+													{{ sumSweden }},
+													{{ sumAbroad }},
+													{{ sumTotal }}
+												],
+												backgroundColor: [
+													'rgba(54, 162, 235, 0.7)',
+													'rgba(255, 206, 86, 0.7)',
+													'rgba(75, 192, 192, 0.7)'
+												],
+												borderColor: [
+													'rgba(54, 162, 235, 1)',
+													'rgba(255, 206, 86, 1)',
+													'rgba(75, 192, 192, 1)'
+												],
+												borderWidth: 1
+											}]
+										};
+								
+										new Chart(ctx, {
+											type: 'pie',
+											data: data,
+											options: {
+												responsive: true,
+												plugins: {
+													legend: { position: 'top' },
+													title: {
+														display: true,
+														text: 'Sammanlagda utsläpp för Sverige, Utrikes och Totalt'
+													}
+												}
+											}
+										});
+									</script>
 
 
 {% endblock %}
