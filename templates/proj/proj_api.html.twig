@@ -69,25 +69,31 @@
 			<br/>
 			<li>
 				<b>Route Name:</b>
-				Add here new rout   XXXXXXXXXx
+				proj_goal_search
 				<br/>
 				<b>Method:</b>
-				GET
+				GET och POST
 				<br/>
 				<b>Path:</b>
-				proj/api/goal/{number}
+				proj/api/goal/{search}
 				<br/>
 				<b>Beskrivning:</b>
-				Få upp ett mål med dess nummer. t.ex:
-				<a href="{{ path('goal_by_number', { 'number': '1' }) }}">
-					Golbala Mål # 1
-				</a>
+				Få upp sök resultat med inmatat sökquery. t.ex:
+				<form class="search-form" method="POST" action="{{ path('proj_goal_search') }}" style="display:block;">
+					<input type="text" name="query" placeholder="Sök mål..." required/>
+					<button class="goal-btn goal-3" type="submit">Sök</button>
+				</form>
+				<p>Exempel på sökningar:</p>
+				<ul>
+					<li><ahref="{{path('proj_goal_search')}}?query=fattig">Sök på "fattig"</a></li>
+					<li><ahref="{{path('proj_goal_search')}}?query=1">Sök på mål nummer 1</a></li>
+				</ul>
 			</li>
 			<br/>
 
 			<li>
 				<b>Route Name:</b>
-				Add here new rout
+				Add here new rout ------  XXXXXXXXXx
 				<br/>
 				<b>Method:</b>
 				GET /PoSTTT

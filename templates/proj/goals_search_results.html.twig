@@ -1,0 +1,28 @@
+{% extends 'base2.html.twig' %}
+
+{% block title %}Sökresultat - Globala Mål
+{% endblock %}
+
+{% block body %}
+	<main class="main">
+		<h1 class="proj-h1 center">Sökresultat för: "{{ query }}"</h1>
+
+		{% if goals is not empty %}
+			<ul class="unset-list">
+				{% for goal in goals %}
+					<li class="goal-result-item">
+						<a href="{{ path('app_proj_goal_by_id', {'number': goal.number}) }}">
+							<strong>{{ goal.number }}.
+								{{ goal.name }}</strong>
+						</a>
+						<p>{{ goal.defination|slice(0, 150) ~ '...' }}</p>
+					</li>
+				{% endfor %}
+			</ul>
+		{% else %}
+			<p>Inga mål hittades som matchar din sökning.</p>
+		{% endif %}
+
+		<a href="{{ path('app_proj_goals') }}">🔙 Tillbaka till alla mål</a>
+	</main>
+{% endblock %}
