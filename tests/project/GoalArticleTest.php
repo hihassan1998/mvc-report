@@ -4,9 +4,18 @@ namespace App\Tests\Entity;
 
 use App\Entity\GoalArticle;
 use PHPUnit\Framework\TestCase;
-
+/**
+ * Class GoalArticleTest
+ *
+ * Tests for the GoalArticle entity properties.
+ */
 class GoalArticleTest extends TestCase
 {
+    /**
+     * Test setting and getting properties of GoalArticle.
+     *
+     * @return void
+     */
     public function testGoalArticleProperties(): void
     {
         $goal = new GoalArticle();

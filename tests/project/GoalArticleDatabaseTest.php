@@ -4,6 +4,8 @@ namespace App\Tests\Entity;
 
 use App\Entity\GoalArticle;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
+use Doctrine\ORM\Tools\SchemaTool;
+
 
 class GoalArticleDatabaseTest extends KernelTestCase
 {
@@ -15,6 +17,14 @@ class GoalArticleDatabaseTest extends KernelTestCase
         self::bootKernel();
 
         $this->entityManager = static::getContainer()->get('doctrine')->getManager();
+
+        $metadata = $this->entityManager->getMetadataFactory()->getAllMetadata();
+
+        if (!empty($metadata)) {
+            $schemaTool = new SchemaTool($this->entityManager);
+            $schemaTool->dropSchema($metadata);
+            $schemaTool->createSchema($metadata);
+        }
     }
 
     public function testPersistAndRetrieveGoalArticle(): void

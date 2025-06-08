@@ -5,8 +5,19 @@ namespace App\Tests\Entity;
 use App\Entity\EmissionsData;
 use PHPUnit\Framework\TestCase;
 
+/**
+ * Class EmissionsDataTest
+ *
+ * Tests for the EmissionsData entity properties.
+ */
+
 class EmissionsDataTest extends TestCase
 {
+    /**
+     * Test setting and getting properties of EmissionsData.
+     *
+     * @return void
+     */
     public function testEmissionsDataProperties(): void
     {
         $emissions = new EmissionsData();
