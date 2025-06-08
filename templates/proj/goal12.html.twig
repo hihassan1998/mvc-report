@@ -1,0 +1,139 @@
+{% extends 'base2.html.twig' %}
+
+{% block title %}Projekt - 17 Globala Mål - 12 
+{% endblock %}
+
+{% block body %}
+	<main class="main">
+		<h1 class="proj-h1 center">{{ goal.number }}.
+			{{ goal.name }}</h1>
+		<div class="goal-article goal-2">
+			<p>
+				<strong>
+					{{ goal.description }}
+				</strong>
+			</p>
+			<h3>{{ goal.articleTitle }}</h3>
+			<p>{{ goal.article }}</p>
+		</div>
+		<h2>Emissions Data</h2>
+		<p>
+			Konsumtionsbaserade utsläpp av växthusgaser i Sverige och i andra länder
+		</p>
+		{% if emissiondata is not empty %}
+			<h3>Utsläpp av växthusgaser i Sverige och i andra länder från svensk konsumtion</h3>
+			<p><br><small>m.ton CO2-ekv. År 2008–2016</small>
+			</p>
+
+			<div class="table-wrapper">
+				<table border="1" cellpadding="8" cellspacing="0">
+					<thead>
+						<tr>
+							<th>År</th>
+							{% for entry in emissiondata %}
+								<th>{{ entry.year }}</th>
+							{% endfor %}
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Svensk</td>
+							{% for entry in emissiondata %}
+								<td>{{ entry.emissionsSweden }}</td>
+							{% endfor %}
+						</tr>
+						<tr>
+							<td>Utländsk</td>
+							{% for entry in emissiondata %}
+								<td>{{ entry.emissionsAbroad }}</td>
+							{% endfor %}
+						</tr>
+						<tr>
+							<td>Antal</td>
+							{% for entry in emissiondata %}
+								<td>{{ entry.total }}</td>
+							{% endfor %}
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<br>
+			<br>
+			<br>
+			<div class="table-wrapper">
+
+				<canvas id="emissionPieChart" style="width:auto; height:auto;"></canvas>
+			</div>
+			<br>
+			<br>
+			<br>
+			<br>
+			<div class="goal-article goal-2">
+				<h3>Analys av utsläppsdata 2008–2016</h3>
+				<p>
+					Tabellen visar utsläpp av växthusgaser i Sverige, utsläpp från svenska konsumtion i andra länder samt den totala summan under åren 2008 till 2016, mätt i miljoner ton CO2-ekvivalenter.
+				</p>
+				<p>
+					Under denna period har utsläppen i Sverige minskat något, från 41 miljoner ton år 2008 till 36 miljoner ton år 2016. Det visar på en viss framgång i att minska inhemska utsläpp, trots variationer under åren.
+				</p>
+				<p>
+					Utsläppen i andra länder, som är kopplade till svensk konsumtion utomlands, har däremot varit mer varierande och generellt högre än de svenska utsläppen. De låg på 62 miljoner ton år 2008, minskade till 48 miljoner år 2009 men ökade sedan och nådde 65 miljoner ton år 2016.
+				</p>
+				<p>
+					Totalt sett, alltså summan av både svenska och utländska utsläpp kopplade till svensk konsumtion, har nivån legat ganska stabilt runt 100 miljoner ton under hela perioden. Det visar tydligt att även om Sverige har lyckats minska sina egna utsläpp något, är det konsumtionsbaserade utsläppet, inklusive de som sker i andra länder, fortfarande högt och behöver uppmärksammas i klimatarbetet.
+				</p>
+				<p>
+					Detta understryker vikten av att inte bara minska utsläppen nationellt utan också ta ansvar för klimatpåverkan kopplad till global handel och konsumtion.
+				</p>
+			</div>
+		{% else %}
+			<p>Ingen emissionsdata hittades.</p>
+			<a href="{{ path('proj_goal12_init_data') }}" class="goal-btn">Lägg till data</a>
+		{% endif %}
+
+	</main>
+	 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	 <script>
+			        const ctx = document.getElementById('emissionPieChart').getContext('2d');
+			
+			        const data = {
+			            labels: ['Sverige', 'Utrikes', 'Totalt'],
+			            datasets: [{
+			                label: 'Utsläpp i miljoner ton CO₂',
+			                data: [
+			                    {{ sumSweden }},
+			                    {{ sumAbroad }},
+			                    {{ sumTotal }}
+			                ],
+			                backgroundColor: [
+			                    'rgba(54, 162, 235, 0.7)',
+			                    'rgba(255, 206, 86, 0.7)',
+			                    'rgba(75, 192, 192, 0.7)'
+			                ],
+			                borderColor: [
+			                    'rgba(54, 162, 235, 1)',
+			                    'rgba(255, 206, 86, 1)',
+			                    'rgba(75, 192, 192, 1)'
+			                ],
+			                borderWidth: 1
+			            }]
+			        };
+			
+			        new Chart(ctx, {
+			            type: 'pie',
+			            data: data,
+			            options: {
+			                responsive: true,
+			                plugins: {
+			                    legend: { position: 'top' },
+			                    title: {
+			                        display: true,
+			                        text: 'Sammanlagda utsläpp för Sverige, Utrikes och Totalt'
+			                    }
+			                }
+			            }
+			        });
+			    </script>
+
+
+{% endblock %}

@@ -7,20 +7,25 @@
 {% block body %}
 	<main>
 		<div class="double-bottom">
-		<h1>All Books</h1>
-		<p>
-			These are all the books availabe in the library, do scorll down to see individual books.
-		</p>
-		<h2> Add a new book:
-		</h2>
-		<p> To add a new custom book: <a href="{{ path('book_new') }}">
-									Click here
-								</a>
-		</p>
-		<p> To add three books to database: <a href="{{ path('book_create') }}">
-									Click here
-								</a>
-		</p>
+			<h1>All Books</h1>
+			<p>
+				These are all the books availabe in the library, do scorll down to see individual books.
+			</p>
+			<h2>
+				Add a new book:
+			</h2>
+			<p>
+				To add a new custom book:
+				<a href="{{ path('book_new') }}">
+					Click here
+				</a>
+			</p>
+			<p>
+				To add three books to database:
+				<a href="{{ path('book_create') }}">
+					Click here
+				</a>
+			</p>
 		</div>
 		<br>
 		<br>

@@ -1,5 +1,7 @@
 <?php
+
 // src/Controller/EmissionsDataController.php
+
 namespace App\Controller;
 
 use App\Entity\EmissionsData;
@@ -7,6 +9,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+
 /**
  * Controller för att initiera utsläppsdata för mål 13.
  */

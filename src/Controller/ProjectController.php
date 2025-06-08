@@ -9,7 +9,6 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\HttpFoundation\Request;
 
-
 /**
  * Controller for the 17 gobal goals project.
  *
@@ -56,7 +55,7 @@ final class ProjectController extends AbstractController
     /**
      * Displays a specific book by ID using a Twig template.
      *
-     * @param goalArticleRepository 
+     * @param GoalArticleRepository $goalArticleRepository The repository for goal articles.
      * @param int $number
      * @return Response
      */
@@ -114,7 +113,7 @@ final class ProjectController extends AbstractController
             }
 
             $goals = $qb
-                ->setParameter('query', '%' . strtolower($query) . '%')
+                ->setParameter('query', '%' . strtolower((string) $query) . '%')
                 ->getQuery()
                 ->getResult();
         }
@@ -130,24 +129,36 @@ final class ProjectController extends AbstractController
     }
 
     /**
-     * Displays a simple goal 13 page for the goal 13 tables display route.
+     * Displays a simple goal 12 page for the goal 12 tables display route.
      *
      * @return Response
      */
-    #[Route('/proj/goals/view13', name: 'app_proj_goal_13')]
-    public function viewGoal13(
+    #[Route('/proj/goals/view12', name: 'app_proj_goal_12')]
+    public function viewGoal12(
         GoalArticleRepository $goalArticleRepository,
         EmissionsDataRepository $emissionsDataRepository
     ): Response {
-        $goal = $goalArticleRepository->findOneBy(['number' => 13]);
+        $goal = $goalArticleRepository->findOneBy(['number' => 12]);
         if (!$goal) {
             throw $this->createNotFoundException('Goal not found');
         }
         $emissiondata = $emissionsDataRepository->findAll();
-        
-        return $this->render('proj/goal13.html.twig', [
+        // Sum totals
+        $sumSweden = 0;
+        $sumAbroad = 0;
+        $sumTotal = 0;
+
+        foreach ($emissiondata as $data) {
+            $sumSweden += $data->getEmissionsSweden();
+            $sumAbroad += $data->getEmissionsAbroad();
+            $sumTotal += $data->getTotal();
+        }
+        return $this->render('proj/goal12.html.twig', [
             'goal' => $goal,
             'emissiondata' => $emissiondata,
+            'sumSweden' => $sumSweden,
+            'sumAbroad' => $sumAbroad,
+            'sumTotal' => $sumTotal,
         ]);
     }
 
