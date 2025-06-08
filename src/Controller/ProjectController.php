@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\EmissionsDataRepository;
 use App\Repository\GoalArticleRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -55,7 +56,7 @@ final class ProjectController extends AbstractController
     /**
      * Displays a specific book by ID using a Twig template.
      *
-     * @param GoalArticleRepository 
+     * @param goalArticleRepository 
      * @param int $number
      * @return Response
      */
@@ -85,6 +86,14 @@ final class ProjectController extends AbstractController
         return $this->render('proj/proj_api.html.twig');
     }
 
+    /**
+     * Search for goals by name, definition, article content, or goal number.
+     * Returns JSON for AJAX/JSON requests, otherwise renders an HTML view.
+     *
+     * @param Request $request The HTTP request object.
+     * @param GoalArticleRepository $goalArticleRepository Repository to search goal data.
+     * @return Response JSON response or rendered HTML template with search results.
+     */
     #[Route('/proj/goals/search', name: 'proj_goal_search', methods: ['POST', 'GET'])]
     public function searchGoals(
         Request $request,
@@ -117,6 +126,28 @@ final class ProjectController extends AbstractController
         return $this->render('proj/goals_search_results.html.twig', [
             'goals' => $goals,
             'query' => $query,
+        ]);
+    }
+
+    /**
+     * Displays a simple goal 13 page for the goal 13 tables display route.
+     *
+     * @return Response
+     */
+    #[Route('/proj/goals/view13', name: 'app_proj_goal_13')]
+    public function viewGoal13(
+        GoalArticleRepository $goalArticleRepository,
+        EmissionsDataRepository $emissionsDataRepository
+    ): Response {
+        $goal = $goalArticleRepository->findOneBy(['number' => 13]);
+        if (!$goal) {
+            throw $this->createNotFoundException('Goal not found');
+        }
+        $emissiondata = $emissionsDataRepository->findAll();
+        
+        return $this->render('proj/goal13.html.twig', [
+            'goal' => $goal,
+            'emissiondata' => $emissiondata,
         ]);
     }
 

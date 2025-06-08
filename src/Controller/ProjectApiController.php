@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\EmissionsDataRepository;
 use App\Repository\GoalArticleRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -50,6 +51,26 @@ class ProjectApiController extends AbstractController
             return $this->json(['error' => 'goal not found'], 404);
         }
         $response = $this->json($goal);
+        $response->setEncodingOptions(
+            $response->getEncodingOptions() | JSON_PRETTY_PRINT
+        );
+        return $response;
+    }
+
+    /**
+     * Get all goals as JSON.
+     *
+     * @param EmissionsDataRepository $emissionsDataRepository
+     * @return Response JSON response with all goals
+     */
+    #[Route('proj/api/emissions', name: 'proj_show_emissions')]
+    public function showEmissionsDAta(
+        EmissionsDataRepository $emissionsDataRepository
+    ): Response {
+        $data = $emissionsDataRepository
+            ->findAll();
+
+        $response = $this->json($data);
         $response->setEncodingOptions(
             $response->getEncodingOptions() | JSON_PRETTY_PRINT
         );

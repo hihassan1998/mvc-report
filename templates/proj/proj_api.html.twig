@@ -93,19 +93,16 @@
 
 			<li>
 				<b>Route Name:</b>
-				Add here new rout ------  XXXXXXXXXx
+				<a href="{{ path('proj_show_emissions') }}">proj_show_emissions</a>
 				<br/>
 				<b>Method:</b>
-				GET /PoSTTT
+				GET
 				<br/>
 				<b>Path:</b>
-				proj/api/goal/{number}
+				proj/api/emissions
 				<br/>
 				<b>Beskrivning:</b>
-				Få upp ett mål med dess nummer. t.ex:
-				<a href="{{ path('goal_by_number', { 'number': '1' }) }}">
-					Golbala Mål # 1
-				</a>
+				Få upp ett json response from emissions_data databs tabel.
 			</li>
 		</ol>
 	</main>
