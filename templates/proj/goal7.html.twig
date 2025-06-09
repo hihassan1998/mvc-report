@@ -1,0 +1,109 @@
+{% extends 'base2.html.twig' %}
+
+{% block title %}Projekt - 17 Globala Mål - 7
+{% endblock %}
+
+{% block body %}
+	<main class="main">
+		<h1 class="proj-h1 center">{{ goal.number }}.
+			{{ goal.name }}</h1>
+		<div class="goal-article goal-{{ goal.number }}">
+			<p>
+				<strong>
+					{{ goal.description }}
+				</strong>
+			</p>
+			{# <h3>{{ goal.articleTitle }}</h3> #}
+			<h2 class="proj-h1">Varför är Globala Mål 7 viktigt?</h2>
+			{# <p>{{ goal.article }}</p> #}
+			<p>
+				<br><br>
+				<br><br>
+				<br><br>
+					<code></code>
+					<br><br>
+					Och som jag säger:
+					<code>
+						"Own your surroundings as much as you own your personal space."
+						<br><br>
+					</code>
+					Att agera hållbart är inte bara en skyldighet – det är en investering i framtiden.
+					<a href="https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.scb.se%2Fcontentassets%2F589da5591d3642e2ab2a95c6bce0a9fd%2Fmal-7---hallbar-energi-for-alla.xlsx&wdOrigin=BROWSELINK" target="_blank" rel="noopener noreferrer">[Gå till Statistisk lägesbild ]
+					</a>
+				</p>
+			</div>
+			<br>
+			<div class="goal-article goal-7">
+
+				<h2>Emissions Data</h2>
+				<p>
+					Konsumtionsbaserade utsläpp av växthusgaser i Sverige och i andra länder
+				</p>
+				{% if emissiondata is not empty %}
+
+				</div>
+				<br>
+				<div class="table-wrapper">
+					<h3>Utsläpp av växthusgaser i Sverige och i andra länder från svensk konsumtion</h3>
+
+					<table class="emission-table" border="1" cellpadding="8" cellspacing="0">
+						<p>
+							<label>
+								<small>m.ton CO2-ekv. År 2008–2016</small>
+							</label>
+							<thead>
+								<tr>
+									<th>År</th>
+									{% for entry in emissiondata %}
+										<th>{{ entry.year }}</th>
+									{% endfor %}
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>Svensk</td>
+									{% for entry in emissiondata %}
+										<td>{{ entry.emissionsSweden }}</td>
+									{% endfor %}
+								</tr>
+								<tr>
+									<td>Utländsk</td>
+									{% for entry in emissiondata %}
+										<td>{{ entry.emissionsAbroad }}</td>
+									{% endfor %}
+								</tr>
+								<tr>
+									<td>Antal</td>
+									{% for entry in emissiondata %}
+										<td>{{ entry.total }}</td>
+									{% endfor %}
+								</tr>
+							</tbody>
+						</p>
+					</table>
+				</div>
+
+				<br>
+				<div class="table-wrapper">
+					<canvas id="emissionPieChart" style="width:auto; height:auto;"></canvas>
+				</div>
+				<br>
+				<br>
+				<div class="goal-article goal-7">
+					<h3>Analys av data 2008–2016</h3>
+					<p>
+						<br><br>
+						<br><br>
+						<br><br>
+						<br><br>
+					</p>
+				</div>
+				<br>
+			{% else %}
+				<p>Ingen emissionsdata hittades.</p>
+				<a href="{{ path('proj_goal12_init_data') }}" class="goal-btn">Lägg till data</a>
+			{% endif %}
+
+		</main>
+
+	{% endblock %}

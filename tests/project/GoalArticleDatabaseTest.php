@@ -5,19 +5,21 @@ namespace App\Tests\Entity;
 use App\Entity\GoalArticle;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Doctrine\ORM\Tools\SchemaTool;
+use Doctrine\ORM\EntityManagerInterface;
+
 
 
 class GoalArticleDatabaseTest extends KernelTestCase
 {
-    private $goalArticle;
+    private GoalArticle $goalArticle;
+    /** @phpstan-ignore-next-line */
     private $entityManager;
 
     protected function setUp(): void
     {
         self::bootKernel();
-
+        /** @phpstan-ignore-next-line */
         $this->entityManager = static::getContainer()->get('doctrine')->getManager();
-
         $metadata = $this->entityManager->getMetadataFactory()->getAllMetadata();
 
         if (!empty($metadata)) {

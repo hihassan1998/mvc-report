@@ -13,8 +13,31 @@
 					{{ goal.description }}
 				</strong>
 			</p>
-			<h3>{{ goal.articleTitle }}</h3>
-			<p>{{ goal.article }}</p>
+			{# <h3>{{ goal.articleTitle }}</h3> #}
+			<h2 class="proj-h1">Varför är Globala Mål 12 viktigt?</h2>
+			{# <p>{{ goal.article }}</p> #}
+			<p>
+				Mål 12 handlar om att förändra våra konsumtions- och produktionsmönster för att minska vår belastning på planeten. I dagsläget konsumerar vi långt över vad jorden klarar av, vilket påverkar både klimatet och resurstillgången negativt.
+				<br><br>
+				Enligt Statistiska lägesbilden 2022 har Sverige visat viss positiv utveckling: växthusgasutsläppen från konsumtion minskar, likaså användningen av antibiotika i djurhållning. År 2019 låg konsumtionsbaserade utsläpp på 9,6 ton CO₂ per person. Samtidigt ökar materialkonsumtionen och mängden farligt avfall minskar inte.
+				<br><br>
+				För att nå hållbar utveckling krävs kraftfulla åtgärder från både samhälle, näringsliv och individ. Det innebär bland annat att minska avfall, effektivisera resurshantering och tänka mer cirkulärt i hela livsmedelskedjan.
+				<br><br>
+				Som Greta Thunberg uttrycker det:
+				<code>
+					"You say you love your children above all else, and yet you are stealing their future in front of their very eyes."
+				</code>
+				(Källa: Greta Thunberg, COP24-tal, 2018)
+				<br><br>
+				Och som jag säger:
+				<code>
+					"Own your surroundings as much as you own your personal space."
+					<br><br>
+				</code>
+				Att agera hållbart är inte bara en skyldighet – det är en investering i framtiden.
+				<a href="https://www.scb.se/contentassets/c1bc76dae47f4cb2bcfd1ec6f5a8cca1/mi1303_2021b22_br_x41br2201.pdf" target="_blank" rel="noopener noreferrer">[Gå till Statistisk lägesbild ]
+				</a>
+			</p>
 		</div>
 		<br>
 		<div class="goal-article goal-2">
@@ -24,44 +47,53 @@
 				Konsumtionsbaserade utsläpp av växthusgaser i Sverige och i andra länder
 			</p>
 			{% if emissiondata is not empty %}
-				<h3>Utsläpp av växthusgaser i Sverige och i andra länder från svensk konsumtion</h3>
-				<p><br><small>m.ton CO2-ekv. År 2008–2016</small>
-				</p>
+
 			</div>
 			<br>
 			<div class="table-wrapper">
+				<h3>Utsläpp av växthusgaser i Sverige och i andra länder från svensk konsumtion</h3>
+
 				<table class="emission-table" border="1" cellpadding="8" cellspacing="0">
-					<thead>
-						<tr>
-							<th>År</th>
-							{% for entry in emissiondata %}
-								<th>{{ entry.year }}</th>
-							{% endfor %}
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>Svensk</td>
-							{% for entry in emissiondata %}
-								<td>{{ entry.emissionsSweden }}</td>
-							{% endfor %}
-						</tr>
-						<tr>
-							<td>Utländsk</td>
-							{% for entry in emissiondata %}
-								<td>{{ entry.emissionsAbroad }}</td>
-							{% endfor %}
-						</tr>
-						<tr>
-							<td>Antal</td>
-							{% for entry in emissiondata %}
-								<td>{{ entry.total }}</td>
-							{% endfor %}
-						</tr>
-					</tbody>
+					<p>
+						<label>
+							<small>m.ton CO2-ekv. År 2008–2016</small>
+						</label>
+						<thead>
+							<tr>
+								<th>År</th>
+								{% for entry in emissiondata %}
+									<th>{{ entry.year }}</th>
+								{% endfor %}
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Svensk</td>
+								{% for entry in emissiondata %}
+									<td>{{ entry.emissionsSweden }}</td>
+								{% endfor %}
+							</tr>
+							<tr>
+								<td>Utländsk</td>
+								{% for entry in emissiondata %}
+									<td>{{ entry.emissionsAbroad }}</td>
+								{% endfor %}
+							</tr>
+							<tr>
+								<td>Antal</td>
+								{% for entry in emissiondata %}
+									<td>{{ entry.total }}</td>
+								{% endfor %}
+							</tr>
+						</tbody>
+					</p>
 				</table>
 			</div>
 
+			<br>
+			<div class="table-wrapper">
+				<canvas id="emissionPieChart" style="width:auto; height:auto;"></canvas>
+			</div>
 			<br>
 			<br>
 			<div class="goal-article goal-2">
@@ -79,31 +111,6 @@
 				</p>
 			</div>
 			<br>
-			<div class="table-wrapper">
-				<canvas id="emissionPieChart" style="width:auto; height:auto;"></canvas>
-			</div>
-			<br>
-			<div class="goal-article goal-2">
-				<h4 class="proj-h1">Varför är Globala Mål 12 viktigt?</h4>
-				<p>
-					Mål 12 handlar om att förändra våra konsumtions- och produktionsmönster för att minska vår belastning på planeten. I dagsläget konsumerar vi långt över vad jorden klarar av, vilket påverkar både klimatet och resurstillgången negativt.
-					<br><br>
-					Enligt Statistiska lägesbilden 2022 har Sverige visat viss positiv utveckling: växthusgasutsläppen från konsumtion minskar, likaså användningen av antibiotika i djurhållning. År 2019 låg konsumtionsbaserade utsläpp på 9,6 ton CO₂ per person. Samtidigt ökar materialkonsumtionen och mängden farligt avfall minskar inte.
-					<br><br>
-					För att nå hållbar utveckling krävs kraftfulla åtgärder från både samhälle, näringsliv och individ. Det innebär bland annat att minska avfall, effektivisera resurshantering och tänka mer cirkulärt i hela livsmedelskedjan.
-					<br><br>
-					Som Greta Thunberg uttrycker det:
-															"You say you love your children above all else, and yet you are stealing their future in front of their very eyes."
-															(Källa: Greta Thunberg, COP24-tal, 2018)
-					<br><br>
-					Och som jag säger:
-															"Own your surroundings as much as you own your personal space."
-															
-															Att agera hållbart är inte bara en skyldighet – det är en investering i framtiden.
-					<a href="https://www.scb.se/contentassets/c1bc76dae47f4cb2bcfd1ec6f5a8cca1/mi1303_2021b22_br_x41br2201.pdf" target="_blank" rel="noopener noreferrer">[Gå till Statistisk lägesbild ]
-					</a>
-				</p>
-			</div>
 		{% else %}
 			<p>Ingen emissionsdata hittades.</p>
 			<a href="{{ path('proj_goal12_init_data') }}" class="goal-btn">Lägg till data</a>
@@ -112,46 +119,44 @@
 	</main>
 	 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 	 <script>
-										const ctx = document.getElementById('emissionPieChart').getContext('2d');
-								
-										const data = {
-											labels: ['Sverige', 'Utrikes', 'Totalt'],
-											datasets: [{
-												label: 'Utsläpp i miljoner ton CO₂',
-												data: [
-													{{ sumSweden }},
-													{{ sumAbroad }},
-													{{ sumTotal }}
-												],
-												backgroundColor: [
-													'rgba(54, 162, 235, 0.7)',
-													'rgba(255, 206, 86, 0.7)',
-													'rgba(75, 192, 192, 0.7)'
-												],
-												borderColor: [
-													'rgba(54, 162, 235, 1)',
-													'rgba(255, 206, 86, 1)',
-													'rgba(75, 192, 192, 1)'
-												],
-												borderWidth: 1
-											}]
-										};
-								
-										new Chart(ctx, {
-											type: 'pie',
-											data: data,
-											options: {
-												responsive: true,
-												plugins: {
-													legend: { position: 'top' },
-													title: {
-														display: true,
-														text: 'Sammanlagda utsläpp för Sverige, Utrikes och Totalt'
-													}
-												}
-											}
-										});
-									</script>
+		const ctx = document.getElementById('emissionPieChart').getContext('2d');
 
+		const data = {
+			labels: ['Sverige', 'Utrikes', 'Totalt'],
+			datasets: [{
+				label: 'Utsläpp i miljoner ton CO₂',
+				data: [
+					{{ sumSweden }},
+					{{ sumAbroad }},
+					{{ sumTotal }}
+				],
+				backgroundColor: [
+					'rgba(54, 162, 235, 0.7)',
+					'rgba(255, 206, 86, 0.7)',
+					'rgba(192, 149, 75, 0.7)'
+				],
+				borderColor: [
+					'rgba(54, 162, 235, 1)',
+					'rgba(255, 206, 86, 1)',
+					'rgb(192, 145, 75)'
+				],
+				borderWidth: 1
+			}]
+		};
 
+		new Chart(ctx, {
+			type: 'pie',
+			data: data,
+			options: {
+				responsive: true,
+				plugins: {
+					legend: { position: 'top' },
+					title: {
+						display: true,
+						text: 'Sammanlagda utsläpp för Sverige, Utrikes och Totalt'
+					}
+				}
+			}
+		});
+	</script>
 {% endblock %}

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1749408864">
-  <project timestamp="1749408864">
+<coverage generated="1749469169">
+  <project timestamp="1749469169">
     <file name="/home/hahi24/dbwebb-kurser/mvc/me/report/src/Card/Card.php">
       <class name="App\Card\Card" namespace="global">
         <metrics complexity="4" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="5" coveredstatements="5" elements="9" coveredelements="9"/>
@@ -632,7 +632,7 @@
     </file>
     <file name="/home/hahi24/dbwebb-kurser/mvc/me/report/src/Controller/ProjectController.php">
       <class name="App\Controller\ProjectController" namespace="global">
-        <metrics complexity="15" methods="7" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="52" coveredstatements="0" elements="59" coveredelements="0"/>
+        <metrics complexity="17" methods="8" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="60" coveredstatements="0" elements="68" coveredelements="0"/>
       </class>
       <line num="24" type="method" name="index" visibility="public" complexity="1" crap="2" count="0"/>
       <line num="27" type="stmt" count="0"/>
@@ -693,7 +693,16 @@
       <line num="160" type="stmt" count="0"/>
       <line num="161" type="stmt" count="0"/>
       <line num="162" type="stmt" count="0"/>
-      <metrics loc="166" ncloc="120" classes="1" methods="7" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="52" coveredstatements="0" elements="59" coveredelements="0"/>
+      <line num="169" type="method" name="viewGoal7" visibility="public" complexity="2" crap="6" count="0"/>
+      <line num="174" type="stmt" count="0"/>
+      <line num="175" type="stmt" count="0"/>
+      <line num="176" type="stmt" count="0"/>
+      <line num="178" type="stmt" count="0"/>
+      <line num="180" type="stmt" count="0"/>
+      <line num="181" type="stmt" count="0"/>
+      <line num="182" type="stmt" count="0"/>
+      <line num="183" type="stmt" count="0"/>
+      <metrics loc="187" ncloc="136" classes="1" methods="8" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="60" coveredstatements="0" elements="68" coveredelements="0"/>
     </file>
     <file name="/home/hahi24/dbwebb-kurser/mvc/me/report/src/Controller/ProjectEmissionsDataController.php">
       <class name="App\Controller\ProjectEmissionsDataController" namespace="global">
@@ -942,6 +951,6 @@
       <line num="16" type="stmt" count="1"/>
       <metrics loc="44" ncloc="18" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="2" coveredelements="2"/>
     </file>
-    <metrics files="30" loc="2510" ncloc="1754" classes="29" methods="122" coveredmethods="68" conditionals="0" coveredconditionals="0" statements="639" coveredstatements="212" elements="761" coveredelements="280"/>
+    <metrics files="30" loc="2531" ncloc="1770" classes="29" methods="123" coveredmethods="68" conditionals="0" coveredconditionals="0" statements="647" coveredstatements="212" elements="770" coveredelements="280"/>
   </project>
 </coverage>

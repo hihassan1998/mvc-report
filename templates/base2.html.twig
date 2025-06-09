@@ -24,27 +24,32 @@
 			<span class="site-title">Hassans Symfony Site</span>
 		</header>
 		<nav>
-			 <ul class="main-nav">
+			<ul class="main-nav">
 				<li>
-					<a href="{{ path('home') }}">Hem</a>
+					<a style="border:2px solid black;" href="{{ path('home') }}">
+						↵
+					</a>
 				</li>
 				<li>
-					<a href="{{ path('report') }}">Report</a>
+					<a href="{{ path('app_proj') }}">Start</a>
+				</li>
+				<li>
+					<a href="{{ path('app_proj_about') }}">About</a>
+				</li>
+				<li>
+					<a href="{{ path('app_proj_api') }}">Mål API:er</a>
 				</li>
 				<li class="dropdown">
 					Project ▾
 					<ul class="dropdown-content">
 						<li>
-							<a href="{{ path('app_proj') }}">Start</a>
-						</li>
-						<li>
-							<a href="{{ path('app_proj_about') }}">About</a>
-						</li>
-						<li>
-							<a href="{{ path('app_proj_api') }}">Mål API:er</a>
-						</li>
-						<li>
 							<a href="{{ path('app_proj_goals') }}">Globala Mål</a>
+						</li>
+						<li>
+							<a href="{{ path('app_proj_goal_7') }}">Mål 7</a>
+						</li>
+						<li>
+							<a href="{{ path('app_proj_goal_12') }}">Mål 12</a>
 						</li>
 					</ul>
 				</li>

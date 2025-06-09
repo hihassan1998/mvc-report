@@ -10,10 +10,11 @@
 			<br>
 			Jag har valt mål
 			<a class="proj-a" style="color:green;     font-size: xx-large;" href="{{ path('app_proj_goal_12') }}">
-				12</a>  Hållbar konsumtion och produktion
-			och integrerat data i tabel och chart form.
+				12</a>
+			Hållbar konsumtion och produktion
+						och integrerat data i tabel och chart form.
 		</p>
-		<div >
+		<div>
 			<form class="search-form" method="POST" action="{{ path('proj_goal_search') }}">
 				<input type="text" name="query" placeholder="Sök mål..." required>
 				<button class="goal-btn goal-3" type="submit">Sök</button>
@@ -40,7 +41,13 @@
 					</a>
 				</div>
 			{% else %}
-				<p>Inga mål hittades.</p>
+				<p>Inga mål hittades.
+					<br>
+					<a href="{{ path('proj_goals_seed') }}">
+						Tryck här
+					</a>
+					för att fylla databasen med data för indikatorer.
+				</p>
 			{% endfor %}
 		</div>
 	</main>

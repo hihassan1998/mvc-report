@@ -21,7 +21,7 @@ class ProjectEmissionsDataController extends AbstractController
      * @param EntityManagerInterface $entityManager Doctrine entity manager
      * @return Response
      */
-    #[Route('/proj/goal/13/init-data', name: 'proj_goal13_init_data')]
+    #[Route('/proj/goal/12/init-data', name: 'proj_goal12_init_data')]
     public function initEmissionsData(EntityManagerInterface $entityManager): Response
     {
         $years = [2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016];

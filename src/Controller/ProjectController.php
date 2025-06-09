@@ -161,5 +161,26 @@ final class ProjectController extends AbstractController
             'sumTotal' => $sumTotal,
         ]);
     }
+    /**
+     * Displays a simple goal 12 page for the goal 12 tables display route.
+     *
+     * @return Response
+     */
+    #[Route('/proj/goals/view7', name: 'app_proj_goal_7')]
+    public function viewGoal7(
+        GoalArticleRepository $goalArticleRepository,
+        EmissionsDataRepository $emissionsDataRepository
+    ): Response {
+        $goal = $goalArticleRepository->findOneBy(['number' => 7]);
+        if (!$goal) {
+            throw $this->createNotFoundException('Goal not found');
+        }
+        $emissiondata = $emissionsDataRepository->findAll();
+        
+        return $this->render('proj/goal7.html.twig', [
+            'goal' => $goal,
+            'emissiondata' => $emissiondata,
+        ]);
+    }
 
 }

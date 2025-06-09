@@ -476,10 +476,15 @@ Search.appendIndex(
             "summary": "Search\u0020for\u0020goals\u0020by\u0020name,\u0020definition,\u0020article\u0020content,\u0020or\u0020goal\u0020number.",
             "url": "classes/App-Controller-ProjectController.html#method_searchGoals"
         },                {
-            "fqsen": "\\App\\Controller\\ProjectController\u003A\u003AviewGoal13\u0028\u0029",
-            "name": "viewGoal13",
-            "summary": "Displays\u0020a\u0020simple\u0020goal\u002013\u0020page\u0020for\u0020the\u0020goal\u002013\u0020tables\u0020display\u0020route.",
-            "url": "classes/App-Controller-ProjectController.html#method_viewGoal13"
+            "fqsen": "\\App\\Controller\\ProjectController\u003A\u003AviewGoal12\u0028\u0029",
+            "name": "viewGoal12",
+            "summary": "Displays\u0020a\u0020simple\u0020goal\u002012\u0020page\u0020for\u0020the\u0020goal\u002012\u0020tables\u0020display\u0020route.",
+            "url": "classes/App-Controller-ProjectController.html#method_viewGoal12"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjectController\u003A\u003AviewGoal7\u0028\u0029",
+            "name": "viewGoal7",
+            "summary": "Displays\u0020a\u0020simple\u0020goal\u002012\u0020page\u0020for\u0020the\u0020goal\u002012\u0020tables\u0020display\u0020route.",
+            "url": "classes/App-Controller-ProjectController.html#method_viewGoal7"
         },                {
             "fqsen": "\\App\\Controller\\ProjectEmissionsDataController",
             "name": "ProjectEmissionsDataController",
@@ -493,12 +498,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Controller\\ProjectSeedController",
             "name": "ProjectSeedController",
-            "summary": "",
+            "summary": "Controller\u0020responsible\u0020for\u0020seeding\u0020GoalArticle\u0020data\u0020into\u0020the\u0020database.",
             "url": "classes/App-Controller-ProjectSeedController.html"
         },                {
             "fqsen": "\\App\\Controller\\ProjectSeedController\u003A\u003AseedGoals\u0028\u0029",
             "name": "seedGoals",
-            "summary": "",
+            "summary": "Seeds\u0020the\u0020database\u0020with\u0020predefined\u0020goal\u0020articles.",
             "url": "classes/App-Controller-ProjectSeedController.html#method_seedGoals"
         },                {
             "fqsen": "\\App\\Dice\\Dice",
