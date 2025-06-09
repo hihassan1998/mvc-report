@@ -13,97 +13,105 @@
 					{{ goal.description }}
 				</strong>
 			</p>
-			{# <h3>{{ goal.articleTitle }}</h3> #}
 			<h2 class="proj-h1">Varför är Globala Mål 7 viktigt?</h2>
-			{# <p>{{ goal.article }}</p> #}
 			<p>
+				Mål 7 syftar till att säkerställa tillgång till tillförlitlig, hållbar och modern energi för alla – något som är avgörande för att bekämpa klimatförändringar, minska luftföroreningar och möjliggöra en global övergång till hållbar produktion.
 				<br><br>
+				I Sverige har användningen av förnybar energi ökat markant, särskilt genom biobränslen och vindkraft. År 2019 utgjorde förnybar energi hela 56 procent av landets totala slutliga energianvändning – en tydlig signal om framsteg. Samtidigt har energiintensiteten, det vill säga mängden energi som krävs per BNP-enhet, minskat med 21 procent sedan 2008. Detta visar att det är möjligt att kombinera ekonomisk tillväxt med minskad energianvändning.
 				<br><br>
+				Utöver nationella framsteg bidrar Sverige även till energiomställningen globalt, genom bistånd som främjar ren energiteknik i utvecklingsländer. År 2020 uppgick detta stöd till över 750 miljoner kronor. En rättvis och globalt inkluderande energiförsörjning är avgörande för att alla länder ska kunna delta i klimatomställningen.
 				<br><br>
-					<code></code>
+				Som FN:s tidigare generalsekreterare Ban Ki-moon har uttryckt det:
+				<br><br>
+				<code>
+					<em>“Sustainable energy is the golden thread that connects economic growth, social equity, and environmental sustainability.”</em><br>
+				</code>
+				(Källa: Ban Ki-moon, FN:s generalsekreterare, UN Sustainable Energy for All, 2012)
+				<br><br>
+				Att investera i hållbar energi är inte bara en klimatåtgärd – det är ett verktyg för social rättvisa, ekonomisk utveckling och global stabilitet.
+				<a href="https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.scb.se%2Fcontentassets%2F589da5591d3642e2ab2a95c6bce0a9fd%2Fmal-7---hallbar-energi-for-alla.xlsx&wdOrigin=BROWSELINK" target="_blank" rel="noopener noreferrer">[Gå till Statistisk lägesbild ]
+				</a>
+			</p>
+		</div>
+		<br>
+		<div class="goal-article goal-7">
+			<h2>
+				Emisisons Data</h2>
+			<p>
+				Konsumtionsbaserade utsläpp av växthusgaser i Sverige och i andra länder
+			</p>
+			{% if renewableshare and renewabletotal is not empty %}
+
+			</div>
+			<br>
+			<div class="table-wrapper">
+				<h3>Utsläpp av växthusgaser i Sverige och i andra länder från svensk konsumtion</h3>
+
+				<table
+					class="emission-table" border="1" cellpadding="8" cellspacing="0">
+					{# <p> #}
+					<label>
+						<small>Andel förnybar energi i Sverige 2005–2017, procent</small>
+					</label>
+					<thead>
+						<tr>
+							<th>År</th>
+							{% for entry in renewableshare %}
+								<th>{{ entry.year }}</th>
+							{% endfor %}
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Totalt</td>
+							{% for entry in renewableshare %}
+								<td>{{ entry.total }}</td>
+							{% endfor %}
+						</tr>
+						<tr>
+							<td>Värme, kyla, industri m.m.</td>
+							{% for entry in renewableshare %}
+								<td>{{ entry.heatIndustry }}</td>
+							{% endfor %}
+						</tr>
+						<tr>
+							<td>El</td>
+							{% for entry in renewableshare %}
+								<td>{{ entry.electricity }}</td>
+							{% endfor %}
+						</tr>
+						<tr>
+							<td>Transporter</td>
+							{% for entry in renewableshare %}
+								<td>{{ entry.transport }}</td>
+							{% endfor %}
+						</tr>
+					</tbody>
+					{# </p> #}
+				</table>
+			</div>
+			<br>
+			<div class="table-wrapper">
+				<canvas id="emissionPieChart" style="width:auto; height:auto;"></canvas>
+			</div>
+			<br>
+			<br>
+			<div class="goal-article goal-7">
+				<h3>Analys av data 2008–2016</h3>
+				<p>
 					<br><br>
-					Och som jag säger:
-					<code>
-						"Own your surroundings as much as you own your personal space."
-						<br><br>
-					</code>
-					Att agera hållbart är inte bara en skyldighet – det är en investering i framtiden.
-					<a href="https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.scb.se%2Fcontentassets%2F589da5591d3642e2ab2a95c6bce0a9fd%2Fmal-7---hallbar-energi-for-alla.xlsx&wdOrigin=BROWSELINK" target="_blank" rel="noopener noreferrer">[Gå till Statistisk lägesbild ]
-					</a>
+					<br><br>
+					<br><br>
+					<br><br>
 				</p>
 			</div>
 			<br>
-			<div class="goal-article goal-7">
+		{% else %}
+			<p>Ingen emissionsdata hittades.</p>
+			<a href="{{ path('proj_goal7_init_data') }}" class="goal-btn">Lägg till RenewableShare data i db-tabel.</a>
+			<a href="{{ path('proj_goal7_init_usage_data') }}" class="goal-btn">Lägg till RenewableUsage data i db-tabel.</a>
+		{% endif %}
 
-				<h2>Emissions Data</h2>
-				<p>
-					Konsumtionsbaserade utsläpp av växthusgaser i Sverige och i andra länder
-				</p>
-				{% if emissiondata is not empty %}
+	</main>
 
-				</div>
-				<br>
-				<div class="table-wrapper">
-					<h3>Utsläpp av växthusgaser i Sverige och i andra länder från svensk konsumtion</h3>
-
-					<table class="emission-table" border="1" cellpadding="8" cellspacing="0">
-						<p>
-							<label>
-								<small>m.ton CO2-ekv. År 2008–2016</small>
-							</label>
-							<thead>
-								<tr>
-									<th>År</th>
-									{% for entry in emissiondata %}
-										<th>{{ entry.year }}</th>
-									{% endfor %}
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td>Svensk</td>
-									{% for entry in emissiondata %}
-										<td>{{ entry.emissionsSweden }}</td>
-									{% endfor %}
-								</tr>
-								<tr>
-									<td>Utländsk</td>
-									{% for entry in emissiondata %}
-										<td>{{ entry.emissionsAbroad }}</td>
-									{% endfor %}
-								</tr>
-								<tr>
-									<td>Antal</td>
-									{% for entry in emissiondata %}
-										<td>{{ entry.total }}</td>
-									{% endfor %}
-								</tr>
-							</tbody>
-						</p>
-					</table>
-				</div>
-
-				<br>
-				<div class="table-wrapper">
-					<canvas id="emissionPieChart" style="width:auto; height:auto;"></canvas>
-				</div>
-				<br>
-				<br>
-				<div class="goal-article goal-7">
-					<h3>Analys av data 2008–2016</h3>
-					<p>
-						<br><br>
-						<br><br>
-						<br><br>
-						<br><br>
-					</p>
-				</div>
-				<br>
-			{% else %}
-				<p>Ingen emissionsdata hittades.</p>
-				<a href="{{ path('proj_goal12_init_data') }}" class="goal-btn">Lägg till data</a>
-			{% endif %}
-
-		</main>
-
-	{% endblock %}
+{% endblock %}

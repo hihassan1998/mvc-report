@@ -4,6 +4,8 @@ namespace App\Controller;
 
 use App\Repository\EmissionsDataRepository;
 use App\Repository\GoalArticleRepository;
+use App\Repository\RenewableEnergyShareRepository;
+use App\Repository\RenewableEnergyUsageRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
@@ -169,17 +171,22 @@ final class ProjectController extends AbstractController
     #[Route('/proj/goals/view7', name: 'app_proj_goal_7')]
     public function viewGoal7(
         GoalArticleRepository $goalArticleRepository,
+        RenewableEnergyShareRepository $renewableEnergyShareRepository,
+        RenewableEnergyUsageRepository $renewableEnergyUsageRepository,
         EmissionsDataRepository $emissionsDataRepository
+
     ): Response {
         $goal = $goalArticleRepository->findOneBy(['number' => 7]);
         if (!$goal) {
             throw $this->createNotFoundException('Goal not found');
         }
-        $emissiondata = $emissionsDataRepository->findAll();
+        $renewableshare = $renewableEnergyShareRepository->findAll();
+        $renewabletotal = $renewableEnergyUsageRepository->findAll();
         
         return $this->render('proj/goal7.html.twig', [
             'goal' => $goal,
-            'emissiondata' => $emissiondata,
+            'renewableshare' => $renewableshare,
+            'renewabletotal' => $renewabletotal,
         ]);
     }
 
