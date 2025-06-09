@@ -1,3 +1,75 @@
-<h1 class="proj-h1">
-HElloe bhassan
-</h1>
+{% extends 'base2.html.twig' %}
+
+{% block title %}
+	Databas
+{% endblock %}
+
+{% block body %}
+	<main>
+		<div class="report-container report-container-mob">
+			<aside class="toc">
+				<a href="{{ asset('img/er.png') }}"><img style="border:0; border-radius:0;" class="proj-img centered" src="{{ asset('img/er.png') }}" alt=""/></a>
+			</aside>
+			<div>
+				<h1 class="centered">Krav 5 - ORM</h1>
+
+				<h2>Presentation på databas</h2>
+
+				<h3>Tabellbeskrivningar:
+				</h3>
+				<p>
+					<ol>
+						<li>
+							<strong>goal_article:
+							</strong>
+							Sparar informationstexter kopplade till specifika globala mål, inklusive rubrik, innehåll och målnummer.
+						</li>
+						<li>
+							<strong>
+								emissions_data:</strong>
+							Sparar utsläppsdata för olika länder och år, inklusive CO₂-utsläpp i miljoner ton.
+						</li>
+						<li>
+							<strong>
+								renewable_energy_share</strong>
+							Sparar andelen förnybar energi för värme, el och transport per år.
+						</li>
+						<li>
+							<strong>
+								renewable_energy_usage</strong>
+							Sparar målvärde och faktisk total användning av förnybar energi per år.
+						</li>
+					</ol>
+				</p>
+
+				<h3>Relationer mellan tabeller:
+				</h3>
+				<p>
+					Inga direkta relationer behövdes eftersom tabellerna lagrar årliga uppgifter separat. Informationen separerades för tydlighet och enkelhet.
+				</p>
+
+				<h3>Enhetstester på Scrutinizer:
+				</h3>
+				<p>
+					Jag använde SQLite som databas, vilket fungerade bra i Scrutinizer eftersom den inte kräver en server. Testerna skapade och hämtade data via Doctrine och kördes isolerat med en nyskapad databas för varje test. På så sätt kunde jag verifiera att entiteter sparades och hämtades korrekt trots Scrutinizers begränsningar.
+				</p>
+
+				<h3>Skillnader och likheter mellan ORM och klassisk SQL:
+				</h3>
+				<p>
+					I databaskursen jobbade vi direkt med SQL-frågor för att skapa, läsa, uppdatera och ta bort data. Det gav en tydlig förståelse för hur databaser fungerar och gav kontroll över prestanda och optimering. Nackdelen var att det krävdes mycket kod, ofta repetitiv, och att kopplingen mellan databastabeller och applikationens datastrukturer behövde hanteras manuellt.
+				</p>
+				<p>
+					Med ORM, som Doctrine i Symfony, arbetar man i stället med objekt och klasser för att hantera data. Man skapar objekt, sätter deras egenskaper och sparar dem – ORM sköter SQL-frågorna i bakgrunden. Det gör koden renare, lättare att underhålla och snabbare att utveckla, särskilt i större projekt.
+				</p>
+				<p>
+					En nackdel med ORM är att man lätt tappar kontrollen över vad som händer i databasen. För komplexa frågor kan det bli ineffektivt jämfört med optimerad SQL. Det kräver också att man förstår hur ORM översätter objekt till databasfrågor, annars kan man skapa prestandaproblem utan att märka det.
+				</p>
+				<p>
+					Båda sätten hanterar data, men på olika nivåer. SQL ger mer kontroll och insyn, medan ORM ger bättre struktur och snabbare utveckling. ORM passar bra i större system där kodstruktur är viktig, medan direkt SQL lämpar sig när man behöver optimera för prestanda.
+				</p>
+
+			</div>
+		</div>
+	</main>
+{% endblock %}

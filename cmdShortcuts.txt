@@ -34,7 +34,7 @@ symfony server:start
 
 git tag
 
-git tag -a v6.0.0 -m "Release with code quality php metrics report"
+git tag -a v v10.0.0 -m "Final release with all reports"
 git tag -a v5.0.0 -m"First release kmom05 Library CRUD App"
 
 git push  --tags    OR   git push origin --tags
