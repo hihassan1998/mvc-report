@@ -49,7 +49,7 @@
 <div class="page">
     <div class="content content-first">
         <div class="report-details">
-            Created at 2025-06-09 11:29:32        , with PHPMetrics v2.8.2 (<a href="https://twitter.com/Halleck45">Jean-François Lépine</a>).
+            Created at 2025-06-09 14:17:05        , with PHPMetrics v2.8.2 (<a href="https://twitter.com/Halleck45">Jean-François Lépine</a>).
         </div>
 
         
@@ -284,6 +284,16 @@
         "relations": []
     },
     {
+        "name": "\\App\\Entity\\RenewableEnergyShare",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\App\\Entity\\RenewableEnergyUsage",
+        "size": 3000,
+        "relations": []
+    },
+    {
         "name": "\\App\\Entity\\GoalArticle",
         "size": 3000,
         "relations": []
@@ -392,6 +402,16 @@
         "relations": []
     },
     {
+        "name": "\\App\\Repository\\RenewableEnergyShareRepository",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\App\\Repository\\RenewableEnergyUsageRepository",
+        "size": 3000,
+        "relations": []
+    },
+    {
         "name": "\\App\\Repository\\EmissionsDataRepository",
         "size": 3000,
         "relations": []
@@ -424,7 +444,9 @@
             "\\Symfony\\Component\\HttpFoundation\\Response",
             "\\App\\Repository\\GoalArticleRepository",
             "\\Symfony\\Component\\HttpFoundation\\Request",
-            "\\App\\Repository\\EmissionsDataRepository"
+            "\\App\\Repository\\EmissionsDataRepository",
+            "\\App\\Repository\\RenewableEnergyShareRepository",
+            "\\App\\Repository\\RenewableEnergyUsageRepository"
         ]
     },
     {
@@ -495,6 +517,16 @@
         ]
     },
     {
+        "name": "\\App\\Controller\\RenewableEnergyUsageController",
+        "size": 3000,
+        "relations": [
+            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
+            "\\Symfony\\Component\\HttpFoundation\\Response",
+            "\\Doctrine\\ORM\\EntityManagerInterface",
+            "\\App\\Entity\\RenewableEnergyUsage"
+        ]
+    },
+    {
         "name": "\\App\\Controller\\ApiLibraryController",
         "size": 3000,
         "relations": [
@@ -512,6 +544,16 @@
             "\\Symfony\\Component\\HttpFoundation\\JsonResponse",
             "\\App\\Card\\Deck",
             "\\Symfony\\Component\\HttpFoundation\\Session\\SessionInterface"
+        ]
+    },
+    {
+        "name": "\\App\\Controller\\RenewableEnergyShareController",
+        "size": 3000,
+        "relations": [
+            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
+            "\\Symfony\\Component\\HttpFoundation\\Response",
+            "\\Doctrine\\ORM\\EntityManagerInterface",
+            "\\App\\Entity\\RenewableEnergyShare"
         ]
     },
     {

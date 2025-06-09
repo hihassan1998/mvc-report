@@ -22,11 +22,11 @@ class GoalArticleDatabaseTest extends KernelTestCase
         $this->entityManager = static::getContainer()->get('doctrine')->getManager();
         $metadata = $this->entityManager->getMetadataFactory()->getAllMetadata();
 
-        if (!empty($metadata)) {
-            $schemaTool = new SchemaTool($this->entityManager);
-            $schemaTool->dropSchema($metadata);
-            $schemaTool->createSchema($metadata);
-        }
+        // if (!empty($metadata)) {
+        //     $schemaTool = new SchemaTool($this->entityManager);
+        //     $schemaTool->dropSchema($metadata);
+        //     $schemaTool->createSchema($metadata);
+        // }
     }
 
     public function testPersistAndRetrieveGoalArticle(): void

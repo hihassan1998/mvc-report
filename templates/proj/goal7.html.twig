@@ -35,21 +35,13 @@
 		</div>
 		<br>
 		<div class="goal-article goal-7">
-			<h2>
-				Emisisons Data</h2>
-			<p>
-				Konsumtionsbaserade utsläpp av växthusgaser i Sverige och i andra länder
-			</p>
-			{% if renewableshare and renewabletotal is not empty %}
-
+			{% if renewableshare is not empty %}
+			<h2>Andel Förnybar Energi</h2>
 			</div>
-			<br>
 			<div class="table-wrapper">
-				<h3>Utsläpp av växthusgaser i Sverige och i andra länder från svensk konsumtion</h3>
+				<h3>Förnybar energianvändning per sektor (%), 2005–2017</h3>
 
-				<table
-					class="emission-table" border="1" cellpadding="8" cellspacing="0">
-					{# <p> #}
+				<table class="emission-table" border="1" cellpadding="8" cellspacing="0">
 					<label>
 						<small>Andel förnybar energi i Sverige 2005–2017, procent</small>
 					</label>
@@ -87,31 +79,96 @@
 							{% endfor %}
 						</tr>
 					</tbody>
-					{# </p> #}
 				</table>
 			</div>
 			<br>
-			<div class="table-wrapper">
-				<canvas id="emissionPieChart" style="width:auto; height:auto;"></canvas>
-			</div>
-			<br>
-			<br>
 			<div class="goal-article goal-7">
-				<h3>Analys av data 2008–2016</h3>
+				<h3>Analys av data 2005–2017: Förnybar energianvändning per sektor</h3>
 				<p>
+					Under perioden 2005 till 2017 har Sverige gjort tydliga framsteg i användningen av förnybar energi inom olika sektorer. Andelen förnybar energi har ökat från 41 % till 54 % av den energi som omfattas av EU:s målberäkning.
 					<br><br>
+					Sektorn för värme, kyla och industri är den mest förnybara, där andelen ökade från 52 % till 69 %. Elproduktionen följde en liknande trend, med en ökning från 51 % till 66 %. Transportsektorn, som länge varit den mest utmanande, har gått från 6 % till 27 %, vilket visar på en kraftig förbättring, men den ligger fortfarande långt efter de andra sektorerna.
 					<br><br>
-					<br><br>
-					<br><br>
+					Denna utveckling visar att Sverige har kommit långt inom flera områden, men att det fortfarande finns utrymme för förbättringar, särskilt inom transportsektorn.
+					<a href="https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.scb.se%2Fcontentassets%2F589da5591d3642e2ab2a95c6bce0a9fd%2Fmal-7---hallbar-energi-for-alla.xlsx&wdOrigin=BROWSELINK" target="_blank" rel="noopener noreferrer">[Gå till Statistik tabel]
+					</a>
 				</p>
 			</div>
 			<br>
 		{% else %}
-			<p>Ingen emissionsdata hittades.</p>
+			<p>Ingen renewablesharessdata hittades.</p>
 			<a href="{{ path('proj_goal7_init_data') }}" class="goal-btn">Lägg till RenewableShare data i db-tabel.</a>
+		{% endif %}
+
+
+		{% if renewabletotal is not empty %}
+			<div class="goal-article goal-7">
+
+				<h2>Förnybar Energianvändning</h2>
+			</div>
+			<div class="table-wrapper">
+				<canvas id="emissionPieChart" style="width:auto; height:auto;"></canvas>
+			</div>
+
+			<br>
+			<br>
+			<div class="goal-article goal-7">
+				<h3>Analys av data 2005–2017:  Total förnybar energi jämfört med total energianvändning</h3>
+				<p>
+					Trots ökningen av förnybar energi inom sektorerna visar data från 2005–2017 att den totala mängden energi som används i Sverige fortfarande är nästan tre gånger större än den energi som omfattas i EU:s målberäkning för förnybar energi.
+					<br><br>
+					År 2017 var till exempel den totala energianvändningen cirka 410 TWh, medan mängden förnybar energi i målberäkningen uppgick till cirka 223 TWh. Detta innebär att förnybar energi fortfarande bara utgör ungefär en fjärdedel av Sveriges faktiska energikonsumtion.
+					<br><br>
+					Siffrorna understryker vikten av att inte enbart fokusera på andelen inom måluppföljningen, utan även på att minska det totala energibehovet och att bredda användningen av förnybara energikällor i hela energisystemet.
+					<a href="https://www.scb.se/contentassets/c1bc76dae47f4cb2bcfd1ec6f5a8cca1/mi1303_2021b22_br_x41br2201.pdf" target="_blank" rel="noopener noreferrer">[Gå till Statistisk lägesbild ]
+					</a>
+				</p>
+			</div>
+
+		{% else %}
+			<p>Ingen renewabletotalsdata hittades.</p>
 			<a href="{{ path('proj_goal7_init_usage_data') }}" class="goal-btn">Lägg till RenewableUsage data i db-tabel.</a>
 		{% endif %}
 
 	</main>
+
+	 <script>
+							const ctx = document.getElementById('emissionPieChart').getContext('2d');
+					
+							const data = {
+								labels: ['Sverige', 'Totalt'],
+								datasets: [{
+									label: 'Utsläpp i miljoner ton CO₂',
+									data: [
+										{{ sumSweden }},
+										{{ sumTotal }}
+									],
+									backgroundColor: [
+										'rgba(54, 162, 235, 0.7)',
+										'rgba(255, 206, 86, 0.7)',
+									],
+									borderColor: [
+										'rgba(54, 162, 235, 1)',
+										'rgba(255, 206, 86, 1)',
+									],
+									borderWidth: 1
+								}]
+							};
+					
+							new Chart(ctx, {
+								type: 'doughnut',
+								data: data,
+								options: {
+									responsive: true,
+									plugins: {
+										legend: { position: 'top' },
+										title: {
+											display: true,
+											text: 'Förnybar energi vs. total energianvändning'
+										}
+									}
+								}
+							});
+						</script>
 
 {% endblock %}

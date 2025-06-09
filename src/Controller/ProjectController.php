@@ -39,6 +39,16 @@ final class ProjectController extends AbstractController
         return $this->render('proj/about.html.twig');
     }
     /**
+     * Displays a simple about the database page for the /proj/about/databse route.
+     *
+     * @return Response
+     */
+    #[Route('/proj/about/database', name: 'app_proj_database')]
+    public function projDatabase(): Response
+    {
+        return $this->render('proj/database.html.twig');
+    }
+    /**
      * Displays a simple for gaols page for the /proj/goals route.
      *
      * @return Response
@@ -164,7 +174,7 @@ final class ProjectController extends AbstractController
         ]);
     }
     /**
-     * Displays a simple goal 12 page for the goal 12 tables display route.
+     * Displays a simple goal 7 page for the goal 7 tables display route.
      *
      * @return Response
      */
@@ -172,9 +182,7 @@ final class ProjectController extends AbstractController
     public function viewGoal7(
         GoalArticleRepository $goalArticleRepository,
         RenewableEnergyShareRepository $renewableEnergyShareRepository,
-        RenewableEnergyUsageRepository $renewableEnergyUsageRepository,
-        EmissionsDataRepository $emissionsDataRepository
-
+        RenewableEnergyUsageRepository $renewableEnergyUsageRepository
     ): Response {
         $goal = $goalArticleRepository->findOneBy(['number' => 7]);
         if (!$goal) {
@@ -182,12 +190,21 @@ final class ProjectController extends AbstractController
         }
         $renewableshare = $renewableEnergyShareRepository->findAll();
         $renewabletotal = $renewableEnergyUsageRepository->findAll();
-        
+
+        $sumSweden = 0;
+        $sumTotal = 0;
+
+        foreach ($renewabletotal as $data) {
+            $sumSweden += $data->getRenewableEnergyGoal();
+            $sumTotal += $data->getTotalRenewableEnergy();
+        }
+
         return $this->render('proj/goal7.html.twig', [
             'goal' => $goal,
             'renewableshare' => $renewableshare,
             'renewabletotal' => $renewabletotal,
+            'sumSweden' => $sumSweden,
+            'sumTotal' => $sumTotal,
         ]);
     }
-
 }

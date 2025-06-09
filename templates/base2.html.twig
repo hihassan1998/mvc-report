@@ -7,7 +7,10 @@
 				Welcome!
 			{% endblock %}
 		</title>
-		<link rel="icon" href="{{ asset('img/hh_logo_b.png') }}"/>
+		<link
+		rel="icon" href="{{ asset('img/hh_logo_b.png') }}"/>
+		 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 		{% block stylesheets %}
 			{{ encore_entry_link_tags('app') }}
 		{% endblock %}
@@ -37,14 +40,18 @@
 					<a href="{{ path('app_proj_about') }}">About</a>
 				</li>
 				<li>
+					<a href="{{ path('app_proj_database') }}">Database</a>
+				</li>
+				<li>
 					<a href="{{ path('app_proj_api') }}">Mål API:er</a>
 				</li>
+				<li>
+							<a href="{{ path('app_proj_goals') }}">Globala Mål</a>
+						</li>
 				<li class="dropdown">
 					Project ▾
 					<ul class="dropdown-content">
-						<li>
-							<a href="{{ path('app_proj_goals') }}">Globala Mål</a>
-						</li>
+						
 						<li>
 							<a href="{{ path('app_proj_goal_7') }}">Mål 7</a>
 						</li>

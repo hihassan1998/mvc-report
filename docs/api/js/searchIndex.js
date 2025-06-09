@@ -456,6 +456,11 @@ Search.appendIndex(
             "summary": "Displays\u0020a\u0020simple\u0020about\u0020page\u0020for\u0020the\u0020\/proj\/about\u0020route.",
             "url": "classes/App-Controller-ProjectController.html#method_projAbout"
         },                {
+            "fqsen": "\\App\\Controller\\ProjectController\u003A\u003AprojDatabase\u0028\u0029",
+            "name": "projDatabase",
+            "summary": "Displays\u0020a\u0020simple\u0020about\u0020the\u0020database\u0020page\u0020for\u0020the\u0020\/proj\/about\/databse\u0020route.",
+            "url": "classes/App-Controller-ProjectController.html#method_projDatabase"
+        },                {
             "fqsen": "\\App\\Controller\\ProjectController\u003A\u003AprojGoals\u0028\u0029",
             "name": "projGoals",
             "summary": "Displays\u0020a\u0020simple\u0020for\u0020gaols\u0020page\u0020for\u0020the\u0020\/proj\/goals\u0020route.",
@@ -483,7 +488,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Controller\\ProjectController\u003A\u003AviewGoal7\u0028\u0029",
             "name": "viewGoal7",
-            "summary": "Displays\u0020a\u0020simple\u0020goal\u002012\u0020page\u0020for\u0020the\u0020goal\u002012\u0020tables\u0020display\u0020route.",
+            "summary": "Displays\u0020a\u0020simple\u0020goal\u00207\u0020page\u0020for\u0020the\u0020goal\u00207\u0020tables\u0020display\u0020route.",
             "url": "classes/App-Controller-ProjectController.html#method_viewGoal7"
         },                {
             "fqsen": "\\App\\Controller\\ProjectEmissionsDataController",
@@ -505,6 +510,26 @@ Search.appendIndex(
             "name": "seedGoals",
             "summary": "Seeds\u0020the\u0020database\u0020with\u0020predefined\u0020goal\u0020articles.",
             "url": "classes/App-Controller-ProjectSeedController.html#method_seedGoals"
+        },                {
+            "fqsen": "\\App\\Controller\\RenewableEnergyShareController",
+            "name": "RenewableEnergyShareController",
+            "summary": "Controller\u0020for\u0020seeding\u0020renewable\u0020energy\u0020share\u0020data.",
+            "url": "classes/App-Controller-RenewableEnergyShareController.html"
+        },                {
+            "fqsen": "\\App\\Controller\\RenewableEnergyShareController\u003A\u003AinitRenewableData\u0028\u0029",
+            "name": "initRenewableData",
+            "summary": "",
+            "url": "classes/App-Controller-RenewableEnergyShareController.html#method_initRenewableData"
+        },                {
+            "fqsen": "\\App\\Controller\\RenewableEnergyUsageController",
+            "name": "RenewableEnergyUsageController",
+            "summary": "Controller\u0020for\u0020seeding\u0020RenewableEnergyUsage\u0020data.",
+            "url": "classes/App-Controller-RenewableEnergyUsageController.html"
+        },                {
+            "fqsen": "\\App\\Controller\\RenewableEnergyUsageController\u003A\u003AinitUsageData\u0028\u0029",
+            "name": "initUsageData",
+            "summary": "",
+            "url": "classes/App-Controller-RenewableEnergyUsageController.html#method_initUsageData"
         },                {
             "fqsen": "\\App\\Dice\\Dice",
             "name": "Dice",
@@ -846,6 +871,156 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Entity-GoalArticle.html#property_articleTitle"
         },                {
+            "fqsen": "\\App\\Entity\\RenewableEnergyShare",
+            "name": "RenewableEnergyShare",
+            "summary": "",
+            "url": "classes/App-Entity-RenewableEnergyShare.html"
+        },                {
+            "fqsen": "\\App\\Entity\\RenewableEnergyShare\u003A\u003AgetId\u0028\u0029",
+            "name": "getId",
+            "summary": "",
+            "url": "classes/App-Entity-RenewableEnergyShare.html#method_getId"
+        },                {
+            "fqsen": "\\App\\Entity\\RenewableEnergyShare\u003A\u003AgetYear\u0028\u0029",
+            "name": "getYear",
+            "summary": "",
+            "url": "classes/App-Entity-RenewableEnergyShare.html#method_getYear"
+        },                {
+            "fqsen": "\\App\\Entity\\RenewableEnergyShare\u003A\u003AsetYear\u0028\u0029",
+            "name": "setYear",
+            "summary": "",
+            "url": "classes/App-Entity-RenewableEnergyShare.html#method_setYear"
+        },                {
+            "fqsen": "\\App\\Entity\\RenewableEnergyShare\u003A\u003AgetTotal\u0028\u0029",
+            "name": "getTotal",
+            "summary": "",
+            "url": "classes/App-Entity-RenewableEnergyShare.html#method_getTotal"
+        },                {
+            "fqsen": "\\App\\Entity\\RenewableEnergyShare\u003A\u003AsetTotal\u0028\u0029",
+            "name": "setTotal",
+            "summary": "",
+            "url": "classes/App-Entity-RenewableEnergyShare.html#method_setTotal"
+        },                {
+            "fqsen": "\\App\\Entity\\RenewableEnergyShare\u003A\u003AgetHeatIndustry\u0028\u0029",
+            "name": "getHeatIndustry",
+            "summary": "",
+            "url": "classes/App-Entity-RenewableEnergyShare.html#method_getHeatIndustry"
+        },                {
+            "fqsen": "\\App\\Entity\\RenewableEnergyShare\u003A\u003AsetHeatIndustry\u0028\u0029",
+            "name": "setHeatIndustry",
+            "summary": "",
+            "url": "classes/App-Entity-RenewableEnergyShare.html#method_setHeatIndustry"
+        },                {
+            "fqsen": "\\App\\Entity\\RenewableEnergyShare\u003A\u003AgetElectricity\u0028\u0029",
+            "name": "getElectricity",
+            "summary": "",
+            "url": "classes/App-Entity-RenewableEnergyShare.html#method_getElectricity"
+        },                {
+            "fqsen": "\\App\\Entity\\RenewableEnergyShare\u003A\u003AsetElectricity\u0028\u0029",
+            "name": "setElectricity",
+            "summary": "",
+            "url": "classes/App-Entity-RenewableEnergyShare.html#method_setElectricity"
+        },                {
+            "fqsen": "\\App\\Entity\\RenewableEnergyShare\u003A\u003AgetTransport\u0028\u0029",
+            "name": "getTransport",
+            "summary": "",
+            "url": "classes/App-Entity-RenewableEnergyShare.html#method_getTransport"
+        },                {
+            "fqsen": "\\App\\Entity\\RenewableEnergyShare\u003A\u003AsetTransport\u0028\u0029",
+            "name": "setTransport",
+            "summary": "",
+            "url": "classes/App-Entity-RenewableEnergyShare.html#method_setTransport"
+        },                {
+            "fqsen": "\\App\\Entity\\RenewableEnergyShare\u003A\u003A\u0024id",
+            "name": "id",
+            "summary": "",
+            "url": "classes/App-Entity-RenewableEnergyShare.html#property_id"
+        },                {
+            "fqsen": "\\App\\Entity\\RenewableEnergyShare\u003A\u003A\u0024year",
+            "name": "year",
+            "summary": "",
+            "url": "classes/App-Entity-RenewableEnergyShare.html#property_year"
+        },                {
+            "fqsen": "\\App\\Entity\\RenewableEnergyShare\u003A\u003A\u0024total",
+            "name": "total",
+            "summary": "",
+            "url": "classes/App-Entity-RenewableEnergyShare.html#property_total"
+        },                {
+            "fqsen": "\\App\\Entity\\RenewableEnergyShare\u003A\u003A\u0024heatIndustry",
+            "name": "heatIndustry",
+            "summary": "",
+            "url": "classes/App-Entity-RenewableEnergyShare.html#property_heatIndustry"
+        },                {
+            "fqsen": "\\App\\Entity\\RenewableEnergyShare\u003A\u003A\u0024electricity",
+            "name": "electricity",
+            "summary": "",
+            "url": "classes/App-Entity-RenewableEnergyShare.html#property_electricity"
+        },                {
+            "fqsen": "\\App\\Entity\\RenewableEnergyShare\u003A\u003A\u0024transport",
+            "name": "transport",
+            "summary": "",
+            "url": "classes/App-Entity-RenewableEnergyShare.html#property_transport"
+        },                {
+            "fqsen": "\\App\\Entity\\RenewableEnergyUsage",
+            "name": "RenewableEnergyUsage",
+            "summary": "",
+            "url": "classes/App-Entity-RenewableEnergyUsage.html"
+        },                {
+            "fqsen": "\\App\\Entity\\RenewableEnergyUsage\u003A\u003AgetId\u0028\u0029",
+            "name": "getId",
+            "summary": "",
+            "url": "classes/App-Entity-RenewableEnergyUsage.html#method_getId"
+        },                {
+            "fqsen": "\\App\\Entity\\RenewableEnergyUsage\u003A\u003AgetYear\u0028\u0029",
+            "name": "getYear",
+            "summary": "",
+            "url": "classes/App-Entity-RenewableEnergyUsage.html#method_getYear"
+        },                {
+            "fqsen": "\\App\\Entity\\RenewableEnergyUsage\u003A\u003AsetYear\u0028\u0029",
+            "name": "setYear",
+            "summary": "",
+            "url": "classes/App-Entity-RenewableEnergyUsage.html#method_setYear"
+        },                {
+            "fqsen": "\\App\\Entity\\RenewableEnergyUsage\u003A\u003AgetRenewableEnergyGoal\u0028\u0029",
+            "name": "getRenewableEnergyGoal",
+            "summary": "",
+            "url": "classes/App-Entity-RenewableEnergyUsage.html#method_getRenewableEnergyGoal"
+        },                {
+            "fqsen": "\\App\\Entity\\RenewableEnergyUsage\u003A\u003AsetRenewableEnergyGoal\u0028\u0029",
+            "name": "setRenewableEnergyGoal",
+            "summary": "",
+            "url": "classes/App-Entity-RenewableEnergyUsage.html#method_setRenewableEnergyGoal"
+        },                {
+            "fqsen": "\\App\\Entity\\RenewableEnergyUsage\u003A\u003AgetTotalRenewableEnergy\u0028\u0029",
+            "name": "getTotalRenewableEnergy",
+            "summary": "",
+            "url": "classes/App-Entity-RenewableEnergyUsage.html#method_getTotalRenewableEnergy"
+        },                {
+            "fqsen": "\\App\\Entity\\RenewableEnergyUsage\u003A\u003AsetTotalRenewableEnergy\u0028\u0029",
+            "name": "setTotalRenewableEnergy",
+            "summary": "",
+            "url": "classes/App-Entity-RenewableEnergyUsage.html#method_setTotalRenewableEnergy"
+        },                {
+            "fqsen": "\\App\\Entity\\RenewableEnergyUsage\u003A\u003A\u0024id",
+            "name": "id",
+            "summary": "",
+            "url": "classes/App-Entity-RenewableEnergyUsage.html#property_id"
+        },                {
+            "fqsen": "\\App\\Entity\\RenewableEnergyUsage\u003A\u003A\u0024year",
+            "name": "year",
+            "summary": "",
+            "url": "classes/App-Entity-RenewableEnergyUsage.html#property_year"
+        },                {
+            "fqsen": "\\App\\Entity\\RenewableEnergyUsage\u003A\u003A\u0024renewableEnergyGoal",
+            "name": "renewableEnergyGoal",
+            "summary": "",
+            "url": "classes/App-Entity-RenewableEnergyUsage.html#property_renewableEnergyGoal"
+        },                {
+            "fqsen": "\\App\\Entity\\RenewableEnergyUsage\u003A\u003A\u0024totalRenewableEnergy",
+            "name": "totalRenewableEnergy",
+            "summary": "",
+            "url": "classes/App-Entity-RenewableEnergyUsage.html#property_totalRenewableEnergy"
+        },                {
             "fqsen": "\\App\\Form\\BookTypeForm",
             "name": "BookTypeForm",
             "summary": "Defines\u0020the\u0020form\u0020used\u0020to\u0020create\u0020or\u0020edit\u0020a\u0020Book\u0020entity.",
@@ -895,6 +1070,26 @@ Search.appendIndex(
             "name": "__construct",
             "summary": "",
             "url": "classes/App-Repository-GoalArticleRepository.html#method___construct"
+        },                {
+            "fqsen": "\\App\\Repository\\RenewableEnergyShareRepository",
+            "name": "RenewableEnergyShareRepository",
+            "summary": "",
+            "url": "classes/App-Repository-RenewableEnergyShareRepository.html"
+        },                {
+            "fqsen": "\\App\\Repository\\RenewableEnergyShareRepository\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/App-Repository-RenewableEnergyShareRepository.html#method___construct"
+        },                {
+            "fqsen": "\\App\\Repository\\RenewableEnergyUsageRepository",
+            "name": "RenewableEnergyUsageRepository",
+            "summary": "",
+            "url": "classes/App-Repository-RenewableEnergyUsageRepository.html"
+        },                {
+            "fqsen": "\\App\\Repository\\RenewableEnergyUsageRepository\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/App-Repository-RenewableEnergyUsageRepository.html#method___construct"
         },                {
             "fqsen": "\\",
             "name": "\\",
